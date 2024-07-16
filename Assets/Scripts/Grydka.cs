@@ -112,7 +112,7 @@ public class Grydka : MonoBehaviour
 
     public void UpgradeGrydka()
     {
-        if (levelGrydka > 3)
+        if (levelGrydka > 4)
         {
             //TODO max level
             return;
