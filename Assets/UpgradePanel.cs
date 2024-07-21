@@ -14,6 +14,7 @@ public class UpgradePanel : MonoBehaviour
     public Image imageBefore;
     public TextMeshProUGUI textLevBefore;
     public TextMeshProUGUI textCountPlantsBefore;
+    public TextMeshProUGUI textCost;
 
     private Grydka _currentGrydka;
     
@@ -22,6 +23,7 @@ public class UpgradePanel : MonoBehaviour
         _currentGrydka = grydka;
         var fromGrydka = upgradeGrydkaCfgs[lev - 1];
         var beforeGrydka = upgradeGrydkaCfgs[lev];
+        textCost.text = upgradeGrydkaCfgs[lev].cost.ToString();
         imageFrom.sprite = fromGrydka.sprite;
         textLevFrom.text = fromGrydka.textLev;
         textCountPlantsFrom.text = fromGrydka.textCountPlants;
@@ -31,7 +33,7 @@ public class UpgradePanel : MonoBehaviour
         textCountPlantsBefore.text = beforeGrydka.textCountPlants;
     }
 
-    public void Upgrade()
+    public void Upgrуade()
     {
         _currentGrydka.ApplyUpgrade();
         gameObject.SetActive(false);
