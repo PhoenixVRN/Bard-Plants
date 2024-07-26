@@ -15,7 +15,7 @@ public class Grydka : MonoBehaviour
     public Sprite playMusic;
     public Sprite noplayMusic;
     public Plant plant;
-    private int StateOfGrowth;
+    public int StateOfGrowth;
     public float GrowthAccelerator;
     private bool Growth;
     public bool needMusic;
@@ -52,6 +52,8 @@ public class Grydka : MonoBehaviour
             {
                 StateOfGrowth++;
                 timeGrowthInStage = Time.time;
+                if (StateOfGrowth == 4 ) return;
+                // if (StateOfGrowth == 5) Debug.Log($"StateOfGrowth 5");
                 plantunGrydka.texture = plant.spritePlant[StateOfGrowth];
             }
         }
@@ -70,12 +72,12 @@ public class Grydka : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (StateOfGrowth == 4)
-        {
-            StateOfGrowth = 0;
-            plantunGrydka.transform.SetParent(Bag.instance.transform);
-            plantunGrydka.transform.DOMove(Bag.instance.transform.position, 1).SetEase(Ease.Linear).OnComplete(Test);
-        }
+        // if (StateOfGrowth == 4)
+        // {
+        //     StateOfGrowth = 0;
+        //     plantunGrydka.transform.SetParent(Bag.instance.transform);
+        //     plantunGrydka.transform.DOMove(Bag.instance.transform.position, 1).SetEase(Ease.Linear).OnComplete(Test);
+        // }
 
         Debug.Log($"Tap in {gameObject}");
     }
@@ -86,6 +88,7 @@ public class Grydka : MonoBehaviour
         {
             StateOfGrowth = 0;
             ripe = false;
+            plantunGrydka.texture = plant.spritePlant[4];
             plantunGrydka.transform.SetParent(Bag.instance.transform);
             plantunGrydka.transform.DOMove(Bag.instance.transform.position, 1).SetEase(Ease.Linear).OnComplete(Test);
         }
@@ -98,6 +101,7 @@ public class Grydka : MonoBehaviour
         needPlayMusic.SetActive(false);
         // needPlayMusic.texture = noplayMusic.texture;
         StateOfGrowth = 3;
+        plantunGrydka.texture = plant.spritePlant[StateOfGrowth];
         timeGrowthInStage = Time.time;
         needMusic = false;
     }
@@ -112,7 +116,7 @@ public class Grydka : MonoBehaviour
 
     public void UpgradeGrydka()
     {
-        if (levelGrydka > 4)
+        if (levelGrydka > 4 || empty)
         {
             //TODO max level
             return;
