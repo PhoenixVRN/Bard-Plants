@@ -18,6 +18,7 @@ public class Customer : MonoBehaviour
         if (orders.DeliveryOrder())
         {
             Debug.Log($"Add Expa {reward}");
+            GameManager.instance.coin.Value += reward;
             foreach (var ord in orders.ordersActive)
             {
                 switch (ord.typePlant)

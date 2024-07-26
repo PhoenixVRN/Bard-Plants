@@ -9,15 +9,18 @@ public class GameManager : MonoBehaviour
     public List<Grydka> allGrydka;
     public List<Texture> sptiTexturesPlant;
     public TextMeshProUGUI textCoin;
-
+    public SubscriptionField<int> coin;
     public GameObject PoPUpUpgrade;
+   
 
-    public int coin;
+   
     // public List<Customer> customers;
 
     void Start()
     {
-        coin = 0;
+        coin = new SubscriptionField<int>();
+        coin.Value = 0;
+        coin.Subscribe(ChangeCoins);
         if (instance == null) { 
             instance = this; 
         } else if(instance == this)
@@ -32,6 +35,11 @@ public class GameManager : MonoBehaviour
     private void CustomersSpawn()
     {
         // customers[0].gameObject.SetActive(true);
+    }
+
+    private void ChangeCoins(int newValue)
+    {
+        textCoin.text = newValue.ToString();
     }
     void Update()
     {

@@ -7086,7 +7086,6 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 6c159db74031f784fb64d522b01d61cd, type: 3}
   textCoin: {fileID: 1410620140}
   PoPUpUpgrade: {fileID: 463917786}
-  coin: 0
 --- !u!4 &1013550068
 Transform:
   m_ObjectHideFlags: 0
@@ -9581,7 +9580,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3700
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2a8b577bd24348d48872d9d361557bf1, type: 2}
   m_sharedMaterial: {fileID: 2614742935759635793, guid: 2a8b577bd24348d48872d9d361557bf1, type: 2}
