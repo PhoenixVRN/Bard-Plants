@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -21,6 +22,8 @@ public class UpgradePanel : MonoBehaviour
     public void Init(int lev, Grydka grydka)
     {
         _currentGrydka = grydka;
+        _currentGrydka.uprgadePopUpActive = true;
+        _currentGrydka.empty = true;
         var fromGrydka = upgradeGrydkaCfgs[lev - 1];
         var beforeGrydka = upgradeGrydkaCfgs[lev];
         textCost.text = upgradeGrydkaCfgs[lev].cost.ToString();
@@ -37,6 +40,12 @@ public class UpgradePanel : MonoBehaviour
     {
         _currentGrydka.ApplyUpgrade();
         gameObject.SetActive(false);
+    }
+
+    private void OnDisable()
+    {
+        _currentGrydka.uprgadePopUpActive = false;
+        _currentGrydka.empty = false;
     }
 }
 

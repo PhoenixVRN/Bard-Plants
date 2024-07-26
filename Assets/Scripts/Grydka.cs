@@ -23,6 +23,7 @@ public class Grydka : MonoBehaviour
     public bool empty;
     public bool ripe;
     public int levelGrydka;
+    public bool uprgadePopUpActive;
 
     private void Start()
     {
@@ -61,6 +62,7 @@ public class Grydka : MonoBehaviour
 
     public void PlantaPlant()
     {
+        if (uprgadePopUpActive) return;
         empty = true;
         StateOfGrowth = 0;
         timeGrowthInStage = Time.time;
@@ -121,6 +123,7 @@ public class Grydka : MonoBehaviour
             //TODO max level
             return;
         }
+        
         GameManager.instance.PoPUpUpgrade.SetActive(true);
         GameManager.instance.PoPUpUpgrade.GetComponent<UpgradePanel>().Init(levelGrydka, this);
         Debug.Log($"UptgadeGrydka");
