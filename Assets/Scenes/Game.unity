@@ -826,352 +826,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 96834723}
   m_CullTransparentMesh: 1
---- !u!1 &113468993
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 113468994}
-  - component: {fileID: 113468996}
-  - component: {fileID: 113468995}
-  - component: {fileID: 113468997}
-  - component: {fileID: 113468998}
-  m_Layer: 5
-  m_Name: Grydka_1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &113468994
+--- !u!224 &113468994 stripped
 RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 4638113740006172581, guid: 360048e4d63f23f42a4d2488aa9f27e7, type: 3}
+  m_PrefabInstance: {fileID: 4509845001162279089}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 113468993}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1534838323}
-  - {fileID: 123425711}
-  - {fileID: 1078700169}
-  - {fileID: 956700935}
-  m_Father: {fileID: 1925451053}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -348, y: 148}
-  m_SizeDelta: {x: 150, y: 150}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &113468995
+--- !u!114 &113468998 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 3715553853149801280, guid: 360048e4d63f23f42a4d2488aa9f27e7, type: 3}
+  m_PrefabInstance: {fileID: 4509845001162279089}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 113468993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 2d876ad36f423c942a053f4d964b51d2, type: 3}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
---- !u!222 &113468996
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 113468993}
-  m_CullTransparentMesh: 1
---- !u!61 &113468997
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 113468993}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -23.314827, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 103.370346, y: 150}
-  m_EdgeRadius: 0
---- !u!114 &113468998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 113468993}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfb17f1fd957ddb4d9b58edd400cc631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteGrydka:
-  - {fileID: 21300000, guid: 2ae2ae227ba095f48b804ca8bad51de8, type: 3}
-  - {fileID: 21300000, guid: 00c42d5aec8206d45b3f01820c8a7fcf, type: 3}
-  - {fileID: 21300000, guid: ce9f2ec2d62a06a48ab15d980bc9a8df, type: 3}
-  - {fileID: 21300000, guid: ee5c90972bde79c4395d6d50657a61bf, type: 3}
-  - {fileID: 21300000, guid: 845353174a235c0469b8a497d010fc43, type: 3}
-  _allPlants:
-  - namePlant: StarchNut
-    typePlant: 1
-    timeGrowth: 5
-    spritePlant:
-    - {fileID: 2800000, guid: 325f308ad61b94647bd06bfee58ce6f1, type: 3}
-    - {fileID: 2800000, guid: 97e61ca9f1eb3cf4e9a2fd58b7c1119d, type: 3}
-    - {fileID: 2800000, guid: 4cdb2d9cb732bb0448a5e8df8eba40be, type: 3}
-    - {fileID: 2800000, guid: d311ca57d9d5d5247a425526dc7902e5, type: 3}
-    - {fileID: 2800000, guid: 22241081059ea544a8687c0e502c16b2, type: 3}
-  - namePlant: MysticalMushroom
-    typePlant: 3
-    timeGrowth: 6
-    spritePlant:
-    - {fileID: 2800000, guid: 550be85f4799df5439e115dcaf94301b, type: 3}
-    - {fileID: 2800000, guid: c5a46c7b2156f504cb1d321c201a5814, type: 3}
-    - {fileID: 2800000, guid: 4b3d860d035c07145802a5f3a7e49d00, type: 3}
-    - {fileID: 2800000, guid: 7de36a8edce09ff4c91652aa71fc58b1, type: 3}
-    - {fileID: 2800000, guid: 0fa3367a655e81b4aaad02a497769a04, type: 3}
-  - namePlant: CrystalNut
-    typePlant: 3
-    timeGrowth: 10
-    spritePlant:
-    - {fileID: 2800000, guid: 992d958d452e980439b94fa5250c4b00, type: 3}
-    - {fileID: 2800000, guid: 7f63af8086fb45748a008dcdb2697bef, type: 3}
-    - {fileID: 2800000, guid: 3a8e831273e02944eac46a63a1ce1a3e, type: 3}
-    - {fileID: 2800000, guid: 7c081db15baecbb428a280ae0818bfe0, type: 3}
-    - {fileID: 2800000, guid: 6c159db74031f784fb64d522b01d61cd, type: 3}
-  plantunGrydka: {fileID: 1534838324}
-  needPlayMusic: {fileID: 956700934}
-  playMusic: {fileID: 0}
-  noplayMusic: {fileID: 0}
-  plant:
-    namePlant: 
-    typePlant: 0
-    timeGrowth: 0
-    spritePlant: []
-  StateOfGrowth: 0
-  GrowthAccelerator: 0
-  needMusic: 0
-  empty: 0
-  ripe: 0
-  levelGrydka: 0
-  uprgadePopUpActive: 0
---- !u!1 &123425710
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 123425711}
-  - component: {fileID: 123425713}
-  - component: {fileID: 123425712}
-  - component: {fileID: 123425715}
-  - component: {fileID: 123425714}
-  - component: {fileID: 123425716}
-  m_Layer: 0
-  m_Name: Tablichka
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &123425711
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 123425710}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -23.91}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 113468994}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 51.5, y: -45.6}
-  m_SizeDelta: {x: 60, y: 70}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &123425712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 123425710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0faad05c718d51643a3b4c4f8f263e45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &123425713
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 123425710}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.52, y: 0.63}
-    newSize: {x: 0.52, y: 0.63}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.52, y: 0.63}
-  m_EdgeRadius: 0
---- !u!114 &123425714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 123425710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 4c46d4eaad199884a8009c7bd2ccbce8, type: 3}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
---- !u!222 &123425715
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 123425710}
-  m_CullTransparentMesh: 1
---- !u!114 &123425716
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 123425710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 113468998}
-          m_TargetAssemblyTypeName: Grydka, Assembly-CSharp
-          m_MethodName: UpgradeGrydka
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &130074761
 GameObject:
   m_ObjectHideFlags: 0
@@ -1461,34 +1131,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ce9f2ec2d62a06a48ab15d980bc9a8df, type: 3}
   - {fileID: 21300000, guid: ee5c90972bde79c4395d6d50657a61bf, type: 3}
   - {fileID: 21300000, guid: 845353174a235c0469b8a497d010fc43, type: 3}
-  _allPlants:
-  - namePlant: StarchNut
-    typePlant: 1
-    timeGrowth: 5
-    spritePlant:
-    - {fileID: 2800000, guid: 325f308ad61b94647bd06bfee58ce6f1, type: 3}
-    - {fileID: 2800000, guid: 97e61ca9f1eb3cf4e9a2fd58b7c1119d, type: 3}
-    - {fileID: 2800000, guid: 4cdb2d9cb732bb0448a5e8df8eba40be, type: 3}
-    - {fileID: 2800000, guid: d311ca57d9d5d5247a425526dc7902e5, type: 3}
-    - {fileID: 2800000, guid: 22241081059ea544a8687c0e502c16b2, type: 3}
-  - namePlant: MysticalMushroom
-    typePlant: 2
-    timeGrowth: 6
-    spritePlant:
-    - {fileID: 2800000, guid: 550be85f4799df5439e115dcaf94301b, type: 3}
-    - {fileID: 2800000, guid: c5a46c7b2156f504cb1d321c201a5814, type: 3}
-    - {fileID: 2800000, guid: 4b3d860d035c07145802a5f3a7e49d00, type: 3}
-    - {fileID: 2800000, guid: 7de36a8edce09ff4c91652aa71fc58b1, type: 3}
-    - {fileID: 2800000, guid: 0fa3367a655e81b4aaad02a497769a04, type: 3}
-  - namePlant: CrystalNut
-    typePlant: 3
-    timeGrowth: 10
-    spritePlant:
-    - {fileID: 2800000, guid: 992d958d452e980439b94fa5250c4b00, type: 3}
-    - {fileID: 2800000, guid: 7f63af8086fb45748a008dcdb2697bef, type: 3}
-    - {fileID: 2800000, guid: 3a8e831273e02944eac46a63a1ce1a3e, type: 3}
-    - {fileID: 2800000, guid: 7c081db15baecbb428a280ae0818bfe0, type: 3}
-    - {fileID: 2800000, guid: 6c159db74031f784fb64d522b01d61cd, type: 3}
   plantunGrydka: {fileID: 2089849592}
   needPlayMusic: {fileID: 554399264}
   playMusic: {fileID: 0}
@@ -3546,7 +3188,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -28, y: -25}
+  m_AnchoredPosition: {x: -28.00003, y: -25}
   m_SizeDelta: {x: 427.1899, y: 682.6004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &366139032
@@ -5120,34 +4762,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ce9f2ec2d62a06a48ab15d980bc9a8df, type: 3}
   - {fileID: 21300000, guid: ee5c90972bde79c4395d6d50657a61bf, type: 3}
   - {fileID: 21300000, guid: 845353174a235c0469b8a497d010fc43, type: 3}
-  _allPlants:
-  - namePlant: StarchNut
-    typePlant: 1
-    timeGrowth: 5
-    spritePlant:
-    - {fileID: 2800000, guid: 325f308ad61b94647bd06bfee58ce6f1, type: 3}
-    - {fileID: 2800000, guid: 97e61ca9f1eb3cf4e9a2fd58b7c1119d, type: 3}
-    - {fileID: 2800000, guid: 4cdb2d9cb732bb0448a5e8df8eba40be, type: 3}
-    - {fileID: 2800000, guid: d311ca57d9d5d5247a425526dc7902e5, type: 3}
-    - {fileID: 2800000, guid: 22241081059ea544a8687c0e502c16b2, type: 3}
-  - namePlant: MysticalMushroom
-    typePlant: 2
-    timeGrowth: 6
-    spritePlant:
-    - {fileID: 2800000, guid: 550be85f4799df5439e115dcaf94301b, type: 3}
-    - {fileID: 2800000, guid: c5a46c7b2156f504cb1d321c201a5814, type: 3}
-    - {fileID: 2800000, guid: 4b3d860d035c07145802a5f3a7e49d00, type: 3}
-    - {fileID: 2800000, guid: 7de36a8edce09ff4c91652aa71fc58b1, type: 3}
-    - {fileID: 2800000, guid: 0fa3367a655e81b4aaad02a497769a04, type: 3}
-  - namePlant: CrystalNut
-    typePlant: 3
-    timeGrowth: 10
-    spritePlant:
-    - {fileID: 2800000, guid: 992d958d452e980439b94fa5250c4b00, type: 3}
-    - {fileID: 2800000, guid: 7f63af8086fb45748a008dcdb2697bef, type: 3}
-    - {fileID: 2800000, guid: 3a8e831273e02944eac46a63a1ce1a3e, type: 3}
-    - {fileID: 2800000, guid: 7c081db15baecbb428a280ae0818bfe0, type: 3}
-    - {fileID: 2800000, guid: 6c159db74031f784fb64d522b01d61cd, type: 3}
   plantunGrydka: {fileID: 222399642}
   needPlayMusic: {fileID: 131402403}
   playMusic: {fileID: 0}
@@ -6132,34 +5746,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ce9f2ec2d62a06a48ab15d980bc9a8df, type: 3}
   - {fileID: 21300000, guid: ee5c90972bde79c4395d6d50657a61bf, type: 3}
   - {fileID: 21300000, guid: 845353174a235c0469b8a497d010fc43, type: 3}
-  _allPlants:
-  - namePlant: StarchNut
-    typePlant: 1
-    timeGrowth: 5
-    spritePlant:
-    - {fileID: 2800000, guid: 325f308ad61b94647bd06bfee58ce6f1, type: 3}
-    - {fileID: 2800000, guid: 97e61ca9f1eb3cf4e9a2fd58b7c1119d, type: 3}
-    - {fileID: 2800000, guid: 4cdb2d9cb732bb0448a5e8df8eba40be, type: 3}
-    - {fileID: 2800000, guid: d311ca57d9d5d5247a425526dc7902e5, type: 3}
-    - {fileID: 2800000, guid: 22241081059ea544a8687c0e502c16b2, type: 3}
-  - namePlant: MysticalMushroom
-    typePlant: 2
-    timeGrowth: 6
-    spritePlant:
-    - {fileID: 2800000, guid: 550be85f4799df5439e115dcaf94301b, type: 3}
-    - {fileID: 2800000, guid: c5a46c7b2156f504cb1d321c201a5814, type: 3}
-    - {fileID: 2800000, guid: 4b3d860d035c07145802a5f3a7e49d00, type: 3}
-    - {fileID: 2800000, guid: 7de36a8edce09ff4c91652aa71fc58b1, type: 3}
-    - {fileID: 2800000, guid: 0fa3367a655e81b4aaad02a497769a04, type: 3}
-  - namePlant: CrystalNut
-    typePlant: 3
-    timeGrowth: 10
-    spritePlant:
-    - {fileID: 2800000, guid: 992d958d452e980439b94fa5250c4b00, type: 3}
-    - {fileID: 2800000, guid: 7f63af8086fb45748a008dcdb2697bef, type: 3}
-    - {fileID: 2800000, guid: 3a8e831273e02944eac46a63a1ce1a3e, type: 3}
-    - {fileID: 2800000, guid: 7c081db15baecbb428a280ae0818bfe0, type: 3}
-    - {fileID: 2800000, guid: 6c159db74031f784fb64d522b01d61cd, type: 3}
   plantunGrydka: {fileID: 2089276083}
   needPlayMusic: {fileID: 1163855331}
   playMusic: {fileID: 0}
@@ -7577,81 +7163,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948246243}
   m_CullTransparentMesh: 1
---- !u!1 &956700934
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 956700935}
-  - component: {fileID: 956700937}
-  - component: {fileID: 956700936}
-  m_Layer: 5
-  m_Name: Music
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &956700935
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 956700934}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 113468994}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -30, y: -30}
-  m_SizeDelta: {x: 60, y: 60}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &956700936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 956700934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a7f552b7a4f18d342a01ffae81bacaac, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &956700937
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 956700934}
-  m_CullTransparentMesh: 1
 --- !u!1 &965549297
 GameObject:
   m_ObjectHideFlags: 0
@@ -7831,6 +7342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eb63a5cbaae4d448aa06e51e48ac026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allPlants: []
   allGrydka:
   - {fileID: 113468998}
   - {fileID: 1265685555}
@@ -7850,6 +7362,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 6c159db74031f784fb64d522b01d61cd, type: 3}
   textCoin: {fileID: 1410620140}
   PoPUpUpgrade: {fileID: 463917786}
+  ParentGrydka: {fileID: 0}
 --- !u!4 &1013550068
 Transform:
   m_ObjectHideFlags: 0
@@ -8006,34 +7519,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ce9f2ec2d62a06a48ab15d980bc9a8df, type: 3}
   - {fileID: 21300000, guid: ee5c90972bde79c4395d6d50657a61bf, type: 3}
   - {fileID: 21300000, guid: 845353174a235c0469b8a497d010fc43, type: 3}
-  _allPlants:
-  - namePlant: StarchNut
-    typePlant: 1
-    timeGrowth: 5
-    spritePlant:
-    - {fileID: 2800000, guid: 325f308ad61b94647bd06bfee58ce6f1, type: 3}
-    - {fileID: 2800000, guid: 97e61ca9f1eb3cf4e9a2fd58b7c1119d, type: 3}
-    - {fileID: 2800000, guid: 4cdb2d9cb732bb0448a5e8df8eba40be, type: 3}
-    - {fileID: 2800000, guid: d311ca57d9d5d5247a425526dc7902e5, type: 3}
-    - {fileID: 2800000, guid: 22241081059ea544a8687c0e502c16b2, type: 3}
-  - namePlant: MysticalMushroom
-    typePlant: 2
-    timeGrowth: 6
-    spritePlant:
-    - {fileID: 2800000, guid: 550be85f4799df5439e115dcaf94301b, type: 3}
-    - {fileID: 2800000, guid: c5a46c7b2156f504cb1d321c201a5814, type: 3}
-    - {fileID: 2800000, guid: 4b3d860d035c07145802a5f3a7e49d00, type: 3}
-    - {fileID: 2800000, guid: 7de36a8edce09ff4c91652aa71fc58b1, type: 3}
-    - {fileID: 2800000, guid: 0fa3367a655e81b4aaad02a497769a04, type: 3}
-  - namePlant: CrystalNut
-    typePlant: 3
-    timeGrowth: 10
-    spritePlant:
-    - {fileID: 2800000, guid: 992d958d452e980439b94fa5250c4b00, type: 3}
-    - {fileID: 2800000, guid: 7f63af8086fb45748a008dcdb2697bef, type: 3}
-    - {fileID: 2800000, guid: 3a8e831273e02944eac46a63a1ce1a3e, type: 3}
-    - {fileID: 2800000, guid: 7c081db15baecbb428a280ae0818bfe0, type: 3}
-    - {fileID: 2800000, guid: 6c159db74031f784fb64d522b01d61cd, type: 3}
   plantunGrydka: {fileID: 1557563806}
   needPlayMusic: {fileID: 1952378863}
   playMusic: {fileID: 0}
@@ -8191,34 +7676,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ce9f2ec2d62a06a48ab15d980bc9a8df, type: 3}
   - {fileID: 21300000, guid: ee5c90972bde79c4395d6d50657a61bf, type: 3}
   - {fileID: 21300000, guid: 845353174a235c0469b8a497d010fc43, type: 3}
-  _allPlants:
-  - namePlant: StarchNut
-    typePlant: 1
-    timeGrowth: 5
-    spritePlant:
-    - {fileID: 2800000, guid: 325f308ad61b94647bd06bfee58ce6f1, type: 3}
-    - {fileID: 2800000, guid: 97e61ca9f1eb3cf4e9a2fd58b7c1119d, type: 3}
-    - {fileID: 2800000, guid: 4cdb2d9cb732bb0448a5e8df8eba40be, type: 3}
-    - {fileID: 2800000, guid: d311ca57d9d5d5247a425526dc7902e5, type: 3}
-    - {fileID: 2800000, guid: 22241081059ea544a8687c0e502c16b2, type: 3}
-  - namePlant: MysticalMushroom
-    typePlant: 2
-    timeGrowth: 6
-    spritePlant:
-    - {fileID: 2800000, guid: 550be85f4799df5439e115dcaf94301b, type: 3}
-    - {fileID: 2800000, guid: c5a46c7b2156f504cb1d321c201a5814, type: 3}
-    - {fileID: 2800000, guid: 4b3d860d035c07145802a5f3a7e49d00, type: 3}
-    - {fileID: 2800000, guid: 7de36a8edce09ff4c91652aa71fc58b1, type: 3}
-    - {fileID: 2800000, guid: 0fa3367a655e81b4aaad02a497769a04, type: 3}
-  - namePlant: CrystalNut
-    typePlant: 3
-    timeGrowth: 10
-    spritePlant:
-    - {fileID: 2800000, guid: 992d958d452e980439b94fa5250c4b00, type: 3}
-    - {fileID: 2800000, guid: 7f63af8086fb45748a008dcdb2697bef, type: 3}
-    - {fileID: 2800000, guid: 3a8e831273e02944eac46a63a1ce1a3e, type: 3}
-    - {fileID: 2800000, guid: 7c081db15baecbb428a280ae0818bfe0, type: 3}
-    - {fileID: 2800000, guid: 6c159db74031f784fb64d522b01d61cd, type: 3}
   plantunGrydka: {fileID: 1504065616}
   needPlayMusic: {fileID: 1690329993}
   playMusic: {fileID: 0}
@@ -8644,34 +8101,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ce9f2ec2d62a06a48ab15d980bc9a8df, type: 3}
   - {fileID: 21300000, guid: ee5c90972bde79c4395d6d50657a61bf, type: 3}
   - {fileID: 21300000, guid: 845353174a235c0469b8a497d010fc43, type: 3}
-  _allPlants:
-  - namePlant: StarchNut
-    typePlant: 1
-    timeGrowth: 5
-    spritePlant:
-    - {fileID: 2800000, guid: 325f308ad61b94647bd06bfee58ce6f1, type: 3}
-    - {fileID: 2800000, guid: 97e61ca9f1eb3cf4e9a2fd58b7c1119d, type: 3}
-    - {fileID: 2800000, guid: 4cdb2d9cb732bb0448a5e8df8eba40be, type: 3}
-    - {fileID: 2800000, guid: d311ca57d9d5d5247a425526dc7902e5, type: 3}
-    - {fileID: 2800000, guid: 22241081059ea544a8687c0e502c16b2, type: 3}
-  - namePlant: MysticalMushroom
-    typePlant: 2
-    timeGrowth: 6
-    spritePlant:
-    - {fileID: 2800000, guid: 550be85f4799df5439e115dcaf94301b, type: 3}
-    - {fileID: 2800000, guid: c5a46c7b2156f504cb1d321c201a5814, type: 3}
-    - {fileID: 2800000, guid: 4b3d860d035c07145802a5f3a7e49d00, type: 3}
-    - {fileID: 2800000, guid: 7de36a8edce09ff4c91652aa71fc58b1, type: 3}
-    - {fileID: 2800000, guid: 0fa3367a655e81b4aaad02a497769a04, type: 3}
-  - namePlant: CrystalNut
-    typePlant: 3
-    timeGrowth: 10
-    spritePlant:
-    - {fileID: 2800000, guid: 992d958d452e980439b94fa5250c4b00, type: 3}
-    - {fileID: 2800000, guid: 7f63af8086fb45748a008dcdb2697bef, type: 3}
-    - {fileID: 2800000, guid: 3a8e831273e02944eac46a63a1ce1a3e, type: 3}
-    - {fileID: 2800000, guid: 7c081db15baecbb428a280ae0818bfe0, type: 3}
-    - {fileID: 2800000, guid: 6c159db74031f784fb64d522b01d61cd, type: 3}
   plantunGrydka: {fileID: 215395975}
   needPlayMusic: {fileID: 431071907}
   playMusic: {fileID: 0}
@@ -8820,138 +8249,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1069431321}
   m_CullTransparentMesh: 1
---- !u!1 &1078700168
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1078700169}
-  - component: {fileID: 1078700172}
-  - component: {fileID: 1078700171}
-  - component: {fileID: 1078700170}
-  m_Layer: 5
-  m_Name: ButtonUpgrade
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1078700169
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1078700168}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 113468994}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 52.9, y: -46.48}
-  m_SizeDelta: {x: 60, y: 70}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1078700170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1078700168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1078700171}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 113468998}
-        m_TargetAssemblyTypeName: Grydka, Assembly-CSharp
-        m_MethodName: UpgradeGrydka
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1078700171
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1078700168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4c46d4eaad199884a8009c7bd2ccbce8, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1078700172
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1078700168}
-  m_CullTransparentMesh: 1
 --- !u!1 &1143251847
 GameObject:
   m_ObjectHideFlags: 0
@@ -9093,34 +8390,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ce9f2ec2d62a06a48ab15d980bc9a8df, type: 3}
   - {fileID: 21300000, guid: ee5c90972bde79c4395d6d50657a61bf, type: 3}
   - {fileID: 21300000, guid: 845353174a235c0469b8a497d010fc43, type: 3}
-  _allPlants:
-  - namePlant: StarchNut
-    typePlant: 1
-    timeGrowth: 5
-    spritePlant:
-    - {fileID: 2800000, guid: 325f308ad61b94647bd06bfee58ce6f1, type: 3}
-    - {fileID: 2800000, guid: 97e61ca9f1eb3cf4e9a2fd58b7c1119d, type: 3}
-    - {fileID: 2800000, guid: 4cdb2d9cb732bb0448a5e8df8eba40be, type: 3}
-    - {fileID: 2800000, guid: d311ca57d9d5d5247a425526dc7902e5, type: 3}
-    - {fileID: 2800000, guid: 22241081059ea544a8687c0e502c16b2, type: 3}
-  - namePlant: MysticalMushroom
-    typePlant: 2
-    timeGrowth: 6
-    spritePlant:
-    - {fileID: 2800000, guid: 550be85f4799df5439e115dcaf94301b, type: 3}
-    - {fileID: 2800000, guid: c5a46c7b2156f504cb1d321c201a5814, type: 3}
-    - {fileID: 2800000, guid: 4b3d860d035c07145802a5f3a7e49d00, type: 3}
-    - {fileID: 2800000, guid: 7de36a8edce09ff4c91652aa71fc58b1, type: 3}
-    - {fileID: 2800000, guid: 0fa3367a655e81b4aaad02a497769a04, type: 3}
-  - namePlant: CrystalNut
-    typePlant: 3
-    timeGrowth: 10
-    spritePlant:
-    - {fileID: 2800000, guid: 992d958d452e980439b94fa5250c4b00, type: 3}
-    - {fileID: 2800000, guid: 7f63af8086fb45748a008dcdb2697bef, type: 3}
-    - {fileID: 2800000, guid: 3a8e831273e02944eac46a63a1ce1a3e, type: 3}
-    - {fileID: 2800000, guid: 7c081db15baecbb428a280ae0818bfe0, type: 3}
-    - {fileID: 2800000, guid: 6c159db74031f784fb64d522b01d61cd, type: 3}
   plantunGrydka: {fileID: 886750722}
   needPlayMusic: {fileID: 333780678}
   playMusic: {fileID: 0}
@@ -9278,34 +8547,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ce9f2ec2d62a06a48ab15d980bc9a8df, type: 3}
   - {fileID: 21300000, guid: ee5c90972bde79c4395d6d50657a61bf, type: 3}
   - {fileID: 21300000, guid: 845353174a235c0469b8a497d010fc43, type: 3}
-  _allPlants:
-  - namePlant: StarchNut
-    typePlant: 1
-    timeGrowth: 5
-    spritePlant:
-    - {fileID: 2800000, guid: 325f308ad61b94647bd06bfee58ce6f1, type: 3}
-    - {fileID: 2800000, guid: 97e61ca9f1eb3cf4e9a2fd58b7c1119d, type: 3}
-    - {fileID: 2800000, guid: 4cdb2d9cb732bb0448a5e8df8eba40be, type: 3}
-    - {fileID: 2800000, guid: d311ca57d9d5d5247a425526dc7902e5, type: 3}
-    - {fileID: 2800000, guid: 22241081059ea544a8687c0e502c16b2, type: 3}
-  - namePlant: MysticalMushroom
-    typePlant: 2
-    timeGrowth: 6
-    spritePlant:
-    - {fileID: 2800000, guid: 550be85f4799df5439e115dcaf94301b, type: 3}
-    - {fileID: 2800000, guid: c5a46c7b2156f504cb1d321c201a5814, type: 3}
-    - {fileID: 2800000, guid: 4b3d860d035c07145802a5f3a7e49d00, type: 3}
-    - {fileID: 2800000, guid: 7de36a8edce09ff4c91652aa71fc58b1, type: 3}
-    - {fileID: 2800000, guid: 0fa3367a655e81b4aaad02a497769a04, type: 3}
-  - namePlant: CrystalNut
-    typePlant: 3
-    timeGrowth: 10
-    spritePlant:
-    - {fileID: 2800000, guid: 992d958d452e980439b94fa5250c4b00, type: 3}
-    - {fileID: 2800000, guid: 7f63af8086fb45748a008dcdb2697bef, type: 3}
-    - {fileID: 2800000, guid: 3a8e831273e02944eac46a63a1ce1a3e, type: 3}
-    - {fileID: 2800000, guid: 7c081db15baecbb428a280ae0818bfe0, type: 3}
-    - {fileID: 2800000, guid: 6c159db74031f784fb64d522b01d61cd, type: 3}
   plantunGrydka: {fileID: 905097884}
   needPlayMusic: {fileID: 758060515}
   playMusic: {fileID: 0}
@@ -9639,34 +8880,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ce9f2ec2d62a06a48ab15d980bc9a8df, type: 3}
   - {fileID: 21300000, guid: ee5c90972bde79c4395d6d50657a61bf, type: 3}
   - {fileID: 21300000, guid: 845353174a235c0469b8a497d010fc43, type: 3}
-  _allPlants:
-  - namePlant: StarchNut
-    typePlant: 1
-    timeGrowth: 5
-    spritePlant:
-    - {fileID: 2800000, guid: 325f308ad61b94647bd06bfee58ce6f1, type: 3}
-    - {fileID: 2800000, guid: 97e61ca9f1eb3cf4e9a2fd58b7c1119d, type: 3}
-    - {fileID: 2800000, guid: 4cdb2d9cb732bb0448a5e8df8eba40be, type: 3}
-    - {fileID: 2800000, guid: d311ca57d9d5d5247a425526dc7902e5, type: 3}
-    - {fileID: 2800000, guid: 22241081059ea544a8687c0e502c16b2, type: 3}
-  - namePlant: MysticalMushroom
-    typePlant: 2
-    timeGrowth: 6
-    spritePlant:
-    - {fileID: 2800000, guid: 550be85f4799df5439e115dcaf94301b, type: 3}
-    - {fileID: 2800000, guid: c5a46c7b2156f504cb1d321c201a5814, type: 3}
-    - {fileID: 2800000, guid: 4b3d860d035c07145802a5f3a7e49d00, type: 3}
-    - {fileID: 2800000, guid: 7de36a8edce09ff4c91652aa71fc58b1, type: 3}
-    - {fileID: 2800000, guid: 0fa3367a655e81b4aaad02a497769a04, type: 3}
-  - namePlant: CrystalNut
-    typePlant: 3
-    timeGrowth: 10
-    spritePlant:
-    - {fileID: 2800000, guid: 992d958d452e980439b94fa5250c4b00, type: 3}
-    - {fileID: 2800000, guid: 7f63af8086fb45748a008dcdb2697bef, type: 3}
-    - {fileID: 2800000, guid: 3a8e831273e02944eac46a63a1ce1a3e, type: 3}
-    - {fileID: 2800000, guid: 7c081db15baecbb428a280ae0818bfe0, type: 3}
-    - {fileID: 2800000, guid: 6c159db74031f784fb64d522b01d61cd, type: 3}
   plantunGrydka: {fileID: 499930552}
   needPlayMusic: {fileID: 2117562309}
   playMusic: {fileID: 0}
@@ -10107,34 +9320,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ce9f2ec2d62a06a48ab15d980bc9a8df, type: 3}
   - {fileID: 21300000, guid: ee5c90972bde79c4395d6d50657a61bf, type: 3}
   - {fileID: 21300000, guid: 845353174a235c0469b8a497d010fc43, type: 3}
-  _allPlants:
-  - namePlant: StarchNut
-    typePlant: 1
-    timeGrowth: 5
-    spritePlant:
-    - {fileID: 2800000, guid: 325f308ad61b94647bd06bfee58ce6f1, type: 3}
-    - {fileID: 2800000, guid: 97e61ca9f1eb3cf4e9a2fd58b7c1119d, type: 3}
-    - {fileID: 2800000, guid: 4cdb2d9cb732bb0448a5e8df8eba40be, type: 3}
-    - {fileID: 2800000, guid: d311ca57d9d5d5247a425526dc7902e5, type: 3}
-    - {fileID: 2800000, guid: 22241081059ea544a8687c0e502c16b2, type: 3}
-  - namePlant: MysticalMushroom
-    typePlant: 2
-    timeGrowth: 6
-    spritePlant:
-    - {fileID: 2800000, guid: 550be85f4799df5439e115dcaf94301b, type: 3}
-    - {fileID: 2800000, guid: c5a46c7b2156f504cb1d321c201a5814, type: 3}
-    - {fileID: 2800000, guid: 4b3d860d035c07145802a5f3a7e49d00, type: 3}
-    - {fileID: 2800000, guid: 7de36a8edce09ff4c91652aa71fc58b1, type: 3}
-    - {fileID: 2800000, guid: 0fa3367a655e81b4aaad02a497769a04, type: 3}
-  - namePlant: CrystalNut
-    typePlant: 3
-    timeGrowth: 10
-    spritePlant:
-    - {fileID: 2800000, guid: 992d958d452e980439b94fa5250c4b00, type: 3}
-    - {fileID: 2800000, guid: 7f63af8086fb45748a008dcdb2697bef, type: 3}
-    - {fileID: 2800000, guid: 3a8e831273e02944eac46a63a1ce1a3e, type: 3}
-    - {fileID: 2800000, guid: 7c081db15baecbb428a280ae0818bfe0, type: 3}
-    - {fileID: 2800000, guid: 6c159db74031f784fb64d522b01d61cd, type: 3}
   plantunGrydka: {fileID: 2099487991}
   needPlayMusic: {fileID: 1794150393}
   playMusic: {fileID: 0}
@@ -11822,78 +11007,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.894125, y: 10.619255}
   m_EdgeRadius: 0
---- !u!1 &1534838322
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1534838323}
-  - component: {fileID: 1534838325}
-  - component: {fileID: 1534838324}
-  m_Layer: 5
-  m_Name: Plant
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1534838323
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1534838322}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 113468994}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 150, y: 150}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1534838324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1534838322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 325f308ad61b94647bd06bfee58ce6f1, type: 3}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
---- !u!222 &1534838325
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1534838322}
-  m_CullTransparentMesh: 1
 --- !u!1 &1554233576
 GameObject:
   m_ObjectHideFlags: 0
@@ -14012,34 +13125,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ce9f2ec2d62a06a48ab15d980bc9a8df, type: 3}
   - {fileID: 21300000, guid: ee5c90972bde79c4395d6d50657a61bf, type: 3}
   - {fileID: 21300000, guid: 845353174a235c0469b8a497d010fc43, type: 3}
-  _allPlants:
-  - namePlant: StarchNut
-    typePlant: 1
-    timeGrowth: 5
-    spritePlant:
-    - {fileID: 2800000, guid: 325f308ad61b94647bd06bfee58ce6f1, type: 3}
-    - {fileID: 2800000, guid: 97e61ca9f1eb3cf4e9a2fd58b7c1119d, type: 3}
-    - {fileID: 2800000, guid: 4cdb2d9cb732bb0448a5e8df8eba40be, type: 3}
-    - {fileID: 2800000, guid: d311ca57d9d5d5247a425526dc7902e5, type: 3}
-    - {fileID: 2800000, guid: 22241081059ea544a8687c0e502c16b2, type: 3}
-  - namePlant: MysticalMushroom
-    typePlant: 2
-    timeGrowth: 6
-    spritePlant:
-    - {fileID: 2800000, guid: 550be85f4799df5439e115dcaf94301b, type: 3}
-    - {fileID: 2800000, guid: c5a46c7b2156f504cb1d321c201a5814, type: 3}
-    - {fileID: 2800000, guid: 4b3d860d035c07145802a5f3a7e49d00, type: 3}
-    - {fileID: 2800000, guid: 7de36a8edce09ff4c91652aa71fc58b1, type: 3}
-    - {fileID: 2800000, guid: 0fa3367a655e81b4aaad02a497769a04, type: 3}
-  - namePlant: CrystalNut
-    typePlant: 3
-    timeGrowth: 10
-    spritePlant:
-    - {fileID: 2800000, guid: 992d958d452e980439b94fa5250c4b00, type: 3}
-    - {fileID: 2800000, guid: 7f63af8086fb45748a008dcdb2697bef, type: 3}
-    - {fileID: 2800000, guid: 3a8e831273e02944eac46a63a1ce1a3e, type: 3}
-    - {fileID: 2800000, guid: 7c081db15baecbb428a280ae0818bfe0, type: 3}
-    - {fileID: 2800000, guid: 6c159db74031f784fb64d522b01d61cd, type: 3}
   plantunGrydka: {fileID: 1967044838}
   needPlayMusic: {fileID: 2106971663}
   playMusic: {fileID: 0}
@@ -16680,6 +15765,103 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2133728330}
   m_CullTransparentMesh: 1
+--- !u!1001 &4509845001162279089
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1925451053}
+    m_Modifications:
+    - target: {fileID: 3702812627161177381, guid: 360048e4d63f23f42a4d2488aa9f27e7, type: 3}
+      propertyPath: m_Name
+      value: Grydka_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638113740006172581, guid: 360048e4d63f23f42a4d2488aa9f27e7, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638113740006172581, guid: 360048e4d63f23f42a4d2488aa9f27e7, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638113740006172581, guid: 360048e4d63f23f42a4d2488aa9f27e7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638113740006172581, guid: 360048e4d63f23f42a4d2488aa9f27e7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638113740006172581, guid: 360048e4d63f23f42a4d2488aa9f27e7, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638113740006172581, guid: 360048e4d63f23f42a4d2488aa9f27e7, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638113740006172581, guid: 360048e4d63f23f42a4d2488aa9f27e7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638113740006172581, guid: 360048e4d63f23f42a4d2488aa9f27e7, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638113740006172581, guid: 360048e4d63f23f42a4d2488aa9f27e7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638113740006172581, guid: 360048e4d63f23f42a4d2488aa9f27e7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638113740006172581, guid: 360048e4d63f23f42a4d2488aa9f27e7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638113740006172581, guid: 360048e4d63f23f42a4d2488aa9f27e7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638113740006172581, guid: 360048e4d63f23f42a4d2488aa9f27e7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638113740006172581, guid: 360048e4d63f23f42a4d2488aa9f27e7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638113740006172581, guid: 360048e4d63f23f42a4d2488aa9f27e7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638113740006172581, guid: 360048e4d63f23f42a4d2488aa9f27e7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -348
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638113740006172581, guid: 360048e4d63f23f42a4d2488aa9f27e7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 148
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638113740006172581, guid: 360048e4d63f23f42a4d2488aa9f27e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638113740006172581, guid: 360048e4d63f23f42a4d2488aa9f27e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638113740006172581, guid: 360048e4d63f23f42a4d2488aa9f27e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 360048e4d63f23f42a4d2488aa9f27e7, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

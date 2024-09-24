@@ -9,7 +9,6 @@ using Random = UnityEngine.Random;
 public class Grydka : MonoBehaviour
 {
     [SerializeField] private List<Sprite> _spriteGrydka;
-    [SerializeField] private List<Plant> _allPlants;
     public RawImage plantunGrydka;
     public GameObject needPlayMusic;
     public Sprite playMusic;
@@ -24,9 +23,11 @@ public class Grydka : MonoBehaviour
     public bool ripe;
     public int levelGrydka;
     public bool uprgadePopUpActive;
+    private GameManager _gameManager;
 
     private void Start()
     {
+        _gameManager = GameManager.instance;
         levelGrydka = 1;
     }
 
@@ -67,7 +68,7 @@ public class Grydka : MonoBehaviour
         StateOfGrowth = 0;
         timeGrowthInStage = Time.time;
         Growth = true;
-        plant = _allPlants[Random.Range(0, _allPlants.Count)];
+        plant = _gameManager.allPlants[Random.Range(0, _gameManager.allPlants.Count)];
         plantunGrydka.texture = plant.spritePlant[0];
         plantunGrydka.gameObject.SetActive(true);
     }

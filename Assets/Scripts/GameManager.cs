@@ -6,12 +6,13 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance; 
+    public List<Plant> allPlants;
     public List<Grydka> allGrydka;
     public List<Texture> sptiTexturesPlant;
     public TextMeshProUGUI textCoin;
     public SubscriptionField<int> coin;
     public GameObject PoPUpUpgrade;
-   
+    public Transform ParentGrydka;
 
    
     // public List<Customer> customers;

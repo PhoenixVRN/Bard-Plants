@@ -7,6 +7,7 @@ public class GameModel
     
     public SubscriptionField<int> CountCustomerInGame { get; }
     
+    
     public GameModel()
     {
         StarchNut = new SubscriptionField<int>();
