@@ -1,4 +1,5 @@
 using System.Collections;
+using Spine.Unity;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,12 +11,20 @@ public class GardenGnome : MonoBehaviour
     public bool MoveToGrydka;
     public Grydka grydka;
     public bool WePlant;
+    public SkeletonAnimation LeftGnomeAnimation;
+    public SkeletonAnimation RightGnomeAnimation;
+    public Spine.AnimationState spineAnimationState;
+    public Spine.Skeleton skeleton;
 
     void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
+        spineAnimationState = LeftGnomeAnimation.AnimationState;
+        skeleton = LeftGnomeAnimation.Skeleton;
+        spineAnimationState.SetAnimation(0, "Idle", true);
+        LeftGnomeAnimation.initialFlipX = true;
     }
 
     void Update()

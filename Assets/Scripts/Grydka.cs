@@ -68,7 +68,7 @@ public class Grydka : MonoBehaviour
         StateOfGrowth = 0;
         timeGrowthInStage = Time.time;
         Growth = true;
-        plant = _gameManager.allPlants[Random.Range(0, _gameManager.allPlants.Count)];
+        plant = _gameManager.allPlants[Random.Range(0, _gameManager.allPlants.Count-1)];
         plantunGrydka.texture = plant.spritePlant[0];
         plantunGrydka.gameObject.SetActive(true);
     }
@@ -142,7 +142,16 @@ public enum ETypePlant
 {
     Starch_Nut = 1,
     Mystical_Mushroom = 2,
-    CrystalNut = 3
+    CrystalNut = 3,
+    FlyEater =4,
+    GutFlower = 5,
+    Mandrake = 6,
+    MiracleFruit = 7,
+    NeedleFlower = 8,
+    StaringFlower = 9,
+    ToxicMushroom = 10,
+    BushTentacles = 11,
+    StarFruit = 12
 }
 
 [Serializable]
