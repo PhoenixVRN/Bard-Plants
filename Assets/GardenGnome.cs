@@ -24,7 +24,6 @@ public class GardenGnome : MonoBehaviour
         spineAnimationState = LeftGnomeAnimation.AnimationState;
         skeleton = LeftGnomeAnimation.Skeleton;
         spineAnimationState.SetAnimation(0, "Idle", true);
-        LeftGnomeAnimation.initialFlipX = true;
     }
 
     void Update()
