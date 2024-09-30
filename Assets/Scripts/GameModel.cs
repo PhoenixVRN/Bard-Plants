@@ -9,7 +9,8 @@ public class GameModel
     public SubscriptionField<eTypeAnimation> AnimationCollectorGnome { get; }
     public SubscriptionField<eTypeAnimation> AnimationMusicHelpers { get; }
     public SubscriptionField<eTypeAnimation> AnimationGardenGnome { get; }
-   
+    
+    public SubscriptionField<bool> BagInteractive { get; }
     
    
     public GameModel()
@@ -24,5 +25,6 @@ public class GameModel
         AnimationCollectorGnome = new SubscriptionField<eTypeAnimation>();
         AnimationGardenGnome = new SubscriptionField<eTypeAnimation>();
         AnimationMusicHelpers = new SubscriptionField<eTypeAnimation>();
+        BagInteractive = new SubscriptionField<bool>() {Value = true};
     }
 }

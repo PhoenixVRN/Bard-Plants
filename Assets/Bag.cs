@@ -27,14 +27,17 @@ public class Bag : MonoBehaviour
 
     void Start()
     {
-        if (instance == null) { 
-            instance = this; 
-        } else if(instance == this)
-        { 
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance == this)
+        {
             Destroy(gameObject);
         }
+
         DontDestroyOnLoad(gameObject);
-        
+
         // InitializeManager();
     }
 
@@ -42,27 +45,29 @@ public class Bag : MonoBehaviour
     {
         switch (type)
         {
-           case ETypePlant.Starch_Nut:
-               Reference.GameModel.StarchNut.Value++;
-               break;
-           
-           case ETypePlant.Mystical_Mushroom:
-               Reference.GameModel.MysticalMushroom.Value++;
-               break;
-           
-           case ETypePlant.CrystalNut:
-               Reference.GameModel.CrystalNut.Value++;
-               break;
-        } 
+            case ETypePlant.Starch_Nut:
+                Reference.GameModel.StarchNut.Value++;
+                break;
+
+            case ETypePlant.Mystical_Mushroom:
+                Reference.GameModel.MysticalMushroom.Value++;
+                break;
+
+            case ETypePlant.CrystalNut:
+                Reference.GameModel.CrystalNut.Value++;
+                break;
+        }
     }
 
     private void OnMouseDown()
     {
-        canvasOpenBag.SetActive(true);
+        if (Reference.GameModel.BagInteractive.Value)
+        {
+            canvasOpenBag.SetActive(true);
+        }
     }
 
     void Update()
     {
-        
     }
 }

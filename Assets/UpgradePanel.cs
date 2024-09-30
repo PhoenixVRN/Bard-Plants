@@ -11,6 +11,7 @@ public class UpgradePanel : MonoBehaviour
     public Image imageFrom;
     public TextMeshProUGUI textLevFrom;
     public TextMeshProUGUI textCountPlantsFrom;
+   
     
     public Image imageBefore;
     public TextMeshProUGUI textLevBefore;
@@ -21,6 +22,7 @@ public class UpgradePanel : MonoBehaviour
     
     public void Init(int lev, Grydka grydka)
     {
+        Reference.GameModel.BagInteractive.Value = false;
         _currentGrydka = grydka;
         _currentGrydka.uprgadePopUpActive = true;
         _currentGrydka.empty = true;
@@ -44,6 +46,7 @@ public class UpgradePanel : MonoBehaviour
 
     private void OnDisable()
     {
+        Reference.GameModel.BagInteractive.Value = true;
         _currentGrydka.uprgadePopUpActive = false;
         _currentGrydka.empty = false;
     }
