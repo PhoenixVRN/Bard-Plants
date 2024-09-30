@@ -1,6 +1,8 @@
 using System.Collections;
+using Spine.Unity;
 using UnityEngine.AI;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class CollectorGnome : MonoBehaviour
 {
@@ -11,11 +13,23 @@ public class CollectorGnome : MonoBehaviour
     public Grydka grydka;
     public bool WePlant;
 
+    public SkeletonAnimation CollectorGnomeAnimation;
+    public Spine.AnimationState spineAnimationState;
+    public Spine.Skeleton skeleton;
+
+    private GameModel _gameModel;
+
     void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
+
+        spineAnimationState = CollectorGnomeAnimation.AnimationState;
+        skeleton = CollectorGnomeAnimation.Skeleton;
+        spineAnimationState.SetAnimation(0, "Idle", true);
+        _gameModel = Reference.GameModel;
+        _gameModel.AnimationCollectorGnome.Subscribe(Animation);
     }
 
     void Update()
@@ -24,6 +38,12 @@ public class CollectorGnome : MonoBehaviour
         if (TargetGardenBed() == null)
         {
             _agent.SetDestination(idlePoint.position);
+            directAnim(idlePoint.position);
+            if (Vector2.Distance(transform.position, idlePoint.position) < 0.4)
+            {
+                _gameModel.AnimationCollectorGnome.Value = eTypeAnimation.Idle;
+            }
+
             return;
         }
 
@@ -39,17 +59,18 @@ public class CollectorGnome : MonoBehaviour
         if (MoveToGrydka)
         {
             MoveToTarget();
-            if (Vector2.Distance(transform.position, _target.position) < 1)
+            if (Vector2.Distance(transform.position, _target.position) < 0.4f)
             {
                 WePlant = true;
-                StartCoroutine( SowHarvesting());
+                StartCoroutine(SowHarvesting());
             }
         }
     }
-    
-    IEnumerator  SowHarvesting()
+
+    IEnumerator SowHarvesting()
     {
-        yield return new WaitForSeconds(2f);
+        _gameModel.AnimationCollectorGnome.Value = eTypeAnimation.ActionCicle;
+        yield return new WaitForSeconds(3f);
         _target.GetComponent<Grydka>().Harvesting();
         WePlant = false;
         MoveToGrydka = false;
@@ -67,7 +88,54 @@ public class CollectorGnome : MonoBehaviour
     public void MoveToTarget()
     {
         // Debug.Log($" _target {_target.position}");
+        if (_gameModel.AnimationCollectorGnome.Value != eTypeAnimation.Walk)
+        {
+            _gameModel.AnimationCollectorGnome.Value = eTypeAnimation.Walk;
+        }
+
+        // Debug.Log($" _target {_target.position}");
+        directAnim(_target.position);
         Vector3 r = new Vector3(_target.position.x, _target.position.y, 0);
         _agent.SetDestination(r);
+    }
+
+    private void Animation(eTypeAnimation typeAnimation)
+    {
+        // Debug.Log($"Anim {typeAnimation.ToString()}");
+        switch (typeAnimation)
+        {
+            case eTypeAnimation.Idle:
+                spineAnimationState.SetAnimation(0, "Idle", true);
+                break;
+
+            case eTypeAnimation.Walk:
+                // Debug.Log($"Walk Anim");
+                spineAnimationState.SetAnimation(0, "Walk", true);
+                break;
+
+            case eTypeAnimation.ActionCicle:
+                spineAnimationState.SetAnimation(0, "Action_cycle", true);
+                break;
+
+            case eTypeAnimation.ActionEnd:
+                spineAnimationState.SetAnimation(0, "Action_end", true);
+                break;
+
+            case eTypeAnimation.ActionStart:
+                spineAnimationState.SetAnimation(0, "Action_start", true);
+                break;
+        }
+    }
+
+    private void directAnim(Vector3 target)
+    {
+        if (target.x > transform.position.x)
+        {
+            CollectorGnomeAnimation.gameObject.transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else
+        {
+            CollectorGnomeAnimation.gameObject.transform.localScale = new Vector3(1, 1, 1);
+        }
     }
 }
