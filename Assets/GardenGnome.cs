@@ -16,6 +16,8 @@ public class GardenGnome : MonoBehaviour
     public Spine.AnimationState spineAnimationState;
     public Spine.Skeleton skeleton;
 
+    private GameModel _gameModel;
+    
     void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
@@ -24,6 +26,8 @@ public class GardenGnome : MonoBehaviour
         spineAnimationState = LeftGnomeAnimation.AnimationState;
         skeleton = LeftGnomeAnimation.Skeleton;
         spineAnimationState.SetAnimation(0, "Idle", true);
+        _gameModel = Reference.GameModel;
+        _gameModel.AnimationGardenGnome.Subscribe(Animation);
     }
 
     void Update()
@@ -32,6 +36,10 @@ public class GardenGnome : MonoBehaviour
         if (EmptyGardenBed() == null)
         {
             _agent.SetDestination(idlePoint.position);
+            if (Vector2.Distance(transform.position, idlePoint.position) < 0.4)
+            {
+                _gameModel.AnimationGardenGnome.Value = eTypeAnimation.Idle;
+            }
             return;
         }
         var e = EmptyGardenBed().transform;
@@ -45,7 +53,7 @@ public class GardenGnome : MonoBehaviour
         if (MoveToGrydka)
         {
              MoveToTarget();
-            if (Vector2.Distance(transform.position, _target.position) < 1)
+            if (Vector2.Distance(transform.position, _target.position) < 0.4)
             {
                 WePlant = true;
                 StartCoroutine( WePlantPlant());
@@ -55,7 +63,8 @@ public class GardenGnome : MonoBehaviour
     
     IEnumerator  WePlantPlant()
     {
-        yield return new WaitForSeconds(2f);
+        _gameModel.AnimationGardenGnome.Value = eTypeAnimation.ActionCicle;
+        yield return new WaitForSeconds(3f);
         _target.GetComponent<Grydka>().PlantaPlant();
         WePlant = false;
         MoveToGrydka = false;
@@ -72,9 +81,48 @@ public class GardenGnome : MonoBehaviour
 
     public void MoveToTarget()
     {
+        if (_gameModel.AnimationGardenGnome.Value != eTypeAnimation.Walk)
+        {
+            _gameModel.AnimationGardenGnome.Value = eTypeAnimation.Walk;
+        }
         // Debug.Log($" _target {_target.position}");
+        if (_target.position.x > transform.position.x)
+        {
+            LeftGnomeAnimation.gameObject.transform.localScale = new Vector3(-1, 1,1);
+        }
+        else
+        {
+            LeftGnomeAnimation.gameObject.transform.localScale = new Vector3(1, 1,1);
+        }
         Vector3 r = new Vector3(_target.position.x, _target.position.y, 0);
         _agent.SetDestination(r);
     }
-    
+
+    private void Animation(eTypeAnimation typeAnimation)
+    {
+        // Debug.Log($"Anim {typeAnimation.ToString()}");
+        switch (typeAnimation)
+        {
+          case   eTypeAnimation.Idle:
+              spineAnimationState.SetAnimation(0, "Idle", true);
+              break;
+          
+          case   eTypeAnimation.Walk:
+              // Debug.Log($"Walk Anim");
+              spineAnimationState.SetAnimation(0, "Walk", true);
+              break;
+          
+          case   eTypeAnimation.ActionCicle:
+              spineAnimationState.SetAnimation(0, "Action_cycle", true);
+              break;
+          
+          case   eTypeAnimation.ActionEnd:
+              spineAnimationState.SetAnimation(0, "Action_end", true);
+              break;
+          
+          case   eTypeAnimation.ActionStart:
+              spineAnimationState.SetAnimation(0, "Action_start", true);
+              break;
+        }
+    }
 }
