@@ -79,7 +79,7 @@ public class Grydka : MonoBehaviour
         // {
         //     StateOfGrowth = 0;
         //     plantunGrydka.transform.SetParent(Bag.instance.transform);
-        //     plantunGrydka.transform.DOMove(Bag.instance.transform.position, 1).SetEase(Ease.Linear).OnComplete(Test);
+        //     plantunGrydka.transform.DOMove(Bag.instance.transform.position, 1).SetEase(Ease.Linear).OnComplete(AddedPlodToBag);
         // }
 
         Debug.Log($"Tap in {gameObject}");
@@ -93,7 +93,7 @@ public class Grydka : MonoBehaviour
             ripe = false;
             plantunGrydka.texture = plant.spritePlant[4];
             plantunGrydka.transform.SetParent(Bag.instance.transform);
-            plantunGrydka.transform.DOMove(Bag.instance.transform.position, 1).SetEase(Ease.Linear).OnComplete(Test);
+            plantunGrydka.transform.DOMove(Bag.instance.transform.position, 1).SetEase(Ease.Linear).OnComplete(AddedPlodToBag);
         }
 
         Debug.Log($"Harvesting {gameObject}");
@@ -108,13 +108,16 @@ public class Grydka : MonoBehaviour
         timeGrowthInStage = Time.time;
         needMusic = false;
     }
-    private void Test()
+    private void AddedPlodToBag()
     {
         empty = false;
         plantunGrydka.gameObject.SetActive(false);
         plantunGrydka.transform.SetParent(transform);
         plantunGrydka.transform.localPosition = Vector3.zero;
-        Bag.instance.AddPlants(plant.typePlant);
+        var count = Random.Range(GameManager.instance.upgradeGrydkaCfgs[levelGrydka - 1].minPlants,
+            GameManager.instance.upgradeGrydkaCfgs[levelGrydka - 1].maxPlants);
+        Debug.Log($"min {GameManager.instance.upgradeGrydkaCfgs[levelGrydka - 1].minPlants}/max {GameManager.instance.upgradeGrydkaCfgs[levelGrydka - 1].maxPlants}");
+        Bag.instance.AddPlants(plant.typePlant, count);
     }
 
     public void UpgradeGrydka()

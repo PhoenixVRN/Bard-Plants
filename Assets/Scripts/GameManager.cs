@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public List<UpgradeGrydkaCfg> upgradeGrydkaCfgs;
     public static GameManager instance; 
     public List<Plant> allPlants;
     public List<Grydka> allGrydka;

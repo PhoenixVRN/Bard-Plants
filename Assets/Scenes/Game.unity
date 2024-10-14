@@ -1853,7 +1853,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 40}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &215395975
@@ -1925,7 +1925,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 40}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &222399642
@@ -4116,39 +4116,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 337cf791161472d4a8f0d5a1e493da3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeGrydkaCfgs:
-  - Level: 1
-    sprite: {fileID: 21300000, guid: 2d876ad36f423c942a053f4d964b51d2, type: 3}
-    textLev: LEV 1
-    textCountPlants: "\u041C\u0430\u043A\u0441\u0438\u043C\u0443\u043C \u0440\u0430\u0441\u0442\u0435\u043D\u0438\u0439
-      5-7"
-    cost: 0
-  - Level: 2
-    sprite: {fileID: 21300000, guid: 177add277c047a04a879e9f48cc45e3c, type: 3}
-    textLev: LEV 2
-    textCountPlants: "\u041C\u0430\u043A\u0441\u0438\u043C\u0443\u043C \u0440\u0430\u0441\u0442\u0435\u043D\u0438\u0439
-      8-10"
-    cost: 0
-  - Level: 3
-    sprite: {fileID: 21300000, guid: f810c60c921e7e8478b9f86ea2f8a656, type: 3}
-    textLev: LEV 3
-    textCountPlants: "\u041C\u0430\u043A\u0441\u0438\u043C\u0443\u043C \u0440\u0430\u0441\u0442\u0435\u043D\u0438\u0439
-      12-15"
-    cost: 0
-  - Level: 4
-    sprite: {fileID: 21300000, guid: 2ab867dea7013bb4ea33486b9c833f62, type: 3}
-    textLev: LEV 4
-    textCountPlants: "\u041C\u0430\u043A\u0441\u0438\u043C\u0443\u043C \u0440\u0430\u0441\u0442\u0435\u043D\u0438\u0439
-      18-21"
-    cost: 0
   imageFrom: {fileID: 1833036733}
   textLevFrom: {fileID: 1422346615}
   textCountPlantsFrom: {fileID: 192791919}
-  bag: {fileID: 2120492969}
   imageBefore: {fileID: 71189998}
   textLevBefore: {fileID: 289742659}
   textCountPlantsBefore: {fileID: 1398898833}
   textCost: {fileID: 5967429}
+  upGradeButton: {fileID: 2133728332}
 --- !u!1 &499930550
 GameObject:
   m_ObjectHideFlags: 0
@@ -4183,7 +4158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 40}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &499930552
@@ -4499,12 +4474,12 @@ MonoBehaviour:
   m_RequiresColorTexture: 0
   m_Version: 2
   m_TaaSettings:
-    m_Quality: 3
-    m_FrameInfluence: 0.1
-    m_JitterScale: 1
-    m_MipBias: 0
-    m_VarianceClampScale: 0.9
-    m_ContrastAdaptiveSharpening: 0
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -4987,7 +4962,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -521, y: 115}
+  m_AnchoredPosition: {x: -111, y: 1114}
   m_SizeDelta: {x: 160, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &590779546
@@ -5038,6 +5013,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2120492968}
+        m_TargetAssemblyTypeName: Bag, Assembly-CSharp
+        m_MethodName: BagInteractive
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6675,7 +6662,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 40}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &886750722
@@ -6820,7 +6807,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 40}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &905097884
@@ -7376,6 +7363,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eb63a5cbaae4d448aa06e51e48ac026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upgradeGrydkaCfgs:
+  - Level: 1
+    sprite: {fileID: 21300000, guid: 2d876ad36f423c942a053f4d964b51d2, type: 3}
+    textLev: LVL 1
+    textCountPlants: "\u0420\u0430\u0441\u0442\u0435\u043D\u0438\u0439 5-7"
+    minPlants: 5
+    maxPlants: 7
+    cost: 100
+  - Level: 2
+    sprite: {fileID: 21300000, guid: 177add277c047a04a879e9f48cc45e3c, type: 3}
+    textLev: LVL 2
+    textCountPlants: "\u0420\u0430\u0441\u0442\u0435\u043D\u0438\u0439 8-10"
+    minPlants: 8
+    maxPlants: 10
+    cost: 200
+  - Level: 3
+    sprite: {fileID: 21300000, guid: f810c60c921e7e8478b9f86ea2f8a656, type: 3}
+    textLev: LVL 3
+    textCountPlants: "\u0420\u0430\u0441\u0442\u0435\u043D\u0438\u0439 12-15"
+    minPlants: 12
+    maxPlants: 15
+    cost: 300
+  - Level: 4
+    sprite: {fileID: 21300000, guid: 2ab867dea7013bb4ea33486b9c833f62, type: 3}
+    textLev: LVL 4
+    textCountPlants: "\u0420\u0430\u0441\u0442\u0435\u043D\u0438\u0439 18-21"
+    minPlants: 18
+    maxPlants: 21
+    cost: 400
   allPlants:
   - namePlant: StarchNut
     typePlant: 1
@@ -11107,7 +11123,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 40}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1504065616
@@ -11301,7 +11317,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 40}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1557563806
@@ -14533,7 +14549,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 40}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1967044838
@@ -15213,7 +15229,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 40}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2089276083
@@ -15285,7 +15301,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 40}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2089849592
@@ -15357,7 +15373,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 40}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2099487991
@@ -16048,7 +16064,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 463917790}
         m_TargetAssemblyTypeName: UpgradePanel, Assembly-CSharp
-        m_MethodName: Upgrade
+        m_MethodName: UpgradeGrydka
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16104,6 +16120,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1925451053}
     m_Modifications:
+    - target: {fileID: 2372426163173911472, guid: 360048e4d63f23f42a4d2488aa9f27e7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3110776173205144524, guid: 360048e4d63f23f42a4d2488aa9f27e7, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 6beac16db7dbd79438e3775f2bd89032, type: 3}
     - target: {fileID: 3702812627161177381, guid: 360048e4d63f23f42a4d2488aa9f27e7, type: 3}
       propertyPath: m_Name
       value: Grydka_1
@@ -16186,6 +16210,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4638113740006172581, guid: 360048e4d63f23f42a4d2488aa9f27e7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6786791969351368620, guid: 360048e4d63f23f42a4d2488aa9f27e7, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

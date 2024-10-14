@@ -3,6 +3,15 @@ public class GameModel
     public SubscriptionField<int> StarchNut { get; }
     public SubscriptionField<int> MysticalMushroom { get; }
     public SubscriptionField<int> CrystalNut { get; }
+    public SubscriptionField<int> FlyEater { get; }
+    public SubscriptionField<int> GutFlower { get; }
+    public SubscriptionField<int> Mandrake { get; }
+    public SubscriptionField<int> MiracleFruit { get; }
+    public SubscriptionField<int> NeedleFlower { get; }
+    public SubscriptionField<int> StaringFlower { get; }
+    public SubscriptionField<int> ToxicMushroom  { get; }
+    public SubscriptionField<int> BushTentacles { get; }
+    public SubscriptionField<int> StarFruit { get; }
     public SubscriptionField<int> CountCustomerInGame { get; }
     public SubscriptionField<int> LevelGame { get; }
     public SubscriptionField<eTypeAnimation> AnimationPlayer { get; }

@@ -41,21 +41,60 @@ public class Bag : MonoBehaviour
         // InitializeManager();
     }
 
-    public void AddPlants(ETypePlant type)
+    public void AddPlants(ETypePlant type, int value)
     {
+        Debug.Log($"Added to Bag {type.ToString()}, count {value}");
         switch (type)
         {
             case ETypePlant.Starch_Nut:
-                Reference.GameModel.StarchNut.Value++;
+                Reference.GameModel.StarchNut.Value += value;
                 break;
 
             case ETypePlant.Mystical_Mushroom:
-                Reference.GameModel.MysticalMushroom.Value++;
+                Reference.GameModel.MysticalMushroom.Value += value;
                 break;
 
             case ETypePlant.CrystalNut:
-                Reference.GameModel.CrystalNut.Value++;
+                Reference.GameModel.CrystalNut.Value += value;
                 break;
+            
+            case ETypePlant.FlyEater:
+                Reference.GameModel.FlyEater.Value += value;
+                break;
+            
+            case ETypePlant.GutFlower:
+                Reference.GameModel.GutFlower.Value += value;
+                break;
+            
+            case ETypePlant.Mandrake:
+                Reference.GameModel.Mandrake.Value += value;
+                break;
+            
+            case ETypePlant.MiracleFruit:
+                Reference.GameModel.MiracleFruit.Value += value;
+                break;
+            
+            case ETypePlant.NeedleFlower:
+                Reference.GameModel.NeedleFlower.Value += value;
+                break;
+            
+            case ETypePlant.StaringFlower:
+                Reference.GameModel.StaringFlower.Value += value;
+                break;
+            
+            case ETypePlant.ToxicMushroom:
+                Reference.GameModel.ToxicMushroom.Value += value;
+                break;
+            
+            case ETypePlant.BushTentacles:
+                Reference.GameModel.BushTentacles.Value += value;
+                break;
+            
+            case ETypePlant.StarFruit:
+                Reference.GameModel.StarFruit.Value += value;
+                break;
+            
+            
         }
     }
 
@@ -63,11 +102,13 @@ public class Bag : MonoBehaviour
     {
         if (Reference.GameModel.BagInteractive.Value)
         {
+            Reference.GameModel.BagInteractive.Value = false;
             canvasOpenBag.SetActive(true);
         }
     }
 
-    void Update()
+    public void BagInteractive()
     {
+        Reference.GameModel.BagInteractive.Value = true;
     }
 }
