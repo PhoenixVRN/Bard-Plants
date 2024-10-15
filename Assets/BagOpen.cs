@@ -48,6 +48,89 @@ public class BagOpen : MonoBehaviour
                 Reference.GameModel.CrystalNut.Value.ToString();
             countSlot++;
         }
+        
+        if (Reference.GameModel.FlyEater.Value > 0)
+        {
+            habar[countSlot].gameObject.SetActive(true);
+            habar[countSlot].GetComponent<RawImage>().texture = texturesPlants[3];
+            habar[countSlot].GetComponentInChildren<TextMeshProUGUI>().text =
+                Reference.GameModel.FlyEater.Value.ToString();
+            countSlot++;
+        }
+        
+        if (Reference.GameModel.GutFlower.Value > 0)
+        {
+            habar[countSlot].gameObject.SetActive(true);
+            habar[countSlot].GetComponent<RawImage>().texture = texturesPlants[4];
+            habar[countSlot].GetComponentInChildren<TextMeshProUGUI>().text =
+                Reference.GameModel.GutFlower.Value.ToString();
+            countSlot++;
+        }
+        
+        if (Reference.GameModel.Mandrake.Value > 0)
+        {
+            habar[countSlot].gameObject.SetActive(true);
+            habar[countSlot].GetComponent<RawImage>().texture = texturesPlants[5];
+            habar[countSlot].GetComponentInChildren<TextMeshProUGUI>().text =
+                Reference.GameModel.Mandrake.Value.ToString();
+            countSlot++;
+        }
+        
+        if (Reference.GameModel.MiracleFruit.Value > 0)
+        {
+            habar[countSlot].gameObject.SetActive(true);
+            habar[countSlot].GetComponent<RawImage>().texture = texturesPlants[6];
+            habar[countSlot].GetComponentInChildren<TextMeshProUGUI>().text =
+                Reference.GameModel.MiracleFruit.Value.ToString();
+            countSlot++;
+        }
+        
+        if (Reference.GameModel.NeedleFlower.Value > 0)
+        {
+            habar[countSlot].gameObject.SetActive(true);
+            habar[countSlot].GetComponent<RawImage>().texture = texturesPlants[7];
+            habar[countSlot].GetComponentInChildren<TextMeshProUGUI>().text =
+                Reference.GameModel.NeedleFlower.Value.ToString();
+            countSlot++;
+        }
+        
+        if (Reference.GameModel.StaringFlower.Value > 0)
+        {
+            habar[countSlot].gameObject.SetActive(true);
+            habar[countSlot].GetComponent<RawImage>().texture = texturesPlants[8];
+            habar[countSlot].GetComponentInChildren<TextMeshProUGUI>().text =
+                Reference.GameModel.StaringFlower.Value.ToString();
+            countSlot++;
+        }
+        
+        if (Reference.GameModel.ToxicMushroom.Value > 0)
+        {
+            habar[countSlot].gameObject.SetActive(true);
+            habar[countSlot].GetComponent<RawImage>().texture = texturesPlants[9];
+            habar[countSlot].GetComponentInChildren<TextMeshProUGUI>().text =
+                Reference.GameModel.ToxicMushroom.Value.ToString();
+            countSlot++;
+        }
+        
+        if (Reference.GameModel.BushTentacles.Value > 0)
+        {
+            habar[countSlot].gameObject.SetActive(true);
+            habar[countSlot].GetComponent<RawImage>().texture = texturesPlants[10];
+            habar[countSlot].GetComponentInChildren<TextMeshProUGUI>().text =
+                Reference.GameModel.BushTentacles.Value.ToString();
+            countSlot++;
+        }
+        
+        if (Reference.GameModel.StarFruit.Value > 0)
+        {
+            habar[countSlot].gameObject.SetActive(true);
+            habar[countSlot].GetComponent<RawImage>().texture = texturesPlants[11];
+            habar[countSlot].GetComponentInChildren<TextMeshProUGUI>().text =
+                Reference.GameModel.StarFruit.Value.ToString();
+            countSlot++;
+        }
+        
+        
     }
 
     private void OnDisable()

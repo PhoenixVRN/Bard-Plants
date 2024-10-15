@@ -27,6 +27,15 @@ public class GameModel
         StarchNut = new SubscriptionField<int>();
         MysticalMushroom = new SubscriptionField<int>();
         CrystalNut = new SubscriptionField<int>();
+        FlyEater = new SubscriptionField<int>();
+        GutFlower = new SubscriptionField<int>();
+        Mandrake = new SubscriptionField<int>();
+        MiracleFruit = new SubscriptionField<int>();
+        NeedleFlower = new SubscriptionField<int>();
+        StaringFlower = new SubscriptionField<int>();
+        ToxicMushroom = new SubscriptionField<int>();
+        BushTentacles = new SubscriptionField<int>();
+        StarFruit = new SubscriptionField<int>();
         
         CountCustomerInGame = new SubscriptionField<int>();
         LevelGame = new SubscriptionField<int>() {Value = 1};

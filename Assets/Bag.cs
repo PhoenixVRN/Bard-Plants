@@ -11,13 +11,16 @@ public class Bag : MonoBehaviour
 
     public int starchNut;
     public int mysticalMushroom;
-    public int plant3;
-    public int plant4;
-    public int plant5;
-    public int plant6;
-    public int plant7;
-    public int plant8;
-    public int plant9;
+    public int CrystalNut;
+    public int FlyEater;
+    public int GutFlower;
+    public int Mandrake;
+    public int MiracleFruit;
+    public int NeedleFlower;
+    public int StaringFlower;
+    public int ToxicMushroom;
+    public int BushTentacles;
+    public int StarFruit;
 
     private void Awake()
     {
@@ -98,14 +101,14 @@ public class Bag : MonoBehaviour
         }
     }
 
-    private void OnMouseDown()
-    {
-        if (Reference.GameModel.BagInteractive.Value)
-        {
-            Reference.GameModel.BagInteractive.Value = false;
-            canvasOpenBag.SetActive(true);
-        }
-    }
+    // private void OnMouseDown()
+    // { Debug.Log($"OnMouseDown 1");
+    //     if (Reference.GameModel.BagInteractive.Value)
+    //     {
+    //         Reference.GameModel.BagInteractive.Value = false;
+    //         canvasOpenBag.SetActive(true);
+    //     }
+    // }
 
     public void BagInteractive()
     {
