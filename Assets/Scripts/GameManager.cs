@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance; 
     public List<Plant> allPlants;
     public List<Grydka> allGrydka;
-    public List<Texture> sptiTexturesPlant;
+    public List<Texture> spriteTexturesPlant;
     public TextMeshProUGUI textCoin;
     public SubscriptionField<int> coin;
     public GameObject PoPUpUpgrade;

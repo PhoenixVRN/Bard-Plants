@@ -42,15 +42,15 @@ public class Order : MonoBehaviour
         switch (typePlant)
         {
             case ETypePlant.Starch_Nut:
-                plant.texture = GameManager.instance.sptiTexturesPlant[0];
+                plant.texture = GameManager.instance.spriteTexturesPlant[0];
                 break;
 
             case ETypePlant.Mystical_Mushroom:
-                plant.texture = GameManager.instance.sptiTexturesPlant[1];
+                plant.texture = GameManager.instance.spriteTexturesPlant[1];
                 break;
             
             case ETypePlant.CrystalNut:
-                plant.texture = GameManager.instance.sptiTexturesPlant[2];
+                plant.texture = GameManager.instance.spriteTexturesPlant[2];
                 break;
         }
 
