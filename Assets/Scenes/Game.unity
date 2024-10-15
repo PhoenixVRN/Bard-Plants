@@ -4441,8 +4441,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -3.5, y: 289.3}
-  m_SizeDelta: {x: -175.8, y: -1366.1}
+  m_AnchoredPosition: {x: -3.5, y: 17.800049}
+  m_SizeDelta: {x: -175.8, y: -1098.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &516914956
 MonoBehaviour:
@@ -5689,8 +5689,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -3.5, y: -113}
-  m_SizeDelta: {x: -175.8, y: -1366.1}
+  m_AnchoredPosition: {x: -3.5, y: -114.974976}
+  m_SizeDelta: {x: -175.8, y: -1370.05}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &631340498
 MonoBehaviour:
@@ -7155,7 +7155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -293.7}
+  m_AnchoredPosition: {x: 0, y: -423}
   m_SizeDelta: {x: 350, y: 146.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &930205345
@@ -7585,110 +7585,110 @@ MonoBehaviour:
     typePlant: 1
     timeGrowth: 5
     spritePlant:
-    - {fileID: 2800000, guid: 325f308ad61b94647bd06bfee58ce6f1, type: 3}
-    - {fileID: 2800000, guid: 97e61ca9f1eb3cf4e9a2fd58b7c1119d, type: 3}
-    - {fileID: 2800000, guid: 4cdb2d9cb732bb0448a5e8df8eba40be, type: 3}
-    - {fileID: 2800000, guid: d311ca57d9d5d5247a425526dc7902e5, type: 3}
-    - {fileID: 2800000, guid: 22241081059ea544a8687c0e502c16b2, type: 3}
+    - {fileID: 2800000, guid: 333dc5996918aeb44b7bb9574a83841c, type: 3}
+    - {fileID: 2800000, guid: d1cad053a740e544ab625c805207607a, type: 3}
+    - {fileID: 2800000, guid: 899d42233acce7f44a9d709d59a5b4ab, type: 3}
+    - {fileID: 2800000, guid: af66750c050e1f54198ede457a857acf, type: 3}
+    - {fileID: 2800000, guid: b19c86c13b7e3124a8a08ad835e2a995, type: 3}
   - namePlant: MysticalMushroom
     typePlant: 2
     timeGrowth: 6
     spritePlant:
-    - {fileID: 2800000, guid: 550be85f4799df5439e115dcaf94301b, type: 3}
-    - {fileID: 2800000, guid: c5a46c7b2156f504cb1d321c201a5814, type: 3}
-    - {fileID: 2800000, guid: 4b3d860d035c07145802a5f3a7e49d00, type: 3}
-    - {fileID: 2800000, guid: 7de36a8edce09ff4c91652aa71fc58b1, type: 3}
-    - {fileID: 2800000, guid: 0fa3367a655e81b4aaad02a497769a04, type: 3}
+    - {fileID: 2800000, guid: ae474ac9f731701498efb2051bbeea2d, type: 3}
+    - {fileID: 2800000, guid: 93a0797ac79ecd84485d5e474f8ed847, type: 3}
+    - {fileID: 2800000, guid: bc83eaf58d713be44998d3c33b3896a6, type: 3}
+    - {fileID: 2800000, guid: 1e12f58b55eb80549a7653a24d3fdcc3, type: 3}
+    - {fileID: 2800000, guid: ca6bc56b1a6a0da40a28c180de97ed32, type: 3}
   - namePlant: CrystalNut
     typePlant: 3
     timeGrowth: 10
     spritePlant:
-    - {fileID: 2800000, guid: 992d958d452e980439b94fa5250c4b00, type: 3}
-    - {fileID: 2800000, guid: 7f63af8086fb45748a008dcdb2697bef, type: 3}
-    - {fileID: 2800000, guid: 3a8e831273e02944eac46a63a1ce1a3e, type: 3}
-    - {fileID: 2800000, guid: 7c081db15baecbb428a280ae0818bfe0, type: 3}
-    - {fileID: 2800000, guid: 6c159db74031f784fb64d522b01d61cd, type: 3}
+    - {fileID: 2800000, guid: 803568b302434604a9407b754c3a4998, type: 3}
+    - {fileID: 2800000, guid: 7129bb65b00dcb54ebb34ff0c8b8ec48, type: 3}
+    - {fileID: 2800000, guid: 8a2aad54890f22649884964220edab08, type: 3}
+    - {fileID: 2800000, guid: d102bf562d28949488845ae2aaaaf115, type: 3}
+    - {fileID: 2800000, guid: 358cc1472e3a9f54698ab91f9ec0abc1, type: 3}
   - namePlant: BushTentacles
     typePlant: 11
     timeGrowth: 10
     spritePlant:
-    - {fileID: 2800000, guid: ed2c8d040b4100e45873ccd3c2490939, type: 3}
-    - {fileID: 2800000, guid: f46fc99da21ac17418d05f050ef5b561, type: 3}
-    - {fileID: 2800000, guid: 8a488d9f706915744841a644e5ca2267, type: 3}
-    - {fileID: 2800000, guid: e536062e58984b34f929cc4517904365, type: 3}
-    - {fileID: 2800000, guid: 2979f32b09c5fcf4d9b69195254ae438, type: 3}
+    - {fileID: 2800000, guid: dcc90befbcd40204cb275daee11fb773, type: 3}
+    - {fileID: 2800000, guid: eabbda58b89ab094384f82234902b53f, type: 3}
+    - {fileID: 2800000, guid: f18be8a661ac50744b8bf8a9715e8509, type: 3}
+    - {fileID: 2800000, guid: 8cf8d5617eb62dd47a716fb7540e5113, type: 3}
+    - {fileID: 2800000, guid: 70c5067f546366c4bada8a2d3c3d7d8f, type: 3}
   - namePlant: FlyEater
     typePlant: 4
     timeGrowth: 10
     spritePlant:
-    - {fileID: 2800000, guid: 2a46a032aa6894c4d885ee01331516d3, type: 3}
-    - {fileID: 2800000, guid: c02f8ddd3d7298947917eb300b11cc98, type: 3}
-    - {fileID: 2800000, guid: d5481df4c2befdf47bf9c4d1c7cb6871, type: 3}
-    - {fileID: 2800000, guid: b5db0b07bd9aca54b86e52282a517699, type: 3}
-    - {fileID: 2800000, guid: bebf711986b13254db6ce5531a061834, type: 3}
+    - {fileID: 2800000, guid: 1995462798b6c9340843f8c26ed6cf2c, type: 3}
+    - {fileID: 2800000, guid: f7b0a053071b6dc4094809255c76ccd3, type: 3}
+    - {fileID: 2800000, guid: b1a62d09e40d9394eba787ced6a3847c, type: 3}
+    - {fileID: 2800000, guid: 725be9c2577e52b429d085f6aaefb62e, type: 3}
+    - {fileID: 2800000, guid: f9773f7a281ed714cbe72fd8c635234b, type: 3}
   - namePlant: GutFlower
     typePlant: 5
     timeGrowth: 10
     spritePlant:
-    - {fileID: 2800000, guid: 6c4fb5acce553f44da45e1eee611966c, type: 3}
-    - {fileID: 2800000, guid: f64173d0f6257da4eae30b521d878348, type: 3}
-    - {fileID: 2800000, guid: bdb1ccbbf5179864d90a529e73d40178, type: 3}
-    - {fileID: 2800000, guid: 7a33886385a92404e986f938600667b1, type: 3}
-    - {fileID: 2800000, guid: ca68915aa3481f542b05113a2fdc990d, type: 3}
+    - {fileID: 2800000, guid: 30e7f4e30330ec246b32ca9344768e38, type: 3}
+    - {fileID: 2800000, guid: 4afa391ffc6dbe14496b6d44dd37c670, type: 3}
+    - {fileID: 2800000, guid: c856269ca7dc1394c88bb3f92bd2f350, type: 3}
+    - {fileID: 2800000, guid: 2067b23392d25ff4da7549cf488f913b, type: 3}
+    - {fileID: 2800000, guid: a4c9bf249b1e87e429783e1373bd980c, type: 3}
   - namePlant: Mandrake
     typePlant: 6
     timeGrowth: 10
     spritePlant:
-    - {fileID: 2800000, guid: ab795309d446efa4db3b5744966cf426, type: 3}
-    - {fileID: 2800000, guid: c9c8f3388f6440c438048511937bc339, type: 3}
-    - {fileID: 2800000, guid: 8e95cd55d417ca54787f8a5e95866e48, type: 3}
-    - {fileID: 2800000, guid: cf5578b7ece59ed488fc0bb498b2911b, type: 3}
-    - {fileID: 2800000, guid: 5230eb9542a505a48aa02753c42a2858, type: 3}
+    - {fileID: 2800000, guid: 0074fe73a735ec8458a7c38c06f6cb2c, type: 3}
+    - {fileID: 2800000, guid: 45275a052e8360c499ceb493103709ed, type: 3}
+    - {fileID: 2800000, guid: 84b3dae03db4e2647a07e066214ce706, type: 3}
+    - {fileID: 2800000, guid: c21cebcf5eb166e41b81e39512352fcf, type: 3}
+    - {fileID: 2800000, guid: 5e1401a01d7bde544b1391e3eecd7b1c, type: 3}
   - namePlant: MiracleFruit
     typePlant: 7
     timeGrowth: 10
     spritePlant:
-    - {fileID: 2800000, guid: 2d5767bad35d1574b96546f066985fa7, type: 3}
-    - {fileID: 2800000, guid: 1d5593498a01472499dd184dfb441eed, type: 3}
-    - {fileID: 2800000, guid: 77c4ee847f2a2fc4ca9e5c8a183a9ff6, type: 3}
-    - {fileID: 2800000, guid: f9ad70940fcdc8246be11c6c63689c61, type: 3}
-    - {fileID: 2800000, guid: c0a734ee4d792e745af61bf2ca408aeb, type: 3}
+    - {fileID: 2800000, guid: 8aa4ed56c12936a439976342a95a6335, type: 3}
+    - {fileID: 2800000, guid: 9c039bdbebf62354cb49587c6106002c, type: 3}
+    - {fileID: 2800000, guid: fd33b98c069988443b0c16339062ba52, type: 3}
+    - {fileID: 2800000, guid: 2f5fa41f3fdf5ad419cc7ba749efc36b, type: 3}
+    - {fileID: 2800000, guid: d23f2199aa057a844895287b72e9717f, type: 3}
   - namePlant: NeedleFlower
     typePlant: 8
     timeGrowth: 10
     spritePlant:
-    - {fileID: 2800000, guid: 929ba75af4d1e3848bcd1c80d8e368b2, type: 3}
-    - {fileID: 2800000, guid: f9105469c310a114fa54a713a7ed21e2, type: 3}
-    - {fileID: 2800000, guid: 728655fc49ee5d94a8a551f620d269f5, type: 3}
-    - {fileID: 2800000, guid: c45d614d0837a2d42861bed948233141, type: 3}
-    - {fileID: 2800000, guid: 2bb07d191e5b70b4bb59ac479814dd7b, type: 3}
+    - {fileID: 2800000, guid: 0d8e8464966e9b74d921cbbc02d2a3af, type: 3}
+    - {fileID: 2800000, guid: 52a9150fda2d57043b716b9fdf841a7e, type: 3}
+    - {fileID: 2800000, guid: 3534ff2e05cb66e42b0a3d9f3934cb61, type: 3}
+    - {fileID: 2800000, guid: aecad1ad434df924893df3a2a4ffba39, type: 3}
+    - {fileID: 2800000, guid: 1dc708b132f9e9e47ad479fc8ff43528, type: 3}
   - namePlant: StarFruit
     typePlant: 12
     timeGrowth: 10
     spritePlant:
-    - {fileID: 2800000, guid: 4eab5c62ddaefce4fa7760c031c83745, type: 3}
-    - {fileID: 2800000, guid: 2dd965a79551d6b47958248a65f56fba, type: 3}
-    - {fileID: 2800000, guid: ee5bac3e5885a454799ea5e85bc1e778, type: 3}
-    - {fileID: 2800000, guid: 3c2f52ca24acd61408bc01ba49e194be, type: 3}
-    - {fileID: 2800000, guid: c5e981f8e3973214ab237402955c6e75, type: 3}
+    - {fileID: 2800000, guid: 92afdc409228f2a45a51b7a97d8fe587, type: 3}
+    - {fileID: 2800000, guid: d1ba9650f336db84eae4ecc962119edb, type: 3}
+    - {fileID: 2800000, guid: ba171a149a2c86746b935fbf215c01ab, type: 3}
+    - {fileID: 2800000, guid: 6b8d124e6aa30d843b5b9864246b8faf, type: 3}
+    - {fileID: 2800000, guid: 0a4d85be87e45f4478cd794cadbab92a, type: 3}
   - namePlant: StaringFlower
     typePlant: 9
     timeGrowth: 10
     spritePlant:
-    - {fileID: 2800000, guid: 579d637ad95085d47b7f378ee695cf31, type: 3}
-    - {fileID: 2800000, guid: 8c3073f982a33e047b8317eff07724fc, type: 3}
-    - {fileID: 2800000, guid: 5cc3d10def1342b47be02fc0fce16669, type: 3}
-    - {fileID: 2800000, guid: 6beac16db7dbd79438e3775f2bd89032, type: 3}
-    - {fileID: 2800000, guid: 604373585bc83ea45b880280ebb28efa, type: 3}
+    - {fileID: 2800000, guid: e75bb3f2808ef014ab2d1394d47edfb0, type: 3}
+    - {fileID: 2800000, guid: ff72cbe370323434ba0f074bdfbe8eb1, type: 3}
+    - {fileID: 2800000, guid: 16cb5eed355dd4e4cb757044614902e5, type: 3}
+    - {fileID: 2800000, guid: 2df5638756be45847bcf10b061ec1d0f, type: 3}
+    - {fileID: 2800000, guid: 23798138dc0a39645b9de1dd7dbcc8ed, type: 3}
   - namePlant: ToxicMushroom
     typePlant: 10
     timeGrowth: 10
     spritePlant:
-    - {fileID: 2800000, guid: 00fcde9743b4ce44db07103aabb499e9, type: 3}
-    - {fileID: 2800000, guid: 27bbc3a3b544872438879282dc3751c8, type: 3}
-    - {fileID: 2800000, guid: f5a4a62a2e348444a9e0b1a1a7daa70e, type: 3}
-    - {fileID: 2800000, guid: 8c0b8ff03f1e6374a99ce75385091919, type: 3}
-    - {fileID: 2800000, guid: afe8b54dbcd6b4e42b900387e2f01983, type: 3}
+    - {fileID: 2800000, guid: 35cdc9c8abb6dd74798bd01aa050b621, type: 3}
+    - {fileID: 2800000, guid: 1cff7a4f42a01734bb0f5d6d4628062e, type: 3}
+    - {fileID: 2800000, guid: eb7f0f796b96e9644acf70c21b983bde, type: 3}
+    - {fileID: 2800000, guid: b785655fedcf4674fbd965f1d5cb4d82, type: 3}
+    - {fileID: 2800000, guid: 1d6538541525eb5418301dfac898b0a5, type: 3}
   allGrydka:
   - {fileID: 113468998}
   - {fileID: 1265685555}
@@ -7703,9 +7703,18 @@ MonoBehaviour:
   - {fileID: 1028165874}
   - {fileID: 1143881424}
   sptiTexturesPlant:
-  - {fileID: 2800000, guid: 22241081059ea544a8687c0e502c16b2, type: 3}
-  - {fileID: 2800000, guid: 0fa3367a655e81b4aaad02a497769a04, type: 3}
-  - {fileID: 2800000, guid: 6c159db74031f784fb64d522b01d61cd, type: 3}
+  - {fileID: 2800000, guid: b19c86c13b7e3124a8a08ad835e2a995, type: 3}
+  - {fileID: 2800000, guid: ca6bc56b1a6a0da40a28c180de97ed32, type: 3}
+  - {fileID: 2800000, guid: 358cc1472e3a9f54698ab91f9ec0abc1, type: 3}
+  - {fileID: 2800000, guid: 70c5067f546366c4bada8a2d3c3d7d8f, type: 3}
+  - {fileID: 2800000, guid: f9773f7a281ed714cbe72fd8c635234b, type: 3}
+  - {fileID: 2800000, guid: a4c9bf249b1e87e429783e1373bd980c, type: 3}
+  - {fileID: 2800000, guid: 5e1401a01d7bde544b1391e3eecd7b1c, type: 3}
+  - {fileID: 2800000, guid: d23f2199aa057a844895287b72e9717f, type: 3}
+  - {fileID: 2800000, guid: 1dc708b132f9e9e47ad479fc8ff43528, type: 3}
+  - {fileID: 2800000, guid: 0a4d85be87e45f4478cd794cadbab92a, type: 3}
+  - {fileID: 2800000, guid: 23798138dc0a39645b9de1dd7dbcc8ed, type: 3}
+  - {fileID: 2800000, guid: 1d6538541525eb5418301dfac898b0a5, type: 3}
   textCoin: {fileID: 1410620140}
   PoPUpUpgrade: {fileID: 463917786}
   ParentGrydka: {fileID: 0}
@@ -14326,6 +14335,7 @@ GameObject:
   - component: {fileID: 1872733780}
   - component: {fileID: 1872733779}
   - component: {fileID: 1872733778}
+  - component: {fileID: 1872733781}
   m_Layer: 5
   m_Name: Close
   m_TagString: Untagged
@@ -14359,7 +14369,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1872733776}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -14446,6 +14456,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1872733776}
   m_CullTransparentMesh: 1
+--- !u!114 &1872733781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872733776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 463917786}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1896467662
 GameObject:
   m_ObjectHideFlags: 0
@@ -15016,6 +15055,7 @@ GameObject:
   - component: {fileID: 1961994357}
   - component: {fileID: 1961994356}
   - component: {fileID: 1961994355}
+  - component: {fileID: 1961994358}
   m_Layer: 5
   m_Name: Close
   m_TagString: Untagged
@@ -15049,7 +15089,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1961994353}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -15136,6 +15176,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1961994353}
   m_CullTransparentMesh: 1
+--- !u!114 &1961994358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961994353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 615289974}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1964126759
 GameObject:
   m_ObjectHideFlags: 0
