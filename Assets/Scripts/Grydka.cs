@@ -73,6 +73,11 @@ public class Grydka : MonoBehaviour
         plantunGrydka.gameObject.SetActive(true);
     }
 
+    public void TapGrydka()
+    {
+        Debug.Log($"TapGrydka");
+    }
+
     private void OnMouseDown()
     {
         // if (StateOfGrowth == 4)
@@ -82,7 +87,7 @@ public class Grydka : MonoBehaviour
         //     plantunGrydka.transform.DOMove(Bag.instance.transform.position, 1).SetEase(Ease.Linear).OnComplete(AddedPlodToBag);
         // }
 
-        Debug.Log($"Tap in {gameObject}");
+        // Debug.Log($"Tap in {gameObject}");
     }
 
     public void Harvesting()

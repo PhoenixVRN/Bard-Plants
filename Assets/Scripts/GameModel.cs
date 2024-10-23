@@ -21,6 +21,13 @@ public class GameModel
     
     public SubscriptionField<bool> BagInteractive { get; }
     
+    public SubscriptionField<bool> GardenGnome { get; }
+    public SubscriptionField<bool> CollectorGnome { get; }
+    public SubscriptionField<bool> MusicHelpers { get; }
+    
+    public SubscriptionField<LvlAssistance> GardenGnomeLevel { get; }
+    public SubscriptionField<LvlAssistance> CollectorGnomeLevel { get; }
+    public SubscriptionField<LvlAssistance> MusicHelpersLevel { get; }
    
     public GameModel()
     {
@@ -44,5 +51,11 @@ public class GameModel
         AnimationGardenGnome = new SubscriptionField<eTypeAnimation>();
         AnimationMusicHelpers = new SubscriptionField<eTypeAnimation>();
         BagInteractive = new SubscriptionField<bool>() {Value = true};
+        GardenGnome = new SubscriptionField<bool>() {Value = false};
+        CollectorGnome = new SubscriptionField<bool>() {Value = false};
+        MusicHelpers = new SubscriptionField<bool>() {Value = false};
+        GardenGnomeLevel = new SubscriptionField<LvlAssistance>();
+        CollectorGnomeLevel = new SubscriptionField<LvlAssistance>();
+        MusicHelpersLevel = new SubscriptionField<LvlAssistance>();
     }
 }
