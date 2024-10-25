@@ -19,15 +19,17 @@ public class Customer : MonoBehaviour
         {
             Debug.Log($"Add Expa {reward}");
             GameManager.instance.coin.Value += reward;
+            Reference.GameModel.NumberCompletedOrders.Value++;
             foreach (var ord in orders.ordersActive)
             {
+                //TODO 
                 switch (ord.typePlant)
                 {
-                    case ETypePlant.Starch_Nut:
+                    case ETypePlant.StarchNut:
                         Reference.GameModel.StarchNut.Value -= ord.needplant;
                         break;
 
-                    case ETypePlant.Mystical_Mushroom:
+                    case ETypePlant.MysticalMushroom:
                         Reference.GameModel.MysticalMushroom.Value -= ord.needplant;
                         break;
                     

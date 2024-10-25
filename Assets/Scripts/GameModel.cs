@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 public class GameModel 
 {
     public SubscriptionField<int> StarchNut { get; }
@@ -12,8 +14,11 @@ public class GameModel
     public SubscriptionField<int> ToxicMushroom  { get; }
     public SubscriptionField<int> BushTentacles { get; }
     public SubscriptionField<int> StarFruit { get; }
+
+    // public List<SubscriptionField<int>> AllPlantsInModel;
     public SubscriptionField<int> CountCustomerInGame { get; }
     public SubscriptionField<int> LevelGame { get; }
+    public SubscriptionField<int> NumberCompletedOrders { get; }
     public SubscriptionField<eTypeAnimation> AnimationPlayer { get; }
     public SubscriptionField<eTypeAnimation> AnimationCollectorGnome { get; }
     public SubscriptionField<eTypeAnimation> AnimationMusicHelpers { get; }
@@ -45,13 +50,13 @@ public class GameModel
         StarFruit = new SubscriptionField<int>();
         
         CountCustomerInGame = new SubscriptionField<int>();
-        LevelGame = new SubscriptionField<int>() {Value = 1};
+        LevelGame = new SubscriptionField<int>() {Value = 0};
         AnimationPlayer = new SubscriptionField<eTypeAnimation>();
         AnimationCollectorGnome = new SubscriptionField<eTypeAnimation>();
         AnimationGardenGnome = new SubscriptionField<eTypeAnimation>();
         AnimationMusicHelpers = new SubscriptionField<eTypeAnimation>();
         BagInteractive = new SubscriptionField<bool>() {Value = true};
-        GardenGnome = new SubscriptionField<bool>() {Value = false};
+        GardenGnome = new SubscriptionField<bool>() {Value = true};
         CollectorGnome = new SubscriptionField<bool>() {Value = false};
         MusicHelpers = new SubscriptionField<bool>() {Value = false};
         GardenGnomeLevel = new SubscriptionField<LvlAssistance>();
@@ -60,5 +65,21 @@ public class GameModel
         CollectorGnomeLevel.Value = new LvlAssistance();
         MusicHelpersLevel = new SubscriptionField<LvlAssistance>();
         MusicHelpersLevel.Value = new LvlAssistance();
+        NumberCompletedOrders = new SubscriptionField<int>();
+        // AllPlantsInModel = new List<SubscriptionField<int>>()
+        // {
+        //     StarchNut,
+        //     MysticalMushroom,
+        //     CrystalNut,
+        //     FlyEater,
+        //     GutFlower,
+        //     Mandrake,
+        //     MiracleFruit,
+        //     NeedleFlower,
+        //     StaringFlower,
+        //     ToxicMushroom,
+        //     BushTentacles,
+        //     StarFruit
+        // };
     }
 }

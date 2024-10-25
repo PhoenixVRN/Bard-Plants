@@ -39,20 +39,21 @@ public class Order : MonoBehaviour
     {
         needplant = needCount;
         this.typePlant = typePlant;
-        switch (typePlant)
-        {
-            case ETypePlant.Starch_Nut:
-                plant.texture = GameManager.instance.spriteTexturesPlant[0];
-                break;
-
-            case ETypePlant.Mystical_Mushroom:
-                plant.texture = GameManager.instance.spriteTexturesPlant[1];
-                break;
-            
-            case ETypePlant.CrystalNut:
-                plant.texture = GameManager.instance.spriteTexturesPlant[2];
-                break;
-        }
+        plant.texture = GameManager.instance.allPlants.Find(plant1 => plant1.typePlant == typePlant).spritePlant[4];
+        // switch (typePlant)
+        // {
+        //     case ETypePlant.StarchNut:
+        //         plant.texture = GameManager.instance.spriteTexturesPlant[0];
+        //         break;
+        //
+        //     case ETypePlant.MysticalMushroom:
+        //         plant.texture = GameManager.instance.spriteTexturesPlant[1];
+        //         break;
+        //     
+        //     case ETypePlant.CrystalNut:
+        //         plant.texture = GameManager.instance.spriteTexturesPlant[2];
+        //         break;
+        // }
 
         completeOrderFon.SetActive(false);
         completeOrderTagl.SetActive(false);
@@ -63,26 +64,29 @@ public class Order : MonoBehaviour
 
     public void CountText()
     {
-        switch (typePlant)
-        {
-            case ETypePlant.Starch_Nut:
-                // count = Bag.instance.starchNut;
-                Reference.GameModel.StarchNut.Subscribe(ShowText);
-                ShowText(Reference.GameModel.StarchNut.Value);
-                break;
-
-            case ETypePlant.Mystical_Mushroom:
-                // count = Bag.instance.mysticalMushroom;
-                Reference.GameModel.MysticalMushroom.Subscribe(ShowText);
-                ShowText(Reference.GameModel.MysticalMushroom.Value);
-                break;
-            
-            case ETypePlant.CrystalNut:
-                // count = Bag.instance.mysticalMushroom;
-                Reference.GameModel.CrystalNut.Subscribe(ShowText);
-                ShowText(Reference.GameModel.CrystalNut.Value);
-                break;
-        }
+        var plant = GameManager.instance.allPlants.Find(pl => pl.typePlant == typePlant);
+        plant.quantity.Subscribe(ShowText);
+        ShowText(plant.quantity.Value);
+        // switch (typePlant)
+        // {
+        //     case ETypePlant.StarchNut:
+        //         // count = Bag.instance.starchNut;
+        //         Reference.GameModel.StarchNut.Subscribe(ShowText);
+        //         ShowText(Reference.GameModel.StarchNut.Value);
+        //         break;
+        //
+        //     case ETypePlant.MysticalMushroom:
+        //         // count = Bag.instance.mysticalMushroom;
+        //         Reference.GameModel.MysticalMushroom.Subscribe(ShowText);
+        //         ShowText(Reference.GameModel.MysticalMushroom.Value);
+        //         break;
+        //     
+        //     case ETypePlant.CrystalNut:
+        //         // count = Bag.instance.mysticalMushroom;
+        //         Reference.GameModel.CrystalNut.Subscribe(ShowText);
+        //         ShowText(Reference.GameModel.CrystalNut.Value);
+        //         break;
+        // }
     }
 
     private void ShowText(int value)

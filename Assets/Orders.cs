@@ -13,7 +13,7 @@ public class Orders : MonoBehaviour
     private void Start()
     {
         // ordersActive[0].gameObject.SetActive(true);
-        // ordersActive[0].InitOrder(ETypePlant.Starch_Nut, 5);
+        // ordersActive[0].InitOrder(ETypePlant.StarchNut, 5);
     }
 
     public void InitOrders(OrderCfg orderCfg)
