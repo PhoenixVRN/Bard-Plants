@@ -22,21 +22,29 @@ public class Customer : MonoBehaviour
             Reference.GameModel.NumberCompletedOrders.Value++;
             foreach (var ord in orders.ordersActive)
             {
-                //TODO 
-                switch (ord.typePlant)
+                if (ord.typePlant == 0)
                 {
-                    case ETypePlant.StarchNut:
-                        Reference.GameModel.StarchNut.Value -= ord.needplant;
-                        break;
-
-                    case ETypePlant.MysticalMushroom:
-                        Reference.GameModel.MysticalMushroom.Value -= ord.needplant;
-                        break;
-                    
-                    case ETypePlant.CrystalNut:
-                        Reference.GameModel.CrystalNut.Value -= ord.needplant;
-                        break;
+                    Debug.Log($"typePlant == 0 {ord.typePlant}");
+                    return;
                 }
+                //TODO 
+                Debug.Log($"ord.typePlant {ord.typePlant}");
+                Debug.Log($"Plant type {ord.typePlant}/ {GameManager.instance.GetPlantToType(ord.typePlant)}");
+                GameManager.instance.GetPlantToType(ord.typePlant).quantity.Value -= ord.needplant;
+                // switch (ord.typePlant)
+                // {
+                //     case ETypePlant.StarchNut:
+                //         Reference.GameModel.StarchNut.Value -= ord.needplant;
+                //         break;
+                //
+                //     case ETypePlant.MysticalMushroom:
+                //         Reference.GameModel.MysticalMushroom.Value -= ord.needplant;
+                //         break;
+                //     
+                //     case ETypePlant.CrystalNut:
+                //         Reference.GameModel.CrystalNut.Value -= ord.needplant;
+                //         break;
+                // }
             }
             gameObject.SetActive(false);
             Reference.GameModel.CountCustomerInGame.Value--;

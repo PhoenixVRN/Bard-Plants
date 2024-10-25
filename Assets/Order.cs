@@ -1,10 +1,11 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Order : MonoBehaviour
 {
-    public RawImage plant;
+    public RawImage plantImage;
     public TextMeshProUGUI textOrder;
     public GameObject completeOrderTagl;
     public GameObject completeOrderFon;
@@ -12,6 +13,7 @@ public class Order : MonoBehaviour
     public int needplant;
     public int collected;
     public bool completed;
+    private Plant plant;
 
     void Start()
     {
@@ -39,19 +41,19 @@ public class Order : MonoBehaviour
     {
         needplant = needCount;
         this.typePlant = typePlant;
-        plant.texture = GameManager.instance.allPlants.Find(plant1 => plant1.typePlant == typePlant).spritePlant[4];
+        plantImage.texture = GameManager.instance.GetPlantToType(typePlant).spritePlant[4];
         // switch (typePlant)
         // {
         //     case ETypePlant.StarchNut:
-        //         plant.texture = GameManager.instance.spriteTexturesPlant[0];
+        //         plantImage.texture = GameManager.instance.spriteTexturesPlant[0];
         //         break;
         //
         //     case ETypePlant.MysticalMushroom:
-        //         plant.texture = GameManager.instance.spriteTexturesPlant[1];
+        //         plantImage.texture = GameManager.instance.spriteTexturesPlant[1];
         //         break;
         //     
         //     case ETypePlant.CrystalNut:
-        //         plant.texture = GameManager.instance.spriteTexturesPlant[2];
+        //         plantImage.texture = GameManager.instance.spriteTexturesPlant[2];
         //         break;
         // }
 
@@ -64,7 +66,7 @@ public class Order : MonoBehaviour
 
     public void CountText()
     {
-        var plant = GameManager.instance.allPlants.Find(pl => pl.typePlant == typePlant);
+        plant = GameManager.instance.GetPlantToType(typePlant);
         plant.quantity.Subscribe(ShowText);
         ShowText(plant.quantity.Value);
         // switch (typePlant)
@@ -95,10 +97,8 @@ public class Order : MonoBehaviour
         textOrder.text = needplant + " / " + value;
     }
 
-    private void OnEnable()
-    {
-        Reference.GameModel.StarchNut.UnSubscribe(ShowText);
-        Reference.GameModel.MysticalMushroom.UnSubscribe(ShowText);
-        Reference.GameModel.CrystalNut.UnSubscribe(ShowText);
-    }
+    // private void OnDisable()
+    // {
+    //     plant.quantity.UnSubscribe(ShowText);
+    // }
 }

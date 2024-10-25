@@ -673,15 +673,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -881,15 +883,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -955,6 +959,7 @@ BoxCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4338586402329485773}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -978,7 +983,8 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: 0.052638948, y: -0.25567412}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -989,7 +995,6 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
   m_Size: {x: 300, y: 450}
   m_EdgeRadius: 0
 --- !u!114 &9168784007612792306
@@ -1004,8 +1009,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8be2ba81e15ec4741ae83e936bf513db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orders: {fileID: 0}
-  reward: 0
+  orders: {fileID: 6189329440288183026}
+  reward: 200
 --- !u!222 &8410014019135192681
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1315,7 +1320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6002e65690060b440ba5a2006f483026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plant: {fileID: 4930796413560761173}
+  plantImage: {fileID: 4930796413560761173}
   textOrder: {fileID: 4556382899726706816}
   completeOrderTagl: {fileID: 6310581181595277690}
   completeOrderFon: {fileID: 3568098751256803205}
@@ -1373,12 +1378,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6002e65690060b440ba5a2006f483026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plant: {fileID: 2539903860668355154}
+  plantImage: {fileID: 2539903860668355154}
   textOrder: {fileID: 1609236159117408399}
   completeOrderTagl: {fileID: 2913153290279475036}
   completeOrderFon: {fileID: 1249001575148107469}
-  typePlant: 0
-  needplant: 0
+  typePlant: 1
+  needplant: 10
   collected: 0
   completed: 0
 --- !u!1 &8477926681827578852
@@ -1489,15 +1494,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -1623,15 +1630,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -1699,7 +1708,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6002e65690060b440ba5a2006f483026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plant: {fileID: 4248954918919222034}
+  plantImage: {fileID: 4248954918919222034}
   textOrder: {fileID: 149896518181411625}
   completeOrderTagl: {fileID: 3006403403365742436}
   completeOrderFon: {fileID: 3866775822801957877}

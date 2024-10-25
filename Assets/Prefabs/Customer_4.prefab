@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6002e65690060b440ba5a2006f483026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plant: {fileID: 6220521949705043090}
+  plantImage: {fileID: 6220521949705043090}
   textOrder: {fileID: 2588282656155429813}
   completeOrderTagl: {fileID: 1402130793129575582}
   completeOrderFon: {fileID: 3925851590416582861}
@@ -241,15 +241,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -315,6 +317,7 @@ BoxCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1337027824799339064}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -338,7 +341,8 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: 0.052638948, y: -0.25567412}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -349,7 +353,6 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
   m_Size: {x: 300, y: 450}
   m_EdgeRadius: 0
 --- !u!114 &6756410606401894917
@@ -364,8 +367,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8be2ba81e15ec4741ae83e936bf513db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orders: {fileID: 0}
-  reward: 0
+  orders: {fileID: 3113212906476101864}
+  reward: 500
 --- !u!222 &3568722786478995671
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -598,7 +601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6002e65690060b440ba5a2006f483026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plant: {fileID: 9068083203725744817}
+  plantImage: {fileID: 9068083203725744817}
   textOrder: {fileID: 7486650247722039279}
   completeOrderTagl: {fileID: 2922982847138535174}
   completeOrderFon: {fileID: 6838832346071746086}
@@ -786,7 +789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6002e65690060b440ba5a2006f483026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plant: {fileID: 5333709939399363100}
+  plantImage: {fileID: 5333709939399363100}
   textOrder: {fileID: 3800458218473437602}
   completeOrderTagl: {fileID: 1599276811160294090}
   completeOrderFon: {fileID: 8053048887802971754}
@@ -1195,15 +1198,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -1329,15 +1334,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -1681,15 +1688,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0

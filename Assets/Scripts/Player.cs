@@ -31,6 +31,6 @@ public class Player : MonoBehaviour
             }
         // }
 
-        _rb.velocity = new Vector2(_dynamicJoystick.Horizontal * _moveSpeed, _dynamicJoystick.Vertical * _moveSpeed);
+        _rb.linearVelocity = new Vector2(_dynamicJoystick.Horizontal * _moveSpeed, _dynamicJoystick.Vertical * _moveSpeed);
     }
 }

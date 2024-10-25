@@ -169,5 +169,13 @@ public class Plant
     public ETypePlant typePlant;
     public int timeGrowth;
     public List<Texture> spritePlant;
-    public SubscriptionField<int> quantity = new SubscriptionField<int>();
+
+    public int QE => quantity.Value;
+   
+    public SubscriptionField<int> quantity;
+    public Plant()
+    {
+        quantity = new SubscriptionField<int>() {Value = 0};
+    }
+   
 }

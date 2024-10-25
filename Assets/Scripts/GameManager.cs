@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -22,6 +23,17 @@ public class GameManager : MonoBehaviour
     public List<Plant> openPlants;
     // public List<Customer> customers;
 
+    private void Awake()
+    {
+        if (instance == null) { 
+            instance = this; 
+        } else if(instance == this)
+        { 
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
+    }
+
     void Start()
     {
         _cfgLevelData = GetComponent<CfgLevelData>();
@@ -32,12 +44,6 @@ public class GameManager : MonoBehaviour
         gameModel.LevelGame.Subscribe(ChangeLevelGame);
         gameModel.NumberCompletedOrders.Subscribe(ChangeLevelUp);
         ChangeLevelGame(gameModel.LevelGame.Value);
-        if (instance == null) { 
-            instance = this; 
-        } else if(instance == this)
-        { 
-            Destroy(gameObject);
-        }
         DontDestroyOnLoad(gameObject);
         CustomersSpawn();
         ChangeLevelUp(0);
@@ -63,8 +69,8 @@ public class GameManager : MonoBehaviour
     {
         if (_cfgLevelData.AllLevelData[gameModel.LevelGame.Value].NumberCompletedOrders <= number)
         {
-            var enamPlant = _cfgLevelData.AllLevelData[gameModel.LevelGame.Value].OpenPlant;
-            var plant = allPlants.Find(p => p.typePlant == enamPlant);
+            var typePlant = _cfgLevelData.AllLevelData[gameModel.LevelGame.Value].OpenPlant;
+            var plant = GetPlantToType(typePlant);
             coin.Value += _cfgLevelData.AllLevelData[gameModel.LevelGame.Value].CoinReward;
             Debug.Log($"Add Plant {plant.typePlant}");
             openPlants.Add(plant);
