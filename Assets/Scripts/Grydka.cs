@@ -118,7 +118,7 @@ public class Grydka : MonoBehaviour
         empty = false;
         plantunGrydka.gameObject.SetActive(false);
         plantunGrydka.transform.SetParent(transform);
-        plantunGrydka.transform.localPosition = Vector3.zero;
+        plantunGrydka.transform.localPosition = new Vector3(0, 40, 0);
         var count = Random.Range(GameManager.instance.upgradeGrydkaCfgs[levelGrydka - 1].minPlants,
             GameManager.instance.upgradeGrydkaCfgs[levelGrydka - 1].maxPlants);
         Debug.Log($"min {GameManager.instance.upgradeGrydkaCfgs[levelGrydka - 1].minPlants}/max {GameManager.instance.upgradeGrydkaCfgs[levelGrydka - 1].maxPlants}");
