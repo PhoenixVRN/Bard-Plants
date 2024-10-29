@@ -18,7 +18,9 @@ public class GameManager : MonoBehaviour
     public GameObject PoPUpUpgrade;
     public Transform ParentGrydka;
     public GameModel gameModel;
+    public UpgradeLevelUp UpgradeLevelUp;
     private CfgLevelData _cfgLevelData;
+    
 
     public List<Plant> openPlants;
     // public List<Customer> customers;
@@ -69,14 +71,27 @@ public class GameManager : MonoBehaviour
     {
         if (_cfgLevelData.AllLevelData[gameModel.LevelGame.Value].NumberCompletedOrders <= number)
         {
-            var typePlant = _cfgLevelData.AllLevelData[gameModel.LevelGame.Value].OpenPlant;
-            var plant = GetPlantToType(typePlant);
-            coin.Value += _cfgLevelData.AllLevelData[gameModel.LevelGame.Value].CoinReward;
-            Debug.Log($"Add Plant {plant.typePlant}");
-            openPlants.Add(plant);
-            gameModel.LevelGame.Value++;
-            gameModel.NumberCompletedOrders.Value = 0;
             //TODO попап повышени уровня и пр.
+            gameModel.LevelGame.Value++;
+            UpgradeLevelUp.gameObject.SetActive(true);
+            UpgradeLevelUp.InitPanel(_cfgLevelData.AllLevelData[gameModel.LevelGame.Value -1]);
+        }
+    }
+
+    public void LevelUpApply()
+    {
+        var typePlant = _cfgLevelData.AllLevelData[gameModel.LevelGame.Value -1].OpenPlant;
+        var plant = GetPlantToType(typePlant);
+        coin.Value += _cfgLevelData.AllLevelData[gameModel.LevelGame.Value-1].CoinReward;
+        // Debug.Log($"Add Plant {plant.typePlant}/ level {gameModel.LevelGame.Value}");
+        openPlants.Add(plant);
+        gameModel.NumberCompletedOrders.Value = 0;
+        var u = _cfgLevelData.AllLevelData[gameModel.LevelGame.Value-1].RewardLevelDataPlants[0];
+        Bag.instance.AddPlants(u.RewardPlant, u.QuantityRewardPlant);
+        if (_cfgLevelData.AllLevelData[gameModel.LevelGame.Value-1].RewardLevelDataPlants.Count >1)
+        {
+            var p = _cfgLevelData.AllLevelData[gameModel.LevelGame.Value -1].RewardLevelDataPlants[0];
+            Bag.instance.AddPlants(p.RewardPlant, p.QuantityRewardPlant);
         }
     }
     public void OpenPlants()

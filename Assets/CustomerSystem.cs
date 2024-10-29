@@ -33,7 +33,7 @@ public class CustomerSystem : MonoBehaviour
         {
             lastTime = Time.time;
             Reference.GameModel.CountCustomerInGame.Value++;
-            Debug.Log($"orderCfgs[turn] {turn}");
+            // Debug.Log($"orderCfgs[turn] {turn}");
             InitCustomer(orderCfgs[turn]);
             turn++;
         }
@@ -43,7 +43,7 @@ public class CustomerSystem : MonoBehaviour
     {
         var customer = Instantiate(allCustomerType[orderCfg.typeCustomer], transform).GetComponent<Customer>();
         customer.reward = orderCfg.reward;
-        Debug.Log($"InitCustomer {customer.orders}");
+        // Debug.Log($"InitCustomer {customer.orders}");
         customer.orders.InitOrders(orderCfg);
     }
 }

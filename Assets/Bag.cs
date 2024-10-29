@@ -49,58 +49,7 @@ public class Bag : MonoBehaviour
         Debug.Log($"Added to Bag {type.ToString()}, count {value}");
         
         GameManager.instance.allPlants.Find(pl => pl.typePlant == type).quantity.Value += value;
-        // switch (type)
-        // {
-        //     case ETypePlant.StarchNut:
-        //         Reference.GameModel.StarchNut.Value += value;
-        //         break;
-        //
-        //     case ETypePlant.MysticalMushroom:
-        //         Reference.GameModel.MysticalMushroom.Value += value;
-        //         break;
-        //
-        //     case ETypePlant.CrystalNut:
-        //         Reference.GameModel.CrystalNut.Value += value;
-        //         break;
-        //     
-        //     case ETypePlant.FlyEater:
-        //         Reference.GameModel.FlyEater.Value += value;
-        //         break;
-        //     
-        //     case ETypePlant.GutFlower:
-        //         Reference.GameModel.GutFlower.Value += value;
-        //         break;
-        //     
-        //     case ETypePlant.Mandrake:
-        //         Reference.GameModel.Mandrake.Value += value;
-        //         break;
-        //     
-        //     case ETypePlant.MiracleFruit:
-        //         Reference.GameModel.MiracleFruit.Value += value;
-        //         break;
-        //     
-        //     case ETypePlant.NeedleFlower:
-        //         Reference.GameModel.NeedleFlower.Value += value;
-        //         break;
-        //     
-        //     case ETypePlant.StaringFlower:
-        //         Reference.GameModel.StaringFlower.Value += value;
-        //         break;
-        //     
-        //     case ETypePlant.ToxicMushroom:
-        //         Reference.GameModel.ToxicMushroom.Value += value;
-        //         break;
-        //     
-        //     case ETypePlant.BushTentacles:
-        //         Reference.GameModel.BushTentacles.Value += value;
-        //         break;
-        //     
-        //     case ETypePlant.StarFruit:
-        //         Reference.GameModel.StarFruit.Value += value;
-        //         break;
-        //     
-        //     
-        // }
+        Debug.Log($"cristal {GameManager.instance.allPlants.Find(pl => pl.typePlant == ETypePlant.CrystalNut).quantity.Value}");
     }
 
     // private void OnMouseDown()

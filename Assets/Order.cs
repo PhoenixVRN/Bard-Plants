@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Order : MonoBehaviour
@@ -42,20 +41,7 @@ public class Order : MonoBehaviour
         needplant = needCount;
         this.typePlant = typePlant;
         plantImage.texture = GameManager.instance.GetPlantToType(typePlant).spritePlant[4];
-        // switch (typePlant)
-        // {
-        //     case ETypePlant.StarchNut:
-        //         plantImage.texture = GameManager.instance.spriteTexturesPlant[0];
-        //         break;
-        //
-        //     case ETypePlant.MysticalMushroom:
-        //         plantImage.texture = GameManager.instance.spriteTexturesPlant[1];
-        //         break;
-        //     
-        //     case ETypePlant.CrystalNut:
-        //         plantImage.texture = GameManager.instance.spriteTexturesPlant[2];
-        //         break;
-        // }
+
 
         completeOrderFon.SetActive(false);
         completeOrderTagl.SetActive(false);
@@ -69,26 +55,7 @@ public class Order : MonoBehaviour
         plant = GameManager.instance.GetPlantToType(typePlant);
         plant.quantity.Subscribe(ShowText);
         ShowText(plant.quantity.Value);
-        // switch (typePlant)
-        // {
-        //     case ETypePlant.StarchNut:
-        //         // count = Bag.instance.starchNut;
-        //         Reference.GameModel.StarchNut.Subscribe(ShowText);
-        //         ShowText(Reference.GameModel.StarchNut.Value);
-        //         break;
-        //
-        //     case ETypePlant.MysticalMushroom:
-        //         // count = Bag.instance.mysticalMushroom;
-        //         Reference.GameModel.MysticalMushroom.Subscribe(ShowText);
-        //         ShowText(Reference.GameModel.MysticalMushroom.Value);
-        //         break;
-        //     
-        //     case ETypePlant.CrystalNut:
-        //         // count = Bag.instance.mysticalMushroom;
-        //         Reference.GameModel.CrystalNut.Subscribe(ShowText);
-        //         ShowText(Reference.GameModel.CrystalNut.Value);
-        //         break;
-        // }
+        // Debug.Log($"plant.quantity {plant.typePlant}/{plant.quantity.Value}");
     }
 
     private void ShowText(int value)

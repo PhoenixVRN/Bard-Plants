@@ -8,13 +8,7 @@ public class Orders : MonoBehaviour
 {
     public List<Order> ordersActive;
     public TextMeshProUGUI rewardText;
-
-
-    private void Start()
-    {
-        // ordersActive[0].gameObject.SetActive(true);
-        // ordersActive[0].InitOrder(ETypePlant.StarchNut, 5);
-    }
+    
 
     public void InitOrders(OrderCfg orderCfg)
     {
