@@ -93,6 +93,7 @@ public class GameManager : MonoBehaviour
             var p = _cfgLevelData.AllLevelData[gameModel.LevelGame.Value -1].RewardLevelDataPlants[0];
             Bag.instance.AddPlants(p.RewardPlant, p.QuantityRewardPlant);
         }
+        Time.timeScale = 1f;
     }
     public void OpenPlants()
     {

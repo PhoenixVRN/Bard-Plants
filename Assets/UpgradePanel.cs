@@ -20,7 +20,10 @@ public class UpgradePanel : MonoBehaviour
 
     private Grydka _currentGrydka;
     private int _cost;
-
+    private void OnEnable()
+    {
+        Time.timeScale = 0f;
+    }
     public void Init(int lev, Grydka grydka)
     {
         Reference.GameModel.BagInteractive.Value = false;
@@ -61,6 +64,7 @@ public class UpgradePanel : MonoBehaviour
         Reference.GameModel.BagInteractive.Value = true;
         _currentGrydka.uprgadePopUpActive = false;
         _currentGrydka.empty = false;
+        Time.timeScale = 1f;
     }
 }
 

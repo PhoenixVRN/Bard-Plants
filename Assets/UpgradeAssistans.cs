@@ -47,9 +47,15 @@ public class UpgradeAssistans : MonoBehaviour
 
     private void OnEnable()
     {
+        Time.timeScale = 0f;
         _numAssistance = 0;
         pers.sprite = allAssistanse[_numAssistance];
     }
+    private void OnDisable()
+    {
+        Time.timeScale = 1f;
+    }
+    
 
     private void Start()
     {
@@ -135,21 +141,6 @@ public class UpgradeAssistans : MonoBehaviour
     public void BuyLevelSpeed()
     {
         _currentLvlAssistance.lvlSpeed++;
-        // switch (_numAssistance)
-        // {
-        //     case 0:
-        //         _gameModel.GardenGnomeLevel.Value.lvlSpeed++;
-        //         break;
-        //
-        //     case 1:
-        //         _gameModel.CollectorGnomeLevel.Value.lvlSpeed++;
-        //         break;
-        //
-        //     case 2:
-        //         _gameModel.MusicHelpersLevel.Value.lvlSpeed++;
-        //         break;
-        // }
-
         UpDateData();
         SetLevelButton();
     }
