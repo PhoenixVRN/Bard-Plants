@@ -2112,6 +2112,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 164965784}
   m_CullTransparentMesh: 1
+--- !u!1 &172197928
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 172197929}
+  m_Layer: 5
+  m_Name: pos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &172197929
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172197928}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1656903606}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 40.26, y: -0.0000059605}
+  m_SizeDelta: {x: 80.53, y: 85}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &172364057
 GameObject:
   m_ObjectHideFlags: 0
@@ -10316,6 +10351,8 @@ GameObject:
   - component: {fileID: 1013550068}
   - component: {fileID: 1013550067}
   - component: {fileID: 1013550069}
+  - component: {fileID: 1013550071}
+  - component: {fileID: 1013550070}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -10504,6 +10541,10 @@ MonoBehaviour:
   PoPUpUpgrade: {fileID: 463917786}
   ParentGrydka: {fileID: 0}
   UpgradeLevelUp: {fileID: 325503854}
+  getTokensVFXController: {fileID: 0}
+  gameScoreHandler: {fileID: 0}
+  CoinPos: {fileID: 172197929}
+  ExpPos: {fileID: 0}
   openPlants: []
 --- !u!4 &1013550068
 Transform:
@@ -10541,14 +10582,14 @@ MonoBehaviour:
     - RewardPlant: 2
       QuantityRewardPlant: 13
   - Level: 2
-    NumberCompletedOrders: 4
+    NumberCompletedOrders: 3
     OpenPlant: 3
     CoinReward: 172
     RewardLevelDataPlants:
     - RewardPlant: 1
       QuantityRewardPlant: 21
   - Level: 3
-    NumberCompletedOrders: 5
+    NumberCompletedOrders: 3
     OpenPlant: 6
     CoinReward: 245
     RewardLevelDataPlants:
@@ -10563,6 +10604,32 @@ MonoBehaviour:
       QuantityRewardPlant: 11
     - RewardPlant: 1
       QuantityRewardPlant: 24
+--- !u!114 &1013550070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013550066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37c1c52e3e833cb46b1da8fd84fb4a68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 0}
+--- !u!114 &1013550071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013550066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 369a0d1556d3c0d4c915c6ac4e6ea138, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scoreCountText: {fileID: 1410620140}
 --- !u!1 &1024623408
 GameObject:
   m_ObjectHideFlags: 0
@@ -17092,6 +17159,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1410620139}
+  - {fileID: 172197929}
   m_Father: {fileID: 1741161394}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.266, y: 0.2066668}

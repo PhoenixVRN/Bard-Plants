@@ -19,7 +19,11 @@ public class GameManager : MonoBehaviour
     public Transform ParentGrydka;
     public GameModel gameModel;
     public UpgradeLevelUp UpgradeLevelUp;
+    public GetTokensVFXController getTokensVFXController;
+    public GameScoreHandler gameScoreHandler;
+    public Transform CoinPos;
     private CfgLevelData _cfgLevelData;
+    private int _lastCoins;
     
 
     public List<Plant> openPlants;
@@ -39,6 +43,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _cfgLevelData = GetComponent<CfgLevelData>();
+        getTokensVFXController = GetComponent<GetTokensVFXController>();
+        gameScoreHandler = GetComponent<GameScoreHandler>();
         gameModel = Reference.GameModel;
         coin = new SubscriptionField<int>();
         coin.Value = 0;

@@ -369,6 +369,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orders: {fileID: 3113212906476101864}
   reward: 500
+  coin: {fileID: 263560462820696322, guid: 56ecd3521c062f54493f9ce12fe195f9, type: 3}
+  Experience: {fileID: 263560462820696322, guid: e5e8e06d3881ebd4099ff9f84ba6aa00, type: 3}
 --- !u!222 &3568722786478995671
 CanvasRenderer:
   m_ObjectHideFlags: 0
