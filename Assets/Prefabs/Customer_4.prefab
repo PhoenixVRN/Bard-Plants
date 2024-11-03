@@ -367,6 +367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8be2ba81e15ec4741ae83e936bf513db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TypeCustomer: 3
   orders: {fileID: 3113212906476101864}
   reward: 500
   coin: {fileID: 263560462820696322, guid: 56ecd3521c062f54493f9ce12fe195f9, type: 3}

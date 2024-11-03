@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class Customer : MonoBehaviour
 {
+    public eTypeCustomer TypeCustomer;
     public Orders orders;
     public int reward = 0;
     public GameObject coin;
     public GameObject Experience;
+    public bool IsUsed;
     
     
 
