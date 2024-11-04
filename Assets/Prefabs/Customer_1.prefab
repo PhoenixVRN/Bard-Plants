@@ -131,6 +131,7 @@ MonoBehaviour:
   - {fileID: 2938884559380801742}
   - {fileID: 337680399590220095}
   rewardText: {fileID: 8161400669172840666}
+  customer: {fileID: 9168784007612792306}
 --- !u!1 &1249001575148107469
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,10 +1010,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8be2ba81e15ec4741ae83e936bf513db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TypeCustomer: 0
   orders: {fileID: 6189329440288183026}
   reward: 200
   coin: {fileID: 263560462820696322, guid: 56ecd3521c062f54493f9ce12fe195f9, type: 3}
   Experience: {fileID: 263560462820696322, guid: e5e8e06d3881ebd4099ff9f84ba6aa00, type: 3}
+  IsUsed: 0
 --- !u!222 &8410014019135192681
 CanvasRenderer:
   m_ObjectHideFlags: 0

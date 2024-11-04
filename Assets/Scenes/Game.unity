@@ -1263,7 +1263,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &127477604
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1676,6 +1676,7 @@ MonoBehaviour:
     namePlant: 
     typePlant: 0
     timeGrowth: 0
+    defaultValueDelivery: 0
     spritePlant: []
   StateOfGrowth: 0
   GrowthAccelerator: 0
@@ -6453,6 +6454,7 @@ MonoBehaviour:
     namePlant: 
     typePlant: 0
     timeGrowth: 0
+    defaultValueDelivery: 0
     spritePlant: []
   StateOfGrowth: 0
   GrowthAccelerator: 0
@@ -8131,6 +8133,7 @@ MonoBehaviour:
     namePlant: 
     typePlant: 0
     timeGrowth: 0
+    defaultValueDelivery: 0
     spritePlant: []
   StateOfGrowth: 0
   GrowthAccelerator: 0
@@ -10540,6 +10543,7 @@ MonoBehaviour:
   - namePlant: StarchNut
     typePlant: 1
     timeGrowth: 5
+    defaultValueDelivery: 10
     spritePlant:
     - {fileID: 2800000, guid: 333dc5996918aeb44b7bb9574a83841c, type: 3}
     - {fileID: 2800000, guid: d1cad053a740e544ab625c805207607a, type: 3}
@@ -10549,6 +10553,7 @@ MonoBehaviour:
   - namePlant: MysticalMushroom
     typePlant: 2
     timeGrowth: 6
+    defaultValueDelivery: 12
     spritePlant:
     - {fileID: 2800000, guid: ae474ac9f731701498efb2051bbeea2d, type: 3}
     - {fileID: 2800000, guid: 93a0797ac79ecd84485d5e474f8ed847, type: 3}
@@ -10558,6 +10563,7 @@ MonoBehaviour:
   - namePlant: CrystalNut
     typePlant: 3
     timeGrowth: 10
+    defaultValueDelivery: 0
     spritePlant:
     - {fileID: 2800000, guid: 803568b302434604a9407b754c3a4998, type: 3}
     - {fileID: 2800000, guid: 7129bb65b00dcb54ebb34ff0c8b8ec48, type: 3}
@@ -10567,6 +10573,7 @@ MonoBehaviour:
   - namePlant: BushTentacles
     typePlant: 11
     timeGrowth: 10
+    defaultValueDelivery: 15
     spritePlant:
     - {fileID: 2800000, guid: dcc90befbcd40204cb275daee11fb773, type: 3}
     - {fileID: 2800000, guid: eabbda58b89ab094384f82234902b53f, type: 3}
@@ -10576,6 +10583,7 @@ MonoBehaviour:
   - namePlant: FlyEater
     typePlant: 4
     timeGrowth: 10
+    defaultValueDelivery: 18
     spritePlant:
     - {fileID: 2800000, guid: 1995462798b6c9340843f8c26ed6cf2c, type: 3}
     - {fileID: 2800000, guid: f7b0a053071b6dc4094809255c76ccd3, type: 3}
@@ -10585,6 +10593,7 @@ MonoBehaviour:
   - namePlant: GutFlower
     typePlant: 5
     timeGrowth: 10
+    defaultValueDelivery: 20
     spritePlant:
     - {fileID: 2800000, guid: 30e7f4e30330ec246b32ca9344768e38, type: 3}
     - {fileID: 2800000, guid: 4afa391ffc6dbe14496b6d44dd37c670, type: 3}
@@ -10594,6 +10603,7 @@ MonoBehaviour:
   - namePlant: Mandrake
     typePlant: 6
     timeGrowth: 10
+    defaultValueDelivery: 23
     spritePlant:
     - {fileID: 2800000, guid: 0074fe73a735ec8458a7c38c06f6cb2c, type: 3}
     - {fileID: 2800000, guid: 45275a052e8360c499ceb493103709ed, type: 3}
@@ -10603,6 +10613,7 @@ MonoBehaviour:
   - namePlant: MiracleFruit
     typePlant: 7
     timeGrowth: 10
+    defaultValueDelivery: 25
     spritePlant:
     - {fileID: 2800000, guid: 8aa4ed56c12936a439976342a95a6335, type: 3}
     - {fileID: 2800000, guid: 9c039bdbebf62354cb49587c6106002c, type: 3}
@@ -10612,6 +10623,7 @@ MonoBehaviour:
   - namePlant: NeedleFlower
     typePlant: 8
     timeGrowth: 10
+    defaultValueDelivery: 28
     spritePlant:
     - {fileID: 2800000, guid: 0d8e8464966e9b74d921cbbc02d2a3af, type: 3}
     - {fileID: 2800000, guid: 52a9150fda2d57043b716b9fdf841a7e, type: 3}
@@ -10621,6 +10633,7 @@ MonoBehaviour:
   - namePlant: StarFruit
     typePlant: 12
     timeGrowth: 10
+    defaultValueDelivery: 30
     spritePlant:
     - {fileID: 2800000, guid: 92afdc409228f2a45a51b7a97d8fe587, type: 3}
     - {fileID: 2800000, guid: d1ba9650f336db84eae4ecc962119edb, type: 3}
@@ -10630,6 +10643,7 @@ MonoBehaviour:
   - namePlant: StaringFlower
     typePlant: 9
     timeGrowth: 10
+    defaultValueDelivery: 35
     spritePlant:
     - {fileID: 2800000, guid: e75bb3f2808ef014ab2d1394d47edfb0, type: 3}
     - {fileID: 2800000, guid: ff72cbe370323434ba0f074bdfbe8eb1, type: 3}
@@ -10639,6 +10653,7 @@ MonoBehaviour:
   - namePlant: ToxicMushroom
     typePlant: 10
     timeGrowth: 10
+    defaultValueDelivery: 40
     spritePlant:
     - {fileID: 2800000, guid: 35cdc9c8abb6dd74798bd01aa050b621, type: 3}
     - {fileID: 2800000, guid: 1cff7a4f42a01734bb0f5d6d4628062e, type: 3}
@@ -10914,6 +10929,7 @@ MonoBehaviour:
     namePlant: 
     typePlant: 0
     timeGrowth: 0
+    defaultValueDelivery: 0
     spritePlant: []
   StateOfGrowth: 0
   GrowthAccelerator: 0
@@ -11072,6 +11088,7 @@ MonoBehaviour:
     namePlant: 
     typePlant: 0
     timeGrowth: 0
+    defaultValueDelivery: 0
     spritePlant: []
   StateOfGrowth: 0
   GrowthAccelerator: 0
@@ -11502,6 +11519,7 @@ MonoBehaviour:
     namePlant: 
     typePlant: 0
     timeGrowth: 0
+    defaultValueDelivery: 0
     spritePlant: []
   StateOfGrowth: 0
   GrowthAccelerator: 0
@@ -11942,6 +11960,7 @@ MonoBehaviour:
     namePlant: 
     typePlant: 0
     timeGrowth: 0
+    defaultValueDelivery: 0
     spritePlant: []
   StateOfGrowth: 0
   GrowthAccelerator: 0
@@ -12100,6 +12119,7 @@ MonoBehaviour:
     namePlant: 
     typePlant: 0
     timeGrowth: 0
+    defaultValueDelivery: 0
     spritePlant: []
   StateOfGrowth: 0
   GrowthAccelerator: 0
@@ -12648,6 +12668,7 @@ MonoBehaviour:
     namePlant: 
     typePlant: 0
     timeGrowth: 0
+    defaultValueDelivery: 0
     spritePlant: []
   StateOfGrowth: 0
   GrowthAccelerator: 0
@@ -13239,6 +13260,7 @@ MonoBehaviour:
     namePlant: 
     typePlant: 0
     timeGrowth: 0
+    defaultValueDelivery: 0
     spritePlant: []
   StateOfGrowth: 0
   GrowthAccelerator: 0
@@ -19181,6 +19203,7 @@ MonoBehaviour:
     namePlant: 
     typePlant: 0
     timeGrowth: 0
+    defaultValueDelivery: 0
     spritePlant: []
   StateOfGrowth: 0
   GrowthAccelerator: 0

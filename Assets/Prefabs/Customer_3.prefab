@@ -826,6 +826,7 @@ MonoBehaviour:
   - {fileID: 6092487281402191232}
   - {fileID: 8257373664620906820}
   rewardText: {fileID: 1497397213880664084}
+  customer: {fileID: 1808996374741410631}
 --- !u!1 &4712943177601291984
 GameObject:
   m_ObjectHideFlags: 0
@@ -929,6 +930,7 @@ MonoBehaviour:
   reward: 400
   coin: {fileID: 263560462820696322, guid: 56ecd3521c062f54493f9ce12fe195f9, type: 3}
   Experience: {fileID: 263560462820696322, guid: e5e8e06d3881ebd4099ff9f84ba6aa00, type: 3}
+  IsUsed: 0
 --- !u!222 &754513575985074724
 CanvasRenderer:
   m_ObjectHideFlags: 0

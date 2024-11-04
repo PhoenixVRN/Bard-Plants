@@ -168,6 +168,7 @@ public class Plant
     public string namePlant;
     public ETypePlant typePlant;
     public int timeGrowth;
+    public int defaultValueDelivery;
     public List<Texture> spritePlant;
 
     public int QE => quantity.Value;

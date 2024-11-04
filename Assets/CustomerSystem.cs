@@ -70,10 +70,12 @@ public class CustomerSystem : MonoBehaviour
         var randomCustomer = nonUsedCustomer[Random.Range(0, nonUsedCustomer.Count)];
         randomCustomer.IsUsed = true;
         var customer = Instantiate(randomCustomer, transform);
+       
+        customer.orders.InitOrders(quantityOrders);
         // var customer = Instantiate(allWoodenCustomerType[orderCfg.typeCustomer], transform).GetComponent<Customer>();
         // TODO сделать расчеты о количестве ревара в зависимости от типа количества растений и уровня 
-        customer.reward = orderCfg.reward;
+        // customer.reward = orderCfg.reward;
         // Debug.Log($"InitCustomer {customer.orders}");
-        customer.orders.InitOrders(orderCfg);
+        // customer.orders.InitOrders(orderCfg);
     }
 }
