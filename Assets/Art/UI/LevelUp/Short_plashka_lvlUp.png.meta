@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Short_plashka_lvlUp_0: 5441586050833173763
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
