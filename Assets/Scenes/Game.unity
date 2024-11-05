@@ -3268,9 +3268,11 @@ MonoBehaviour:
   - {fileID: 9168784007612792306, guid: 6b2aadd5183eb5746a1d96bca1658d31, type: 3}
   - {fileID: 8603396861641865984, guid: cceecbe7d8227bb488b60a15bf1c8b76, type: 3}
   - {fileID: 1808996374741410631, guid: 1cdb72bfbb3e8694ea0c47d4846030f5, type: 3}
+  - {fileID: 8603396861641865984, guid: 267db999ae3d8c74881a6e0c214dfbe3, type: 3}
+  - {fileID: 8603396861641865984, guid: 18bb8765495a0c642b94b1dfc928722b, type: 3}
   allGoldenCustomerType:
   - {fileID: 6756410606401894917, guid: 485dba7a0fff47547a4a86b3c191e1e6, type: 3}
-  delayForSpawn: 15
+  delayForSpawn: 5
 --- !u!1 &281673679
 GameObject:
   m_ObjectHideFlags: 0

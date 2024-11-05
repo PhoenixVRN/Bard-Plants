@@ -46,6 +46,16 @@ public class Customer : MonoBehaviour
             //     GameManager.instance.textCoin.transform.position, coin);
             // GameManager.instance.coin.Value += reward;
             // Reference.GameModel.NumberCompletedOrders.Value++;
+            var cust = CustomerSystem.instance.allWoodenCustomerType.Find(c => c.TypeCustomer == TypeCustomer);
+            if (cust)
+            {
+                cust.IsUsed = false;
+            }
+            var cust2 = CustomerSystem.instance.allGoldenCustomerType.Find(c => c.TypeCustomer == TypeCustomer);
+            if (cust2)
+            {
+                cust2.IsUsed = false;
+            }
             gameObject.SetActive(false);
             Reference.GameModel.CountCustomerInGame.Value--;
         }
