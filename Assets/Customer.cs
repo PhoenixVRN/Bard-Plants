@@ -19,10 +19,10 @@ public class Customer : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log($"OnMouseDown");
+        // Debug.Log($"OnMouseDown");
         if (orders.DeliveryOrder())
         {
-             Debug.Log($"Add Expa {reward}");
+             // Debug.Log($"Add Expa {reward}");
             GameManager.instance.getTokensVFXController.ShowGetTokensVFX(reward / 10, transform.position,
                 GameManager.instance.CoinPos.position, coin);
             GameManager.instance.coin.Value += reward;
@@ -33,7 +33,7 @@ public class Customer : MonoBehaviour
             {
                 if (ord.typePlant == 0)
                 {
-                    Debug.Log($"typePlant == 0 {ord.typePlant}");
+                    // Debug.Log($"typePlant == 0 {ord.typePlant}");
                     break;
                 }
 

@@ -46,10 +46,10 @@ public class Bag : MonoBehaviour
 
     public void AddPlants(ETypePlant type, int value)
     {
-        Debug.Log($"Added to Bag {type.ToString()}, count {value}");
+        // Debug.Log($"Added to Bag {type.ToString()}, count {value}");
         
         GameManager.instance.allPlants.Find(pl => pl.typePlant == type).quantity.Value += value;
-        Debug.Log($"cristal {GameManager.instance.allPlants.Find(pl => pl.typePlant == ETypePlant.CrystalNut).quantity.Value}");
+        // Debug.Log($"cristal {GameManager.instance.allPlants.Find(pl => pl.typePlant == ETypePlant.CrystalNut).quantity.Value}");
     }
 
     // private void OnMouseDown()

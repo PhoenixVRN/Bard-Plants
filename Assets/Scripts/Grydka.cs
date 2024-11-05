@@ -101,7 +101,7 @@ public class Grydka : MonoBehaviour
             plantunGrydka.transform.DOMove(Bag.instance.transform.position, 1).SetEase(Ease.Linear).OnComplete(AddedPlodToBag);
         }
 
-        Debug.Log($"Harvesting {gameObject}");
+        // Debug.Log($"Harvesting {gameObject}");
     }
 
     public void PlayMusic()
