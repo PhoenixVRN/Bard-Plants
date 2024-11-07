@@ -75,6 +75,10 @@ public class CustomerSystem : MonoBehaviour
         {
             //TODO спавним золотого и инитем его ордерами, не спавним больше покупателей пока не закроем всех созданных и не поднимем уровень
             Debug.Log($"Spawn Gold!");
+            var goldenCustomer = allGoldenCustomerType[Random.Range(0, allGoldenCustomerType.Count)];
+            var goldcustomer = Instantiate(goldenCustomer, transform);
+            goldcustomer.orders.GoldOrdersInit();
+            
             return;
         }
 
