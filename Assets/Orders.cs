@@ -58,7 +58,8 @@ public class Orders : MonoBehaviour
       //  customer.reward = пердать сумму награды
         ordersActive[0].gameObject.SetActive(true);
         // TODO  метод расчета количества растений на золотого
-        ordersActive[0].InitOrder(ETypePlant.None, 300);
+        var needQuantity = Random.Range(100, 200);
+        ordersActive[0].InitOrderGold(needQuantity);
     }
     
     public bool DeliveryOrder()

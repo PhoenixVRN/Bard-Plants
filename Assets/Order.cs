@@ -49,7 +49,18 @@ public class Order : MonoBehaviour
         CountText();
     }
 
+    public void InitOrderGold(int needCount)
+    {
+        needplant = needCount;
+        // this.typePlant = typePlant;
+        // plantImage.texture = GameManager.instance.GetPlantToType(typePlant).spritePlant[4];
 
+
+        completeOrderFon.SetActive(false);
+        completeOrderTagl.SetActive(false);
+        // Reference.GameModel.StarchNut.Subscribe(ShowText);
+        AllFruit(0);
+    }
     public void CountText()
     {
         plant = GameManager.instance.GetPlantToType(typePlant);
@@ -58,14 +69,26 @@ public class Order : MonoBehaviour
         // Debug.Log($"plant.quantity {plant.typePlant}/{plant.quantity.Value}");
     }
 
+    private void AllFruit(int value)
+    {
+        var currentfruit = 0;
+        foreach (var plant in GameManager.instance.allPlants)
+        {
+            plant.quantity.Subscribe(AllFruit);
+            currentfruit += plant.quantity.Value;
+        }
+        ShowText(currentfruit);
+        // Debug.Log($"plant.quantity {plant.typePlant}/{plant.quantity.Value}");
+    }
+    
     private void ShowText(int value)
     {
         collected = value;
         textOrder.text = needplant + " / " + value;
     }
 
-    // private void OnDisable()
-    // {
-    //     plant.quantity.UnSubscribe(ShowText);
-    // }
+    private void OnDisable()
+    {
+        plant.quantity.UnSubscribe(ShowText);
+    }
 }

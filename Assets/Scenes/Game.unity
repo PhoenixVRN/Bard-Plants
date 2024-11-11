@@ -16482,15 +16482,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 246129745776951662, guid: 485dba7a0fff47547a4a86b3c191e1e6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1337027824799339064, guid: 485dba7a0fff47547a4a86b3c191e1e6, type: 3}
       propertyPath: m_Name
       value: Customer_4
       objectReference: {fileID: 0}
-    - target: {fileID: 2907599704428009285, guid: 485dba7a0fff47547a4a86b3c191e1e6, type: 3}
+    - target: {fileID: 2419080730678658582, guid: 485dba7a0fff47547a4a86b3c191e1e6, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -78
+      value: 22.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2750562274222766113, guid: 485dba7a0fff47547a4a86b3c191e1e6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 12.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5134514261806947668, guid: 485dba7a0fff47547a4a86b3c191e1e6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 6229878206078397360, guid: 485dba7a0fff47547a4a86b3c191e1e6, type: 3}
       propertyPath: m_Pivot.x
