@@ -89,6 +89,10 @@ public class Order : MonoBehaviour
 
     private void OnDisable()
     {
-        plant.quantity.UnSubscribe(ShowText);
+        foreach (var plant in GameManager.instance.allPlants)
+        {
+            plant.quantity.Subscribe(AllFruit);
+        }
+        // plant.quantity.UnSubscribe(ShowText);
     }
 }

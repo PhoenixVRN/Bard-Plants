@@ -43,7 +43,7 @@ public class CustomerSystem : MonoBehaviour
         
         lastTime = Time.time;
         _quantityCustomersInLevel = Random.Range(1, 5); // количество покупателей для урвня
-    }
+       }
 
 
     void Update()
@@ -71,14 +71,14 @@ public class CustomerSystem : MonoBehaviour
     public void InitCustomer()
     {
         Debug.Log($"quantityCustomersInLevel {_quantityCustomersInLevel}");
-        if (_quantityCustomersInLevel <= 0)
+        if (_quantityCustomersInLevel == 0)
         {
             //TODO спавним золотого и инитем его ордерами, не спавним больше покупателей пока не закроем всех созданных и не поднимем уровень
             Debug.Log($"Spawn Gold!");
             var goldenCustomer = allGoldenCustomerType[Random.Range(0, allGoldenCustomerType.Count)];
             var goldcustomer = Instantiate(goldenCustomer, transform);
             goldcustomer.orders.GoldOrdersInit();
-            
+            _quantityCustomersInLevel--;
             return;
         }
 
