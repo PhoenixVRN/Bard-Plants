@@ -20,13 +20,39 @@ public class Customer : MonoBehaviour
     private void OnMouseDown()
     {
         Debug.Log($"OnMouseDown");
+        if (TypeCustomer == eTypeCustomer.GoldenForestMonster && orders.GoldDeliveryOrder())
+        {
+            Debug.Log($"Golden Completed");
+            //TODO реализовать протарциональныое вычитание растений из кулька
+            //----------------------------------------------------------------------------------------------------------
+            // GameManager.instance.getTokensVFXController.ShowGetTokensVFX(reward / 10, transform.position,
+            //     GameManager.instance.CoinPos.position, coin);
+            // GameManager.instance.coin.Value += reward;
+            // // Reference.GameModel.NumberCompletedOrders.Value++;
+            // Reference.GameModel.CloseCustomersInLevel.Value++;
+            // GameManager.instance.getTokensVFXController.ShowGetTokensVFX(10,transform.position,
+            //     GameManager.instance.textLevelGame.transform.position, Experience);
+            var cust2 = CustomerSystem.instance.allGoldenCustomerType.Find(c => c.TypeCustomer == TypeCustomer);
+            if (cust2)
+            {
+                cust2.IsUsed = false;
+            }
+            gameObject.SetActive(false);
+            Reference.GameModel.CountCustomerInGame.Value--;
+            Reference.GameModel.CloseCustomersInLevel.Value++;
+            //----------------------------------------------------------------------------------------------------------
+            
+            
+            return;
+        }
+        
         if (orders.DeliveryOrder())
         {
              Debug.Log($"Add Expa {reward}");
             GameManager.instance.getTokensVFXController.ShowGetTokensVFX(reward / 10, transform.position,
                 GameManager.instance.CoinPos.position, coin);
             GameManager.instance.coin.Value += reward;
-            Reference.GameModel.NumberCompletedOrders.Value++;
+            // Reference.GameModel.NumberCompletedOrders.Value++;
             GameManager.instance.getTokensVFXController.ShowGetTokensVFX(10,transform.position,
                 GameManager.instance.textLevelGame.transform.position, Experience);
             foreach (var ord in orders.ordersActive)
@@ -51,13 +77,14 @@ public class Customer : MonoBehaviour
             {
                 cust.IsUsed = false;
             }
-            var cust2 = CustomerSystem.instance.allGoldenCustomerType.Find(c => c.TypeCustomer == TypeCustomer);
-            if (cust2)
-            {
-                cust2.IsUsed = false;
-            }
+            // var cust2 = CustomerSystem.instance.allGoldenCustomerType.Find(c => c.TypeCustomer == TypeCustomer);
+            // if (cust2)
+            // {
+            //     cust2.IsUsed = false;
+            // }
             gameObject.SetActive(false);
             Reference.GameModel.CountCustomerInGame.Value--;
+            Reference.GameModel.CloseCustomersInLevel.Value++;
         }
     }
 }

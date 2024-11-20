@@ -17,17 +17,7 @@ public class UpgradeLevelUp : MonoBehaviour
   public TextMeshProUGUI countReward2;
 
   private LevelData _levelData;
-
-  private void OnEnable()
-  {
-    Time.timeScale = 0f;
-  }
-
-  private void OnDisable()
-  {
-    Time.timeScale = 1f;
-  }
-
+  
   public void InitPanel(LevelData levelData)
   {
     _levelData = levelData;

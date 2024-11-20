@@ -19,6 +19,7 @@ public class GameModel
     public SubscriptionField<int> CountCustomerInGame { get; }
     public SubscriptionField<int> LevelGame { get; }
     public SubscriptionField<int> NumberCompletedOrders { get; }
+    public SubscriptionField<int> CloseCustomersInLevel { get; }
     public SubscriptionField<eTypeAnimation> AnimationPlayer { get; }
     public SubscriptionField<eTypeAnimation> AnimationCollectorGnome { get; }
     public SubscriptionField<eTypeAnimation> AnimationMusicHelpers { get; }
@@ -66,6 +67,7 @@ public class GameModel
         MusicHelpersLevel = new SubscriptionField<LvlAssistance>();
         MusicHelpersLevel.Value = new LvlAssistance();
         NumberCompletedOrders = new SubscriptionField<int>();
+        CloseCustomersInLevel = new SubscriptionField<int>() {Value = 0};
         // AllPlantsInModel = new List<SubscriptionField<int>>()
         // {
         //     StarchNut,

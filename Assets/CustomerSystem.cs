@@ -14,6 +14,8 @@ public class CustomerSystem : MonoBehaviour
     public float delayForSpawn = 15;
     private float lastTime;
     private int _quantityCustomersInLevel;
+    private int _qq;
+  
     
     // private int _currentCustomersInLevel;
 
@@ -42,8 +44,11 @@ public class CustomerSystem : MonoBehaviour
         }
         
         lastTime = Time.time;
-        _quantityCustomersInLevel = Random.Range(1, 5); // количество покупателей для урвня
-       }
+        // _quantityCustomersInLevel = Random.Range(1, 5); // количество покупателей для урвня
+        _quantityCustomersInLevel = 1;
+        _qq = _quantityCustomersInLevel;// количество покупателей для урвня
+        Reference.GameModel.CloseCustomersInLevel.Subscribe(CheclLevelUp);
+    }
 
 
     void Update()
@@ -53,14 +58,21 @@ public class CustomerSystem : MonoBehaviour
         {
             lastTime = Time.time;
             Reference.GameModel.CountCustomerInGame.Value++;
-            // Debug.Log($"orderCfgs[turn] {turn}");
+             // Debug.Log($"orderCfgs[turn] {turn}");
             InitCustomer();
         }
     }
 
-    public void SetNewCustomersInLevel()
+    private void CheclLevelUp(int value)
     {
-        _quantityCustomersInLevel = Random.Range(1, 5);
+        if (value > _qq)
+        {
+            Debug.Log($"LevelUp {value}/{_qq}");
+            Reference.GameModel.CloseCustomersInLevel.Value = 0;
+            Reference.GameModel.NumberCompletedOrders.Value++;
+            _quantityCustomersInLevel = 2;
+            _qq = _quantityCustomersInLevel;
+        }
     }
     
     public void test2()
@@ -70,12 +82,13 @@ public class CustomerSystem : MonoBehaviour
 
     public void InitCustomer()
     {
-        Debug.Log($"quantityCustomersInLevel {_quantityCustomersInLevel}");
+        // Debug.Log($"quantityCustomersInLevel {_quantityCustomersInLevel}");
         if (_quantityCustomersInLevel == 0)
         {
             //TODO спавним золотого и инитем его ордерами, не спавним больше покупателей пока не закроем всех созданных и не поднимем уровень
             Debug.Log($"Spawn Gold!");
             var goldenCustomer = allGoldenCustomerType[Random.Range(0, allGoldenCustomerType.Count)];
+            goldenCustomer.IsUsed = true;
             var goldcustomer = Instantiate(goldenCustomer, transform);
             goldcustomer.orders.GoldOrdersInit();
             _quantityCustomersInLevel--;

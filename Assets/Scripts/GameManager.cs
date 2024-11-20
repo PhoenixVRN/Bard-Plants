@@ -75,13 +75,10 @@ public class GameManager : MonoBehaviour
 
     public void ChangeLevelUp(int number)
     {
-        if (_cfgLevelData.AllLevelData[gameModel.LevelGame.Value].NumberCompletedOrders <= number)
-        {
-            //TODO попап повышени уровня и пр.
-            gameModel.LevelGame.Value++;
-            UpgradeLevelUp.gameObject.SetActive(true);
-            UpgradeLevelUp.InitPanel(_cfgLevelData.AllLevelData[gameModel.LevelGame.Value -1]);
-        }
+        //TODO попап повышени уровня и пр.
+        gameModel.LevelGame.Value++;
+        UpgradeLevelUp.gameObject.SetActive(true);
+        UpgradeLevelUp.InitPanel(_cfgLevelData.AllLevelData[gameModel.LevelGame.Value - 1]);
     }
 
     public void LevelUpApply()
@@ -89,9 +86,9 @@ public class GameManager : MonoBehaviour
         var typePlant = _cfgLevelData.AllLevelData[gameModel.LevelGame.Value -1].OpenPlant;
         var plant = GetPlantToType(typePlant);
         coin.Value += _cfgLevelData.AllLevelData[gameModel.LevelGame.Value-1].CoinReward;
-        // Debug.Log($"Add Plant {plant.typePlant}/ level {gameModel.LevelGame.Value}");
+        Debug.Log($"Add Plant {plant.typePlant}/ level {gameModel.LevelGame.Value}");
         openPlants.Add(plant);
-        gameModel.NumberCompletedOrders.Value = 0;
+        // gameModel.NumberCompletedOrders.Value = 0; // TODO выркзать этот рудемент
         var u = _cfgLevelData.AllLevelData[gameModel.LevelGame.Value-1].RewardLevelDataPlants[0];
         Bag.instance.AddPlants(u.RewardPlant, u.QuantityRewardPlant);
         if (_cfgLevelData.AllLevelData[gameModel.LevelGame.Value-1].RewardLevelDataPlants.Count >1)

@@ -61,7 +61,11 @@ public class Orders : MonoBehaviour
         var needQuantity = Random.Range(10, 20);
         ordersActive[0].InitOrderGold(needQuantity);
     }
-    
+
+    public bool GoldDeliveryOrder()
+    {
+        return ordersActive[0].completed;
+    }
     public bool DeliveryOrder()
     {
         var allActive = ordersActive.FindAll(c => c.gameObject.activeSelf);

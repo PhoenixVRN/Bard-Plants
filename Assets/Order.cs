@@ -14,6 +14,7 @@ public class Order : MonoBehaviour
     public bool completed;
     private Plant plant;
 
+
     void Start()
     {
     }
@@ -59,39 +60,55 @@ public class Order : MonoBehaviour
         completeOrderFon.SetActive(false);
         completeOrderTagl.SetActive(false);
         // Reference.GameModel.StarchNut.Subscribe(ShowText);
+
+        foreach (var plant in GameManager.instance.allPlants)
+        {
+            plant.quantity.Subscribe(AllFruit);
+        }
+
         AllFruit(0);
     }
+
     public void CountText()
     {
         plant = GameManager.instance.GetPlantToType(typePlant);
         plant.quantity.Subscribe(ShowText);
+        Debug.Log($"CountText {plant.namePlant}/{plant.quantity.Value}");
         ShowText(plant.quantity.Value);
         // Debug.Log($"plant.quantity {plant.typePlant}/{plant.quantity.Value}");
     }
 
     private void AllFruit(int value)
     {
-        var currentfruit = 0;
+        int currentfruit = 0;
         foreach (var plant in GameManager.instance.allPlants)
         {
-            plant.quantity.Subscribe(AllFruit);
             currentfruit += plant.quantity.Value;
         }
+
         ShowText(currentfruit);
         // Debug.Log($"plant.quantity {plant.typePlant}/{plant.quantity.Value}");
     }
-    
+
     private void ShowText(int value)
     {
+        // Debug.Log($"CountText {plant.namePlant}/{plant.quantity.Value}");
         collected = value;
         textOrder.text = needplant + " / " + value;
     }
 
     private void OnDisable()
     {
-        foreach (var plant in GameManager.instance.allPlants)
+        if (plant != null)
         {
-            plant.quantity.Subscribe(AllFruit);
+            plant.quantity.UnSubscribe(ShowText);
+        }
+        else
+        {
+            foreach (var plant in GameManager.instance.allPlants)
+            {
+                plant.quantity.UnSubscribe(AllFruit);
+            }
         }
         // plant.quantity.UnSubscribe(ShowText);
     }
