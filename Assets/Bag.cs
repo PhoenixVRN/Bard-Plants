@@ -41,7 +41,13 @@ public class Bag : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
-        // InitializeManager();
+       InitializeManager();
+    }
+
+    private void InitializeManager()
+    {
+        var startReward = GameManager.instance._cfgLevelData.AllLevelData[0].RewardLevelDataPlants[0];
+        AddPlants(startReward.RewardPlant, startReward.QuantityRewardPlant);
     }
 
     public void AddPlants(ETypePlant type, int value)

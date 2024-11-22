@@ -3203,7 +3203,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 320, y: 450}
+  m_CellSize: {x: 320, y: 500}
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -9937,8 +9937,8 @@ RectTransform:
   m_Children:
   - {fileID: 579692710}
   - {fileID: 92295831}
-  - {fileID: 366139031}
   - {fileID: 1925451053}
+  - {fileID: 366139031}
   - {fileID: 2120492967}
   - {fileID: 2020803303}
   - {fileID: 274324302}
@@ -10722,6 +10722,7 @@ MonoBehaviour:
   getTokensVFXController: {fileID: 0}
   gameScoreHandler: {fileID: 0}
   CoinPos: {fileID: 172197929}
+  _cfgLevelData: {fileID: 0}
   openPlants: []
 --- !u!4 &1013550068
 Transform:

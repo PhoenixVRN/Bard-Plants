@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     public GetTokensVFXController getTokensVFXController;
     public GameScoreHandler gameScoreHandler;
     public Transform CoinPos;
-    private CfgLevelData _cfgLevelData;
+    [HideInInspector] public CfgLevelData _cfgLevelData;
     private int _lastCoins;
     
 
@@ -47,17 +47,24 @@ public class GameManager : MonoBehaviour
         gameScoreHandler = GetComponent<GameScoreHandler>();
         gameModel = Reference.GameModel;
         coin = new SubscriptionField<int>();
-        coin.Value = 0;
         coin.Subscribe(ChangeCoins);
-        gameModel.LevelGame.Subscribe(ChangeLevelGame);
-        gameModel.NumberCompletedOrders.Subscribe(ChangeLevelUp);
-        ChangeLevelGame(gameModel.LevelGame.Value);
         DontDestroyOnLoad(gameObject);
         CustomersSpawn();
-        ChangeLevelUp(0);
-        // InitializeManager();
+        // ChangeLevelUp(0);
+        InitializeManager();
     }
 
+    private void InitializeManager()
+    {
+        openPlants.Add(GetPlantToType(_cfgLevelData.AllLevelData[0].OpenPlant));
+        // Bag.instance.AddPlants(ETypePlant.MysticalMushroom, 13);
+        coin.Subscribe(ChangeCoins);
+        coin.Value = 121;
+        gameModel.LevelGame.Subscribe(ChangeLevelGame);
+        gameModel.LevelGame.Value = 1;
+        gameModel.NumberCompletedOrders.Subscribe(ChangeLevelUp);
+        ChangeLevelGame(gameModel.LevelGame.Value);
+    }
     private void CustomersSpawn()
     {
         // customers[0].gameObject.SetActive(true);

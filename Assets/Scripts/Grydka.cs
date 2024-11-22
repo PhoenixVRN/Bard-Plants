@@ -68,7 +68,8 @@ public class Grydka : MonoBehaviour
         StateOfGrowth = 0;
         timeGrowthInStage = Time.time;
         Growth = true;
-        plant = GameManager.instance.allPlants[Random.Range(0, GameManager.instance.openPlants.Count)];
+        plant = GameManager.instance.openPlants[Random.Range(0, GameManager.instance.openPlants.Count)];
+        // plant = GameManager.instance.allPlants[Random.Range(0, GameManager.instance.openPlants.Count)];
         Debug.Log($"PlantaPlant {GameManager.instance.openPlants.Count}/{plant.namePlant}");
         plantunGrydka.texture = plant.spritePlant[0];
         plantunGrydka.gameObject.SetActive(true);

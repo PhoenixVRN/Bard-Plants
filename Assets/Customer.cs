@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Customer : MonoBehaviour
@@ -8,8 +9,7 @@ public class Customer : MonoBehaviour
     public GameObject coin;
     public GameObject Experience;
     public bool IsUsed;
-    
-    
+
 
     public void Awake()
     {
@@ -23,7 +23,34 @@ public class Customer : MonoBehaviour
         if (TypeCustomer == eTypeCustomer.GoldenForestMonster && orders.GoldDeliveryOrder())
         {
             Debug.Log($"Golden Completed");
-            //TODO реализовать протарциональныое вычитание растений из кулька
+            //TODO реализовать проПарциональныое вычитание растений из кулька
+            var summ = 0;
+            var qantity = orders.ordersActive[0].needplant;
+            foreach (var openPlant in GameManager.instance.allPlants)
+            {
+                summ += openPlant.quantity.Value;
+                // Debug.Log($"openPlant {openPlant.namePlant} - {openPlant.quantity.Value}");
+            }
+
+            Debug.Log($"Summ {summ}");
+            var all = 0f;
+            foreach (var openPlant in GameManager.instance.allPlants)
+            {
+                if (openPlant.quantity.Value > 0)
+                {
+                    var z = (float) ((float)openPlant.quantity.Value / (float)summ);
+                    var procent = (float) ((float)openPlant.quantity.Value / (float)summ) * 100f;
+                    var x = (qantity * procent);
+                    var e = (qantity * procent) / 100;
+                    var s = (int)Math.Round(e);
+                    Debug.Log(
+                        $"z {z}/ x {x}openPlant {openPlant.namePlant} - {openPlant.quantity.Value}, proc {procent},need {qantity}, vzat {e}/{s}");
+                    all += e;
+                    openPlant.quantity.Value -= s;
+                }
+            }
+
+            Debug.Log($"All {all}");
             //----------------------------------------------------------------------------------------------------------
             // GameManager.instance.getTokensVFXController.ShowGetTokensVFX(reward / 10, transform.position,
             //     GameManager.instance.CoinPos.position, coin);
@@ -37,23 +64,24 @@ public class Customer : MonoBehaviour
             {
                 cust2.IsUsed = false;
             }
+
             gameObject.SetActive(false);
             Reference.GameModel.CountCustomerInGame.Value--;
             Reference.GameModel.CloseCustomersInLevel.Value++;
             //----------------------------------------------------------------------------------------------------------
-            
-            
+
+
             return;
         }
-        
+
         if (orders.DeliveryOrder())
         {
-             Debug.Log($"Add Expa {reward}");
+            Debug.Log($"Add Expa {reward}");
             GameManager.instance.getTokensVFXController.ShowGetTokensVFX(reward / 10, transform.position,
                 GameManager.instance.CoinPos.position, coin);
             GameManager.instance.coin.Value += reward;
             // Reference.GameModel.NumberCompletedOrders.Value++;
-            GameManager.instance.getTokensVFXController.ShowGetTokensVFX(10,transform.position,
+            GameManager.instance.getTokensVFXController.ShowGetTokensVFX(10, transform.position,
                 GameManager.instance.textLevelGame.transform.position, Experience);
             foreach (var ord in orders.ordersActive)
             {
@@ -68,6 +96,7 @@ public class Customer : MonoBehaviour
                 // Debug.Log($"Plant type {ord.typePlant}/ {GameManager.instance.GetPlantToType(ord.typePlant)}");
                 GameManager.instance.GetPlantToType(ord.typePlant).quantity.Value -= ord.needplant;
             }
+
             // GameManager.instance.getTokensVFXController.ShowGetTokensVFX(reward / 10, transform.position,
             //     GameManager.instance.textCoin.transform.position, coin);
             // GameManager.instance.coin.Value += reward;
@@ -77,6 +106,7 @@ public class Customer : MonoBehaviour
             {
                 cust.IsUsed = false;
             }
+
             // var cust2 = CustomerSystem.instance.allGoldenCustomerType.Find(c => c.TypeCustomer == TypeCustomer);
             // if (cust2)
             // {
