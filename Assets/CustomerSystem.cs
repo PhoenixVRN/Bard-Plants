@@ -45,7 +45,7 @@ public class CustomerSystem : MonoBehaviour
         
         lastTime = Time.time;
         // _quantityCustomersInLevel = Random.Range(1, 5); // количество покупателей для урвня
-        _quantityCustomersInLevel = 1;
+        _quantityCustomersInLevel = RandomQuantity();
         _qq = _quantityCustomersInLevel;// количество покупателей для урвня
         Reference.GameModel.CloseCustomersInLevel.Subscribe(CheclLevelUp);
     }
@@ -63,6 +63,11 @@ public class CustomerSystem : MonoBehaviour
         }
     }
 
+    private int RandomQuantity()
+    {
+        return Random.Range(1, 4);
+    }
+    
     private void CheclLevelUp(int value)
     {
         if (value > _qq)
@@ -70,15 +75,11 @@ public class CustomerSystem : MonoBehaviour
             Debug.Log($"LevelUp {value}/{_qq}");
             Reference.GameModel.CloseCustomersInLevel.Value = 0;
             Reference.GameModel.NumberCompletedOrders.Value++;
-            _quantityCustomersInLevel = 2;
+            _quantityCustomersInLevel = RandomQuantity();
             _qq = _quantityCustomersInLevel;
         }
     }
     
-    public void test2()
-    {
-        Debug.Log($"Random {Random.Range(1, 4)}");
-    }
 
     public void InitCustomer()
     {

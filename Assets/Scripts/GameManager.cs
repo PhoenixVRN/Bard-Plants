@@ -105,10 +105,6 @@ public class GameManager : MonoBehaviour
         }
         Time.timeScale = 1f;
     }
-    public void OpenPlants()
-    {
-        
-    }
 
     public Plant GetPlantToType(ETypePlant typePlant)
     {

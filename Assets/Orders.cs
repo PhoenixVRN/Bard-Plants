@@ -29,7 +29,7 @@ public class Orders : MonoBehaviour
                 plant2 = GameManager.instance.openPlants[Random.Range(0, GameManager.instance.openPlants.Count)].typePlant;
             }
            
-            var needQuantity2 = Random.Range(10, 20);
+            var needQuantity2 = Random.Range(customer.minRange, customer.maxRange);
             ordersActive[1].gameObject.SetActive(true);
             ordersActive[1].InitOrder(plant2, needQuantity2);
             customer.reward += needQuantity2 * GameManager.instance.GetPlantToType(plant2).defaultValueDelivery;
@@ -58,8 +58,12 @@ public class Orders : MonoBehaviour
       //  customer.reward = пердать сумму награды
         ordersActive[0].gameObject.SetActive(true);
         // TODO  метод расчета количества растений на золотого
-        var needQuantity = Random.Range(10, 20);
+        var needQuantity = Random.Range(customer.minRange, customer.maxRange);
         ordersActive[0].InitOrderGold(needQuantity);
+        var defaultCost = (GameManager.instance.GetPlantToType(ETypePlant.StarchNut).defaultValueDelivery) * ((Reference.GameModel.LevelGame.Value * customer.levelReward/100f) + 1);
+        Debug.Log($"defaultCost {defaultCost} ");
+        customer.reward = (int)(needQuantity *defaultCost);
+        rewardText.text = customer.reward.ToString();
     }
 
     public bool GoldDeliveryOrder()

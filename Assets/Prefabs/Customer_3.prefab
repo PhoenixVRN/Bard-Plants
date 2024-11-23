@@ -931,6 +931,9 @@ MonoBehaviour:
   coin: {fileID: 263560462820696322, guid: 56ecd3521c062f54493f9ce12fe195f9, type: 3}
   Experience: {fileID: 263560462820696322, guid: e5e8e06d3881ebd4099ff9f84ba6aa00, type: 3}
   IsUsed: 0
+  levelReward: 20
+  minRange: 10
+  maxRange: 20
 --- !u!222 &754513575985074724
 CanvasRenderer:
   m_ObjectHideFlags: 0
