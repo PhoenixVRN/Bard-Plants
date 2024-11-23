@@ -10757,11 +10757,11 @@ MonoBehaviour:
     OpenPlant: 1
     CoinReward: 121
     RewardLevelDataPlants:
-    - RewardPlant: 2
+    - RewardPlant: 3
       QuantityRewardPlant: 13
   - Level: 2
     NumberCompletedOrders: 3
-    OpenPlant: 2
+    OpenPlant: 3
     CoinReward: 172
     RewardLevelDataPlants:
     - RewardPlant: 1
@@ -10782,6 +10782,78 @@ MonoBehaviour:
       QuantityRewardPlant: 11
     - RewardPlant: 1
       QuantityRewardPlant: 24
+  - Level: 5
+    NumberCompletedOrders: 7
+    OpenPlant: 2
+    CoinReward: 529
+    RewardLevelDataPlants:
+    - RewardPlant: 7
+      QuantityRewardPlant: 14
+    - RewardPlant: 3
+      QuantityRewardPlant: 15
+  - Level: 6
+    NumberCompletedOrders: 7
+    OpenPlant: 8
+    CoinReward: 716
+    RewardLevelDataPlants:
+    - RewardPlant: 2
+      QuantityRewardPlant: 16
+    - RewardPlant: 6
+      QuantityRewardPlant: 23
+  - Level: 7
+    NumberCompletedOrders: 7
+    OpenPlant: 4
+    CoinReward: 912
+    RewardLevelDataPlants:
+    - RewardPlant: 8
+      QuantityRewardPlant: 12
+    - RewardPlant: 6
+      QuantityRewardPlant: 25
+  - Level: 8
+    NumberCompletedOrders: 7
+    OpenPlant: 10
+    CoinReward: 1140
+    RewardLevelDataPlants:
+    - RewardPlant: 4
+      QuantityRewardPlant: 12
+    - RewardPlant: 6
+      QuantityRewardPlant: 25
+  - Level: 9
+    NumberCompletedOrders: 7
+    OpenPlant: 12
+    CoinReward: 1494
+    RewardLevelDataPlants:
+    - RewardPlant: 10
+      QuantityRewardPlant: 16
+    - RewardPlant: 1
+      QuantityRewardPlant: 34
+  - Level: 10
+    NumberCompletedOrders: 7
+    OpenPlant: 9
+    CoinReward: 1720
+    RewardLevelDataPlants:
+    - RewardPlant: 12
+      QuantityRewardPlant: 23
+    - RewardPlant: 8
+      QuantityRewardPlant: 21
+  - Level: 11
+    NumberCompletedOrders: 7
+    OpenPlant: 5
+    CoinReward: 2053
+    RewardLevelDataPlants:
+    - RewardPlant: 2
+      QuantityRewardPlant: 28
+    - RewardPlant: 9
+      QuantityRewardPlant: 29
+  - Level: 12
+    NumberCompletedOrders: 7
+    OpenPlant: 11
+    CoinReward: 2341
+    RewardLevelDataPlants:
+    - RewardPlant: 5
+      QuantityRewardPlant: 14
+    - RewardPlant: 12
+      QuantityRewardPlant: 29
 --- !u!114 &1013550070
 MonoBehaviour:
   m_ObjectHideFlags: 0
