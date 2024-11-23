@@ -22,6 +22,10 @@ public class GameManager : MonoBehaviour
     public GetTokensVFXController getTokensVFXController;
     public GameScoreHandler gameScoreHandler;
     public Transform CoinPos;
+    [Header("Assistants")]
+    public GameObject musicHelpers;
+    public GameObject collectorGnome;
+    
     [HideInInspector] public CfgLevelData _cfgLevelData;
     private int _lastCoins;
     
@@ -64,7 +68,31 @@ public class GameManager : MonoBehaviour
         gameModel.LevelGame.Value = 1;
         gameModel.NumberCompletedOrders.Subscribe(ChangeLevelUp);
         ChangeLevelGame(gameModel.LevelGame.Value);
+        InitGnome();
     }
+
+    private void InitGnome()
+    {
+        gameModel.GardenGnome.Value = true;
+        if (gameModel.CollectorGnome.Value)
+        {
+            collectorGnome.SetActive(true);
+        }
+        else
+        {
+            gameModel.CollectorGnome.Subscribe((c) => collectorGnome.SetActive(c));
+        }
+
+        if (gameModel.MusicHelpers.Value)
+        {
+            musicHelpers.SetActive(true);
+        }
+        else
+        {
+            gameModel.MusicHelpers.Subscribe((c) => musicHelpers.SetActive(c));
+        }
+    }
+    
     private void CustomersSpawn()
     {
         // customers[0].gameObject.SetActive(true);

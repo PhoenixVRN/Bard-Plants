@@ -2565,6 +2565,7 @@ GameObject:
   - component: {fileID: 193057373}
   - component: {fileID: 193057376}
   - component: {fileID: 193057377}
+  - component: {fileID: 193057378}
   m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
@@ -2672,6 +2673,42 @@ CapsuleCollider2D:
   m_Offset: {x: -0.00040814275, y: 0.0009907783}
   m_Size: {x: 0.33244738, y: 0.21821317}
   m_Direction: 1
+--- !u!58 &193057378
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193057372}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.3
 --- !u!1 &215395973
 GameObject:
   m_ObjectHideFlags: 0
@@ -7491,7 +7528,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &623498041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10722,6 +10759,8 @@ MonoBehaviour:
   getTokensVFXController: {fileID: 0}
   gameScoreHandler: {fileID: 0}
   CoinPos: {fileID: 172197929}
+  musicHelpers: {fileID: 623498040}
+  collectorGnome: {fileID: 1266367151}
   _cfgLevelData: {fileID: 0}
   openPlants: []
 --- !u!4 &1013550068
@@ -13395,7 +13434,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1266367152
 MonoBehaviour:
   m_ObjectHideFlags: 0
