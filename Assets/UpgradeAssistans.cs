@@ -18,6 +18,8 @@ public class UpgradeAssistans : MonoBehaviour
     public GameObject panelBuyButton;
     public GameObject panelLock;
     public GameObject panelBuyUpgrades;
+    
+    public TextMeshProUGUI textNameAssistance;
 
     public TextMeshProUGUI textPanelSpeed;
     public TextMeshProUGUI textPanelSpeedAction;
@@ -213,6 +215,7 @@ public class UpgradeAssistans : MonoBehaviour
         switch (_numAssistance)
         {
             case 0:
+                textNameAssistance.text = "САЖАЛЬЩИК";
                 _currentAssistanseUp = _gameModel.GardenGnome.Value;
                 _currentLvlAssistance = _gameModel.GardenGnomeLevel.Value;
                 _currentLevSpeed = _gameModel.GardenGnomeLevel.Value.lvlSpeed;
@@ -221,6 +224,7 @@ public class UpgradeAssistans : MonoBehaviour
                 break;
 
             case 1:
+                textNameAssistance.text = "СБОРЩИК";
                 _currentAssistanseUp = _gameModel.CollectorGnome.Value;
                 _currentLvlAssistance = _gameModel.CollectorGnomeLevel.Value;
                 _currentLevSpeed = _gameModel.CollectorGnomeLevel.Value.lvlSpeed;
@@ -229,6 +233,7 @@ public class UpgradeAssistans : MonoBehaviour
                 break;
 
             case 2:
+                textNameAssistance.text = "БРЕНЧАЛЬЩИК";
                 _currentAssistanseUp = _gameModel.MusicHelpers.Value;
                 _currentLvlAssistance = _gameModel.MusicHelpersLevel.Value;
                 _currentLevSpeed = _gameModel.MusicHelpersLevel.Value.lvlSpeed;

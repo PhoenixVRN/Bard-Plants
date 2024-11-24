@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public GameObject arbaiten;
+    
     [SerializeField] private List<Sprite> _spritesPlayer;
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private DynamicJoystick _dynamicJoystick;
@@ -15,6 +17,7 @@ public class Player : MonoBehaviour
 
     public void OnCollisionStay2D(Collision2D other)
     {
+        if (_harvesting || _musicOn) return;
         Debug.Log($"Plaer OnCollisionStay {other.gameObject.name}");
         if (other.gameObject.GetComponent<Grydka>())
         {
@@ -36,16 +39,20 @@ public class Player : MonoBehaviour
 
     IEnumerator SowHarvesting(Grydka grydka)
     {
+        arbaiten.SetActive(true);
         yield return new WaitForSeconds(3f);
         grydka.Harvesting();
         _harvesting = false;
+        arbaiten.SetActive(false);
     }
 
     IEnumerator SowPlayMusic(Grydka grydka)
     {
+        arbaiten.SetActive(true);
         yield return new WaitForSeconds(2f);
         grydka.PlayMusic();
         _musicOn = false;
+        arbaiten.SetActive(false);
     }
 
     // public void OnCollisionEnter2D(Collision2D collision)
