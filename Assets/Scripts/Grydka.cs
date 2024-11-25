@@ -41,7 +41,7 @@ public class Grydka : MonoBehaviour
                 // needPlayMusic.texture = playMusic.texture;
                 needMusic = true;
             }
-           
+
             if (StateOfGrowth == 4)
             {
                 Growth = false;
@@ -54,9 +54,16 @@ public class Grydka : MonoBehaviour
             {
                 StateOfGrowth++;
                 timeGrowthInStage = Time.time;
-                if (StateOfGrowth == 4 ) return;
+                // if (StateOfGrowth == 4 ) return;
                 // if (StateOfGrowth == 5) Debug.Log($"StateOfGrowth 5");
-                plantunGrydka.texture = plant.spritePlant[StateOfGrowth];
+                if (StateOfGrowth == 4)
+                {
+                    plantunGrydka.texture = plant.spritePlant[3];
+                }
+                else
+                {
+                    plantunGrydka.texture = plant.spritePlant[StateOfGrowth];
+                }
             }
         }
     }
@@ -100,7 +107,8 @@ public class Grydka : MonoBehaviour
             ripe = false;
             plantunGrydka.texture = plant.spritePlant[4];
             plantunGrydka.transform.SetParent(Bag.instance.transform);
-            plantunGrydka.transform.DOMove(Bag.instance.transform.position, 1).SetEase(Ease.Linear).OnComplete(AddedPlodToBag);
+            plantunGrydka.transform.DOMove(Bag.instance.transform.position, 1).SetEase(Ease.Linear)
+                .OnComplete(AddedPlodToBag);
             // AddedPlodToBag();
         }
 
@@ -112,10 +120,11 @@ public class Grydka : MonoBehaviour
         needPlayMusic.SetActive(false);
         // needPlayMusic.texture = noplayMusic.texture;
         StateOfGrowth = 3;
-        plantunGrydka.texture = plant.spritePlant[StateOfGrowth];
+        // plantunGrydka.texture = plant.spritePlant[StateOfGrowth];
         timeGrowthInStage = Time.time;
         needMusic = false;
     }
+
     private void AddedPlodToBag()
     {
         empty = false;
@@ -125,7 +134,8 @@ public class Grydka : MonoBehaviour
         var count = Random.Range(GameManager.instance.upgradeGrydkaCfgs[levelGrydka - 1].minPlants,
             GameManager.instance.upgradeGrydkaCfgs[levelGrydka - 1].maxPlants);
         Bag.instance.AddPlants(plant.typePlant, count);
-        Debug.Log($"min {GameManager.instance.upgradeGrydkaCfgs[levelGrydka - 1].minPlants}/max {GameManager.instance.upgradeGrydkaCfgs[levelGrydka - 1].maxPlants}/{count}");
+        Debug.Log(
+            $"min {GameManager.instance.upgradeGrydkaCfgs[levelGrydka - 1].minPlants}/max {GameManager.instance.upgradeGrydkaCfgs[levelGrydka - 1].maxPlants}/{count}");
     }
 
     public void UpgradeGrydka()
@@ -135,7 +145,7 @@ public class Grydka : MonoBehaviour
             //TODO max level
             return;
         }
-        
+
         GameManager.instance.PoPUpUpgrade.SetActive(true);
         GameManager.instance.PoPUpUpgrade.GetComponent<UpgradePanel>().Init(levelGrydka, this);
         Debug.Log($"UptgadeGrydka");
@@ -146,7 +156,6 @@ public class Grydka : MonoBehaviour
         levelGrydka++;
         gameObject.GetComponent<RawImage>().texture = _spriteGrydka[levelGrydka - 1].texture;
     }
-    
 }
 
 public enum ETypePlant
@@ -155,7 +164,7 @@ public enum ETypePlant
     StarchNut = 1,
     MysticalMushroom = 2,
     CrystalNut = 3,
-    FlyEater =4,
+    FlyEater = 4,
     GutFlower = 5,
     Mandrake = 6,
     MiracleFruit = 7,
@@ -176,11 +185,11 @@ public class Plant
     public List<Texture> spritePlant;
 
     public int QE;
-   
+
     public SubscriptionField<int> quantity;
+
     public Plant()
     {
         quantity = new SubscriptionField<int>() {Value = 0};
     }
-   
 }

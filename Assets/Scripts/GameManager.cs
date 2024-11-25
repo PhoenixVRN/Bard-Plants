@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,6 +27,7 @@ public class GameManager : MonoBehaviour
     [Header("Assistants")]
     public GameObject musicHelpers;
     public GameObject collectorGnome;
+    public Image imageLeve;
     
     [HideInInspector] public CfgLevelData _cfgLevelData;
     private int _lastCoins;
@@ -137,5 +140,12 @@ public class GameManager : MonoBehaviour
     public Plant GetPlantToType(ETypePlant typePlant)
     {
         return allPlants.Find(pl => pl.typePlant == typePlant);
+    }
+
+    public void ShowAmoutExp(int all, int value)
+    {
+        float h = (float)((float)value / (float)(all+1f));
+         Debug.Log($"ShowAmoutExp {h}");
+        imageLeve.DOFillAmount(h, 2);
     }
 }

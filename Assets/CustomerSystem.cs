@@ -70,6 +70,8 @@ public class CustomerSystem : MonoBehaviour
     
     private void CheclLevelUp(int value)
     {
+        // заполнение филда експой для уровня
+        GameManager.instance.ShowAmoutExp(_qq,value);
         if (value > _qq)
         {
             Debug.Log($"LevelUp {value}/{_qq}");

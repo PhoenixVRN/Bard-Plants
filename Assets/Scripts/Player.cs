@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     public void OnCollisionStay2D(Collision2D other)
     {
         if (_harvesting || _musicOn) return;
-        Debug.Log($"Plaer OnCollisionStay {other.gameObject.name}");
+        // Debug.Log($"Plaer OnCollisionStay {other.gameObject.name}");
         if (other.gameObject.GetComponent<Grydka>())
         {
             if (other.gameObject.GetComponent<Grydka>().ripe && _dynamicJoystick.Vertical == 0 &&
