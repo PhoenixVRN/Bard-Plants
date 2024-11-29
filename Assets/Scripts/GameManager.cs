@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     public GameObject musicHelpers;
     public GameObject collectorGnome;
     public Image imageLeve;
+    public GameObject parentGryadka;
     
     [HideInInspector] public CfgLevelData _cfgLevelData;
     private int _lastCoins;
