@@ -24,6 +24,7 @@ public class Grydka : MonoBehaviour
     public int levelGrydka;
     public bool uprgadePopUpActive;
     private GameManager _gameManager;
+    private bool _playerOn;
 
     private void Start()
     {
@@ -33,6 +34,16 @@ public class Grydka : MonoBehaviour
 
     void Update()
     {
+        if (empty && needMusic && _playerOn)
+        {
+            PlayMusic();
+        }
+
+        if (empty && !Growth && _playerOn)
+        {
+            Harvesting();
+        }
+        
         if (Growth && !needMusic)
         {
             if (StateOfGrowth == 2)
@@ -68,6 +79,23 @@ public class Grydka : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+         if (other.name.Contains("Player"))
+         {
+           _playerOn = true;
+         }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.name.Contains("Player"))
+        {
+            _playerOn = false;
+        }
+    }
+    
+
     public void PlantaPlant()
     {
         if (uprgadePopUpActive) return;
@@ -77,7 +105,8 @@ public class Grydka : MonoBehaviour
         Growth = true;
         plant = GameManager.instance.openPlants[Random.Range(0, GameManager.instance.openPlants.Count)];
         // plant = GameManager.instance.allPlants[Random.Range(0, GameManager.instance.openPlants.Count)];
-        Debug.Log($"PlantaPlant {GameManager.instance.openPlants.Count}/{plant.namePlant}");
+        // Debug.Log($"PlantaPlant {GameManager.instance.openPlants.Count}/{plant.namePlant}");
+        // plantunGrydka.GetComponent<CircleCollider2D>().enabled = true;
         plantunGrydka.texture = plant.spritePlant[0];
         plantunGrydka.gameObject.SetActive(true);
     }
@@ -131,6 +160,7 @@ public class Grydka : MonoBehaviour
         plantunGrydka.gameObject.SetActive(false);
         plantunGrydka.transform.SetParent(transform);
         plantunGrydka.transform.localPosition = new Vector3(0, 40, 0);
+        // plantunGrydka.GetComponent<CircleCollider2D>().enabled = false; // хз
         var count = Random.Range(GameManager.instance.upgradeGrydkaCfgs[levelGrydka - 1].minPlants,
             GameManager.instance.upgradeGrydkaCfgs[levelGrydka - 1].maxPlants);
         Bag.instance.AddPlants(plant.typePlant, count);

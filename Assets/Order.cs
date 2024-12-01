@@ -73,7 +73,7 @@ public class Order : MonoBehaviour
     {
         plant = GameManager.instance.GetPlantToType(typePlant);
         plant.quantity.Subscribe(ShowText);
-        Debug.Log($"CountText {plant.namePlant}/{plant.quantity.Value}");
+        // Debug.Log($"CountText {plant.namePlant}/{plant.quantity.Value}");
         ShowText(plant.quantity.Value);
         // Debug.Log($"plant.quantity {plant.typePlant}/{plant.quantity.Value}");
     }

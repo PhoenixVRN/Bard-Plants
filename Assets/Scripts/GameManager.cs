@@ -29,7 +29,8 @@ public class GameManager : MonoBehaviour
     public GameObject collectorGnome;
     public Image imageLeve;
     public GameObject parentGryadka;
-    
+    public float timeToPlant;
+    private float _timer = 0;
     [HideInInspector] public CfgLevelData _cfgLevelData;
     private int _lastCoins;
     
@@ -73,6 +74,19 @@ public class GameManager : MonoBehaviour
         gameModel.NumberCompletedOrders.Subscribe(ChangeLevelUp);
         ChangeLevelGame(gameModel.LevelGame.Value);
         InitGnome();
+        _timer = Time.time + timeToPlant;
+    }
+
+    private void Update()
+    {
+        if (allGrydka.Find(g => g.empty == false))
+        {
+        if (_timer < Time.time)
+        {
+            _timer = Time.time + timeToPlant;
+            SpawnGrydka();
+        }
+        }
     }
 
     private void InitGnome()
@@ -148,5 +162,11 @@ public class GameManager : MonoBehaviour
         float h = (float)((float)value / (float)(all+1f));
          Debug.Log($"ShowAmoutExp {h}");
         imageLeve.DOFillAmount(h, 2);
+    }
+
+    private void SpawnGrydka()
+    {
+        allGrydka.Find((grydka => grydka.empty == false)).PlantaPlant();
+        // _timer = Time.time + timeToPlant;
     }
 }

@@ -15,27 +15,35 @@ public class Player : MonoBehaviour
     private bool _harvesting;
     private bool _musicOn;
 
-    public void OnCollisionStay2D(Collision2D other)
-    {
-        if (_harvesting || _musicOn) return;
-        // Debug.Log($"Plaer OnCollisionStay {other.gameObject.name}");
-        if (other.gameObject.GetComponent<Grydka>())
-        {
-            if (other.gameObject.GetComponent<Grydka>().ripe && _dynamicJoystick.Vertical == 0 &&
-                _dynamicJoystick.Horizontal == 0)
-            {
-                _harvesting = true;
-                StartCoroutine(SowHarvesting(other.gameObject.GetComponent<Grydka>()));
-            }
+    // public void OnTriggerEnter(Collider other)
+    // {
+    //     if (other.gameObject.GetComponent<Grydka>())
+    //     {
+    //         Debug.Log($"Player {other.name} entered");
+    //     }
+    // }
 
-            if (other.gameObject.GetComponent<Grydka>().needMusic && _dynamicJoystick.Vertical == 0 &&
-                _dynamicJoystick.Horizontal == 0)
-            {
-                _musicOn = true;
-                StartCoroutine(SowPlayMusic(other.gameObject.GetComponent<Grydka>()));
-            }
-        }
-    }
+    // public void OnCollisionStay2D(Collision2D other)
+    // {
+    //     if (_harvesting || _musicOn) return;
+    //     // Debug.Log($"Plaer OnCollisionStay {other.gameObject.name}");
+    //     if (other.gameObject.GetComponent<Grydka>())
+    //     {
+    //         if (other.gameObject.GetComponent<Grydka>().ripe && _dynamicJoystick.Vertical == 0 &&
+    //             _dynamicJoystick.Horizontal == 0)
+    //         {
+    //             _harvesting = true;
+    //             StartCoroutine(SowHarvesting(other.gameObject.GetComponent<Grydka>()));
+    //         }
+    //
+    //         if (other.gameObject.GetComponent<Grydka>().needMusic && _dynamicJoystick.Vertical == 0 &&
+    //             _dynamicJoystick.Horizontal == 0)
+    //         {
+    //             _musicOn = true;
+    //             StartCoroutine(SowPlayMusic(other.gameObject.GetComponent<Grydka>()));
+    //         }
+    //     }
+    // }
 
     IEnumerator SowHarvesting(Grydka grydka)
     {
