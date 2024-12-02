@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public List<UpgradeGrydkaCfg> upgradeGrydkaCfgs;
-    public static GameManager instance; 
+    public static GameManager instance;
     public List<Plant> allPlants;
     public List<Grydka> allGrydka;
     public List<Texture> spriteTexturesPlant;
@@ -24,8 +25,7 @@ public class GameManager : MonoBehaviour
     public GetTokensVFXController getTokensVFXController;
     public GameScoreHandler gameScoreHandler;
     public Transform CoinPos;
-    [Header("Assistants")]
-    public GameObject musicHelpers;
+    [Header("Assistants")] public GameObject musicHelpers;
     public GameObject collectorGnome;
     public Image imageLeve;
     public GameObject parentGryadka;
@@ -33,19 +33,22 @@ public class GameManager : MonoBehaviour
     private float _timer = 0;
     [HideInInspector] public CfgLevelData _cfgLevelData;
     private int _lastCoins;
-    
+
 
     public List<Plant> openPlants;
     // public List<Customer> customers;
 
     private void Awake()
     {
-        if (instance == null) { 
-            instance = this; 
-        } else if(instance == this)
-        { 
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance == this)
+        {
             Destroy(gameObject);
         }
+
         DontDestroyOnLoad(gameObject);
     }
 
@@ -81,11 +84,11 @@ public class GameManager : MonoBehaviour
     {
         if (allGrydka.Find(g => g.empty == false))
         {
-        if (_timer < Time.time)
-        {
-            _timer = Time.time + timeToPlant;
-            SpawnGrydka();
-        }
+            if (_timer < Time.time)
+            {
+                _timer = Time.time + timeToPlant;
+                SpawnGrydka();
+            }
         }
     }
 
@@ -110,7 +113,7 @@ public class GameManager : MonoBehaviour
             gameModel.MusicHelpers.Subscribe((c) => musicHelpers.SetActive(c));
         }
     }
-    
+
     private void CustomersSpawn()
     {
         // customers[0].gameObject.SetActive(true);
@@ -120,7 +123,7 @@ public class GameManager : MonoBehaviour
     {
         textCoin.text = newValue.ToString();
     }
-    
+
     private void ChangeLevelGame(int newValue)
     {
         textLevelGame.text = newValue.ToString();
@@ -136,19 +139,20 @@ public class GameManager : MonoBehaviour
 
     public void LevelUpApply()
     {
-        var typePlant = _cfgLevelData.AllLevelData[gameModel.LevelGame.Value -1].OpenPlant;
+        var typePlant = _cfgLevelData.AllLevelData[gameModel.LevelGame.Value - 1].OpenPlant;
         var plant = GetPlantToType(typePlant);
-        coin.Value += _cfgLevelData.AllLevelData[gameModel.LevelGame.Value-1].CoinReward;
+        coin.Value += _cfgLevelData.AllLevelData[gameModel.LevelGame.Value - 1].CoinReward;
         Debug.Log($"Add Plant {plant.typePlant}/ level {gameModel.LevelGame.Value}");
         openPlants.Add(plant);
         // gameModel.NumberCompletedOrders.Value = 0; // TODO выркзать этот рудемент
-        var u = _cfgLevelData.AllLevelData[gameModel.LevelGame.Value-1].RewardLevelDataPlants[0];
+        var u = _cfgLevelData.AllLevelData[gameModel.LevelGame.Value - 1].RewardLevelDataPlants[0];
         Bag.instance.AddPlants(u.RewardPlant, u.QuantityRewardPlant);
-        if (_cfgLevelData.AllLevelData[gameModel.LevelGame.Value-1].RewardLevelDataPlants.Count >1)
+        if (_cfgLevelData.AllLevelData[gameModel.LevelGame.Value - 1].RewardLevelDataPlants.Count > 1)
         {
-            var p = _cfgLevelData.AllLevelData[gameModel.LevelGame.Value -1].RewardLevelDataPlants[0];
+            var p = _cfgLevelData.AllLevelData[gameModel.LevelGame.Value - 1].RewardLevelDataPlants[0];
             Bag.instance.AddPlants(p.RewardPlant, p.QuantityRewardPlant);
         }
+
         Time.timeScale = 1f;
     }
 
@@ -159,14 +163,14 @@ public class GameManager : MonoBehaviour
 
     public void ShowAmoutExp(int all, int value)
     {
-        float h = (float)((float)value / (float)(all+1f));
-         Debug.Log($"ShowAmoutExp {h}");
+        float h = (float) ((float) value / (float) (all + 1f));
+        Debug.Log($"ShowAmoutExp {h}");
         imageLeve.DOFillAmount(h, 2);
     }
 
     private void SpawnGrydka()
     {
-        allGrydka.Find((grydka => grydka.empty == false)).PlantaPlant();
-        // _timer = Time.time + timeToPlant;
+        var emptyGrydka = allGrydka.FindAll((grydka => grydka.empty == false));
+        emptyGrydka[Random.Range(0, emptyGrydka.Count)].PlantaPlant();
     }
 }
