@@ -213,6 +213,7 @@ public class Plant
     public int timeGrowth;
     public int defaultValueDelivery;
     public List<Texture> spritePlant;
+    public int Level;
 
     public int QE;
 
