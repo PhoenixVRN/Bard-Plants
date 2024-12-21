@@ -31,6 +31,11 @@ public class UpgradePlantsHandler : MonoBehaviour
 
     private void OnDisable()
     {
+        foreach (var VARIABLE in upgradePlants)
+        {
+            Destroy(VARIABLE);
+        }
+        // Debug.Log($"OnDisable");
         upgradePlants.Clear();
     }
 }
