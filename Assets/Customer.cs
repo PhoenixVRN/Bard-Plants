@@ -23,7 +23,8 @@ public class Customer : MonoBehaviour
         orders.gameObject.SetActive(true);
     }
 
-    private void OnMouseDown()
+    // private void OnMouseDown()
+    public void OnCustomerClicked()
     {
         Debug.Log($"OnMouseDown");
         if (TypeCustomer == eTypeCustomer.GoldenForestMonster)

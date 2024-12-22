@@ -141,7 +141,7 @@ public class Grydka : MonoBehaviour
             // AddedPlodToBag();
         }
 
-        Debug.Log($"Harvesting {gameObject}");
+        // Debug.Log($"Harvesting {gameObject}");
     }
 
     public void PlayMusic()
@@ -161,11 +161,12 @@ public class Grydka : MonoBehaviour
         plantunGrydka.transform.SetParent(transform);
         plantunGrydka.transform.localPosition = new Vector3(0, 40, 0);
         // plantunGrydka.GetComponent<CircleCollider2D>().enabled = false; // хз
-        var count = Random.Range(GameManager.instance.upgradeGrydkaCfgs[levelGrydka - 1].minPlants,
-            GameManager.instance.upgradeGrydkaCfgs[levelGrydka - 1].maxPlants);
+        // var count = Random.Range(GameManager.instance.upgradeGrydkaCfgs[levelGrydka - 1].minPlants,
+        //     GameManager.instance.upgradeGrydkaCfgs[levelGrydka - 1].maxPlants);
+        var count = plant.Level + 1;
         Bag.instance.AddPlants(plant.typePlant, count);
-        Debug.Log(
-            $"min {GameManager.instance.upgradeGrydkaCfgs[levelGrydka - 1].minPlants}/max {GameManager.instance.upgradeGrydkaCfgs[levelGrydka - 1].maxPlants}/{count}");
+        // Debug.Log(
+        //     $"min {GameManager.instance.upgradeGrydkaCfgs[levelGrydka - 1].minPlants}/max {GameManager.instance.upgradeGrydkaCfgs[levelGrydka - 1].maxPlants}/{count}");
     }
 
     public void UpgradeGrydka()
@@ -212,7 +213,7 @@ public class Plant
     public ETypePlant typePlant;
     public int timeGrowth;
     public int defaultValueDelivery;
-    public List<Texture> spritePlant;
+    public List<Texture2D> spritePlant;
     public int Level;
 
     public int QE;
@@ -221,6 +222,7 @@ public class Plant
 
     public Plant()
     {
+        Level = 0;
         quantity = new SubscriptionField<int>() {Value = 0};
     }
 }

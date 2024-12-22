@@ -784,6 +784,7 @@ GameObject:
   - component: {fileID: 3709624091989804205}
   - component: {fileID: 6256714198175501757}
   - component: {fileID: 4721582126392866150}
+  - component: {fileID: 4420727986271580878}
   m_Layer: 5
   m_Name: UpgradePlants
   m_TagString: Untagged
@@ -868,6 +869,36 @@ MonoBehaviour:
   countPlants: {fileID: 7142619637261556652}
   count: {fileID: 932727948073160527}
   cost: {fileID: 7793700927282272489}
+  upgradeIcon: {fileID: 5888831844699960677}
+--- !u!114 &4420727986271580878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7509165312234339475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4721582126392866150}
+          m_TargetAssemblyTypeName: UpgradePlant, Assembly-CSharp
+          m_MethodName: ButtonClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &7649761847096687463
 GameObject:
   m_ObjectHideFlags: 0
