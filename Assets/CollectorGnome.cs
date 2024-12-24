@@ -78,7 +78,7 @@ public class CollectorGnome : MonoBehaviour
 
     private Grydka TargetGardenBed()
     {
-        var allGrydka = GameManager.instance.allGrydka.FindAll(c => c.ripe);
+        var allGrydka = GameManager.instance.currentGrydka.FindAll(c => c.ripe);
         if (allGrydka.Count == 0) return null;
         var randomGrydka = Random.Range(0, allGrydka.Count);
         return allGrydka[Random.Range(0, allGrydka.Count)];

@@ -163,7 +163,7 @@ public class Grydka : MonoBehaviour
         // plantunGrydka.GetComponent<CircleCollider2D>().enabled = false; // хз
         // var count = Random.Range(GameManager.instance.upgradeGrydkaCfgs[levelGrydka - 1].minPlants,
         //     GameManager.instance.upgradeGrydkaCfgs[levelGrydka - 1].maxPlants);
-        var count = plant.Level + 1;
+        var count = plant.Level + 10;
         Bag.instance.AddPlants(plant.typePlant, count);
         // Debug.Log(
         //     $"min {GameManager.instance.upgradeGrydkaCfgs[levelGrydka - 1].minPlants}/max {GameManager.instance.upgradeGrydkaCfgs[levelGrydka - 1].maxPlants}/{count}");

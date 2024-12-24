@@ -74,7 +74,7 @@ public class GardenGnome : MonoBehaviour
 
     private Grydka EmptyGardenBed()
     {
-        var allGrydka = GameManager.instance.allGrydka.FindAll(c => c.empty == false);
+        var allGrydka = GameManager.instance.currentGrydka.FindAll(c => c.empty == false);
         if (allGrydka.Count == 0) return null;
         var randomGrydka = Random.Range(0, allGrydka.Count);
         return allGrydka[Random.Range(0, allGrydka.Count)];

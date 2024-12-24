@@ -13,7 +13,8 @@ public class GameManager : MonoBehaviour
     public List<UpgradeGrydkaCfg> upgradeGrydkaCfgs;
     public static GameManager instance;
     public List<Plant> allPlants;
-    public List<Grydka> allGrydka;
+    public List<Grydka> currentGrydka;
+    public List<LevelGrydka> levelGrydka;
     public List<Texture> spriteTexturesPlant;
     public TextMeshProUGUI textCoin;
     public TextMeshProUGUI textLevelGame;
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
     private float _timer = 0;
     [HideInInspector] public CfgLevelData _cfgLevelData;
     private int _lastCoins;
+    private MapController _mapController;
 
 
     public List<Plant> openPlants;
@@ -54,6 +56,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        _mapController = new MapController();
         _cfgLevelData = GetComponent<CfgLevelData>();
         getTokensVFXController = GetComponent<GetTokensVFXController>();
         gameScoreHandler = GetComponent<GameScoreHandler>();
@@ -82,7 +85,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (allGrydka.Find(g => g.empty == false))
+        if (currentGrydka.Find(g => g.empty == false))
         {
             if (_timer < Time.time)
             {
@@ -132,7 +135,11 @@ public class GameManager : MonoBehaviour
     public void ChangeLevelUp(int number)
     {
         //TODO попап повышени уровня и пр.
-        gameModel.LevelGame.Value++;
+        gameModel.LevelGame.Value ++;
+        gameModel.LevelMap.Value ++;
+        // Debug.Log($"Level Map: {gameModel.LevelMap.Value}");
+        //TODO  сделать систему повышающую уровень карты
+        _mapController.OnLevelChanged(gameModel.LevelMap.Value);
         UpgradeLevelUp.gameObject.SetActive(true);
         UpgradeLevelUp.InitPanel(_cfgLevelData.AllLevelData[gameModel.LevelGame.Value - 1]);
     }
@@ -170,7 +177,7 @@ public class GameManager : MonoBehaviour
 
     private void SpawnGrydka()
     {
-        var emptyGrydka = allGrydka.FindAll((grydka => grydka.empty == false));
+        var emptyGrydka = currentGrydka.FindAll((grydka => grydka.empty == false));
         emptyGrydka[Random.Range(0, emptyGrydka.Count)].PlantaPlant();
     }
 }
