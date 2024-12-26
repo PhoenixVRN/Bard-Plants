@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     private int _lastCoins;
     private MapController _mapController;
     public Image mapForest;
+    public Image imageFoerstLevel;
 
 
     public List<Plant> openPlants;
@@ -141,7 +142,7 @@ public class GameManager : MonoBehaviour
         gameModel.LevelMap.Value ++;
         // Debug.Log($"Level Map: {gameModel.LevelMap.Value}");
         //TODO  сделать систему повышающую уровень карты
-        _mapController.OnLevelChanged(gameModel.LevelMap.Value);
+        // _mapController.OnLevelChanged(gameModel.LevelMap.Value);
         UpgradeLevelUp.gameObject.SetActive(true);
         UpgradeLevelUp.InitPanel(_cfgLevelData.AllLevelData[gameModel.LevelGame.Value - 1]);
     }
@@ -151,7 +152,7 @@ public class GameManager : MonoBehaviour
         var typePlant = _cfgLevelData.AllLevelData[gameModel.LevelGame.Value - 1].OpenPlant;
         var plant = GetPlantToType(typePlant);
         coin.Value += _cfgLevelData.AllLevelData[gameModel.LevelGame.Value - 1].CoinReward;
-        Debug.Log($"Add Plant {plant.typePlant}/ level {gameModel.LevelGame.Value}");
+        // Debug.Log($"Add Plant {plant.typePlant}/ level {gameModel.LevelGame.Value}");
         openPlants.Add(plant);
         // gameModel.NumberCompletedOrders.Value = 0; // TODO выркзать этот рудемент
         var u = _cfgLevelData.AllLevelData[gameModel.LevelGame.Value - 1].RewardLevelDataPlants[0];

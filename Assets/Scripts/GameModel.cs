@@ -35,6 +35,7 @@ public class GameModel
     public SubscriptionField<LvlAssistance> CollectorGnomeLevel { get; }
     public SubscriptionField<LvlAssistance> MusicHelpersLevel { get; }
     public SubscriptionField<int> LevelMap { get; }
+    public SubscriptionField<int> NumberClosedOrders { get; }
    
     public GameModel()
     {
@@ -70,6 +71,7 @@ public class GameModel
         NumberCompletedOrders = new SubscriptionField<int>();
         CloseCustomersInLevel = new SubscriptionField<int>() {Value = 0};
         LevelMap = new SubscriptionField<int>() {Value = 0};
+        NumberClosedOrders = new SubscriptionField<int>() {Value = 0};
         // AllPlantsInModel = new List<SubscriptionField<int>>()
         // {
         //     StarchNut,

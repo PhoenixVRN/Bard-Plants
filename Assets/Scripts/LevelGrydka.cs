@@ -9,4 +9,5 @@ public class LevelGrydka
     public List<Grydka> newGrydka;
     public List<GameObject> border;
     public Sprite sprite;
+    public int numberOfOrders;
 }

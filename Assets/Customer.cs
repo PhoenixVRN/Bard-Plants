@@ -32,7 +32,6 @@ public class Customer : MonoBehaviour
             if (orders.GoldDeliveryOrder())
             {
                 Debug.Log($"Golden Completed");
-                //TODO реализовать проПарциональныое вычитание растений из кулька
                 var summ = 0;
                 var qantity = orders.ordersActive[0].needplant;
                 foreach (var openPlant in GameManager.instance.allPlants)
@@ -52,14 +51,14 @@ public class Customer : MonoBehaviour
                         var x = (qantity * procent);
                         var e = (qantity * procent) / 100;
                         var s = (int)Math.Round(e);
-                        Debug.Log(
-                            $"z {z}/ x {x}openPlant {openPlant.namePlant} - {openPlant.quantity.Value}, proc {procent},need {qantity}, vzat {e}/{s}");
+                        // Debug.Log(
+                        //     $"z {z}/ x {x}openPlant {openPlant.namePlant} - {openPlant.quantity.Value}, proc {procent},need {qantity}, vzat {e}/{s}");
                         all += e;
                         openPlant.quantity.Value -= s;
                     }
                 }
 
-                Debug.Log($"All {all}");
+                // Debug.Log($"All {all}");
                 //----------------------------------------------------------------------------------------------------------
                 GameManager.instance.getTokensVFXController.ShowGetTokensVFX(reward / 10, transform.position,
                     GameManager.instance.CoinPos.position, coin);
@@ -76,6 +75,7 @@ public class Customer : MonoBehaviour
 
                 gameObject.SetActive(false);
                 Reference.GameModel.CountCustomerInGame.Value--;
+                Reference.GameModel.NumberClosedOrders.Value++;
                 Reference.GameModel.CloseCustomersInLevel.Value++;
                 //----------------------------------------------------------------------------------------------------------
 
@@ -86,7 +86,7 @@ public class Customer : MonoBehaviour
 
         if (orders.DeliveryOrder())
         {
-            Debug.Log($"Add Expa {reward}");
+            // Debug.Log($"Add Expa {reward}");
             GameManager.instance.getTokensVFXController.ShowGetTokensVFX(reward / 10, transform.position,
                 GameManager.instance.CoinPos.position, coin);
             GameManager.instance.coin.Value += reward;
@@ -97,11 +97,10 @@ public class Customer : MonoBehaviour
             {
                 if (ord.typePlant == 0)
                 {
-                    Debug.Log($"typePlant == 0 {ord.typePlant}");
+                    // Debug.Log($"typePlant == 0 {ord.typePlant}");
                     break;
                 }
-
-                //TODO 
+                
                 // Debug.Log($"ord.typePlant {ord.typePlant}");
                 // Debug.Log($"Plant type {ord.typePlant}/ {GameManager.instance.GetPlantToType(ord.typePlant)}");
                 GameManager.instance.GetPlantToType(ord.typePlant).quantity.Value -= ord.needplant;
@@ -124,6 +123,7 @@ public class Customer : MonoBehaviour
             // }
             gameObject.SetActive(false);
             Reference.GameModel.CountCustomerInGame.Value--;
+            Reference.GameModel.NumberClosedOrders.Value++;
             Reference.GameModel.CloseCustomersInLevel.Value++;
         }
     }
