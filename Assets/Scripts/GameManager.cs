@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public CfgLevelData _cfgLevelData;
     private int _lastCoins;
     private MapController _mapController;
+    public Image mapForest;
 
 
     public List<Plant> openPlants;
@@ -57,6 +58,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _mapController = new MapController();
+        _mapController.OnLevelChanged(0);
         _cfgLevelData = GetComponent<CfgLevelData>();
         getTokensVFXController = GetComponent<GetTokensVFXController>();
         gameScoreHandler = GetComponent<GameScoreHandler>();

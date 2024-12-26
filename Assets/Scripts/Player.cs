@@ -69,23 +69,23 @@ public class Player : MonoBehaviour
     // }
     void FixedUpdate()
     {
-        if (_harvesting || _musicOn) return;
+        // if (_harvesting || _musicOn) return;
 
-        if (_dynamicJoystick.Vertical > 0)
-        {
-            _spriteRenderer.sprite = _spritesPlayer[0];
-        }
-        else
-        {
+        // if (_dynamicJoystick.Vertical > 0)
+        // {
+        //     _spriteRenderer.sprite = _spritesPlayer[0];
+        // }
+        // else
+        // {
             if (_dynamicJoystick.Horizontal > 0)
             {
                 _spriteRenderer.sprite = _spritesPlayer[1];
             }
-            else
+            if (_dynamicJoystick.Horizontal < 0)
             {
                 _spriteRenderer.sprite = _spritesPlayer[2];
             }
-        }
+        // }
 
         _rb.linearVelocity = new Vector2(_dynamicJoystick.Horizontal * _moveSpeed,
             _dynamicJoystick.Vertical * _moveSpeed);

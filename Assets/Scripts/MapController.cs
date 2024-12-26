@@ -16,8 +16,12 @@ public class MapController
     public void OnLevelChanged(int level)
     {
         Debug.Log($"Map OnLevelChanged");
-        var borders = _gameManager.levelGrydka[level - 1].border;
-        borders.ForEach(b => b.gameObject.SetActive(false));
+        if (level > 0)
+        {
+            _gameManager.levelGrydka[level - 1].border.ForEach(b => b.gameObject.SetActive(false));;
+        }
+        _gameManager.levelGrydka[level].border.ForEach(b => b.gameObject.SetActive(true));
+      
 
         var newGrydkas = _gameManager.levelGrydka[level].newGrydka;
         newGrydkas.ForEach(b =>
@@ -25,5 +29,6 @@ public class MapController
             b.gameObject.SetActive(true);
             _gameManager.currentGrydka.Add(b);
         });
+        _gameManager.mapForest.sprite = _gameManager.levelGrydka[level].sprite;
     }
 }
