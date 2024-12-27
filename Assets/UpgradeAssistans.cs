@@ -20,6 +20,7 @@ public class UpgradeAssistans : MonoBehaviour
     public GameObject panelBuyUpgrades;
     
     public TextMeshProUGUI textNameAssistance;
+    public TextMeshProUGUI textCostAssistance;
 
     public TextMeshProUGUI textPanelSpeed;
     public TextMeshProUGUI textPanelSpeedAction;
@@ -39,6 +40,7 @@ public class UpgradeAssistans : MonoBehaviour
 
     private int _numAssistance;
     private GameModel _gameModel;
+    private GameManager _gameManager;
 
     private bool _currentAssistanseUp;
     private LvlAssistance _currentLvlAssistance;
@@ -49,22 +51,29 @@ public class UpgradeAssistans : MonoBehaviour
 
     private void OnEnable()
     {
-        Time.timeScale = 0f;
+        // Time.timeScale = 0f;
+        _gameManager = GameManager.instance;
+        _gameModel = Reference.GameModel;
         _numAssistance = 0;
         pers.sprite = allAssistanse[_numAssistance];
-    }
-    private void OnDisable()
-    {
-        Time.timeScale = 1f;
-    }
-    
-
-    private void Start()
-    {
-        _gameModel = Reference.GameModel;
+        GameManager.instance.coin.Subscribe(SetLevelButton);
         UpDateData();
         CheckActiveAssistance();
     }
+    private void OnDisable()
+    {
+        GameManager.instance.coin.UnSubscribe(SetLevelButton);
+        // Time.timeScale = 1f;
+    }
+    
+
+    // private void Start()
+    // {
+    //     _gameManager = GameManager.instance;
+    //     _gameModel = Reference.GameModel;
+    //     UpDateData();
+    //     CheckActiveAssistance();
+    // }
 
     public void Right()
     {
@@ -114,6 +123,16 @@ public class UpgradeAssistans : MonoBehaviour
         panelSpeed.GetComponent<Image>().sprite = sprireCloseUpgrade;
         panelSpeedAction.GetComponent<Image>().sprite = sprireCloseUpgrade;
         panelStartAction.GetComponent<Image>().sprite = sprireCloseUpgrade;
+        if (CheckMony(_gameManager.coin.Value, costAssistance))
+        {
+            textCostAssistance.color = Color.black;
+            panelBuyButton.GetComponent<Button>().interactable = true;
+        }
+        else
+        {
+            textCostAssistance.color = Color.red;
+            panelBuyButton.GetComponent<Button>().interactable = false;
+        }
         panelBuyButton.SetActive(true);
         panelLock.SetActive(true);
         panelBuyUpgrades.SetActive(false);
@@ -127,6 +146,7 @@ public class UpgradeAssistans : MonoBehaviour
         switch (_numAssistance)
         {
             case 0:
+                Debug.Log($"You bought {_numAssistance} upgrades.");
                 _gameModel.GardenGnome.Value = true;
                 break;
             case 1:
@@ -142,26 +162,28 @@ public class UpgradeAssistans : MonoBehaviour
 
     public void BuyLevelSpeed()
     {
+        GameManager.instance.coin.Value -= costUpgrade;
         _currentLvlAssistance.lvlSpeed++;
         UpDateData();
         SetLevelButton();
     }
     public void BuySpeedAction()
     {
+        GameManager.instance.coin.Value -= costUpgrade;
         _currentLvlAssistance.lvlActions++;
-
         UpDateData();
         SetLevelButton();
     }
 
     public void BuyStartAction()
     {
+        GameManager.instance.coin.Value -= costUpgrade;
         _currentLvlAssistance.lvlStartAction++;
         UpDateData();
         SetLevelButton();
     }
 
-    private void SetLevelButton()
+    private void SetLevelButton(int value = 0)
     {
         if (_currentLevSpeed >= 15)
         {
@@ -176,7 +198,14 @@ public class UpgradeAssistans : MonoBehaviour
             textBuySpeed.text = costUpgrade.ToString();
             sprireBuyArrowSpeed.gameObject.SetActive(true);
             //TODO check coins
+           if (CheckMony(_gameManager.coin.Value, costUpgrade))
+           {
             sprireBuyArrowSpeed.transform.parent.gameObject.GetComponent<Button>().interactable = true;
+           }
+           else
+           {
+               sprireBuyArrowSpeed.transform.parent.gameObject.GetComponent<Button>().interactable = false;
+           }
         }
 
         if (_currentLevSpeedAction >= 15)
@@ -191,7 +220,15 @@ public class UpgradeAssistans : MonoBehaviour
             textPanelSpeedAction.text = _currentLevSpeedAction + " LvL";
             textBuySpeedAction.text = costUpgrade.ToString();
             sprireBuyArrowSpeedAction.gameObject.SetActive(true);
-            sprireBuyArrowSpeedAction.transform.parent.gameObject.GetComponent<Button>().interactable = true;
+            if (CheckMony(_gameManager.coin.Value, costUpgrade))
+            {
+                sprireBuyArrowSpeedAction.transform.parent.gameObject.GetComponent<Button>().interactable = true;
+            }
+            else
+            {
+                sprireBuyArrowSpeedAction.transform.parent.gameObject.GetComponent<Button>().interactable = false;
+            }
+            // sprireBuyArrowSpeedAction.transform.parent.gameObject.GetComponent<Button>().interactable = true;
         }
 
         if (_currentLevStartAction >= 15)
@@ -206,7 +243,15 @@ public class UpgradeAssistans : MonoBehaviour
             textPanelStartAction.text = _currentLevStartAction + " LvL";
             textBuyStartAction.text = costUpgrade.ToString();
             sprireBuyArrowStartAction.gameObject.SetActive(true);
-            sprireBuyArrowStartAction.transform.parent.gameObject.GetComponent<Button>().interactable = true;
+            if (CheckMony(_gameManager.coin.Value, costUpgrade))
+            {
+                sprireBuyArrowStartAction.transform.parent.gameObject.GetComponent<Button>().interactable = true;
+            }
+            else
+            {
+                sprireBuyArrowStartAction.transform.parent.gameObject.GetComponent<Button>().interactable = false;
+            }
+            // sprireBuyArrowStartAction.transform.parent.gameObject.GetComponent<Button>().interactable = true;
         }
     }
 
@@ -241,5 +286,17 @@ public class UpgradeAssistans : MonoBehaviour
                 _currentLevStartAction = _gameModel.MusicHelpersLevel.Value.lvlStartAction;
                 break;
         }
+    }
+    private bool CheckMony(int mony, int cost)
+    {
+        return mony >= cost;
+        // if (mony >= cost)
+        // {
+        //     cost.color = Color.white;
+        // }
+        // else
+        // {
+        //     cost.color = Color.red;
+        // }
     }
 }

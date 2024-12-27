@@ -12,7 +12,7 @@ public class CameraMove : MonoBehaviour
     private void LateUpdate()
     {
         Vector3 temp = transform.position;
-        temp.y = _player.position.y;
+        temp.y = _player.position.y + 1.5f;
         temp.x = _player.position.x;
 
 

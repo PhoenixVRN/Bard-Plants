@@ -6,22 +6,25 @@ using UnityEngine.AI;
 public class GardenGnome : MonoBehaviour
 {
     public Transform _target;
+
     public Transform idlePoint;
-    private NavMeshAgent _agent;
+
+    // private NavMeshAgent _agent;
     public bool MoveToGrydka;
     public Grydka grydka;
     public bool WePlant;
     public SkeletonAnimation LeftGnomeAnimation;
     public Spine.AnimationState spineAnimationState;
     public Spine.Skeleton skeleton;
+    public float speedMove;
 
     private GameModel _gameModel;
 
     void Start()
     {
-        _agent = GetComponent<NavMeshAgent>();
-        _agent.updateRotation = false;
-        _agent.updateUpAxis = false;
+        // _agent = GetComponent<NavMeshAgent>();
+        // _agent.updateRotation = false;
+        // _agent.updateUpAxis = false;
         spineAnimationState = LeftGnomeAnimation.AnimationState;
         skeleton = LeftGnomeAnimation.Skeleton;
         spineAnimationState.SetAnimation(0, "Idle", true);
@@ -34,11 +37,16 @@ public class GardenGnome : MonoBehaviour
         if (WePlant) return;
         if (EmptyGardenBed() == null)
         {
-            _agent.SetDestination(idlePoint.position);
-            directAnim(idlePoint.position);
+            // _agent.SetDestination(idlePoint.position);
             if (Vector2.Distance(transform.position, idlePoint.position) < 0.4)
             {
                 _gameModel.AnimationGardenGnome.Value = eTypeAnimation.Idle;
+            }
+            else
+            {
+                DirectAnim(idlePoint.position);
+                transform.position =
+                    Vector3.MoveTowards(transform.position, idlePoint.position, speedMove * Time.deltaTime);
             }
 
             return;
@@ -57,8 +65,16 @@ public class GardenGnome : MonoBehaviour
             MoveToTarget();
             if (Vector2.Distance(transform.position, _target.position) < 0.4)
             {
-                WePlant = true;
-                StartCoroutine(WePlantPlant());
+                if (!_target.GetComponent<Grydka>().empty)
+                {
+                    WePlant = true;
+                    StartCoroutine(WePlantPlant());
+                }
+                else
+                {
+                    WePlant = false;
+                    MoveToGrydka = false;
+                }
             }
         }
     }
@@ -89,9 +105,13 @@ public class GardenGnome : MonoBehaviour
         }
 
         // Debug.Log($" _target {_target.position}");
-        directAnim(_target.position);
-        Vector3 r = new Vector3(_target.position.x, _target.position.y, 0);
-        _agent.SetDestination(r);
+        DirectAnim(_target.position);
+        // Vector3 r = new Vector3(_target.position.x, _target.position.y, 0);
+        // Vector3 direction = _target.position - transform.position;
+        // direction.Normalize();
+        // transform.position += direction * speedMove * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, _target.position, speedMove * Time.deltaTime);
+        // _agent.SetDestination(r);
     }
 
     private void Animation(eTypeAnimation typeAnimation)
@@ -122,7 +142,7 @@ public class GardenGnome : MonoBehaviour
         }
     }
 
-    private void directAnim(Vector3 target)
+    private void DirectAnim(Vector3 target)
     {
         if (target.x > transform.position.x)
         {

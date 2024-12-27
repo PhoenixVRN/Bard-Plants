@@ -6,7 +6,8 @@ public class MapController
     private GameModel _gameModel;
     private GameManager _gameManager;
     private int _currentMapIndex;
-    private int _currentPlayerIndex;
+    private int _currentCloseOrder;
+    private int _currentOpenOrder;
 
     public MapController()
     {
@@ -41,19 +42,33 @@ public class MapController
 
     private void CheckLevelMap(int level)
     {
-        _currentPlayerIndex = level;
-        Debug.Log($"CheckLevelMap {level}/{_gameManager.levelGrydka[_currentMapIndex].numberOfOrders}");
-        float h = (float)((float)level / (float)(_gameManager.levelGrydka[_currentMapIndex].numberOfOrders));
-        _gameManager.imageFoerstLevel.DOFillAmount(h, 2).OnComplete(OnLevelLoaded);
-       
+        _currentCloseOrder = level;
+        // var oldIndex = _currentMapIndex > 0 ? _currentMapIndex - 1 : 0;
+        if (_currentMapIndex > 0)
+        {
+            var need = _gameManager.levelGrydka[_currentMapIndex].numberOfOrders -
+                       _gameManager.levelGrydka[_currentMapIndex - 1].numberOfOrders;
+            var b = _currentCloseOrder - _currentOpenOrder;
+
+            // Debug.Log($"CheckLevelMap1 {b}/{need}");
+            float d = (float)((float)b / (float)(need));
+            _gameManager.imageFoerstLevel.DOFillAmount(d, 2).OnComplete(OnLevelLoaded);
+        }
+        else
+        {
+            // Debug.Log($"CheckLevelMap2 {level}/{_gameManager.levelGrydka[_currentMapIndex].numberOfOrders}");
+            float h = (float)((float)level / (float)(_gameManager.levelGrydka[_currentMapIndex].numberOfOrders));
+            _gameManager.imageFoerstLevel.DOFillAmount(h, 2).OnComplete(OnLevelLoaded);
+        }
     }
 
     private void OnLevelLoaded()
     {
-        if (_currentPlayerIndex >= _gameManager.levelGrydka[_currentMapIndex].numberOfOrders)
+        if (_currentCloseOrder >= _gameManager.levelGrydka[_currentMapIndex].numberOfOrders)
         {
             _gameManager.imageFoerstLevel.fillAmount = 0f;
             _currentMapIndex++;
+            _currentOpenOrder = Reference.GameModel.NumberClosedOrders.Value;
             OnLevelChanged(_currentMapIndex);
         }
     }

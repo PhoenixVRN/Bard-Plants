@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     public Transform CoinPos;
     [Header("Assistants")] public GameObject musicHelpers;
     public GameObject collectorGnome;
+    public GameObject GardenGnome;
     public Image imageLeve;
     public GameObject parentGryadka;
     public float timeToPlant;
@@ -100,14 +101,30 @@ public class GameManager : MonoBehaviour
 
     private void InitGnome()
     {
-        gameModel.GardenGnome.Value = true;
+        // gameModel.GardenGnome.Value = true;
+        if (gameModel.GardenGnome.Value)
+        {
+            GardenGnome.SetActive(true);
+        }
+        else
+        {
+            gameModel.GardenGnome.Subscribe((c) =>
+            {
+                // Debug.Log($"GardenGnome on {c}");
+                GardenGnome.SetActive(c);
+            });
+        }
+        
         if (gameModel.CollectorGnome.Value)
         {
             collectorGnome.SetActive(true);
         }
         else
         {
-            gameModel.CollectorGnome.Subscribe((c) => collectorGnome.SetActive(c));
+            gameModel.CollectorGnome.Subscribe((c) =>
+            {
+                collectorGnome.SetActive(c);
+            });
         }
 
         if (gameModel.MusicHelpers.Value)

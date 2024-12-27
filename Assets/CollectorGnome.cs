@@ -7,8 +7,10 @@ using UnityEngine.Serialization;
 public class CollectorGnome : MonoBehaviour
 {
     public Transform _target;
+
     public Transform idlePoint;
-    private NavMeshAgent _agent;
+
+    // private NavMeshAgent _agent;
     public bool MoveToGrydka;
     public Grydka grydka;
     public bool WePlant;
@@ -16,14 +18,15 @@ public class CollectorGnome : MonoBehaviour
     public SkeletonAnimation CollectorGnomeAnimation;
     public Spine.AnimationState spineAnimationState;
     public Spine.Skeleton skeleton;
+    public float speedMove;
 
     private GameModel _gameModel;
 
     void Start()
     {
-        _agent = GetComponent<NavMeshAgent>();
-        _agent.updateRotation = false;
-        _agent.updateUpAxis = false;
+        // _agent = GetComponent<NavMeshAgent>();
+        // _agent.updateRotation = false;
+        // _agent.updateUpAxis = false;
 
         spineAnimationState = CollectorGnomeAnimation.AnimationState;
         skeleton = CollectorGnomeAnimation.Skeleton;
@@ -37,11 +40,16 @@ public class CollectorGnome : MonoBehaviour
         if (WePlant) return;
         if (TargetGardenBed() == null)
         {
-            _agent.SetDestination(idlePoint.position);
-            directAnim(idlePoint.position);
+            // _agent.SetDestination(idlePoint.position);
             if (Vector2.Distance(transform.position, idlePoint.position) < 0.4)
             {
                 _gameModel.AnimationCollectorGnome.Value = eTypeAnimation.Idle;
+            }
+            else
+            {
+                directAnim(idlePoint.position);
+                transform.position =
+                    Vector3.MoveTowards(transform.position, idlePoint.position, speedMove * Time.deltaTime);
             }
 
             return;
@@ -61,8 +69,17 @@ public class CollectorGnome : MonoBehaviour
             MoveToTarget();
             if (Vector2.Distance(transform.position, _target.position) < 0.4f)
             {
-                WePlant = true;
-                StartCoroutine(SowHarvesting());
+                if (_target.GetComponent<Grydka>().ripe)
+                {
+                    WePlant = true;
+                    StartCoroutine(SowHarvesting());
+                }
+
+                else
+                {
+                    WePlant = false;
+                    MoveToGrydka = false;
+                }
             }
         }
     }
@@ -95,8 +112,9 @@ public class CollectorGnome : MonoBehaviour
 
         // Debug.Log($" _target {_target.position}");
         directAnim(_target.position);
-        Vector3 r = new Vector3(_target.position.x, _target.position.y, 0);
-        _agent.SetDestination(r);
+        transform.position = Vector3.MoveTowards(transform.position, _target.position, speedMove * Time.deltaTime);
+        // Vector3 r = new Vector3(_target.position.x, _target.position.y, 0);
+        // _agent.SetDestination(r);
     }
 
     private void Animation(eTypeAnimation typeAnimation)

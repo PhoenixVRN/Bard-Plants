@@ -10,12 +10,13 @@ public class MusicHelpers : MonoBehaviour
     public bool MoveToGrydka;
     public Grydka grydka;
     public bool WePlant;
+    public float speedMove;
 
     void Start()
     {
-        _agent = GetComponent<NavMeshAgent>();
-        _agent.updateRotation = false;
-        _agent.updateUpAxis = false;
+        // _agent = GetComponent<NavMeshAgent>();
+        // _agent.updateRotation = false;
+        // _agent.updateUpAxis = false;
     }
 
     void Update()
@@ -23,7 +24,18 @@ public class MusicHelpers : MonoBehaviour
         if (WePlant) return;
         if (TargetGardenBed() == null)
         {
-            _agent.SetDestination(idlePoint.position);
+            // DirectAnim(idlePoint.position);
+            if (Vector2.Distance(transform.position, idlePoint.position) < 0.4)
+            {
+                // _gameModel.AnimationGardenGnome.Value = eTypeAnimation.Idle;
+            }
+            else
+            {
+                transform.position =
+                    Vector3.MoveTowards(transform.position, idlePoint.position, speedMove * Time.deltaTime);
+            }
+
+            // _agent.SetDestination(idlePoint.position);
             return;
         }
 
@@ -39,18 +51,26 @@ public class MusicHelpers : MonoBehaviour
         if (MoveToGrydka)
         {
             MoveToTarget();
-            if (Vector2.Distance(transform.position, _target.position) < 1)
+            if (Vector2.Distance(transform.position, _target.position) < 0.4)
             {
-                WePlant = true;
-                StartCoroutine( SowHarvesting());
+                if (_target.GetComponent<Grydka>().needMusic)
+                {
+                    WePlant = true;
+                    StartCoroutine(SowHarvesting());
+                }
+                else
+                {
+                    WePlant = false;
+                    MoveToGrydka = false;
+                }
             }
         }
     }
-    
-    IEnumerator  SowHarvesting()
+
+    IEnumerator SowHarvesting()
     {
         yield return new WaitForSeconds(2f);
-        _target.GetComponent<Grydka>(). PlayMusic();
+        _target.GetComponent<Grydka>().PlayMusic();
         WePlant = false;
         MoveToGrydka = false;
     }
@@ -66,7 +86,20 @@ public class MusicHelpers : MonoBehaviour
     public void MoveToTarget()
     {
         // Debug.Log($" _target {_target.position}");
-        Vector3 r = new Vector3(_target.position.x, _target.position.y, 0);
-        _agent.SetDestination(r);
+        // Vector3 r = new Vector3(_target.position.x, _target.position.y, 0);
+        transform.position = Vector3.MoveTowards(transform.position, _target.position, speedMove * Time.deltaTime);
+        // _agent.SetDestination(r);
     }
+
+    // private void DirectAnim(Vector3 target)
+    // {
+    //     if (target.x > transform.position.x)
+    //     {
+    //         LeftGnomeAnimation.gameObject.transform.localScale = new Vector3(-1, 1, 1);
+    //     }
+    //     else
+    //     {
+    //         LeftGnomeAnimation.gameObject.transform.localScale = new Vector3(1, 1, 1);
+    //     }
+    // }
 }
