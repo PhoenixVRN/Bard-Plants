@@ -14133,7 +14133,7 @@ MonoBehaviour:
     - {fileID: 1484939687}
     - {fileID: 289621583}
     sprite: {fileID: 8907035561512619517, guid: b645fc1f5b803114c921b67804870ce7, type: 3}
-    numberOfOrders: 3
+    numberOfOrders: 5
   - level: 1
     newGrydka:
     - {fileID: 1735776660}
@@ -14144,7 +14144,7 @@ MonoBehaviour:
     - {fileID: 1950999330}
     - {fileID: 1204429036}
     sprite: {fileID: 1292649994715157315, guid: 7751d209085ebd8448fe911b76004477, type: 3}
-    numberOfOrders: 6
+    numberOfOrders: 20
   - level: 2
     newGrydka:
     - {fileID: 97598585}
@@ -14159,7 +14159,7 @@ MonoBehaviour:
     - {fileID: 1798942262}
     - {fileID: 2080089189}
     sprite: {fileID: -1281051952138088690, guid: a96aee315a433054c98301cbed182465, type: 3}
-    numberOfOrders: 9
+    numberOfOrders: 60
   - level: 3
     newGrydka:
     - {fileID: 1699573254}
@@ -14190,7 +14190,7 @@ MonoBehaviour:
     - {fileID: 906600867}
     - {fileID: 140450350}
     sprite: {fileID: 8408408258354602970, guid: a3c88cd5211ae7a44b6f62235f5f7ad3, type: 3}
-    numberOfOrders: 12
+    numberOfOrders: 120
   spriteTexturesPlant:
   - {fileID: 2800000, guid: b19c86c13b7e3124a8a08ad835e2a995, type: 3}
   - {fileID: 2800000, guid: ca6bc56b1a6a0da40a28c180de97ed32, type: 3}
@@ -14836,7 +14836,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.13900001, y: 0.26000002}
   m_AnchorMax: {x: 1, y: 0.7466666}
-  m_AnchoredPosition: {x: -13.0000305, y: -7.6000085}
+  m_AnchoredPosition: {x: -13.0000305, y: -7.600011}
   m_SizeDelta: {x: 25.7, y: 15.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1057605090

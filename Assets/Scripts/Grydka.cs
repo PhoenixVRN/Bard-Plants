@@ -157,10 +157,11 @@ public class Grydka : MonoBehaviour
                 fet.GetComponent<Fetus>().typePlant = plant.typePlant;
                 fet.GetComponent<SpriteRenderer>().sprite = Texture2DToSprite(plant.spritePlant[4]);
               
-                fet.transform.DOMove( new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0), 0.5f).OnComplete(() =>
+                fet.transform.DOMove( transform.position + new Vector3(Random.Range(-0.6f, 0.6f), Random.Range(-0.6f, 0.6f), 0), 0.5f).OnComplete(() =>
                 {
                     fet.GetComponent<Fetus>().NonInteractive = true;
                 });
+                empty = false;
             }
         }
     }
