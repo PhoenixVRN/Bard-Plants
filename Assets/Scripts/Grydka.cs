@@ -25,6 +25,7 @@ public class Grydka : MonoBehaviour
     public bool uprgadePopUpActive;
     private GameManager _gameManager;
     private bool _playerOn;
+    public GameObject fetus;
 
     private void Start()
     {
@@ -43,7 +44,7 @@ public class Grydka : MonoBehaviour
         {
             Harvesting();
         }
-        
+
         if (Growth && !needMusic)
         {
             if (StateOfGrowth == 2)
@@ -81,10 +82,10 @@ public class Grydka : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-         if (other.name.Contains("Player"))
-         {
-           _playerOn = true;
-         }
+        if (other.name.Contains("Player"))
+        {
+            _playerOn = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -94,7 +95,7 @@ public class Grydka : MonoBehaviour
             _playerOn = false;
         }
     }
-    
+
 
     public void PlantaPlant()
     {
@@ -130,18 +131,47 @@ public class Grydka : MonoBehaviour
 
     public void Harvesting()
     {
+        // Old logic -----------------------------------------------------------------------------------------
+        // if (StateOfGrowth == 4)
+        // {
+        //     StateOfGrowth = 0;
+        //     ripe = false;
+        //     plantunGrydka.texture = plant.spritePlant[4];
+        //     plantunGrydka.transform.SetParent(Bag.instance.transform);
+        //     plantunGrydka.transform.DOMove(Bag.instance.transform.position, 1).SetEase(Ease.Linear)
+        //         .OnComplete(AddedPlodToBag);
+        // }
+        //----------------------------------------------------------------------------------------------------
+
         if (StateOfGrowth == 4)
         {
             StateOfGrowth = 0;
             ripe = false;
-            plantunGrydka.texture = plant.spritePlant[4];
-            plantunGrydka.transform.SetParent(Bag.instance.transform);
-            plantunGrydka.transform.DOMove(Bag.instance.transform.position, 1).SetEase(Ease.Linear)
-                .OnComplete(AddedPlodToBag);
-            // AddedPlodToBag();
+            plantunGrydka.gameObject.SetActive(false);
+            var count = (plant.Level+1) * 3;
+            
+            for (int i = 0; i < count; i++)
+            {
+               
+                GameObject fet = Instantiate(fetus, transform.position, Quaternion.identity);
+                fet.GetComponent<Fetus>().typePlant = plant.typePlant;
+                fet.GetComponent<SpriteRenderer>().sprite = Texture2DToSprite(plant.spritePlant[4]);
+              
+                fet.transform.DOMove( new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0), 0.5f).OnComplete(() =>
+                {
+                    fet.GetComponent<Fetus>().NonInteractive = true;
+                });
+            }
         }
-
-        // Debug.Log($"Harvesting {gameObject}");
+    }
+    Sprite Texture2DToSprite(Texture2D texture)
+    {
+        // Создание спрайта из Texture2D
+        return Sprite.Create(
+            texture,
+            new Rect(0, 0, texture.width, texture.height), // Размеры спрайта
+            new Vector2(0.5f, 0.5f) // Точка привязки (pivot), по умолчанию в центре
+        );
     }
 
     public void PlayMusic()
@@ -223,6 +253,6 @@ public class Plant
     public Plant()
     {
         Level = 0;
-        quantity = new SubscriptionField<int>() {Value = 0};
+        quantity = new SubscriptionField<int>() { Value = 0 };
     }
 }

@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public GameObject arbaiten;
-    
+
     [SerializeField] private List<Sprite> _spritesPlayer;
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private DynamicJoystick _dynamicJoystick;
@@ -77,14 +76,15 @@ public class Player : MonoBehaviour
         // }
         // else
         // {
-            if (_dynamicJoystick.Horizontal > 0)
-            {
-                _spriteRenderer.sprite = _spritesPlayer[1];
-            }
-            if (_dynamicJoystick.Horizontal < 0)
-            {
-                _spriteRenderer.sprite = _spritesPlayer[2];
-            }
+        if (_dynamicJoystick.Horizontal > 0)
+        {
+            _spriteRenderer.sprite = _spritesPlayer[1];
+        }
+
+        if (_dynamicJoystick.Horizontal < 0)
+        {
+            _spriteRenderer.sprite = _spritesPlayer[2];
+        }
         // }
 
         _rb.linearVelocity = new Vector2(_dynamicJoystick.Horizontal * _moveSpeed,

@@ -389,6 +389,7 @@ MonoBehaviour:
     timeGrowth: 0
     defaultValueDelivery: 0
     spritePlant: []
+    Level: 0
     QE: 0
   StateOfGrowth: 0
   GrowthAccelerator: 0
@@ -397,6 +398,7 @@ MonoBehaviour:
   ripe: 0
   levelGrydka: 0
   uprgadePopUpActive: 0
+  fetus: {fileID: 4689505510836029276, guid: d9617ee6b91f9e24c9d663b5a31e2bbe, type: 3}
 --- !u!1 &6786791969351368620
 GameObject:
   m_ObjectHideFlags: 0
