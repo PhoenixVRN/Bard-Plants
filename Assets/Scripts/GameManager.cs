@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     private MapController _mapController;
     public Image mapForest;
     public Image imageFoerstLevel;
+    public TextMeshProUGUI MapUprgadeText;
 
 
     public List<Plant> openPlants;
@@ -61,6 +62,8 @@ public class GameManager : MonoBehaviour
     {
         _mapController = new MapController();
         _mapController.OnLevelChanged(0);
+        _mapController.Init();
+        // _mapController.CheckLevelMap(0);
         _cfgLevelData = GetComponent<CfgLevelData>();
         getTokensVFXController = GetComponent<GetTokensVFXController>();
         gameScoreHandler = GetComponent<GameScoreHandler>();
@@ -191,7 +194,7 @@ public class GameManager : MonoBehaviour
     public void ShowAmoutExp(int all, int value)
     {
         float h = (float) ((float) value / (float) (all + 1f));
-        Debug.Log($"ShowAmoutExp {h}");
+        // Debug.Log($"ShowAmoutExp {h}");
         imageLeve.DOFillAmount(h, 2);
     }
 
