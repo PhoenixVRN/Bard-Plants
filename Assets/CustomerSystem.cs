@@ -11,7 +11,7 @@ public class CustomerSystem : MonoBehaviour
     public List<Customer> allWoodenCustomerType;
     public List<Customer> allGoldenCustomerType;
     // private int turn = 0;
-    public float delayForSpawn = 15;
+    public float delayForSpawn = 1;
     private float lastTime;
     private int _quantityCustomersInLevel;
     private int _qq;

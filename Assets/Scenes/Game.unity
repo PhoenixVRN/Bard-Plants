@@ -4642,7 +4642,7 @@ MonoBehaviour:
   - {fileID: 8603396861641865984, guid: 18bb8765495a0c642b94b1dfc928722b, type: 3}
   allGoldenCustomerType:
   - {fileID: 6756410606401894917, guid: 485dba7a0fff47547a4a86b3c191e1e6, type: 3}
-  delayForSpawn: 5
+  delayForSpawn: 1
 --- !u!1 &289621583
 GameObject:
   m_ObjectHideFlags: 0
@@ -14836,7 +14836,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.13900001, y: 0.26000002}
   m_AnchorMax: {x: 1, y: 0.7466666}
-  m_AnchoredPosition: {x: -13.0000305, y: -7.6000032}
+  m_AnchoredPosition: {x: -13.0000305, y: -7.600004}
   m_SizeDelta: {x: 25.7, y: 15.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1057605090

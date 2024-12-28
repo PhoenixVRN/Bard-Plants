@@ -40,6 +40,7 @@ public class UpgradePlant : MonoBehaviour
             countPlants.text = "X" + _plant.quantity.Value;
             count.text = (_plant.Level + 1).ToString();
             cost.text = ((_plant.Level + 1) * 200).ToString();
+            CheckMony(_gameManager.coin.Value);
             Debug.Log($"Button clicked");
         }
     }
