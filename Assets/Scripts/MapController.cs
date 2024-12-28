@@ -42,6 +42,8 @@ public class MapController
 
     private void CheckLevelMap(int level)
     {
+       Debug.Log($"Contrl currentMapIndex {_currentMapIndex}, levelGrydka {_gameManager.levelGrydka.Count}");
+       if (_currentMapIndex >= _gameManager.levelGrydka.Count) return;
         _currentCloseOrder = level;
         // var oldIndex = _currentMapIndex > 0 ? _currentMapIndex - 1 : 0;
         if (_currentMapIndex > 0)
