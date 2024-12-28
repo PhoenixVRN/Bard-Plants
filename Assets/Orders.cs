@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class Orders : MonoBehaviour
@@ -10,11 +9,37 @@ public class Orders : MonoBehaviour
     public List<Order> ordersActive;
     public TextMeshProUGUI rewardText;
     public Customer customer;
-    
+
+    private bool IsGoldCustomer;
+
+    private void Update()
+    {
+        if (!IsGoldCustomer)
+        {
+            if (DeliveryOrder())
+            {
+                rewardText.color = Color.green;
+            }
+            else
+            {
+                rewardText.color = Color.white;
+            }
+        }
+        else
+        {
+            if (GoldDeliveryOrder())
+            {
+                rewardText.color = Color.green;
+            }
+            else
+            {
+                rewardText.color = Color.white;
+            }
+        }
+    }
 
     public void InitOrders(int quantityOrders)
     {
-
         var plant1 = GameManager.instance.openPlants[Random.Range(0, GameManager.instance.openPlants.Count)].typePlant;
         var needQuantity1 = Random.Range(10, 20);
         customer.reward = needQuantity1 * GameManager.instance.GetPlantToType(plant1).defaultValueDelivery;
@@ -23,46 +48,52 @@ public class Orders : MonoBehaviour
         var plant2 = GameManager.instance.openPlants[Random.Range(0, GameManager.instance.openPlants.Count)].typePlant;
         if (quantityOrders > 1)
         {
-           
             while (plant1 == plant2)
             {
-                plant2 = GameManager.instance.openPlants[Random.Range(0, GameManager.instance.openPlants.Count)].typePlant;
+                plant2 = GameManager.instance.openPlants[Random.Range(0, GameManager.instance.openPlants.Count)]
+                    .typePlant;
             }
-           
+
             var needQuantity2 = Random.Range(customer.minRange, customer.maxRange);
             ordersActive[1].gameObject.SetActive(true);
             ordersActive[1].InitOrder(plant2, needQuantity2);
             customer.reward += needQuantity2 * GameManager.instance.GetPlantToType(plant2).defaultValueDelivery;
         }
+
         if (quantityOrders > 2)
         {
-            var plant3 = GameManager.instance.openPlants[Random.Range(0, GameManager.instance.openPlants.Count)].typePlant;
-            
+            var plant3 = GameManager.instance.openPlants[Random.Range(0, GameManager.instance.openPlants.Count)]
+                .typePlant;
+
             while (plant1 == plant3 || plant2 == plant3)
             {
-                plant3 = GameManager.instance.openPlants[Random.Range(0, GameManager.instance.openPlants.Count)].typePlant;
+                plant3 = GameManager.instance.openPlants[Random.Range(0, GameManager.instance.openPlants.Count)]
+                    .typePlant;
             }
-           
+
             var needQuantity3 = Random.Range(10, 20);
-            
+
             ordersActive[2].gameObject.SetActive(true);
             ordersActive[2].InitOrder(plant3, needQuantity3);
             customer.reward += needQuantity3 * GameManager.instance.GetPlantToType(plant3).defaultValueDelivery;
         }
+
         rewardText.text = customer.reward.ToString();
     }
 
 
     public void GoldOrdersInit()
     {
-      //  customer.reward = пердать сумму награды
+        IsGoldCustomer = true;
+        //  customer.reward = пердать сумму награды
         ordersActive[0].gameObject.SetActive(true);
         // TODO  метод расчета количества растений на золотого
         var needQuantity = Random.Range(customer.minRange, customer.maxRange);
         ordersActive[0].InitOrderGold(needQuantity);
-        var defaultCost = (GameManager.instance.GetPlantToType(ETypePlant.StarchNut).defaultValueDelivery) * ((Reference.GameModel.LevelGame.Value * customer.levelReward/100f) + 1);
+        var defaultCost = (GameManager.instance.GetPlantToType(ETypePlant.StarchNut).defaultValueDelivery) *
+                          ((Reference.GameModel.LevelGame.Value * customer.levelReward / 100f) + 1);
         Debug.Log($"defaultCost {defaultCost} ");
-        customer.reward = (int)(needQuantity *defaultCost);
+        customer.reward = (int)(needQuantity * defaultCost);
         rewardText.text = customer.reward.ToString();
     }
 
@@ -70,6 +101,7 @@ public class Orders : MonoBehaviour
     {
         return ordersActive[0].completed;
     }
+
     public bool DeliveryOrder()
     {
         var allActive = ordersActive.FindAll(c => c.gameObject.activeSelf);
@@ -98,7 +130,6 @@ public class OrderData
 
     public OrderData()
     {
-       
     }
 }
 
