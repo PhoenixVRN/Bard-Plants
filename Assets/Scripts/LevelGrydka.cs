@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [Serializable]
 public class LevelGrydka
@@ -9,5 +10,6 @@ public class LevelGrydka
     public List<Grydka> newGrydka;
     public List<GameObject> border;
     public Sprite sprite;
+   public GameObject forestGroup;
     public int numberOfOrders;
 }

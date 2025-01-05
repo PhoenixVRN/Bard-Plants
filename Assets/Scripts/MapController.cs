@@ -1,5 +1,8 @@
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
+using System;
+using Object = System.Object;
 
 public class MapController
 {
@@ -33,22 +36,30 @@ public class MapController
                                                                 .numberOfOrders);
         }
 
+        // if (level > 0)
+        // {
+        //     _gameManager.levelGrydka[level - 1].border.ForEach(b => b.gameObject.SetActive(false));
+        //     ;
+        // }
+        //
+        // _gameManager.levelGrydka[level].border.ForEach(b => b.gameObject.SetActive(true));
+
         if (level > 0)
         {
-            _gameManager.levelGrydka[level - 1].border.ForEach(b => b.gameObject.SetActive(false));
-            ;
+            var allgroup = _gameManager.levelGrydka[level].forestGroup;
+           foreach (Transform child in allgroup.transform)
+           {
+               // Debug.Log("Дочерний объект (первый уровень): " + child.name);
+               child.GetComponent<SpriteRenderer>().DOFade(0, 1).OnComplete(() => _gameManager.DestroyForest(child));
+           }
         }
-
-        _gameManager.levelGrydka[level].border.ForEach(b => b.gameObject.SetActive(true));
-
-
         var newGrydkas = _gameManager.levelGrydka[level].newGrydka;
         newGrydkas.ForEach(b =>
         {
             b.gameObject.SetActive(true);
             _gameManager.currentGrydka.Add(b);
         });
-        _gameManager.mapForest.sprite = _gameManager.levelGrydka[level].sprite;
+        // _gameManager.mapForest.sprite = _gameManager.levelGrydka[level].sprite;
     }
 
     public void CheckLevelMap(int level)
@@ -73,7 +84,7 @@ public class MapController
             // Debug.Log($"CheckLevelMap2 {level}/{_gameManager.levelGrydka[_currentMapIndex].numberOfOrders}");
             _gameManager.MapUprgadeText.text = level + " / " + _gameManager.levelGrydka[_currentMapIndex].numberOfOrders;
             float h = (float)((float)level / (float)(_gameManager.levelGrydka[_currentMapIndex].numberOfOrders));
-            _gameManager.imageFoerstLevel.DOFillAmount(h, 2).OnComplete(OnLevelLoaded);
+            _gameManager.imageFoerstLevel.DOFillAmount(h, 1).OnComplete(OnLevelLoaded);
         }
     }
 

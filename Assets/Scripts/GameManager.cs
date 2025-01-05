@@ -203,4 +203,9 @@ public class GameManager : MonoBehaviour
         var emptyGrydka = currentGrydka.FindAll((grydka => grydka.empty == false));
         emptyGrydka[Random.Range(0, emptyGrydka.Count)].PlantaPlant();
     }
+
+    public void DestroyForest(Transform bush)
+    {
+        Destroy(bush.gameObject);
+    }
 }

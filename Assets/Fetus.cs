@@ -25,11 +25,11 @@ public class Fetus : MonoBehaviour
         if (!NonInteractive) return;
         if (other.name.Contains("Player") || other.name.Contains("CollectorGnome"))
         {
-            Debug.Log($"NAme {other.name}");
+            // Debug.Log($"NAme {other.name}");
             transform.DOMove(other.transform.position + new Vector3(0, 0.5f, 0f), 0.2f).OnComplete(() =>
             {
-                Bag.instance.AddPlants(typePlant, 1);
-                Debug.Log($"Destructed {other.name}");
+                Bag.instance.AddPlants(typePlant, 10); // for test 10
+                // Debug.Log($"Destructed {other.name}");
                 Destroy(gameObject);
             });
         }
