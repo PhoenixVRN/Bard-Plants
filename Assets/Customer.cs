@@ -26,12 +26,12 @@ public class Customer : MonoBehaviour
     // private void OnMouseDown()
     public void OnCustomerClicked()
     {
-        Debug.Log($"OnMouseDown");
+        // Debug.Log($"OnMouseDown");
         if (TypeCustomer == eTypeCustomer.GoldenForestMonster)
         {
             if (orders.GoldDeliveryOrder())
             {
-                Debug.Log($"Golden Completed");
+                // Debug.Log($"Golden Completed");
                 var summ = 0;
                 var qantity = orders.ordersActive[0].needplant;
                 foreach (var openPlant in GameManager.instance.allPlants)
@@ -40,7 +40,7 @@ public class Customer : MonoBehaviour
                     // Debug.Log($"openPlant {openPlant.namePlant} - {openPlant.quantity.Value}");
                 }
 
-                Debug.Log($"Summ {summ}");
+                // Debug.Log($"Summ {summ}");
                 var all = 0f;
                 foreach (var openPlant in GameManager.instance.allPlants)
                 {

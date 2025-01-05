@@ -1,4 +1,5 @@
 using System.Collections;
+using DG.Tweening;
 using Spine.Unity;
 using UnityEngine;
 using UnityEngine.AI;
@@ -20,8 +21,11 @@ public class GardenGnome : MonoBehaviour
 
     private GameModel _gameModel;
 
+    private Vector3 oldPos;
+
     void Start()
     {
+        oldPos = transform.position;
         // _agent = GetComponent<NavMeshAgent>();
         // _agent.updateRotation = false;
         // _agent.updateUpAxis = false;
@@ -34,6 +38,8 @@ public class GardenGnome : MonoBehaviour
 
     void Update()
     {
+        // Debug.Log($"delta {Vector3.Distance(transform.position, oldPos)}");
+        oldPos = transform.position;
         if (WePlant) return;
         if (EmptyGardenBed() == null)
         {
@@ -44,9 +50,11 @@ public class GardenGnome : MonoBehaviour
             }
             else
             {
+                // Debug.Log($"GoTo IdlePos");
                 DirectAnim(idlePoint.position);
                 transform.position =
                     Vector3.MoveTowards(transform.position, idlePoint.position, speedMove * Time.deltaTime);
+               
             }
 
             return;
@@ -111,6 +119,12 @@ public class GardenGnome : MonoBehaviour
         // direction.Normalize();
         // transform.position += direction * speedMove * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, _target.position, speedMove * Time.deltaTime);
+        
+        // Debug.Log($"speed {speedMove * Time.deltaTime} delta {Vector3.Distance(transform.position, j)}");
+        // transform.position = j;
+        // transform.DOMove(_target.position, 2).SetEase(Ease.InOutBounce);
+        // transform.position = Vector3.Lerp(transform.position, _target.position, speedMove * Time.deltaTime);
+
         // _agent.SetDestination(r);
     }
 

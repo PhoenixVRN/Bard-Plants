@@ -1,4 +1,5 @@
 using System.Collections;
+using Spine.Unity;
 using UnityEngine.AI;
 using UnityEngine;
 
@@ -11,9 +12,18 @@ public class MusicHelpers : MonoBehaviour
     public Grydka grydka;
     public bool WePlant;
     public float speedMove;
+    public SkeletonAnimation LeftGnomeAnimation;
+    public Spine.AnimationState spineAnimationState;
+    public Spine.Skeleton skeleton;
+    private GameModel _gameModel;
 
     void Start()
     {
+        spineAnimationState = LeftGnomeAnimation.AnimationState;
+        skeleton = LeftGnomeAnimation.Skeleton;
+        spineAnimationState.SetAnimation(0, "Idle", true);
+        _gameModel = Reference.GameModel;
+        _gameModel.AnimationMusicHelpers.Subscribe(Animation);
         // _agent = GetComponent<NavMeshAgent>();
         // _agent.updateRotation = false;
         // _agent.updateUpAxis = false;
@@ -27,10 +37,11 @@ public class MusicHelpers : MonoBehaviour
             // DirectAnim(idlePoint.position);
             if (Vector2.Distance(transform.position, idlePoint.position) < 0.4)
             {
-                // _gameModel.AnimationGardenGnome.Value = eTypeAnimation.Idle;
+                 _gameModel.AnimationMusicHelpers.Value = eTypeAnimation.Idle;
             }
             else
             {
+                DirectAnim(idlePoint.position);
                 transform.position =
                     Vector3.MoveTowards(transform.position, idlePoint.position, speedMove * Time.deltaTime);
             }
@@ -69,6 +80,7 @@ public class MusicHelpers : MonoBehaviour
 
     IEnumerator SowHarvesting()
     {
+        _gameModel.AnimationMusicHelpers.Value = eTypeAnimation.ActionCicle;
         yield return new WaitForSeconds(2f);
         _target.GetComponent<Grydka>().PlayMusic();
         WePlant = false;
@@ -85,21 +97,51 @@ public class MusicHelpers : MonoBehaviour
 
     public void MoveToTarget()
     {
-        // Debug.Log($" _target {_target.position}");
-        // Vector3 r = new Vector3(_target.position.x, _target.position.y, 0);
+        if (_gameModel.AnimationMusicHelpers.Value != eTypeAnimation.Walk)
+        {
+            _gameModel.AnimationMusicHelpers.Value = eTypeAnimation.Walk;
+        }
+        DirectAnim(_target.position);
         transform.position = Vector3.MoveTowards(transform.position, _target.position, speedMove * Time.deltaTime);
         // _agent.SetDestination(r);
     }
 
-    // private void DirectAnim(Vector3 target)
-    // {
-    //     if (target.x > transform.position.x)
-    //     {
-    //         LeftGnomeAnimation.gameObject.transform.localScale = new Vector3(-1, 1, 1);
-    //     }
-    //     else
-    //     {
-    //         LeftGnomeAnimation.gameObject.transform.localScale = new Vector3(1, 1, 1);
-    //     }
-    // }
+    private void Animation(eTypeAnimation typeAnimation)
+    {
+        // Debug.Log($"Anim {typeAnimation.ToString()}");
+        switch (typeAnimation)
+        {
+            case eTypeAnimation.Idle:
+                spineAnimationState.SetAnimation(0, "Idle", true);
+                break;
+
+            case eTypeAnimation.Walk:
+                // Debug.Log($"Walk Anim");
+                spineAnimationState.SetAnimation(0, "Walk", true);
+                break;
+
+            case eTypeAnimation.ActionCicle:
+                spineAnimationState.SetAnimation(0, "Action_cycle", true);
+                break;
+
+            case eTypeAnimation.ActionEnd:
+                spineAnimationState.SetAnimation(0, "Action_end", true);
+                break;
+
+            case eTypeAnimation.ActionStart:
+                spineAnimationState.SetAnimation(0, "Action_start", true);
+                break;
+        }
+    }
+    private void DirectAnim(Vector3 target)
+    {
+        if (target.x > transform.position.x)
+        {
+            LeftGnomeAnimation.gameObject.transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else
+        {
+            LeftGnomeAnimation.gameObject.transform.localScale = new Vector3(1, 1, 1);
+        }
+    }
 }

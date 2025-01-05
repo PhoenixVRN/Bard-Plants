@@ -74,7 +74,7 @@ public class CustomerSystem : MonoBehaviour
         GameManager.instance.ShowAmoutExp(_qq,value);
         if (value > _qq)
         {
-            Debug.Log($"LevelUp {value}/{_qq}");
+            // Debug.Log($"LevelUp {value}/{_qq}");
             Reference.GameModel.CloseCustomersInLevel.Value = 0;
             Reference.GameModel.NumberCompletedOrders.Value++;
             _quantityCustomersInLevel = RandomQuantity();
@@ -89,7 +89,7 @@ public class CustomerSystem : MonoBehaviour
         if (_quantityCustomersInLevel == 0)
         {
             //TODO спавним золотого и инитем его ордерами, не спавним больше покупателей пока не закроем всех созданных и не поднимем уровень
-            Debug.Log($"Spawn Gold!");
+            // Debug.Log($"Spawn Gold!");
             var goldenCustomer = allGoldenCustomerType[Random.Range(0, allGoldenCustomerType.Count)];
             goldenCustomer.IsUsed = true;
             var goldcustomer = Instantiate(goldenCustomer, transform);

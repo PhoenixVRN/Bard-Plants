@@ -92,7 +92,7 @@ public class Orders : MonoBehaviour
         ordersActive[0].InitOrderGold(needQuantity);
         var defaultCost = (GameManager.instance.GetPlantToType(ETypePlant.StarchNut).defaultValueDelivery) *
                           ((Reference.GameModel.LevelGame.Value * customer.levelReward / 100f) + 1);
-        Debug.Log($"defaultCost {defaultCost} ");
+        // Debug.Log($"defaultCost {defaultCost} ");
         customer.reward = (int)(needQuantity * defaultCost);
         rewardText.text = customer.reward.ToString();
     }
