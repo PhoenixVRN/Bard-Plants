@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using N.Fridman.FormatNums.Scripts.Helpers;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,7 +24,7 @@ public class BagOpen : MonoBehaviour
                 habar[countSlot].gameObject.SetActive(true);
                 habar[countSlot].GetComponent<RawImage>().texture = plant.spritePlant[4];
                 habar[countSlot].GetComponentInChildren<TextMeshProUGUI>().text =
-                    plant.quantity.Value.ToString();
+                    FormatNumsHelper.FormatNum((float)plant.quantity.Value);
                 countSlot++;
             }
         }

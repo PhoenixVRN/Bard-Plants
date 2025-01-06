@@ -1,0 +1,1 @@
+F:\CODE\Bard&Plants\Bard-Plants\Bard&Plants\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\build\intermediates\cxx\RelWithDebInfo\3x555q2g\obj\arm64-v8a

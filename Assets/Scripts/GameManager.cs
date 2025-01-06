@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using N.Fridman.FormatNums.Scripts.Helpers;
 using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -147,7 +148,7 @@ public class GameManager : MonoBehaviour
 
     private void ChangeCoins(int newValue)
     {
-        textCoin.text = newValue.ToString();
+        textCoin.text = FormatNumsHelper.FormatNum((float)newValue);
     }
 
     private void ChangeLevelGame(int newValue)

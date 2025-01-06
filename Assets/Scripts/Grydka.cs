@@ -148,7 +148,7 @@ public class Grydka : MonoBehaviour
             StateOfGrowth = 0;
             ripe = false;
             plantunGrydka.gameObject.SetActive(false);
-            var count = (plant.Level+1) * 3;
+            var count = (plant.Level+1); // for test *3
             
             for (int i = 0; i < count; i++)
             {

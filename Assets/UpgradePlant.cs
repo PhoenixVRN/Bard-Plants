@@ -1,3 +1,4 @@
+using N.Fridman.FormatNums.Scripts.Helpers;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,13 +24,11 @@ public class UpgradePlant : MonoBehaviour
             new Vector2(0.5f, 0.5f));
         namePlants.text = plant.namePlant;
         countPlants.text = "X" + plant.quantity.Value;
-        count.text = (plant.Level + 1).ToString();
+        count.text = (plant.Level + 2).ToString();
         CheckMony(_gameManager.coin.Value);
         _gameManager.coin.Subscribe(CheckMony);
-        cost.text = ((plant.Level + 1) * 200).ToString();
+        cost.text = FormatNumsHelper.FormatNum((float)(plant.Level + 1) * 200);
     }
-
-    // TODO реализовать проверку на достаточности средсв на улучшение
 
     public void ButtonClick()
     {
@@ -38,8 +37,8 @@ public class UpgradePlant : MonoBehaviour
             _gameManager.coin.Value -= ((_plant.Level + 1) * 200);
             _plant.Level++;
             countPlants.text = "X" + _plant.quantity.Value;
-            count.text = (_plant.Level + 1).ToString();
-            cost.text = ((_plant.Level + 1) * 200).ToString();
+            count.text = (_plant.Level + 2).ToString();
+            cost.text = FormatNumsHelper.FormatNum((float)(_plant.Level + 1) * 200);
             CheckMony(_gameManager.coin.Value);
             Debug.Log($"Button clicked");
         }

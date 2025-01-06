@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using N.Fridman.FormatNums.Scripts.Helpers;
 using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -95,6 +96,7 @@ public class Orders : MonoBehaviour
         // Debug.Log($"defaultCost {defaultCost} ");
         customer.reward = (int)(needQuantity * defaultCost);
         rewardText.text = customer.reward.ToString();
+        rewardText.text =  FormatNumsHelper.FormatNum((float)customer.reward);
     }
 
     public bool GoldDeliveryOrder()

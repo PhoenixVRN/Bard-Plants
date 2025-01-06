@@ -1,0 +1,28 @@
+{
+  "buildFiles": [
+    "F:\\CODE\\Bard\u0026Plants\\Bard-Plants\\Bard\u0026Plants\\Library\\Bee\\Android\\Prj\\IL2CPP\\Gradle\\unityLibrary\\src\\main\\cpp\\CMakeLists.txt",
+    "F:\\CODE\\Bard\u0026Plants\\Bard-Plants\\Bard\u0026Plants\\Library\\Bee\\Android\\Prj\\IL2CPP\\Gradle\\unityLibrary\\src\\main\\cpp\\FramePacing\\CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "C:\\Unity\\6000.0.30f1\\Editor\\Data\\PlaybackEngines\\AndroidPlayer\\SDK\\cmake\\3.22.1\\bin\\ninja.exe",
+      "-C",
+      "F:\\CODE\\Bard\u0026Plants\\Bard-Plants\\Bard\u0026Plants\\.utmp\\RelWithDebInfo\\3x555q2g\\armeabi-v7a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "C:\\Unity\\6000.0.30f1\\Editor\\Data\\PlaybackEngines\\AndroidPlayer\\SDK\\cmake\\3.22.1\\bin\\ninja.exe",
+    "-C",
+    "F:\\CODE\\Bard\u0026Plants\\Bard-Plants\\Bard\u0026Plants\\.utmp\\RelWithDebInfo\\3x555q2g\\armeabi-v7a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "swappywrapper::@7e25bd1f32ce224db4e9": {
+      "artifactName": "swappywrapper",
+      "abi": "armeabi-v7a",
+      "output": "F:\\CODE\\Bard\u0026Plants\\Bard-Plants\\Bard\u0026Plants\\Library\\Bee\\Android\\Prj\\IL2CPP\\Gradle\\unityLibrary\\build\\intermediates\\cxx\\RelWithDebInfo\\3x555q2g\\obj\\armeabi-v7a\\libswappywrapper.so",
+      "runtimeFiles": []
+    }
+  }
+}

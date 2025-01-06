@@ -14,7 +14,7 @@ public class Fetus : MonoBehaviour
             // Debug.Log($"NAme {other.name}");
             transform.DOMove(other.transform.position + new Vector3(0, 0.5f, 0f), 0.2f).OnComplete(() =>
             {
-                Bag.instance.AddPlants(typePlant, 10); // for test 10
+                Bag.instance.AddPlants(typePlant, 1); // for test 10
                 // Debug.Log($"Destructed {other.name}");
                 Destroy(gameObject);
             });

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using N.Fridman.FormatNums.Scripts.Helpers;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -134,7 +135,7 @@ public class UpgradeAssistans : MonoBehaviour
         panelSpeed.GetComponent<Image>().sprite = sprireCloseUpgrade;
         panelSpeedAction.GetComponent<Image>().sprite = sprireCloseUpgrade;
         panelStartAction.GetComponent<Image>().sprite = sprireCloseUpgrade;
-        textCostAssistance.text = costAssistance.ToString();
+        textCostAssistance.text = FormatNumsHelper.FormatNum((float)costAssistance);
         if (CheckMony(_gameManager.coin.Value, costAssistance))
         {
             textCostAssistance.color = Color.black;
@@ -210,9 +211,8 @@ public class UpgradeAssistans : MonoBehaviour
             // textBuySpeed.text = costUpgrade.ToString();
             // Debug.Log($"textBuySpeed {SetCostUpgradeSpeed(_currentLevSpeed).ToString()}");
             int costUprgade = SetCostUpgradeSpeed(_currentLevSpeed);
-            textBuySpeed.text = costUprgade.ToString();
+            textBuySpeed.text = FormatNumsHelper.FormatNum((float)costUprgade);
             sprireBuyArrowSpeed.gameObject.SetActive(true);
-            //TODO check coins
            if (CheckMony(_gameManager.coin.Value, costUprgade))
            {
             sprireBuyArrowSpeed.transform.parent.gameObject.GetComponent<Button>().interactable = true;
@@ -235,7 +235,7 @@ public class UpgradeAssistans : MonoBehaviour
             textPanelSpeedAction.text = _currentLevSpeedAction + " LvL";
             // textBuySpeedAction.text = costUpgrade.ToString();
             int costUprgade = SetCostUpgradeSpeedAction(_currentLevSpeedAction);
-            textBuySpeedAction.text = costUprgade.ToString();
+            textBuySpeedAction.text = FormatNumsHelper.FormatNum((float)costUprgade);
             sprireBuyArrowSpeedAction.gameObject.SetActive(true);
             if (CheckMony(_gameManager.coin.Value, costUprgade))
             {
@@ -260,7 +260,7 @@ public class UpgradeAssistans : MonoBehaviour
             textPanelStartAction.text = _currentLevStartAction + " LvL";
             // textBuyStartAction.text = costUpgrade.ToString();
             int costUprgade = SetCostUpgradeAction(_currentLevStartAction);
-            textBuyStartAction.text = costUprgade.ToString();
+            textBuyStartAction.text = FormatNumsHelper.FormatNum((float)costUprgade);
             sprireBuyArrowStartAction.gameObject.SetActive(true);
             if (CheckMony(_gameManager.coin.Value, costUprgade))
             {

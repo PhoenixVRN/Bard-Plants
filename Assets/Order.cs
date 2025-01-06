@@ -1,3 +1,4 @@
+using N.Fridman.FormatNums.Scripts.Helpers;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -94,7 +95,7 @@ public class Order : MonoBehaviour
     {
         // Debug.Log($"CountText {plant.namePlant}/{plant.quantity.Value}");
         collected = value;
-        textOrder.text = needplant + " / " + value;
+        textOrder.text =  FormatNumsHelper.FormatNum((float)needplant) + " / " + FormatNumsHelper.FormatNum((float)value);
     }
 
     private void OnDisable()
