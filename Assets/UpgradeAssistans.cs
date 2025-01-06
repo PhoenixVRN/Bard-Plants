@@ -9,7 +9,10 @@ public class UpgradeAssistans : MonoBehaviour
 {
     public List<Sprite> allAssistanse;
     public Image pers;
-    public int costAssistance;
+    public int costAssistanceGarden;
+    public int costAssistanceCollecroir;
+    public int costAssistanceMusic;
+    private int costAssistance;
     public int costUpgrade;
 
     public GameObject panelSpeed;
@@ -18,6 +21,14 @@ public class UpgradeAssistans : MonoBehaviour
     public GameObject panelBuyButton;
     public GameObject panelLock;
     public GameObject panelBuyUpgrades;
+
+    // public List<CostLevelUpgrade> CostUpgradeGarden;
+    // public List<CostLevelUpgrade> CostUpgradeCollector;
+    // public List<CostLevelUpgrade> CostUpgradeMusicHelper;
+
+    public CostEndCoefficient CostUpgradeGarden;
+    public CostEndCoefficient CostUpgradeCollector;
+    public CostEndCoefficient CostUpgradeMusicHelper;
     
     public TextMeshProUGUI textNameAssistance;
     public TextMeshProUGUI textCostAssistance;
@@ -44,9 +55,9 @@ public class UpgradeAssistans : MonoBehaviour
 
     private bool _currentAssistanseUp;
     private LvlAssistance _currentLvlAssistance;
-    private int _currentLevSpeed;
-    private int _currentLevSpeedAction;
-    private int _currentLevStartAction;
+    private int _currentLevSpeed = 1;
+    private int _currentLevSpeedAction = 1;
+    private int _currentLevStartAction = 1;
 
 
     private void OnEnable()
@@ -123,6 +134,7 @@ public class UpgradeAssistans : MonoBehaviour
         panelSpeed.GetComponent<Image>().sprite = sprireCloseUpgrade;
         panelSpeedAction.GetComponent<Image>().sprite = sprireCloseUpgrade;
         panelStartAction.GetComponent<Image>().sprite = sprireCloseUpgrade;
+        textCostAssistance.text = costAssistance.ToString();
         if (CheckMony(_gameManager.coin.Value, costAssistance))
         {
             textCostAssistance.color = Color.black;
@@ -162,14 +174,14 @@ public class UpgradeAssistans : MonoBehaviour
 
     public void BuyLevelSpeed()
     {
-        GameManager.instance.coin.Value -= costUpgrade;
+        GameManager.instance.coin.Value -= SetCostUpgradeSpeed(_currentLevSpeed);
         _currentLvlAssistance.lvlSpeed++;
         UpDateData();
         SetLevelButton();
     }
     public void BuySpeedAction()
     {
-        GameManager.instance.coin.Value -= costUpgrade;
+        GameManager.instance.coin.Value -= SetCostUpgradeSpeedAction(_currentLevSpeedAction);
         _currentLvlAssistance.lvlActions++;
         UpDateData();
         SetLevelButton();
@@ -177,7 +189,7 @@ public class UpgradeAssistans : MonoBehaviour
 
     public void BuyStartAction()
     {
-        GameManager.instance.coin.Value -= costUpgrade;
+        GameManager.instance.coin.Value -= SetCostUpgradeAction(_currentLevStartAction);
         _currentLvlAssistance.lvlStartAction++;
         UpDateData();
         SetLevelButton();
@@ -195,10 +207,13 @@ public class UpgradeAssistans : MonoBehaviour
         else
         {
             textPanelSpeed.text = _currentLevSpeed + " LvL";
-            textBuySpeed.text = costUpgrade.ToString();
+            // textBuySpeed.text = costUpgrade.ToString();
+            // Debug.Log($"textBuySpeed {SetCostUpgradeSpeed(_currentLevSpeed).ToString()}");
+            int costUprgade = SetCostUpgradeSpeed(_currentLevSpeed);
+            textBuySpeed.text = costUprgade.ToString();
             sprireBuyArrowSpeed.gameObject.SetActive(true);
             //TODO check coins
-           if (CheckMony(_gameManager.coin.Value, costUpgrade))
+           if (CheckMony(_gameManager.coin.Value, costUprgade))
            {
             sprireBuyArrowSpeed.transform.parent.gameObject.GetComponent<Button>().interactable = true;
            }
@@ -218,9 +233,11 @@ public class UpgradeAssistans : MonoBehaviour
         else
         {
             textPanelSpeedAction.text = _currentLevSpeedAction + " LvL";
-            textBuySpeedAction.text = costUpgrade.ToString();
+            // textBuySpeedAction.text = costUpgrade.ToString();
+            int costUprgade = SetCostUpgradeSpeedAction(_currentLevSpeedAction);
+            textBuySpeedAction.text = costUprgade.ToString();
             sprireBuyArrowSpeedAction.gameObject.SetActive(true);
-            if (CheckMony(_gameManager.coin.Value, costUpgrade))
+            if (CheckMony(_gameManager.coin.Value, costUprgade))
             {
                 sprireBuyArrowSpeedAction.transform.parent.gameObject.GetComponent<Button>().interactable = true;
             }
@@ -241,9 +258,11 @@ public class UpgradeAssistans : MonoBehaviour
         else
         {
             textPanelStartAction.text = _currentLevStartAction + " LvL";
-            textBuyStartAction.text = costUpgrade.ToString();
+            // textBuyStartAction.text = costUpgrade.ToString();
+            int costUprgade = SetCostUpgradeAction(_currentLevStartAction);
+            textBuyStartAction.text = costUprgade.ToString();
             sprireBuyArrowStartAction.gameObject.SetActive(true);
-            if (CheckMony(_gameManager.coin.Value, costUpgrade))
+            if (CheckMony(_gameManager.coin.Value, costUprgade))
             {
                 sprireBuyArrowStartAction.transform.parent.gameObject.GetComponent<Button>().interactable = true;
             }
@@ -260,6 +279,7 @@ public class UpgradeAssistans : MonoBehaviour
         switch (_numAssistance)
         {
             case 0:
+                costAssistance = costAssistanceGarden;
                 textNameAssistance.text = "САЖАЛЬЩИК";
                 _currentAssistanseUp = _gameModel.GardenGnome.Value;
                 _currentLvlAssistance = _gameModel.GardenGnomeLevel.Value;
@@ -269,6 +289,7 @@ public class UpgradeAssistans : MonoBehaviour
                 break;
 
             case 1:
+                costAssistance = costAssistanceCollecroir;
                 textNameAssistance.text = "СБОРЩИК";
                 _currentAssistanseUp = _gameModel.CollectorGnome.Value;
                 _currentLvlAssistance = _gameModel.CollectorGnomeLevel.Value;
@@ -278,6 +299,7 @@ public class UpgradeAssistans : MonoBehaviour
                 break;
 
             case 2:
+                costAssistance = costAssistanceMusic;
                 textNameAssistance.text = "БРЕНЧАЛЬЩИК";
                 _currentAssistanseUp = _gameModel.MusicHelpers.Value;
                 _currentLvlAssistance = _gameModel.MusicHelpersLevel.Value;
@@ -290,13 +312,166 @@ public class UpgradeAssistans : MonoBehaviour
     private bool CheckMony(int mony, int cost)
     {
         return mony >= cost;
-        // if (mony >= cost)
-        // {
-        //     cost.color = Color.white;
-        // }
-        // else
-        // {
-        //     cost.color = Color.red;
-        // }
     }
+
+    private int SetCostUpgradeSpeed(int level)
+    {
+        switch (_numAssistance)
+        {
+            case 0 :
+                int s = CostUpgradeGarden.ElementaryCostSpeed;
+                for (int i = 1; i < level; i++)
+                {
+                    s = (int)(s * CostUpgradeGarden.CoefficientCostSpeed);
+                }
+                return s;
+            
+            case 1 :
+                int d = CostUpgradeCollector.ElementaryCostSpeed;
+                for (int i = 1; i < level; i++)
+                {
+                    d = (int)(d * CostUpgradeCollector.CoefficientCostSpeed);
+                }
+                return d;
+            case 2 :
+                int f = CostUpgradeMusicHelper.ElementaryCostSpeed;
+                for (int i = 1; i < level; i++)
+                {
+                    f = (int)(f * CostUpgradeMusicHelper.CoefficientCostSpeed);
+                }
+                return f;
+        }
+        return 100;
+    }
+    
+    private int SetCostUpgradeSpeedAction(int level)
+    {
+        switch (_numAssistance)
+        {
+            case 0 :
+                int s = CostUpgradeGarden.ElementaryCostSpeedAction;
+                for (int i = 1; i < level; i++)
+                {
+                    s = (int)(s * CostUpgradeGarden.CoefficientCostSpeedAction);
+                }
+                return s;
+            
+            case 1 :
+                int d = CostUpgradeCollector.ElementaryCostSpeedAction;
+                for (int i = 1; i < level; i++)
+                {
+                    d = (int)(d * CostUpgradeCollector.CoefficientCostSpeedAction);
+                }
+                return d;
+            case 2 :
+                int f = CostUpgradeMusicHelper.ElementaryCostSpeedAction;
+                for (int i = 1; i < level; i++)
+                {
+                    f = (int)(f * CostUpgradeMusicHelper.CoefficientCostAction);
+                }
+                return f;
+        }
+        return 100;
+    }
+    
+    private int SetCostUpgradeAction(int level)
+    {
+        switch (_numAssistance)
+        {
+            case 0 :
+                int s = CostUpgradeGarden.ElementaryCostAction;
+                for (int i = 1; i < level; i++)
+                {
+                    s = (int)(s * CostUpgradeGarden.CoefficientCostAction);
+                }
+                return s;
+            
+            case 1 :
+                int d = CostUpgradeCollector.ElementaryCostAction;
+                for (int i = 1; i < level; i++)
+                {
+                    d = (int)(d * CostUpgradeCollector.CoefficientCostAction);
+                }
+                return d;
+            case 2 :
+                int f = CostUpgradeMusicHelper.ElementaryCostAction;
+                for (int i = 1; i < level; i++)
+                {
+                    f = (int)(f * CostUpgradeMusicHelper.CoefficientCostAction);
+                }
+                return f;
+        }
+        return 100;
+    }
+   
+   
+    
+    private int SetCostUpgrade(int level, eTypeUpgradeAssistanse type)
+    {
+        switch (type)
+        {
+          case  eTypeUpgradeAssistanse.SpeedGarden:
+              
+              break;
+          case  eTypeUpgradeAssistanse.SpeedActionGarden:
+              
+              break;
+          case  eTypeUpgradeAssistanse.StartActionGarden:
+              
+              break;
+          case  eTypeUpgradeAssistanse.SpeedCollector:
+              
+              break;
+          case  eTypeUpgradeAssistanse.SpeedActionCollector:
+              
+              break;
+          case  eTypeUpgradeAssistanse.StartActionCollector:
+              
+              break;
+          case  eTypeUpgradeAssistanse.SpeedMusicHelper:
+              
+              break;
+          case  eTypeUpgradeAssistanse.SpeedActionMusicHelper:
+              
+              break;
+          case  eTypeUpgradeAssistanse.StartActionMusicHelper:
+              
+              break;
+          
+        }
+        return 1;
+    }
+}
+
+public enum eTypeUpgradeAssistanse
+{
+    SpeedGarden,
+    SpeedActionGarden,
+    StartActionGarden,
+    SpeedCollector,
+    SpeedActionCollector,
+    StartActionCollector,
+    SpeedMusicHelper,
+    SpeedActionMusicHelper,
+    StartActionMusicHelper
+}
+
+[Serializable]
+public class CostLevelUpgrade
+{
+    public int Level;
+    public int CostSpeed;
+    public int CostSpeedAction;
+    public int CostAction;
+}
+
+[Serializable]
+public class CostEndCoefficient
+{
+    public int ElementaryCostSpeed;
+    public float CoefficientCostSpeed;
+    public int ElementaryCostSpeedAction;
+    public float CoefficientCostSpeedAction;
+    public int ElementaryCostAction;
+    public float CoefficientCostAction;
 }

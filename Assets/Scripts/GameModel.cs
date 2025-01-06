@@ -63,11 +63,11 @@ public class GameModel
         CollectorGnome = new SubscriptionField<bool>() {Value = false};
         MusicHelpers = new SubscriptionField<bool>() {Value = false};
         GardenGnomeLevel = new SubscriptionField<LvlAssistance>();
-        GardenGnomeLevel.Value = new LvlAssistance();
+        GardenGnomeLevel.Value = new LvlAssistance() {lvlSpeed = 1, lvlStartAction = 1, lvlActions = 1};
         CollectorGnomeLevel = new SubscriptionField<LvlAssistance>();
-        CollectorGnomeLevel.Value = new LvlAssistance();
+        CollectorGnomeLevel.Value = new LvlAssistance(){lvlSpeed = 1, lvlStartAction = 1, lvlActions = 1};
         MusicHelpersLevel = new SubscriptionField<LvlAssistance>();
-        MusicHelpersLevel.Value = new LvlAssistance();
+        MusicHelpersLevel.Value = new LvlAssistance(){lvlSpeed = 1, lvlStartAction = 1, lvlActions = 1};
         NumberCompletedOrders = new SubscriptionField<int>();
         CloseCustomersInLevel = new SubscriptionField<int>() {Value = 0};
         LevelMap = new SubscriptionField<int>() {Value = 0};
