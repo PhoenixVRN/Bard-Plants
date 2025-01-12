@@ -105,7 +105,6 @@ public class Grydka : MonoBehaviour
         timeGrowthInStage = Time.time;
         Growth = true;
         plant = GameManager.instance.openPlants[Random.Range(0, GameManager.instance.openPlants.Count)];
-        // plant = GameManager.instance.allPlants[Random.Range(0, GameManager.instance.openPlants.Count)];
         // Debug.Log($"PlantaPlant {GameManager.instance.openPlants.Count}/{plant.namePlant}");
         // plantunGrydka.GetComponent<CircleCollider2D>().enabled = true;
         plantunGrydka.texture = plant.spritePlant[0];
@@ -164,6 +163,9 @@ public class Grydka : MonoBehaviour
                 empty = false;
             }
         }
+
+        _gameManager.currentGrydka.Remove(this);
+        Destroy(gameObject);
     }
     Sprite Texture2DToSprite(Texture2D texture)
     {

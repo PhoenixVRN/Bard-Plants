@@ -26,6 +26,7 @@ public class MapController
     {
         _gameManager.MapUprgadeText.text = 0 + " / " + _gameManager.levelGrydka[0].numberOfOrders;
     }
+
     public void OnLevelChanged(int level)
     {
         // Debug.Log($"Map OnLevelChanged");
@@ -47,25 +48,28 @@ public class MapController
         if (level > 0)
         {
             var allgroup = _gameManager.levelGrydka[level].forestGroup;
-           foreach (Transform child in allgroup.transform)
-           {
-               // Debug.Log("Дочерний объект (первый уровень): " + child.name);
-               child.GetComponent<SpriteRenderer>().DOFade(0, 1).OnComplete(() => _gameManager.DestroyForest(child));
-           }
+            foreach (Transform child in allgroup.transform)
+            {
+                // Debug.Log("Дочерний объект (первый уровень): " + child.name);
+                child.GetComponent<SpriteRenderer>().DOFade(0, 1).OnComplete(() => _gameManager.DestroyForest(child));
+            }
         }
-        var newGrydkas = _gameManager.levelGrydka[level].newGrydka;
-        newGrydkas.ForEach(b =>
-        {
-            b.gameObject.SetActive(true);
-            _gameManager.currentGrydka.Add(b);
-        });
-        // _gameManager.mapForest.sprite = _gameManager.levelGrydka[level].sprite;
+
+        Reference.GameModel.MaxNumberPlants.Value = _gameManager.levelGrydka[level].numberPlantsLevel;
+        Debug.Log($">>> {Reference.GameModel.MaxNumberPlants.Value}");
+        // var newGrydkas = _gameManager.levelGrydka[level].newGrydka;
+        // newGrydkas.ForEach(b =>
+        // {
+        //     b.gameObject.SetActive(true);
+        //     _gameManager.currentGrydka.Add(b);
+        // });
+        // // _gameManager.mapForest.sprite = _gameManager.levelGrydka[level].sprite;
     }
 
     public void CheckLevelMap(int level)
     {
-       // Debug.Log($"Contrl currentMapIndex {_currentMapIndex}, levelGrydka {_gameManager.levelGrydka.Count}");
-       if (_currentMapIndex >= _gameManager.levelGrydka.Count) return;
+        // Debug.Log($"Contrl currentMapIndex {_currentMapIndex}, levelGrydka {_gameManager.levelGrydka.Count}");
+        if (_currentMapIndex >= _gameManager.levelGrydka.Count) return;
         _currentCloseOrder = level;
         // var oldIndex = _currentMapIndex > 0 ? _currentMapIndex - 1 : 0;
         if (_currentMapIndex > 0)
@@ -74,16 +78,17 @@ public class MapController
                        _gameManager.levelGrydka[_currentMapIndex - 1].numberOfOrders;
             var b = _currentCloseOrder - _currentOpenOrder;
 
-             // Debug.Log($"CheckLevelMap1 {b}/{need}");
+            // Debug.Log($"CheckLevelMap1 {b}/{need}");
             _gameManager.MapUprgadeText.text = b + " / " + need;
-            float d = (float)((float)b / (float)(need));
+            float d = (float) ((float) b / (float) (need));
             _gameManager.imageFoerstLevel.DOFillAmount(d, 2).OnComplete(OnLevelLoaded);
         }
         else
         {
             // Debug.Log($"CheckLevelMap2 {level}/{_gameManager.levelGrydka[_currentMapIndex].numberOfOrders}");
-            _gameManager.MapUprgadeText.text = level + " / " + _gameManager.levelGrydka[_currentMapIndex].numberOfOrders;
-            float h = (float)((float)level / (float)(_gameManager.levelGrydka[_currentMapIndex].numberOfOrders));
+            _gameManager.MapUprgadeText.text =
+                level + " / " + _gameManager.levelGrydka[_currentMapIndex].numberOfOrders;
+            float h = (float) ((float) level / (float) (_gameManager.levelGrydka[_currentMapIndex].numberOfOrders));
             _gameManager.imageFoerstLevel.DOFillAmount(h, 1).OnComplete(OnLevelLoaded);
         }
     }
@@ -93,7 +98,7 @@ public class MapController
         if (_currentCloseOrder >= _gameManager.levelGrydka[_currentMapIndex].numberOfOrders)
         {
             _gameManager.imageFoerstLevel.fillAmount = 0f;
-            
+
             _currentMapIndex++;
             _currentOpenOrder = Reference.GameModel.NumberClosedOrders.Value;
             OnLevelChanged(_currentMapIndex);

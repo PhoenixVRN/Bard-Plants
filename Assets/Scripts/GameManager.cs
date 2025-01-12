@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using N.Fridman.FormatNums.Scripts.Helpers;
 using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using UnityEngine.Serialization;
@@ -11,6 +12,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject GrydkaPrefab;
+    public Transform ParentGrydka;
     public List<UpgradeGrydkaCfg> upgradeGrydkaCfgs;
     public static GameManager instance;
     public List<Plant> allPlants;
@@ -21,7 +24,6 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI textLevelGame;
     public SubscriptionField<int> coin;
     public GameObject PoPUpUpgrade;
-    public Transform ParentGrydka;
     public GameModel gameModel;
     public UpgradeLevelUp UpgradeLevelUp;
     public GetTokensVFXController getTokensVFXController;
@@ -31,13 +33,11 @@ public class GameManager : MonoBehaviour
     public GameObject collectorGnome;
     public GameObject GardenGnome;
     public Image imageLeve;
-    public GameObject parentGryadka;
     public float timeToPlant;
     private float _timer = 0;
     [HideInInspector] public CfgLevelData _cfgLevelData;
     private int _lastCoins;
     private MapController _mapController;
-    public Image mapForest;
     public Image imageFoerstLevel;
     public TextMeshProUGUI MapUprgadeText;
 
@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        // currentGrydka = new List<Grydka>();
         _mapController = new MapController();
         _mapController.OnLevelChanged(0);
         _mapController.Init();
@@ -93,14 +94,13 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (currentGrydka.Find(g => g.empty == false))
-        {
-            if (_timer < Time.time)
+        // && 2 < Reference.GameModel.MaxNumberPlants.Value
+        
+            if (_timer < Time.time && currentGrydka.Count < Reference.GameModel.MaxNumberPlants.Value)
             {
                 _timer = Time.time + timeToPlant;
                 SpawnGrydka();
             }
-        }
     }
 
     private void InitGnome()
@@ -118,17 +118,14 @@ public class GameManager : MonoBehaviour
                 GardenGnome.SetActive(c);
             });
         }
-        
+
         if (gameModel.CollectorGnome.Value)
         {
             collectorGnome.SetActive(true);
         }
         else
         {
-            gameModel.CollectorGnome.Subscribe((c) =>
-            {
-                collectorGnome.SetActive(c);
-            });
+            gameModel.CollectorGnome.Subscribe((c) => { collectorGnome.SetActive(c); });
         }
 
         if (gameModel.MusicHelpers.Value)
@@ -148,7 +145,7 @@ public class GameManager : MonoBehaviour
 
     private void ChangeCoins(int newValue)
     {
-        textCoin.text = FormatNumsHelper.FormatNum((float)newValue);
+        textCoin.text = FormatNumsHelper.FormatNum((float) newValue);
     }
 
     private void ChangeLevelGame(int newValue)
@@ -159,8 +156,8 @@ public class GameManager : MonoBehaviour
     public void ChangeLevelUp(int number)
     {
         //TODO попап повышени уровня и пр.
-        gameModel.LevelGame.Value ++;
-        gameModel.LevelMap.Value ++;
+        gameModel.LevelGame.Value++;
+        gameModel.LevelMap.Value++;
         // Debug.Log($"Level Map: {gameModel.LevelMap.Value}");
         //TODO  сделать систему повышающую уровень карты
         // _mapController.OnLevelChanged(gameModel.LevelMap.Value);
@@ -201,8 +198,50 @@ public class GameManager : MonoBehaviour
 
     private void SpawnGrydka()
     {
-        var emptyGrydka = currentGrydka.FindAll((grydka => grydka.empty == false));
-        emptyGrydka[Random.Range(0, emptyGrydka.Count)].PlantaPlant();
+        // Debug.Log($"Сажаем");
+        // var emptyGrydka = currentGrydka.FindAll((grydka => grydka.empty == false));
+        // emptyGrydka[Random.Range(0, emptyGrydka.Count)].PlantaPlant();
+        
+        Vector2 origin = new Vector2(0, -1);
+        float randomAngle = Random.Range(0f, Mathf.PI * 2);
+        Vector2 randomDirection = new Vector2(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle));
+        float maxDistance = 100f;
+        int targetLayerMask = LayerMask.GetMask("Bush");
+        RaycastHit2D hit = Physics2D.Raycast(origin, randomDirection, maxDistance, targetLayerMask);
+        if (hit != null)
+        {
+            // LayerMask.LayerToName(hit.collider.gameObject.layer).Contains("Bush")
+
+            // if (LayerMask.LayerToName(hit.collider.gameObject.layer).Contains("Bush"))
+            // {
+            // Дистанция до точки контакта
+
+            float hitDistance = hit.distance;
+
+            // Выбираем случайную точку на отрезке луча
+            float randomDistance = Random.Range(0, hitDistance);
+            Vector2 randomPointOnRay = origin + randomDirection * randomDistance;
+            var grydka = Instantiate(GrydkaPrefab, randomPointOnRay, quaternion.identity, ParentGrydka)
+                .GetComponent<Grydka>();
+            currentGrydka.Add(grydka);
+            grydka.PlantaPlant();
+
+            // Выводим информацию
+            // Debug.Log($"Raycast попал в объект: {hit.collider.gameObject.name} на слое {targetLayerMask}, точка: {hit.point}");
+            // Debug.Log($"Точка контакта с коллайдером: " + hit.point);
+            //
+            // Debug.Log("Случайная точка на луче: " + randomPointOnRay);
+
+            // Визуализируем луч и случайную точку в редакторе Unity
+            // Debug.DrawLine(origin, hit.point, Color.red, 5f);
+            // Debug.DrawLine(origin, randomPointOnRay, Color.blue, 5f);
+            // }
+            //
+        }
+        else
+        {
+            Debug.Log("Raycast не нашёл коллайдер.");
+        }
     }
 
     public void DestroyForest(Transform bush)

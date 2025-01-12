@@ -7,9 +7,7 @@ using UnityEngine.Serialization;
 public class LevelGrydka
 {
     public int level;
-    public List<Grydka> newGrydka;
-    public List<GameObject> border;
-    public Sprite sprite;
+    public int numberPlantsLevel;
    public GameObject forestGroup;
     public int numberOfOrders;
 }
