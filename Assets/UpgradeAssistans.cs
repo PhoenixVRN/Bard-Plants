@@ -159,7 +159,7 @@ public class UpgradeAssistans : MonoBehaviour
         switch (_numAssistance)
         {
             case 0:
-                Debug.Log($"You bought {_numAssistance} upgrades.");
+                // Debug.Log($"You bought {_numAssistance} upgrades.");
                 _gameModel.GardenGnome.Value = true;
                 break;
             case 1:

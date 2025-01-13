@@ -19,6 +19,178 @@ MonoBehaviour:
     m_Key: Collector
     m_Metadata:
       m_Items: []
+  - m_Id: 2211383272792064
+    m_Key: special_pack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2211640949858304
+    m_Key: daily_items
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2211911918673920
+    m_Key: crystall
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2212038821535744
+    m_Key: gold
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2212194040143872
+    m_Key: Plants_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2212270816878592
+    m_Key: Plants_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2212403897950208
+    m_Key: Plants_3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2212494733991936
+    m_Key: Plants_4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2212631829012480
+    m_Key: Plants_5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2212698329702400
+    m_Key: Plants_6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2212774896721920
+    m_Key: Plants_7
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2212853774802944
+    m_Key: Plants_8
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2212922657857536
+    m_Key: Plants_9
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2212992245555200
+    m_Key: Plants_10
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2213066551844864
+    m_Key: Plants_11
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2213134499569664
+    m_Key: Plants_12
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2213217077026816
+    m_Key: Plants_13
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2213241500459008
+    m_Key: Plants_14
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2213276791332864
+    m_Key: on_setting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2213346089623552
+    m_Key: off_setting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2213414846849024
+    m_Key: stars_game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2213510409871360
+    m_Key: politica_conf
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2213582715478016
+    m_Key: upgrade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2213673870286848
+    m_Key: one_take
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2213833564217344
+    m_Key: speed_movement
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2213936576323584
+    m_Key: speed_working
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2214220270657536
+    m_Key: chill_work
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2214292618207232
+    m_Key: gnoms
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2214354714877952
+    m_Key: taker
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2214417822375936
+    m_Key: musicant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2214481647099904
+    m_Key: buy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2214562068684800
+    m_Key: levels
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2214623137751040
+    m_Key: new_plants
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2214705891368960
+    m_Key: reward
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2214921285656576
+    m_Key: taking
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2214997148033024
+    m_Key: tutor_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2215091557621760
+    m_Key: tutor_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2215221987893248
+    m_Key: tutor_3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2215285007310848
+    m_Key: tutor_4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2215424929292288
+    m_Key: tutor_5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2215497620774912
+    m_Key: tutor_6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2215560766021632
+    m_Key: tutor_7
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2215628411756544
+    m_Key: tutor_8
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

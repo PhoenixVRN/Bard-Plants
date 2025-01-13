@@ -22,6 +22,178 @@ MonoBehaviour:
     m_Localized: Collector
     m_Metadata:
       m_Items: []
+  - m_Id: 2211383272792064
+    m_Localized: PLANT SET
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2211640949858304
+    m_Localized: DAILY ITEMS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2211911918673920
+    m_Localized: CRYSTALS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2212038821535744
+    m_Localized: GOLD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2212194040143872
+    m_Localized: Spellberry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2212270816878592
+    m_Localized: Crystalville
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2212403897950208
+    m_Localized: Mandrake
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2212494733991936
+    m_Localized: ' Wonderfruit'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2212631829012480
+    m_Localized: Bubblecap Mushroom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2212698329702400
+    m_Localized: Spinebloom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2212774896721920
+    m_Localized: Flysnatcher
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2212853774802944
+    m_Localized: Toxicshroom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2212922657857536
+    m_Localized: Starbloom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2212992245555200
+    m_Localized: Starebloom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2213066551844864
+    m_Localized: Gutbloom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2213134499569664
+    m_Localized: Shrubtentacles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2213217077026816
+    m_Localized: Plants_13
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2213241500459008
+    m_Localized: Plants_14
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2213276791332864
+    m_Localized: On
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2213346089623552
+    m_Localized: Off
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2213414846849024
+    m_Localized: Rate the Game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2213510409871360
+    m_Localized: Privacy Policy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2213582715478016
+    m_Localized: Upgrade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2213673870286848
+    m_Localized: "\u0437\u0430 \u043E\u0434\u0438\u043D \u0441\u0431\u043E\u0440"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2213833564217344
+    m_Localized: Running Speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2213936576323584
+    m_Localized: Work Speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2214220270657536
+    m_Localized: Rest Between Tasks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2214292618207232
+    m_Localized: Garden Gnome
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2214354714877952
+    m_Localized: Collector
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2214417822375936
+    m_Localized: Forest Musician
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2214481647099904
+    m_Localized: Buy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2214562068684800
+    m_Localized: ' LEVEL'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2214623137751040
+    m_Localized: NEW PLANT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2214705891368960
+    m_Localized: 'REWARD:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2214921285656576
+    m_Localized: CLAIM
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2214997148033024
+    m_Localized: Woo-woo Grow and collect your first plant!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2215091557621760
+    m_Localized: Now deliver the order to your first customer!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2215221987893248
+    m_Localized: Well done, but I think you could use some help...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2215285007310848
+    m_Localized: "I know someone\u2026 or half a someone ^_^"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2215424929292288
+    m_Localized: "He\u2019ll help you!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2215497620774912
+    m_Localized: "HEY THERE! Alright, I\u2019ll help you out in the field!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2215560766021632
+    m_Localized: "But later, I\u2019ll need your help..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2215628411756544
+    m_Localized: LEVEL UP to unlock new opportunities!
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

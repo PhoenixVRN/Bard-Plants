@@ -56,7 +56,7 @@ public class MapController
         }
 
         Reference.GameModel.MaxNumberPlants.Value = _gameManager.levelGrydka[level].numberPlantsLevel;
-        Debug.Log($">>> {Reference.GameModel.MaxNumberPlants.Value}");
+        // Debug.Log($">>> {Reference.GameModel.MaxNumberPlants.Value}");
         // var newGrydkas = _gameManager.levelGrydka[level].newGrydka;
         // newGrydkas.ForEach(b =>
         // {

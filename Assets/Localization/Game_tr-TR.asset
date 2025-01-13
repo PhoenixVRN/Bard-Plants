@@ -22,6 +22,181 @@ MonoBehaviour:
     m_Localized: "Kolekt\xF6r"
     m_Metadata:
       m_Items: []
+  - m_Id: 2211383272792064
+    m_Localized: "B\u0130TK\u0130 SET\u0130"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2211640949858304
+    m_Localized: "G\xDCNL\xDCK E\u015EYALAR"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2211911918673920
+    m_Localized: "KR\u0130STALLER"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2212038821535744
+    m_Localized: ' ALTIN'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2212194040143872
+    m_Localized: "Sihir\xE7ilek"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2212270816878592
+    m_Localized: Kristalkent
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2212403897950208
+    m_Localized: Adamotu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2212494733991936
+    m_Localized: Mucize Meyve
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2212631829012480
+    m_Localized: "Kabarc\u0131k Mantar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2212698329702400
+    m_Localized: "Diken\xE7i\xE7ek"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2212774896721920
+    m_Localized: Sinek Yutan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2212853774802944
+    m_Localized: Zehirli Mantar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2212922657857536
+    m_Localized: "Y\u0131ld\u0131z\xE7i\xE7ek"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2212992245555200
+    m_Localized: "NeBak\u0131yon\xC7i\xE7ek"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2213066551844864
+    m_Localized: "Ba\u011F\u0131rsak\xE7i\xE7ek"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2213134499569664
+    m_Localized: "\xC7al\u0131 Dokunga\xE7lar\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2213217077026816
+    m_Localized: Plants_13
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2213241500459008
+    m_Localized: Plants_14
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2213276791332864
+    m_Localized: "A\xE7\u0131k"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2213346089623552
+    m_Localized: "Kapal\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2213414846849024
+    m_Localized: "Oyunu De\u011Ferlendir"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2213510409871360
+    m_Localized: "Gizlilik Politikas\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2213582715478016
+    m_Localized: "Y\xFCkseltme"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2213673870286848
+    m_Localized: ' bir toplamada'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2213833564217344
+    m_Localized: "Ko\u015Fu H\u0131z\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2213936576323584
+    m_Localized: "\xC7al\u0131\u015Fma H\u0131z\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2214220270657536
+    m_Localized: "\xC7al\u0131\u015Fma Aras\u0131 Dinlenme"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2214292618207232
+    m_Localized: "Bah\xE7e C\xFCcesi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2214354714877952
+    m_Localized: "Toplay\u0131c\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2214417822375936
+    m_Localized: "Orman M\xFCzisyeni"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2214481647099904
+    m_Localized: "Sat\u0131n Al"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2214562068684800
+    m_Localized: "SEV\u0130YE"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2214623137751040
+    m_Localized: " YEN\u0130 B\u0130TK\u0130"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2214705891368960
+    m_Localized: "\xD6D\xDCL:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2214921285656576
+    m_Localized: TOPLA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2214997148033024
+    m_Localized: "Vrr-vrr \u0130lk bitkini b\xFCy\xFCt ve topla!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2215091557621760
+    m_Localized: "\u015Eimdi sipari\u015Fi ilk m\xFC\u015Fterine teslim et!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2215221987893248
+    m_Localized: "Aferin, ama yard\u0131ma ihtiyac\u0131n olaca\u011F\u0131n\u0131
+      d\xFC\u015F\xFCn\xFCyorum..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2215285007310848
+    m_Localized: "Tan\u0131d\u0131\u011F\u0131m biri var\u2026 ya da yar\u0131m biri
+      ^_^"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2215424929292288
+    m_Localized: "Sana yard\u0131m edecek!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2215497620774912
+    m_Localized: "SELAM! Tamam, sana tarlada yard\u0131m edece\u011Fim!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2215560766021632
+    m_Localized: "Ama sonra benim de yard\u0131ma ihtiyac\u0131m olacak..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2215628411756544
+    m_Localized: "SEV\u0130YEN\u0130 Y\xDCKSELT, yeni f\u0131rsatlar\u0131n kilidini
+      a\xE7!"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
