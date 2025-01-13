@@ -2,6 +2,8 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 
 public class UpgradeLevelUp : MonoBehaviour
 {
@@ -21,9 +23,10 @@ public class UpgradeLevelUp : MonoBehaviour
   public void InitPanel(LevelData levelData)
   {
     _levelData = levelData;
-    textLevel.text = _levelData.Level + " уровень";
+    textLevel.text = _levelData.Level.ToString();
     Plant plant = GameManager.instance.GetPlantToType(_levelData.OpenPlant);
-    nameNewPlant.text =plant.namePlant;
+    var localizedString = LocalizationSettings.StringDatabase.GetLocalizedString("Game",plant.namePlant);
+    nameNewPlant.text = localizedString;
     spriteNewPlant.texture = plant.spritePlant[4];
     coins.text = _levelData.CoinReward.ToString();
     

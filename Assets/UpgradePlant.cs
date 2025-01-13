@@ -1,6 +1,7 @@
 using N.Fridman.FormatNums.Scripts.Helpers;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 public class UpgradePlant : MonoBehaviour
@@ -22,7 +23,9 @@ public class UpgradePlant : MonoBehaviour
             texture,
             new Rect(0, 0, texture.width, texture.height),
             new Vector2(0.5f, 0.5f));
-        namePlants.text = plant.namePlant;
+        var f = LocalizationSettings.StringDatabase.GetLocalizedString("Game",plant.namePlant);
+        Debug.Log($"local {plant.namePlant}/{f}");
+        namePlants.text = f;
         countPlants.text = "X" + plant.quantity.Value;
         count.text = (plant.Level + 2).ToString();
         CheckMony(_gameManager.coin.Value);
