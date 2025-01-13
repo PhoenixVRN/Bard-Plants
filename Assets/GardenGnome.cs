@@ -7,30 +7,18 @@ using UnityEngine.AI;
 public class GardenGnome : MonoBehaviour
 {
     public Vector2 _target;
-
     public Transform idlePoint;
-
-    // private NavMeshAgent _agent;
     public bool MoveToGrydka;
-    public Grydka grydka;
     public bool WePlant;
     public SkeletonAnimation LeftGnomeAnimation;
     public Spine.AnimationState spineAnimationState;
-    public Spine.Skeleton skeleton;
     public float speedMove;
-
     private GameModel _gameModel;
-
-    private Vector3 oldPos;
+    
 
     void Start()
     {
-        oldPos = transform.position;
-        // _agent = GetComponent<NavMeshAgent>();
-        // _agent.updateRotation = false;
-        // _agent.updateUpAxis = false;
         spineAnimationState = LeftGnomeAnimation.AnimationState;
-        skeleton = LeftGnomeAnimation.Skeleton;
         spineAnimationState.SetAnimation(0, "Idle", true);
         _gameModel = Reference.GameModel;
         _gameModel.AnimationGardenGnome.Subscribe(Animation);
@@ -38,20 +26,15 @@ public class GardenGnome : MonoBehaviour
 
     void Update()
     {
-        // Debug.Log($"delta {Vector3.Distance(transform.position, oldPos)}");
-        oldPos = transform.position;
         if (WePlant) return;
-        // if (EmptyGardenBed() == null)
         if (GameManager.instance.currentGrydka.Count >= Reference.GameModel.MaxNumberPlants.Value)
         {
-            // _agent.SetDestination(idlePoint.position);
-            if (Vector2.Distance(transform.position, idlePoint.position) < 0.4)
+            if (Vector2.Distance(transform.position, idlePoint.position) < 0.1)
             {
                 _gameModel.AnimationGardenGnome.Value = eTypeAnimation.Idle;
             }
             else
             {
-                // Debug.Log($"GoTo IdlePos");
                 DirectAnim(idlePoint.position);
                 transform.position =
                     Vector3.MoveTowards(transform.position, idlePoint.position, speedMove * Time.deltaTime);
@@ -65,18 +48,10 @@ public class GardenGnome : MonoBehaviour
             _target = GameManager.instance.SpawnPositionPlant();
             MoveToGrydka = true;
         }
-        // var e = EmptyGardenBed().transform;
-        // Debug.Log($"target {e}");
-        // if (!MoveToGrydka && e != null)
-        // {
-        // _target = e;
-        //     MoveToGrydka = true;
-        // }
-
 
         if (MoveToGrydka)
         {
-            if (Vector2.Distance(transform.position, _target) < 0.4)
+            if (Vector2.Distance(transform.position, _target) < 0.1)
             {
                     WePlant = true;
                     StartCoroutine(WePlantPlant());
@@ -97,16 +72,7 @@ public class GardenGnome : MonoBehaviour
         WePlant = false;
         MoveToGrydka = false;
     }
-
-    private Grydka EmptyGardenBed()
-    {
-        var allGrydka = GameManager.instance.currentGrydka.FindAll(c => c.empty == false);
-        if (allGrydka.Count == 0) return null;
-        var randomGrydka = Random.Range(0, allGrydka.Count);
-        return allGrydka[Random.Range(0, allGrydka.Count)];
-        // return GameManager.instance.allGrydka.Find(c => c.empty == false);
-    }
-
+    
     public void MoveToTarget()
     {
         if (_gameModel.AnimationGardenGnome.Value != eTypeAnimation.Walk)

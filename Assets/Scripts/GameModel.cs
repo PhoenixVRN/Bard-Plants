@@ -38,8 +38,6 @@ public class GameModel
     public SubscriptionField<int> NumberClosedOrders { get; }
     public SubscriptionField<int> NumberGrowingPlants { get; }
     public SubscriptionField<int> MaxNumberPlants { get; }
-   
-    
     
    
     public GameModel()

@@ -55,13 +55,11 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
         DontDestroyOnLoad(gameObject);
     }
 
     void Start()
     {
-        // currentGrydka = new List<Grydka>();
         _mapController = new MapController();
         _mapController.OnLevelChanged(0);
         _mapController.Init();
@@ -95,7 +93,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         // && 2 < Reference.GameModel.MaxNumberPlants.Value
-        
+        // Debug.Log($"currentGrydka {currentGrydka.Count}");
             if (_timer < Time.time && currentGrydka.Count < Reference.GameModel.MaxNumberPlants.Value)
             {
                 _timer = Time.time + timeToPlant;

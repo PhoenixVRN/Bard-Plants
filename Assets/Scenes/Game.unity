@@ -16912,7 +16912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 905986c6c712286498e651edf0f25068, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 0}
+  _target: {x: 0, y: 0}
   idlePoint: {fileID: 333453944}
   MoveToGrydka: 0
   grydka: {fileID: 0}
@@ -40877,7 +40877,7 @@ MonoBehaviour:
   currentGrydka: []
   levelGrydka:
   - level: 0
-    numberPlantsLevel: 15
+    numberPlantsLevel: 16
     forestGroup: {fileID: 0}
     numberOfOrders: 5
   - level: 1
@@ -42715,7 +42715,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.13900001, y: 0.26000002}
   m_AnchorMax: {x: 1, y: 0.7466666}
-  m_AnchoredPosition: {x: -13.0000305, y: -7.6000547}
+  m_AnchoredPosition: {x: -13.0000305, y: -7.6000595}
   m_SizeDelta: {x: 25.7, y: 15.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1057605090
@@ -54401,7 +54401,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.055199753, y: 0.2066668}
   m_AnchorMax: {x: 0.312, y: 0.90000004}
-  m_AnchoredPosition: {x: 22.599976, y: -1.5}
+  m_AnchoredPosition: {x: 22.599945, y: -1.5}
   m_SizeDelta: {x: -42.300003, y: -4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1344668325

@@ -41,7 +41,7 @@ public class CollectorGnome : MonoBehaviour
         if (TargetGardenBed() == null)
         {
             // _agent.SetDestination(idlePoint.position);
-            if (Vector2.Distance(transform.position, idlePoint.position) < 0.4)
+            if (Vector2.Distance(transform.position, idlePoint.position) < 0.1)
             {
                 _gameModel.AnimationCollectorGnome.Value = eTypeAnimation.Idle;
             }
@@ -67,7 +67,7 @@ public class CollectorGnome : MonoBehaviour
         if (MoveToGrydka)
         {
             MoveToTarget();
-            if (Vector2.Distance(transform.position, _target.position) < 0.4f)
+            if (Vector2.Distance(transform.position, _target.position) < 0.1f)
             {
                 if (_target.GetComponent<Grydka>().ripe)
                 {

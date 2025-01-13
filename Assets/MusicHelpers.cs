@@ -35,7 +35,7 @@ public class MusicHelpers : MonoBehaviour
         if (TargetGardenBed() == null)
         {
             // DirectAnim(idlePoint.position);
-            if (Vector2.Distance(transform.position, idlePoint.position) < 0.4)
+            if (Vector2.Distance(transform.position, idlePoint.position) < 0.1)
             {
                  _gameModel.AnimationMusicHelpers.Value = eTypeAnimation.Idle;
             }
@@ -62,7 +62,7 @@ public class MusicHelpers : MonoBehaviour
         if (MoveToGrydka)
         {
             MoveToTarget();
-            if (Vector2.Distance(transform.position, _target.position) < 0.4)
+            if (Vector2.Distance(transform.position, _target.position) < 0.1)
             {
                 if (_target.GetComponent<Grydka>().needMusic)
                 {
