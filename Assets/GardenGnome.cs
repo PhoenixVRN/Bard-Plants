@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class GardenGnome : MonoBehaviour
 {
-    public Transform _target;
+    public Vector2 _target;
 
     public Transform idlePoint;
 
@@ -41,7 +41,8 @@ public class GardenGnome : MonoBehaviour
         // Debug.Log($"delta {Vector3.Distance(transform.position, oldPos)}");
         oldPos = transform.position;
         if (WePlant) return;
-        if (EmptyGardenBed() == null)
+        // if (EmptyGardenBed() == null)
+        if (GameManager.instance.currentGrydka.Count >= Reference.GameModel.MaxNumberPlants.Value)
         {
             // _agent.SetDestination(idlePoint.position);
             if (Vector2.Distance(transform.position, idlePoint.position) < 0.4)
@@ -54,35 +55,35 @@ public class GardenGnome : MonoBehaviour
                 DirectAnim(idlePoint.position);
                 transform.position =
                     Vector3.MoveTowards(transform.position, idlePoint.position, speedMove * Time.deltaTime);
-               
             }
 
             return;
         }
 
-        var e = EmptyGardenBed().transform;
-        // Debug.Log($"target {e}");
-        if (!MoveToGrydka && e != null)
+        if (!MoveToGrydka)
         {
-            _target = e;
+            _target = GameManager.instance.SpawnPositionPlant();
             MoveToGrydka = true;
         }
+        // var e = EmptyGardenBed().transform;
+        // Debug.Log($"target {e}");
+        // if (!MoveToGrydka && e != null)
+        // {
+        // _target = e;
+        //     MoveToGrydka = true;
+        // }
+
 
         if (MoveToGrydka)
         {
-            MoveToTarget();
-            if (Vector2.Distance(transform.position, _target.position) < 0.4)
+            if (Vector2.Distance(transform.position, _target) < 0.4)
             {
-                if (!_target.GetComponent<Grydka>().empty)
-                {
                     WePlant = true;
                     StartCoroutine(WePlantPlant());
-                }
-                else
-                {
-                    WePlant = false;
-                    MoveToGrydka = false;
-                }
+            }
+            else
+            {
+                MoveToTarget();
             }
         }
     }
@@ -91,7 +92,8 @@ public class GardenGnome : MonoBehaviour
     {
         _gameModel.AnimationGardenGnome.Value = eTypeAnimation.ActionCicle;
         yield return new WaitForSeconds(3f);
-        _target.GetComponent<Grydka>().PlantaPlant();
+       
+        GameManager.instance.PlantAplant(_target);
         WePlant = false;
         MoveToGrydka = false;
     }
@@ -112,20 +114,8 @@ public class GardenGnome : MonoBehaviour
             _gameModel.AnimationGardenGnome.Value = eTypeAnimation.Walk;
         }
 
-        // Debug.Log($" _target {_target.position}");
-        DirectAnim(_target.position);
-        // Vector3 r = new Vector3(_target.position.x, _target.position.y, 0);
-        // Vector3 direction = _target.position - transform.position;
-        // direction.Normalize();
-        // transform.position += direction * speedMove * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, _target.position, speedMove * Time.deltaTime);
-        
-        // Debug.Log($"speed {speedMove * Time.deltaTime} delta {Vector3.Distance(transform.position, j)}");
-        // transform.position = j;
-        // transform.DOMove(_target.position, 2).SetEase(Ease.InOutBounce);
-        // transform.position = Vector3.Lerp(transform.position, _target.position, speedMove * Time.deltaTime);
-
-        // _agent.SetDestination(r);
+        DirectAnim(_target);
+        transform.position = Vector3.MoveTowards(transform.position, _target, speedMove * Time.deltaTime);
     }
 
     private void Animation(eTypeAnimation typeAnimation)

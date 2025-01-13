@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
         openPlants.Add(GetPlantToType(_cfgLevelData.AllLevelData[0].OpenPlant));
         // Bag.instance.AddPlants(ETypePlant.MysticalMushroom, 13);
         coin.Subscribe(ChangeCoins);
-        coin.Value = 121;
+        coin.Value = 5000;
         gameModel.LevelGame.Subscribe(ChangeLevelGame);
         gameModel.LevelGame.Value = 1;
         gameModel.NumberCompletedOrders.Subscribe(ChangeLevelUp);
@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
             if (_timer < Time.time && currentGrydka.Count < Reference.GameModel.MaxNumberPlants.Value)
             {
                 _timer = Time.time + timeToPlant;
-                SpawnGrydka();
+                PlantAplant(SpawnPositionPlant());
             }
     }
 
@@ -196,12 +196,16 @@ public class GameManager : MonoBehaviour
         imageLeve.DOFillAmount(h, 2);
     }
 
-    private void SpawnGrydka()
+    public void PlantAplant(Vector2 pos)
     {
-        // Debug.Log($"Сажаем");
-        // var emptyGrydka = currentGrydka.FindAll((grydka => grydka.empty == false));
-        // emptyGrydka[Random.Range(0, emptyGrydka.Count)].PlantaPlant();
-        
+        var grydka = Instantiate(GrydkaPrefab, pos, quaternion.identity, ParentGrydka)
+            .GetComponent<Grydka>();
+        currentGrydka.Add(grydka);
+        grydka.PlantaPlant();
+    }
+
+    public Vector2 SpawnPositionPlant()
+    {
         Vector2 origin = new Vector2(0, -1);
         float randomAngle = Random.Range(0f, Mathf.PI * 2);
         Vector2 randomDirection = new Vector2(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle));
@@ -210,38 +214,11 @@ public class GameManager : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(origin, randomDirection, maxDistance, targetLayerMask);
         if (hit != null)
         {
-            // LayerMask.LayerToName(hit.collider.gameObject.layer).Contains("Bush")
-
-            // if (LayerMask.LayerToName(hit.collider.gameObject.layer).Contains("Bush"))
-            // {
-            // Дистанция до точки контакта
-
             float hitDistance = hit.distance;
-
-            // Выбираем случайную точку на отрезке луча
-            float randomDistance = Random.Range(0, hitDistance);
-            Vector2 randomPointOnRay = origin + randomDirection * randomDistance;
-            var grydka = Instantiate(GrydkaPrefab, randomPointOnRay, quaternion.identity, ParentGrydka)
-                .GetComponent<Grydka>();
-            currentGrydka.Add(grydka);
-            grydka.PlantaPlant();
-
-            // Выводим информацию
-            // Debug.Log($"Raycast попал в объект: {hit.collider.gameObject.name} на слое {targetLayerMask}, точка: {hit.point}");
-            // Debug.Log($"Точка контакта с коллайдером: " + hit.point);
-            //
-            // Debug.Log("Случайная точка на луче: " + randomPointOnRay);
-
-            // Визуализируем луч и случайную точку в редакторе Unity
-            // Debug.DrawLine(origin, hit.point, Color.red, 5f);
-            // Debug.DrawLine(origin, randomPointOnRay, Color.blue, 5f);
-            // }
-            //
+            float randomDistance = Random.Range(0, hitDistance - 0.1f);
+            return origin + randomDirection * randomDistance;
         }
-        else
-        {
-            Debug.Log("Raycast не нашёл коллайдер.");
-        }
+        return Vector2.zero;
     }
 
     public void DestroyForest(Transform bush)
