@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using N.Fridman.FormatNums.Scripts.Helpers;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 public class UpgradeAssistans : MonoBehaviour
@@ -280,7 +281,8 @@ public class UpgradeAssistans : MonoBehaviour
         {
             case 0:
                 costAssistance = costAssistanceGarden;
-                textNameAssistance.text = "САЖАЛЬЩИК";
+                var localizString = LocalizationSettings.StringDatabase.GetLocalizedString("Game","gnoms");
+                textNameAssistance.text = localizString;
                 _currentAssistanseUp = _gameModel.GardenGnome.Value;
                 _currentLvlAssistance = _gameModel.GardenGnomeLevel.Value;
                 _currentLevSpeed = _gameModel.GardenGnomeLevel.Value.lvlSpeed;
@@ -290,7 +292,8 @@ public class UpgradeAssistans : MonoBehaviour
 
             case 1:
                 costAssistance = costAssistanceCollecroir;
-                textNameAssistance.text = "СБОРЩИК";
+                var localizString2 = LocalizationSettings.StringDatabase.GetLocalizedString("Game","taker");
+                textNameAssistance.text =localizString2;
                 _currentAssistanseUp = _gameModel.CollectorGnome.Value;
                 _currentLvlAssistance = _gameModel.CollectorGnomeLevel.Value;
                 _currentLevSpeed = _gameModel.CollectorGnomeLevel.Value.lvlSpeed;
@@ -300,7 +303,8 @@ public class UpgradeAssistans : MonoBehaviour
 
             case 2:
                 costAssistance = costAssistanceMusic;
-                textNameAssistance.text = "БРЕНЧАЛЬЩИК";
+                var localizString3 = LocalizationSettings.StringDatabase.GetLocalizedString("Game","musicant");
+                textNameAssistance.text = localizString3;
                 _currentAssistanseUp = _gameModel.MusicHelpers.Value;
                 _currentLvlAssistance = _gameModel.MusicHelpersLevel.Value;
                 _currentLevSpeed = _gameModel.MusicHelpersLevel.Value.lvlSpeed;

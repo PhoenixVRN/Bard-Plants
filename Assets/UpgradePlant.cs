@@ -23,9 +23,9 @@ public class UpgradePlant : MonoBehaviour
             texture,
             new Rect(0, 0, texture.width, texture.height),
             new Vector2(0.5f, 0.5f));
-        var f = LocalizationSettings.StringDatabase.GetLocalizedString("Game",plant.namePlant);
-        Debug.Log($"local {plant.namePlant}/{f}");
-        namePlants.text = f;
+        var lLocalizString = LocalizationSettings.StringDatabase.GetLocalizedString("Game",plant.namePlant);
+        // Debug.Log($"local {plant.namePlant}/{f}");
+        namePlants.text = lLocalizString;
         countPlants.text = "X" + plant.quantity.Value;
         count.text = (plant.Level + 2).ToString();
         CheckMony(_gameManager.coin.Value);

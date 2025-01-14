@@ -191,6 +191,10 @@ MonoBehaviour:
     m_Key: tutor_8
     m_Metadata:
       m_Items: []
+  - m_Id: 2527625619693568
+    m_Key: shop
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
