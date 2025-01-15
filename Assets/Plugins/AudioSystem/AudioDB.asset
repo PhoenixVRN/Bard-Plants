@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7955224ddcbe7ea40aca12a5f6a0f228, type: 3}
+  m_Name: AudioDB
+  m_EditorClassIdentifier: 
+  sound:
+  - eSound: 0
+    soundClip: {fileID: 8300000, guid: a4e7e4c00cf731344a2af888bcb820b8, type: 3}
+    volume: 0.2
+    pitch: {x: 0.9, y: 1.1}
+  - eSound: 1
+    soundClip: {fileID: 8300000, guid: ba833bcadf70e2b4a8b9afe7986ae0fc, type: 3}
+    volume: 0.2
+    pitch: {x: 0.9, y: 1.1}
+  - eSound: 2
+    soundClip: {fileID: 8300000, guid: 164f34201c3ce074ba330aff28416c4a, type: 3}
+    volume: 0.2
+    pitch: {x: 0.9, y: 1.1}
+  - eSound: 3
+    soundClip: {fileID: 8300000, guid: 19e26dcfbfc71844b89e900289f8b215, type: 3}
+    volume: 0.2
+    pitch: {x: 0.9, y: 1.1}
+  - eSound: 4
+    soundClip: {fileID: 8300000, guid: efe80c0db13123840b7f6191b6b18457, type: 3}
+    volume: 0.2
+    pitch: {x: 0.9, y: 1.1}
+  - eSound: 5
+    soundClip: {fileID: 8300000, guid: 123b3c808bd81f547a72de0b00d8dec7, type: 3}
+    volume: 0.2
+    pitch: {x: 0.9, y: 1.1}
+  - eSound: 6
+    soundClip: {fileID: 8300000, guid: e7834168b9dd188499a385701ee83067, type: 3}
+    volume: 0.2
+    pitch: {x: 0.9, y: 1.1}
+  - eSound: 7
+    soundClip: {fileID: 8300000, guid: dace94b690d48a6478f06fa035a143b2, type: 3}
+    volume: 0.2
+    pitch: {x: 0.9, y: 1.1}
+  - eSound: 8
+    soundClip: {fileID: 8300000, guid: 2006667a3a1969a4bb610f7fc0a021a3, type: 3}
+    volume: 0.2
+    pitch: {x: 0.9, y: 1.1}
+  - eSound: 9
+    soundClip: {fileID: 8300000, guid: 9a9b710c8e5c0a64b80ecce03dcdda8b, type: 3}
+    volume: 0.2
+    pitch: {x: 0.9, y: 1.1}
+  - eSound: 10
+    soundClip: {fileID: 8300000, guid: 0afcc4a3cef039b4e9ec7d0f7cf1e537, type: 3}
+    volume: 0.2
+    pitch: {x: 0.9, y: 1.1}
+  - eSound: 11
+    soundClip: {fileID: 8300000, guid: 5ddefcfc279959f40836d8259b93317b, type: 3}
+    volume: 0.2
+    pitch: {x: 0.9, y: 1.1}
+  - eSound: 12
+    soundClip: {fileID: 8300000, guid: 9a30c0fddf078e14f89de2b494bf8e92, type: 3}
+    volume: 0.129
+    pitch: {x: 0.9, y: 1.1}
+  - eSound: 13
+    soundClip: {fileID: 8300000, guid: 63a2ff93edbaeaf4a87260546eee7b42, type: 3}
+    volume: 0.129
+    pitch: {x: 0.9, y: 1.1}
+  - eSound: 14
+    soundClip: {fileID: 8300000, guid: 5e690a0c62bf4ff4a962ea242134c0b8, type: 3}
+    volume: 0.129
+    pitch: {x: 0.9, y: 1.1}
+  music:
+  - eMusic: 0
+    musicClip: {fileID: 8300000, guid: b2934e2798f531f45bb9edd70a21402d, type: 3}
+    volume: 1
+    pitch: {x: 1, y: 1}

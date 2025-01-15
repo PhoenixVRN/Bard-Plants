@@ -826,6 +826,7 @@ GameObject:
   - component: {fileID: 6256714198175501757}
   - component: {fileID: 4721582126392866150}
   - component: {fileID: 4420727986271580878}
+  - component: {fileID: 3005151844904525674}
   m_Layer: 5
   m_Name: UpgradePlants
   m_TagString: Untagged
@@ -940,6 +941,19 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &3005151844904525674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7509165312234339475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b3ec26e0b40b9149a0e3b03ab93993b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundType: 0
 --- !u!1 &7649761847096687463
 GameObject:
   m_ObjectHideFlags: 0

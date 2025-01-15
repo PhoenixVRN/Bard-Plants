@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Localization.Components;
 using UnityEngine.UI;
+using WebGame.AudioSystem;
 
 public class Settings : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class Settings : MonoBehaviour
         localizeStringEvent.StringReference.TableEntryReference = onMusic ? "on_setting" : "off_setting";
         SpriteMusic.sprite = onMusic ? musicOn : musicOff;
         SpriteMusicSprout.sprite = onMusic ? musicSproutOn : musicSproutOnOff;
+        // var volume = onMusic ? 0 : -80;
+        // AudioManager.Instance.mixer.audioMixer.SetFloat("Master",volume);
         localizeStringEvent.RefreshString();
     }
 
@@ -42,6 +45,9 @@ public class Settings : MonoBehaviour
             SpriteMusicSprout.sprite = musicSproutOnOff;
             onMusic = false;
             PlayerPrefs.SetInt("MusicOn", 0);
+            
+            AudioManager.Instance.mixer.audioMixer.SetFloat("Master", -80);
+            PlayerPrefs.SetFloat("MasterVolume1", 1);
         }
         else
         {
@@ -50,6 +56,8 @@ public class Settings : MonoBehaviour
             SpriteMusicSprout.sprite = musicSproutOn;
             onMusic = true;
             PlayerPrefs.SetInt("MusicOn", 1);
+            AudioManager.Instance.mixer.audioMixer.SetFloat("Master", 0);
+            PlayerPrefs.SetFloat("MasterVolume1", 0);
         }
 
         localizeStringEvent.RefreshString();
