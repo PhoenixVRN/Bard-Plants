@@ -8,8 +8,7 @@ using Random = UnityEngine.Random;
 
 public class Grydka : MonoBehaviour
 {
-    [SerializeField] private List<Sprite> _spriteGrydka;
-    public RawImage plantunGrydka;
+    public SpriteRenderer plantunGrydka;
     public GameObject needPlayMusic;
     public Sprite playMusic;
     public Sprite noplayMusic;
@@ -77,11 +76,11 @@ public class Grydka : MonoBehaviour
                 // if (StateOfGrowth == 5) Debug.Log($"StateOfGrowth 5");
                 if (StateOfGrowth == 4)
                 {
-                    plantunGrydka.texture = plant.spritePlant[3];
+                    plantunGrydka.sprite = ConvertTextureToSprite(plant.spritePlant[3]);
                 }
                 else
                 {
-                    plantunGrydka.texture = plant.spritePlant[StateOfGrowth];
+                    plantunGrydka.sprite = ConvertTextureToSprite(plant.spritePlant[StateOfGrowth]);
                 }
             }
         }
@@ -114,10 +113,20 @@ public class Grydka : MonoBehaviour
         plant = GameManager.instance.openPlants[Random.Range(0, GameManager.instance.openPlants.Count)];
         // Debug.Log($"PlantaPlant {GameManager.instance.openPlants.Count}/{plant.namePlant}");
         // plantunGrydka.GetComponent<CircleCollider2D>().enabled = true;
-        plantunGrydka.texture = plant.spritePlant[0];
+        plantunGrydka.sprite = ConvertTextureToSprite(plant.spritePlant[0]);
         plantunGrydka.gameObject.SetActive(true);
     }
 
+    private  Sprite ConvertTextureToSprite(Texture2D texture)
+    {
+        // Создаем спрайт на основе текстуры
+        return Sprite.Create(
+            texture,
+            new Rect(0, 0, texture.width, texture.height), // Полный размер текстуры
+            new Vector2(0.5f, 0.5f), // Точка привязки (pivot), по умолчанию центр
+            100.0f // Пиксели на единицу (PPU)
+        );
+    }
     public void TapGrydka()
     {
         Debug.Log($"TapGrydka");
@@ -221,12 +230,6 @@ public class Grydka : MonoBehaviour
         GameManager.instance.PoPUpUpgrade.SetActive(true);
         GameManager.instance.PoPUpUpgrade.GetComponent<UpgradePanel>().Init(levelGrydka, this);
         Debug.Log($"UptgadeGrydka");
-    }
-
-    public void ApplyUpgrade()
-    {
-        levelGrydka++;
-        gameObject.GetComponent<RawImage>().texture = _spriteGrydka[levelGrydka - 1].texture;
     }
 }
 

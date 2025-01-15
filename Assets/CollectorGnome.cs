@@ -20,6 +20,7 @@ public class CollectorGnome : MonoBehaviour
     public float speedMove;
 
     private GameModel _gameModel;
+    private Coroutine myCoroutine;
 
     void Start()
     {
@@ -44,7 +45,7 @@ public class CollectorGnome : MonoBehaviour
             {
                 // if (_gameModel.AnimationCollectorGnome.Value != eTypeAnimation.Idle)
                 // {
-                    _gameModel.AnimationCollectorGnome.Value = eTypeAnimation.Idle;
+                _gameModel.AnimationCollectorGnome.Value = eTypeAnimation.Idle;
                 // }
             }
             else
@@ -52,20 +53,23 @@ public class CollectorGnome : MonoBehaviour
                 directAnim(idlePoint.position);
                 // if (_gameModel.AnimationCollectorGnome.Value != eTypeAnimation.Walk)
                 // {
-                    _gameModel.AnimationCollectorGnome.Value = eTypeAnimation.Walk;
+                _gameModel.AnimationCollectorGnome.Value = eTypeAnimation.Walk;
                 // }
                 transform.position =
                     Vector3.MoveTowards(transform.position, idlePoint.position, speedMove * Time.deltaTime);
             }
+
             return;
         }
-        
+
         // Debug.Log($"target {e}");
         if (!MoveToGrydka)
         {
             grydka = TargetGardenBed();
             grydka.DestroyGrydka += () =>
             {
+                StopCoroutine(myCoroutine);
+                myCoroutine = null;
                 MoveToGrydka = false;
                 WePlant = false;
             };
@@ -78,17 +82,8 @@ public class CollectorGnome : MonoBehaviour
             MoveToTarget();
             if (Vector2.Distance(transform.position, _target.position) < 0.1f)
             {
-                // if (_target.GetComponent<Grydka>().ripe)
-                // {
-                    WePlant = true;
-                    StartCoroutine(SowHarvesting());
-                // }
-                //
-                // else
-                // {
-                //     WePlant = false;
-                //     MoveToGrydka = false;
-                // }
+                WePlant = true;
+                myCoroutine = StartCoroutine(SowHarvesting());
             }
         }
     }
@@ -97,9 +92,12 @@ public class CollectorGnome : MonoBehaviour
     {
         _gameModel.AnimationCollectorGnome.Value = eTypeAnimation.ActionCicle;
         yield return new WaitForSeconds(3f);
-        _target.GetComponent<Grydka>().Harvesting();
-        WePlant = false;
-        MoveToGrydka = false;
+        if (WePlant)
+        {
+            _target.GetComponent<Grydka>().Harvesting();
+            WePlant = false;
+            MoveToGrydka = false;
+        }
     }
 
     private Grydka TargetGardenBed()
@@ -117,6 +115,7 @@ public class CollectorGnome : MonoBehaviour
                 nearest = gr;
             }
         }
+
         return nearest;
     }
 

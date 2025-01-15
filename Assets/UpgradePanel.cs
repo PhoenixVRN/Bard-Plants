@@ -52,12 +52,12 @@ public class UpgradePanel : MonoBehaviour
         }
     }
 
-    public void UpgradeGrydka()
-    {
-        GameManager.instance.coin.Value -= _cost;
-        _currentGrydka.ApplyUpgrade();
-        gameObject.SetActive(false);
-    }
+    // public void UpgradeGrydka()
+    // {
+    //     GameManager.instance.coin.Value -= _cost;
+    //     _currentGrydka.ApplyUpgrade();
+    //     gameObject.SetActive(false);
+    // }
 
     private void OnDisable()
     {

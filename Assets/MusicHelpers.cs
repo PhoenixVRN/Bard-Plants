@@ -16,6 +16,7 @@ public class MusicHelpers : MonoBehaviour
     public Spine.AnimationState spineAnimationState;
     public Spine.Skeleton skeleton;
     private GameModel _gameModel;
+    private Coroutine myCoroutine;
 
     void Start()
     {
@@ -37,7 +38,7 @@ public class MusicHelpers : MonoBehaviour
             // DirectAnim(idlePoint.position);
             if (Vector2.Distance(transform.position, idlePoint.position) < 0.1)
             {
-                 _gameModel.AnimationMusicHelpers.Value = eTypeAnimation.Idle;
+                _gameModel.AnimationMusicHelpers.Value = eTypeAnimation.Idle;
             }
             else
             {
@@ -59,6 +60,8 @@ public class MusicHelpers : MonoBehaviour
             grydka = TargetGardenBed();
             grydka.MusicOff += () =>
             {
+                StopCoroutine(myCoroutine);
+                myCoroutine = null;
                 MoveToGrydka = false;
                 WePlant = false;
             };
@@ -71,16 +74,8 @@ public class MusicHelpers : MonoBehaviour
             MoveToTarget();
             if (Vector2.Distance(transform.position, _target.position) < 0.1)
             {
-                // if (_target.GetComponent<Grydka>().needMusic)
-                // {
-                    WePlant = true;
-                    StartCoroutine(SowHarvesting());
-                // }
-                // else
-                // {
-                //     WePlant = false;
-                //     MoveToGrydka = false;
-                // }
+                WePlant = true;
+                myCoroutine = StartCoroutine(SowHarvesting());
             }
         }
     }
@@ -89,9 +84,12 @@ public class MusicHelpers : MonoBehaviour
     {
         _gameModel.AnimationMusicHelpers.Value = eTypeAnimation.ActionCicle;
         yield return new WaitForSeconds(2f);
-        _target.GetComponent<Grydka>().PlayMusic();
-        WePlant = false;
-        MoveToGrydka = false;
+        if (WePlant)
+        {
+            _target.GetComponent<Grydka>().PlayMusic();
+            WePlant = false;
+            MoveToGrydka = false;
+        }
     }
 
     private Grydka TargetGardenBed()
@@ -109,6 +107,7 @@ public class MusicHelpers : MonoBehaviour
                 nearest = gr;
             }
         }
+
         return nearest;
     }
 
@@ -118,6 +117,7 @@ public class MusicHelpers : MonoBehaviour
         {
             _gameModel.AnimationMusicHelpers.Value = eTypeAnimation.Walk;
         }
+
         DirectAnim(_target.position);
         transform.position = Vector3.MoveTowards(transform.position, _target.position, speedMove * Time.deltaTime);
         // _agent.SetDestination(r);
@@ -150,6 +150,7 @@ public class MusicHelpers : MonoBehaviour
                 break;
         }
     }
+
     private void DirectAnim(Vector3 target)
     {
         if (target.x > transform.position.x)
