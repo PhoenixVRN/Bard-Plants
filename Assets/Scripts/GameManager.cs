@@ -156,13 +156,16 @@ public class GameManager : MonoBehaviour
         //TODO попап повышени уровня и пр.
         gameModel.LevelGame.Value++;
         gameModel.LevelMap.Value++;
-        // Debug.Log($"Level Map: {gameModel.LevelMap.Value}");
-        //TODO  сделать систему повышающую уровень карты
-        // _mapController.OnLevelChanged(gameModel.LevelMap.Value);
-        UpgradeLevelUp.gameObject.SetActive(true);
-        UpgradeLevelUp.InitPanel(_cfgLevelData.AllLevelData[gameModel.LevelGame.Value - 1]);
+        Invoke("ShowUpgradeLevelPanel", 2f);
     }
 
+    public void ShowUpgradeLevelPanel()
+    {
+        Debug.Log($"ShowUpgradeLevelPanel");
+        UpgradeLevelUp.gameObject.SetActive(true);
+        UpgradeLevelUp.InitPanel(_cfgLevelData.AllLevelData[gameModel.LevelGame.Value - 1]);
+        // gameModel.NeedShowUpgradeLevelPanel = false;
+    }
     public void LevelUpApply()
     {
         var typePlant = _cfgLevelData.AllLevelData[gameModel.LevelGame.Value - 1].OpenPlant;
@@ -190,7 +193,7 @@ public class GameManager : MonoBehaviour
     public void ShowAmoutExp(int all, int value)
     {
         float h = (float) ((float) value / (float) (all + 1f));
-        // Debug.Log($"ShowAmoutExp {h}");
+        Debug.Log($"ShowAmoutExp {h}");
         imageLeve.DOFillAmount(h, 2);
     }
 

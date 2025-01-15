@@ -2,6 +2,7 @@ using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
 using System;
+using System.Threading.Tasks;
 using Object = System.Object;
 
 public class MapController
@@ -29,24 +30,11 @@ public class MapController
 
     public void OnLevelChanged(int level)
     {
-        // Debug.Log($"Map OnLevelChanged");
         if (level > 0)
         {
             _gameManager.MapUprgadeText.text = 0 + " / " + (_gameManager.levelGrydka[_currentMapIndex].numberOfOrders -
                                                             _gameManager.levelGrydka[_currentMapIndex - 1]
                                                                 .numberOfOrders);
-        }
-
-        // if (level > 0)
-        // {
-        //     _gameManager.levelGrydka[level - 1].border.ForEach(b => b.gameObject.SetActive(false));
-        //     ;
-        // }
-        //
-        // _gameManager.levelGrydka[level].border.ForEach(b => b.gameObject.SetActive(true));
-
-        if (level > 0)
-        {
             var allgroup = _gameManager.levelGrydka[level].forestGroup;
             foreach (Transform child in allgroup.transform)
             {
@@ -56,18 +44,11 @@ public class MapController
         }
 
         Reference.GameModel.MaxNumberPlants.Value = _gameManager.levelGrydka[level].numberPlantsLevel;
-        // Debug.Log($">>> {Reference.GameModel.MaxNumberPlants.Value}");
-        // var newGrydkas = _gameManager.levelGrydka[level].newGrydka;
-        // newGrydkas.ForEach(b =>
-        // {
-        //     b.gameObject.SetActive(true);
-        //     _gameManager.currentGrydka.Add(b);
-        // });
-        // // _gameManager.mapForest.sprite = _gameManager.levelGrydka[level].sprite;
     }
 
     public void CheckLevelMap(int level)
     {
+        Debug.Log($"CheckLevelMap");
         // Debug.Log($"Contrl currentMapIndex {_currentMapIndex}, levelGrydka {_gameManager.levelGrydka.Count}");
         if (_currentMapIndex >= _gameManager.levelGrydka.Count) return;
         _currentCloseOrder = level;
@@ -81,7 +62,7 @@ public class MapController
             // Debug.Log($"CheckLevelMap1 {b}/{need}");
             _gameManager.MapUprgadeText.text = b + " / " + need;
             float d = (float) ((float) b / (float) (need));
-            _gameManager.imageFoerstLevel.DOFillAmount(d, 2).OnComplete(OnLevelLoaded);
+            _gameManager.imageFoerstLevel.DOFillAmount(d, 1).OnComplete(OnLevelLoaded);
         }
         else
         {
@@ -98,10 +79,16 @@ public class MapController
         if (_currentCloseOrder >= _gameManager.levelGrydka[_currentMapIndex].numberOfOrders)
         {
             _gameManager.imageFoerstLevel.fillAmount = 0f;
-
             _currentMapIndex++;
             _currentOpenOrder = Reference.GameModel.NumberClosedOrders.Value;
             OnLevelChanged(_currentMapIndex);
         }
     }
+    
+    // async Task ExecuteAfterDelay()
+    // {
+    //     await Task.Delay(2000);
+    //     _gameManager.ShowUpgradeLevelPanel();
+    // }
+    
 }

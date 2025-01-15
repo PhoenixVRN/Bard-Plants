@@ -1,3 +1,4 @@
+using System;
 using AudioSystem;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -18,7 +19,7 @@ public class UIObjectAudio : MonoBehaviour
         _eventTrigger = GetComponent<EventTrigger>();
     }
 
-    private void Start()
+    private void OnEnable()
     {
         if (_button != null)
         {
@@ -32,6 +33,21 @@ public class UIObjectAudio : MonoBehaviour
             _eventTrigger.triggers.Add(entry); // Добавляем в список событий
         }
     }
+
+    // private void Start()
+    // {
+    //     if (_button != null)
+    //     {
+    //         _button.onClick.AddListener(PlayObjectSound);
+    //     }
+    //
+    //     if (_eventTrigger != null)
+    //     {
+    //         entry = new EventTrigger.Entry { eventID = EventTriggerType.PointerDown }; // Указываем тип события
+    //         entry.callback.AddListener(OnPointerDown); // Добавляем слушатель
+    //         _eventTrigger.triggers.Add(entry); // Добавляем в список событий
+    //     }
+    // }
     
     private void OnPointerDown(BaseEventData eventData) =>  AudioManagerView.Instance.PlaySound(soundType);
     public void PlayObjectSound() => AudioManagerView.Instance.PlaySound(soundType);

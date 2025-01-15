@@ -15,6 +15,7 @@ public class CustomerSystem : MonoBehaviour
     private float lastTime;
     private int _quantityCustomersInLevel;
     private int _qq;
+    private bool isShow;
   
     
     // private int _currentCustomersInLevel;
@@ -54,7 +55,7 @@ public class CustomerSystem : MonoBehaviour
     void Update()
     {
         if (lastTime + delayForSpawn < Time.time && Reference.GameModel.CountCustomerInGame.Value < 3 &&
-            _quantityCustomersInLevel > -1)
+            _quantityCustomersInLevel > -1 && !isShow)
         {
             lastTime = Time.time;
             Reference.GameModel.CountCustomerInGame.Value++;
@@ -74,14 +75,20 @@ public class CustomerSystem : MonoBehaviour
         GameManager.instance.ShowAmoutExp(_qq,value);
         if (value > _qq)
         {
+            isShow = true;
             // Debug.Log($"LevelUp {value}/{_qq}");
-            Reference.GameModel.CloseCustomersInLevel.Value = 0;
-            Reference.GameModel.NumberCompletedOrders.Value++;
-            _quantityCustomersInLevel = RandomQuantity();
-            _qq = _quantityCustomersInLevel;
+            Invoke("ShowExp", 2f);
         }
     }
-    
+
+    private void ShowExp()
+    {
+        Reference.GameModel.CloseCustomersInLevel.Value = 0;
+        Reference.GameModel.NumberCompletedOrders.Value++;
+        _quantityCustomersInLevel = RandomQuantity();
+        _qq = _quantityCustomersInLevel;
+        isShow = false;
+    }
 
     public void InitCustomer()
     {
