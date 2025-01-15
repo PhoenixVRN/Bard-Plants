@@ -42,6 +42,7 @@ public class MusicHelpers : MonoBehaviour
             else
             {
                 DirectAnim(idlePoint.position);
+                _gameModel.AnimationMusicHelpers.Value = eTypeAnimation.Walk;
                 transform.position =
                     Vector3.MoveTowards(transform.position, idlePoint.position, speedMove * Time.deltaTime);
             }
@@ -53,9 +54,15 @@ public class MusicHelpers : MonoBehaviour
         grydka = TargetGardenBed();
         var e = TargetGardenBed().transform;
         // Debug.Log($"target {e}");
-        if (!MoveToGrydka && e != null)
+        if (!MoveToGrydka)
         {
-            _target = e;
+            grydka = TargetGardenBed();
+            grydka.MusicOff += () =>
+            {
+                MoveToGrydka = false;
+                WePlant = false;
+            };
+            _target = TargetGardenBed().transform;
             MoveToGrydka = true;
         }
 
@@ -64,16 +71,16 @@ public class MusicHelpers : MonoBehaviour
             MoveToTarget();
             if (Vector2.Distance(transform.position, _target.position) < 0.1)
             {
-                if (_target.GetComponent<Grydka>().needMusic)
-                {
+                // if (_target.GetComponent<Grydka>().needMusic)
+                // {
                     WePlant = true;
                     StartCoroutine(SowHarvesting());
-                }
-                else
-                {
-                    WePlant = false;
-                    MoveToGrydka = false;
-                }
+                // }
+                // else
+                // {
+                //     WePlant = false;
+                //     MoveToGrydka = false;
+                // }
             }
         }
     }
@@ -91,8 +98,18 @@ public class MusicHelpers : MonoBehaviour
     {
         var allGrydka = GameManager.instance.currentGrydka.FindAll(c => c.needMusic);
         if (allGrydka.Count == 0) return null;
-        var randomGrydka = Random.Range(0, allGrydka.Count);
-        return allGrydka[Random.Range(0, allGrydka.Count)];
+        float minDist = 500;
+        Grydka nearest = null;
+        foreach (var gr in allGrydka)
+        {
+            float distance = Vector2.Distance(transform.position, gr.transform.position);
+            if (distance < minDist)
+            {
+                minDist = distance;
+                nearest = gr;
+            }
+        }
+        return nearest;
     }
 
     public void MoveToTarget()

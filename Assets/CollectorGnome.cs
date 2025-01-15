@@ -1,6 +1,5 @@
 using System.Collections;
 using Spine.Unity;
-using UnityEngine.AI;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -43,24 +42,34 @@ public class CollectorGnome : MonoBehaviour
             // _agent.SetDestination(idlePoint.position);
             if (Vector2.Distance(transform.position, idlePoint.position) < 0.1)
             {
-                _gameModel.AnimationCollectorGnome.Value = eTypeAnimation.Idle;
+                // if (_gameModel.AnimationCollectorGnome.Value != eTypeAnimation.Idle)
+                // {
+                    _gameModel.AnimationCollectorGnome.Value = eTypeAnimation.Idle;
+                // }
             }
             else
             {
                 directAnim(idlePoint.position);
+                // if (_gameModel.AnimationCollectorGnome.Value != eTypeAnimation.Walk)
+                // {
+                    _gameModel.AnimationCollectorGnome.Value = eTypeAnimation.Walk;
+                // }
                 transform.position =
                     Vector3.MoveTowards(transform.position, idlePoint.position, speedMove * Time.deltaTime);
             }
-
             return;
         }
-
-        grydka = TargetGardenBed();
-        var e = TargetGardenBed().transform;
+        
         // Debug.Log($"target {e}");
-        if (!MoveToGrydka && e != null)
+        if (!MoveToGrydka)
         {
-            _target = e;
+            grydka = TargetGardenBed();
+            grydka.DestroyGrydka += () =>
+            {
+                MoveToGrydka = false;
+                WePlant = false;
+            };
+            _target = TargetGardenBed().transform;
             MoveToGrydka = true;
         }
 
@@ -69,17 +78,17 @@ public class CollectorGnome : MonoBehaviour
             MoveToTarget();
             if (Vector2.Distance(transform.position, _target.position) < 0.1f)
             {
-                if (_target.GetComponent<Grydka>().ripe)
-                {
+                // if (_target.GetComponent<Grydka>().ripe)
+                // {
                     WePlant = true;
                     StartCoroutine(SowHarvesting());
-                }
-
-                else
-                {
-                    WePlant = false;
-                    MoveToGrydka = false;
-                }
+                // }
+                //
+                // else
+                // {
+                //     WePlant = false;
+                //     MoveToGrydka = false;
+                // }
             }
         }
     }
@@ -97,9 +106,18 @@ public class CollectorGnome : MonoBehaviour
     {
         var allGrydka = GameManager.instance.currentGrydka.FindAll(c => c.ripe);
         if (allGrydka.Count == 0) return null;
-        var randomGrydka = Random.Range(0, allGrydka.Count);
-        return allGrydka[Random.Range(0, allGrydka.Count)];
-        // return GameManager.instance.allGrydka.Find(c => c.ripe);
+        float minDist = 500;
+        Grydka nearest = null;
+        foreach (var gr in allGrydka)
+        {
+            float distance = Vector2.Distance(transform.position, gr.transform.position);
+            if (distance < minDist)
+            {
+                minDist = distance;
+                nearest = gr;
+            }
+        }
+        return nearest;
     }
 
     public void MoveToTarget()

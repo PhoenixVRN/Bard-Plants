@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
         openPlants.Add(GetPlantToType(_cfgLevelData.AllLevelData[0].OpenPlant));
         // Bag.instance.AddPlants(ETypePlant.MysticalMushroom, 13);
         coin.Subscribe(ChangeCoins);
-        coin.Value = 5000;
+        coin.Value = 50000;
         gameModel.LevelGame.Subscribe(ChangeLevelGame);
         gameModel.LevelGame.Value = 1;
         gameModel.NumberCompletedOrders.Subscribe(ChangeLevelUp);

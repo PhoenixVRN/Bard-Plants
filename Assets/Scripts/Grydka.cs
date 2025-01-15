@@ -26,11 +26,18 @@ public class Grydka : MonoBehaviour
     private GameManager _gameManager;
     private bool _playerOn;
     public GameObject fetus;
+    public event Action DestroyGrydka;
+    public event Action MusicOff;
 
     private void Start()
     {
         _gameManager = GameManager.instance;
         levelGrydka = 1;
+    }
+
+    private void OnDestroy()
+    {
+        DestroyGrydka?.Invoke();
     }
 
     void Update()
@@ -179,6 +186,7 @@ public class Grydka : MonoBehaviour
 
     public void PlayMusic()
     {
+        MusicOff?.Invoke();
         needPlayMusic.SetActive(false);
         // needPlayMusic.texture = noplayMusic.texture;
         StateOfGrowth = 3;
