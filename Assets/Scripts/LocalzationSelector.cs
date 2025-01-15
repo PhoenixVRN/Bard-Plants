@@ -16,7 +16,7 @@ public class LocalzationSelector : MonoBehaviour
 
         // Получение значения сразу
         string value = localizedString.GetLocalizedString();
-        Debug.Log("Полученное значение: " + value);
+        // Debug.Log("Полученное значение: " + value);
     }
 
     public void ChangeLocale(int localeID)
@@ -35,7 +35,7 @@ public class LocalzationSelector : MonoBehaviour
     }
     private void OnStringChanged(string newValue)
     {
-        Debug.Log("Измененная строка: " + newValue);
+        // Debug.Log("Измененная строка: " + newValue);
     }
     
 }

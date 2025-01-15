@@ -201,6 +201,14 @@ MonoBehaviour:
     m_Localized: "MA\u011EAZA"
     m_Metadata:
       m_Items: []
+  - m_Id: 2863418326376448
+    m_Localized: AYARLAR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2875761601011712
+    m_Localized: "T\xDCRK\xC7E"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
