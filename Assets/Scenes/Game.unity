@@ -27683,7 +27683,7 @@ MonoBehaviour:
   - level: 0
     numberPlantsLevel: 8
     forestGroup: {fileID: 0}
-    numberOfOrders: 3
+    numberOfOrders: 5
   - level: 1
     numberPlantsLevel: 12
     forestGroup: {fileID: 930872276}
