@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using AudioSystem;
 using DG.Tweening;
 using N.Fridman.FormatNums.Scripts.Helpers;
 using TMPro;
@@ -40,6 +41,8 @@ public class GameManager : MonoBehaviour
     private MapController _mapController;
     public Image imageFoerstLevel;
     public TextMeshProUGUI MapUprgadeText;
+    private int _oldCoins;
+    public ESound coinSound;
 
 
     public List<Plant> openPlants;
@@ -55,6 +58,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
         DontDestroyOnLoad(gameObject);
     }
 
@@ -72,7 +76,7 @@ public class GameManager : MonoBehaviour
         coin.Subscribe(ChangeCoins);
         DontDestroyOnLoad(gameObject);
         CustomersSpawn();
-        // ChangeLevelUp(0);
+        _oldCoins = coin.Value;
         InitializeManager();
     }
 
@@ -94,11 +98,11 @@ public class GameManager : MonoBehaviour
     {
         // && 2 < Reference.GameModel.MaxNumberPlants.Value
         // Debug.Log($"currentGrydka {currentGrydka.Count}");
-            if (_timer < Time.time && currentGrydka.Count < Reference.GameModel.MaxNumberPlants.Value)
-            {
-                _timer = Time.time + timeToPlant;
-                PlantAplant(SpawnPositionPlant());
-            }
+        if (_timer < Time.time && currentGrydka.Count < Reference.GameModel.MaxNumberPlants.Value)
+        {
+            _timer = Time.time + timeToPlant;
+            PlantAplant(SpawnPositionPlant());
+        }
     }
 
     private void InitGnome()
@@ -143,7 +147,34 @@ public class GameManager : MonoBehaviour
 
     private void ChangeCoins(int newValue)
     {
-        textCoin.text = FormatNumsHelper.FormatNum((float) newValue);
+        var newinc = newValue - _oldCoins;
+        if (newinc > 0)
+        {
+            AudioManagerView.Instance.PlaySound(coinSound);
+            StartCoroutine(CoroutineValueScore(newinc));
+            textCoin.transform.DOScale(1.1f, 0.2f);
+            // textCoin.text = FormatNumsHelper.FormatNum((float) newValue);
+        }
+        else
+        {
+            _oldCoins = newValue;
+            textCoin.text = FormatNumsHelper.FormatNum((float) newValue);
+        }
+    }
+
+    IEnumerator CoroutineValueScore(int newinc)
+    {
+        var f = newinc / 20;
+        for (int i = 0; i < 20; i++)
+        {
+            textCoin.text = FormatNumsHelper.FormatNum((float) (_oldCoins + f));
+            _oldCoins += f;
+            yield return null;
+        }
+
+        textCoin.text = FormatNumsHelper.FormatNum((float) coin.Value);
+        _oldCoins = coin.Value;
+        textCoin.transform.DOScale(1.0f, 0.2f);
     }
 
     private void ChangeLevelGame(int newValue)
@@ -166,6 +197,7 @@ public class GameManager : MonoBehaviour
         UpgradeLevelUp.InitPanel(_cfgLevelData.AllLevelData[gameModel.LevelGame.Value - 1]);
         // gameModel.NeedShowUpgradeLevelPanel = false;
     }
+
     public void LevelUpApply()
     {
         var typePlant = _cfgLevelData.AllLevelData[gameModel.LevelGame.Value - 1].OpenPlant;
@@ -193,7 +225,7 @@ public class GameManager : MonoBehaviour
     public void ShowAmoutExp(int all, int value)
     {
         float h = (float) ((float) value / (float) (all + 1f));
-        Debug.Log($"ShowAmoutExp {h}");
+        // Debug.Log($"ShowAmoutExp {h}");
         imageLeve.DOFillAmount(h, 2);
     }
 
@@ -219,6 +251,7 @@ public class GameManager : MonoBehaviour
             float randomDistance = Random.Range(0, hitDistance - 0.1f);
             return origin + randomDirection * randomDistance;
         }
+
         return Vector2.zero;
     }
 

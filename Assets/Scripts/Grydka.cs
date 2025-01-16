@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using AudioSystem;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,6 +26,7 @@ public class Grydka : MonoBehaviour
     private GameManager _gameManager;
     private bool _playerOn;
     public GameObject fetus;
+    public ESound DropFrutsSound;
     public event Action DestroyGrydka;
     public event Action MusicOff;
 
@@ -132,32 +134,8 @@ public class Grydka : MonoBehaviour
         Debug.Log($"TapGrydka");
     }
 
-    private void OnMouseDown()
-    {
-        // if (StateOfGrowth == 4)
-        // {
-        //     StateOfGrowth = 0;
-        //     plantunGrydka.transform.SetParent(Bag.instance.transform);
-        //     plantunGrydka.transform.DOMove(Bag.instance.transform.position, 1).SetEase(Ease.Linear).OnComplete(AddedPlodToBag);
-        // }
-
-        // Debug.Log($"Tap in {gameObject}");
-    }
-
     public void Harvesting()
     {
-        // Old logic -----------------------------------------------------------------------------------------
-        // if (StateOfGrowth == 4)
-        // {
-        //     StateOfGrowth = 0;
-        //     ripe = false;
-        //     plantunGrydka.texture = plant.spritePlant[4];
-        //     plantunGrydka.transform.SetParent(Bag.instance.transform);
-        //     plantunGrydka.transform.DOMove(Bag.instance.transform.position, 1).SetEase(Ease.Linear)
-        //         .OnComplete(AddedPlodToBag);
-        // }
-        //----------------------------------------------------------------------------------------------------
-
         if (StateOfGrowth == 4)
         {
             StateOfGrowth = 0;
@@ -178,6 +156,7 @@ public class Grydka : MonoBehaviour
                 });
                 empty = false;
             }
+            AudioManagerView.Instance.PlaySound(DropFrutsSound);
         }
 
         _gameManager.currentGrydka.Remove(this);

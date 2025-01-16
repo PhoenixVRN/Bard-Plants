@@ -7,7 +7,7 @@ namespace AudioSystem
     public enum ESound
     {
         Click,
-        TakeDamage1,
+        CoinAdded,
         TakeDamage2,
         TakeDamage3,
         TakeDamage4,

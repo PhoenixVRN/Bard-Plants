@@ -18,15 +18,15 @@ MonoBehaviour:
     volume: 0.2
     pitch: {x: 0.9, y: 1.1}
   - eSound: 1
-    soundClip: {fileID: 8300000, guid: ba833bcadf70e2b4a8b9afe7986ae0fc, type: 3}
+    soundClip: {fileID: 8300000, guid: 7d8bebd687dacbc48a6f14d880eb9971, type: 3}
     volume: 0.2
-    pitch: {x: 0.9, y: 1.1}
+    pitch: {x: 1, y: 1}
   - eSound: 2
-    soundClip: {fileID: 8300000, guid: 164f34201c3ce074ba330aff28416c4a, type: 3}
+    soundClip: {fileID: 8300000, guid: 2ff05aa5c02cead47b59e02f9e00d7ae, type: 3}
     volume: 0.2
     pitch: {x: 0.9, y: 1.1}
   - eSound: 3
-    soundClip: {fileID: 8300000, guid: 19e26dcfbfc71844b89e900289f8b215, type: 3}
+    soundClip: {fileID: 8300000, guid: cde6ec7b34d4b1e42bc10345c289e9b6, type: 3}
     volume: 0.2
     pitch: {x: 0.9, y: 1.1}
   - eSound: 4

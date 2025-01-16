@@ -67,6 +67,7 @@ MonoBehaviour:
   levelGrydka: 0
   uprgadePopUpActive: 0
   fetus: {fileID: 4689505510836029276, guid: d9617ee6b91f9e24c9d663b5a31e2bbe, type: 3}
+  DropFrutsSound: 2
 --- !u!212 &5146915645573239381
 SpriteRenderer:
   m_ObjectHideFlags: 0

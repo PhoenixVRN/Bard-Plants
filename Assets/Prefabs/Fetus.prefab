@@ -139,3 +139,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typePlant: 0
   NonInteractive: 0
+  UpFrutsSound: 3

@@ -1,9 +1,5 @@
 using DG.Tweening;
-using Unity.VisualScripting;
 using UnityEngine;
-using System;
-using System.Threading.Tasks;
-using Object = System.Object;
 
 public class MapController
 {
@@ -48,7 +44,7 @@ public class MapController
 
     public void CheckLevelMap(int level)
     {
-        Debug.Log($"CheckLevelMap");
+        // Debug.Log($"CheckLevelMap");
         // Debug.Log($"Contrl currentMapIndex {_currentMapIndex}, levelGrydka {_gameManager.levelGrydka.Count}");
         if (_currentMapIndex >= _gameManager.levelGrydka.Count) return;
         _currentCloseOrder = level;
@@ -84,11 +80,10 @@ public class MapController
             OnLevelChanged(_currentMapIndex);
         }
     }
-    
+
     // async Task ExecuteAfterDelay()
     // {
     //     await Task.Delay(2000);
     //     _gameManager.ShowUpgradeLevelPanel();
     // }
-    
 }

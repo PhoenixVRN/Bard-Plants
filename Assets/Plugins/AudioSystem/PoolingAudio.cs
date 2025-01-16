@@ -23,7 +23,7 @@ namespace Core.Pooling
             switch (index)
             {
                 case 0:
-                    PlayAudio(ESound.TakeDamage1);
+                    PlayAudio(ESound.CoinAdded);
                     break;
                 case 1:
                     PlayAudio(ESound.TakeDamage2);
