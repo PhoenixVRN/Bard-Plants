@@ -17,17 +17,23 @@ public class CollectorGnome : MonoBehaviour
     public SkeletonAnimation CollectorGnomeAnimation;
     public Spine.AnimationState spineAnimationState;
     public Spine.Skeleton skeleton;
-    public float speedMove;
 
     private GameModel _gameModel;
     private Coroutine myCoroutine;
 
+    public float speedMove;
+    public float jobTime;
+    public float RecreationTime;
+    
+    public float SpeedCharacteristicsIndex;
+    public float JobCharacteristicsIndex;
+    public float RecreationCharacteristicsIndex;
+    
+    private float finalSpeedValue;
+    private float finaljobTime;
+    private float finalRecreationTime;
     void Start()
     {
-        // _agent = GetComponent<NavMeshAgent>();
-        // _agent.updateRotation = false;
-        // _agent.updateUpAxis = false;
-
         spineAnimationState = CollectorGnomeAnimation.AnimationState;
         skeleton = CollectorGnomeAnimation.Skeleton;
         spineAnimationState.SetAnimation(0, "Idle", true);
@@ -38,6 +44,7 @@ public class CollectorGnome : MonoBehaviour
     void Update()
     {
         if (WePlant) return;
+        finalSpeedValue = speedMove * (1 +_gameModel.CollectorGnomeLevel.Value.lvlSpeed * SpeedCharacteristicsIndex);
         if (TargetGardenBed() == null)
         {
             // _agent.SetDestination(idlePoint.position);
@@ -56,7 +63,7 @@ public class CollectorGnome : MonoBehaviour
                 _gameModel.AnimationCollectorGnome.Value = eTypeAnimation.Walk;
                 // }
                 transform.position =
-                    Vector3.MoveTowards(transform.position, idlePoint.position, speedMove * Time.deltaTime);
+                    Vector3.MoveTowards(transform.position, idlePoint.position,  finalSpeedValue * Time.deltaTime);
             }
 
             return;
@@ -91,10 +98,15 @@ public class CollectorGnome : MonoBehaviour
     IEnumerator SowHarvesting()
     {
         _gameModel.AnimationCollectorGnome.Value = eTypeAnimation.ActionCicle;
-        yield return new WaitForSeconds(3f);
+        finaljobTime = jobTime/(1 + JobCharacteristicsIndex * _gameModel.CollectorGnomeLevel.Value.lvlActions);
+        yield return new WaitForSeconds(finaljobTime);
         if (WePlant)
         {
             _target.GetComponent<Grydka>().Harvesting();
+            //TODO реализовать визуал отдыха
+            _gameModel.AnimationCollectorGnome.Value = eTypeAnimation.Idle;
+            finalRecreationTime = RecreationTime/(1 + RecreationCharacteristicsIndex * _gameModel.CollectorGnomeLevel.Value.lvlStartAction);
+            yield return new WaitForSeconds(finalRecreationTime);
             WePlant = false;
             MoveToGrydka = false;
         }
@@ -129,7 +141,7 @@ public class CollectorGnome : MonoBehaviour
 
         // Debug.Log($" _target {_target.position}");
         directAnim(_target.position);
-        transform.position = Vector3.MoveTowards(transform.position, _target.position, speedMove * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, _target.position,  finalSpeedValue * Time.deltaTime);
         // Vector3 r = new Vector3(_target.position.x, _target.position.y, 0);
         // _agent.SetDestination(r);
     }

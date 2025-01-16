@@ -1,8 +1,7 @@
 using System.Collections;
-using DG.Tweening;
 using Spine.Unity;
 using UnityEngine;
-using UnityEngine.AI;
+using AnimationState = Spine.AnimationState;
 
 public class GardenGnome : MonoBehaviour
 {
@@ -11,10 +10,19 @@ public class GardenGnome : MonoBehaviour
     public bool MoveToGrydka;
     public bool WePlant;
     public SkeletonAnimation LeftGnomeAnimation;
-    public Spine.AnimationState spineAnimationState;
+    public AnimationState spineAnimationState;
     public float speedMove;
+    public float jobTime;
+    public float RecreationTime;
     private GameModel _gameModel;
-    
+
+    public float SpeedCharacteristicsIndex;
+    public float JobCharacteristicsIndex;
+    public float RecreationCharacteristicsIndex;
+
+    private float finalSpeedValue;
+    private float finaljobTime;
+    private float finalRecreationTime;
 
     void Start()
     {
@@ -23,10 +31,13 @@ public class GardenGnome : MonoBehaviour
         _gameModel = Reference.GameModel;
         _gameModel.AnimationGardenGnome.Subscribe(Animation);
     }
-
+  
+    
     void Update()
     {
         if (WePlant) return;
+        finalSpeedValue = speedMove * (1 +_gameModel.GardenGnomeLevel.Value.lvlSpeed * SpeedCharacteristicsIndex);
+        // Debug.Log($"finalSpeedValue {finalSpeedValue}");
         if (GameManager.instance.currentGrydka.Count >= Reference.GameModel.MaxNumberPlants.Value)
         {
             if (Vector2.Distance(transform.position, idlePoint.position) < 0.1)
@@ -37,7 +48,7 @@ public class GardenGnome : MonoBehaviour
             {
                 DirectAnim(idlePoint.position);
                 transform.position =
-                    Vector3.MoveTowards(transform.position, idlePoint.position, speedMove * Time.deltaTime);
+                    Vector3.MoveTowards(transform.position, idlePoint.position,  finalSpeedValue * Time.deltaTime);
             }
 
             return;
@@ -53,8 +64,8 @@ public class GardenGnome : MonoBehaviour
         {
             if (Vector2.Distance(transform.position, _target) < 0.1)
             {
-                    WePlant = true;
-                    StartCoroutine(WePlantPlant());
+                WePlant = true;
+                StartCoroutine(WePlantPlant());
             }
             else
             {
@@ -66,13 +77,18 @@ public class GardenGnome : MonoBehaviour
     IEnumerator WePlantPlant()
     {
         _gameModel.AnimationGardenGnome.Value = eTypeAnimation.ActionCicle;
-        yield return new WaitForSeconds(3f);
-       
+        finaljobTime = jobTime/(1 + JobCharacteristicsIndex * _gameModel.GardenGnomeLevel.Value.lvlActions);
+        // Debug.Log($"finaljobTime {finaljobTime}");
+        yield return new WaitForSeconds(finaljobTime);
         GameManager.instance.PlantAplant(_target);
+        //TODO реализовать визуал отдыха
+        _gameModel.AnimationGardenGnome.Value = eTypeAnimation.Idle;
+        finalRecreationTime = RecreationTime/(1 + RecreationCharacteristicsIndex * _gameModel.GardenGnomeLevel.Value.lvlStartAction);
+        yield return new WaitForSeconds(finalRecreationTime);
         WePlant = false;
         MoveToGrydka = false;
     }
-    
+
     public void MoveToTarget()
     {
         if (_gameModel.AnimationGardenGnome.Value != eTypeAnimation.Walk)
@@ -81,7 +97,7 @@ public class GardenGnome : MonoBehaviour
         }
 
         DirectAnim(_target);
-        transform.position = Vector3.MoveTowards(transform.position, _target, speedMove * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, _target, finalSpeedValue * Time.deltaTime);
     }
 
     private void Animation(eTypeAnimation typeAnimation)

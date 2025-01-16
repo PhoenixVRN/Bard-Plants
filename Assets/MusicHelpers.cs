@@ -11,28 +11,35 @@ public class MusicHelpers : MonoBehaviour
     public bool MoveToGrydka;
     public Grydka grydka;
     public bool WePlant;
-    public float speedMove;
     public SkeletonAnimation LeftGnomeAnimation;
     public Spine.AnimationState spineAnimationState;
-    public Spine.Skeleton skeleton;
     private GameModel _gameModel;
     private Coroutine myCoroutine;
 
+    public float speedMove;
+    public float jobTime;
+    public float RecreationTime;
+    
+    public float SpeedCharacteristicsIndex;
+    public float JobCharacteristicsIndex;
+    public float RecreationCharacteristicsIndex;
+    
+    private float finalSpeedValue;
+    private float finaljobTime;
+    private float finalRecreationTime;
+    
     void Start()
     {
         spineAnimationState = LeftGnomeAnimation.AnimationState;
-        skeleton = LeftGnomeAnimation.Skeleton;
         spineAnimationState.SetAnimation(0, "Idle", true);
         _gameModel = Reference.GameModel;
         _gameModel.AnimationMusicHelpers.Subscribe(Animation);
-        // _agent = GetComponent<NavMeshAgent>();
-        // _agent.updateRotation = false;
-        // _agent.updateUpAxis = false;
     }
 
     void Update()
     {
         if (WePlant) return;
+        finalSpeedValue = speedMove * (1 +_gameModel.MusicHelpersLevel.Value.lvlSpeed * SpeedCharacteristicsIndex);
         if (TargetGardenBed() == null)
         {
             // DirectAnim(idlePoint.position);
@@ -45,7 +52,7 @@ public class MusicHelpers : MonoBehaviour
                 DirectAnim(idlePoint.position);
                 _gameModel.AnimationMusicHelpers.Value = eTypeAnimation.Walk;
                 transform.position =
-                    Vector3.MoveTowards(transform.position, idlePoint.position, speedMove * Time.deltaTime);
+                    Vector3.MoveTowards(transform.position, idlePoint.position, finalSpeedValue * Time.deltaTime);
             }
 
             // _agent.SetDestination(idlePoint.position);
@@ -83,10 +90,15 @@ public class MusicHelpers : MonoBehaviour
     IEnumerator SowHarvesting()
     {
         _gameModel.AnimationMusicHelpers.Value = eTypeAnimation.ActionCicle;
-        yield return new WaitForSeconds(2f);
+        finaljobTime = jobTime/(1 + JobCharacteristicsIndex * _gameModel.MusicHelpersLevel.Value.lvlActions);
+        yield return new WaitForSeconds(finaljobTime);
         if (WePlant)
         {
             _target.GetComponent<Grydka>().PlayMusic();
+            //TODO реализовать визуал отдыха
+            _gameModel.AnimationMusicHelpers.Value = eTypeAnimation.Idle;
+            finalRecreationTime = RecreationTime/(1 + RecreationCharacteristicsIndex * _gameModel.MusicHelpersLevel.Value.lvlStartAction);
+            yield return new WaitForSeconds(finalRecreationTime);
             WePlant = false;
             MoveToGrydka = false;
         }
@@ -119,7 +131,7 @@ public class MusicHelpers : MonoBehaviour
         }
 
         DirectAnim(_target.position);
-        transform.position = Vector3.MoveTowards(transform.position, _target.position, speedMove * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, _target.position, finalSpeedValue * Time.deltaTime);
         // _agent.SetDestination(r);
     }
 

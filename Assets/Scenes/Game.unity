@@ -11957,6 +11957,11 @@ MonoBehaviour:
   WePlant: 0
   LeftGnomeAnimation: {fileID: 1780736649}
   speedMove: 0.3
+  jobTime: 5
+  RecreationTime: 5
+  SpeedCharacteristicsIndex: 0.2
+  JobCharacteristicsIndex: 0.2
+  RecreationCharacteristicsIndex: 0.2
 --- !u!70 &383982967
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -18659,8 +18664,13 @@ MonoBehaviour:
   MoveToGrydka: 0
   grydka: {fileID: 0}
   WePlant: 0
-  speedMove: 0.3
   LeftGnomeAnimation: {fileID: 1414331580}
+  speedMove: 0.3
+  jobTime: 3
+  RecreationTime: 3
+  SpeedCharacteristicsIndex: 0.2
+  JobCharacteristicsIndex: 0.2
+  RecreationCharacteristicsIndex: 0.2
 --- !u!212 &623498042
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -29023,7 +29033,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.13900001, y: 0.26000002}
   m_AnchorMax: {x: 1, y: 0.7466666}
-  m_AnchoredPosition: {x: -13.0000305, y: -7.6001043}
+  m_AnchoredPosition: {x: -13.0000305, y: -7.6001086}
   m_SizeDelta: {x: 25.7, y: 15.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1057605090
@@ -33715,6 +33725,11 @@ MonoBehaviour:
   WePlant: 0
   CollectorGnomeAnimation: {fileID: 1349195340}
   speedMove: 0.3
+  jobTime: 5
+  RecreationTime: 5
+  SpeedCharacteristicsIndex: 0.2
+  JobCharacteristicsIndex: 0.2
+  RecreationCharacteristicsIndex: 0.2
 --- !u!70 &1266367154
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
