@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -12,40 +13,18 @@ public class SaveHandler : MonoBehaviour
     private const string KEY_AUTOSAVE = "GAMESAVE.gd";
     private GameModel _gameModel;
     public GameManager gameManager;
+    public GameObject Fetus;
 
 
     private void Start()
     {
         _gameModel = Reference.GameModel;
         gameManager = GameManager.instance;
-        _gameModel.LoadGame.Subscribe(LoadGame);
+        // _gameModel.LoadGame.Subscribe(LoadGame);
         _gameModel.SaveGame.Subscribe(ApplySaveData);
         // gameManager.coin.Subscribe(AddSaveCoin);
+        LoadGame(true);
     }
-
-    private void AddSaveCoin(int amount)
-    {
-        ApplySaveData(true);
-    }
-    // private MetaUprgadeModel _metaUprgadeModel;
-    // internal SaveGameController(GameModel gameModel)
-    // {
-    //     // Debug.Log($"SaveGameController init");
-    //     _gameModel = gameModel;
-    //     _gameModel.SaveGame.Subscribe(ApplySaveData);
-    //     _gameModel.LoadGame.Subscribe(LoadGame);
-    //     _gameModel.ClearLoadGame.Subscribe(ClearLoadGames);
-// #if !All_CHEAT
-//             LoadGame(true);
-//             #else
-//             Debug.Log($"AllCheats");
-//             Reference.GameModel.Resources.Value = 50000;
-//             Reference.GameModel.Coins.Value = 50000; 
-//             Reference.GameModel.PlayerAllExperienceMeta.Value = 100000;
-//             Reference.GameModel.NumberOpenPlanets.Value = 5;
-//             Reference.GameModel.CheatAllOpenPlanets.ValueForce = true;
-// #endif
-    // }
 
     public void LoadGame(bool init)
     {
@@ -66,6 +45,9 @@ public class SaveHandler : MonoBehaviour
             }
             catch
             {
+                gameManager.coin.Value = 50000;
+                CustomerSystem.instance.InitStart(true);
+                gameManager._mapController.InitStart(true);
                 Debug.Log("ERROR LOADING SAVE, IGNORING");
             }
         }
@@ -87,71 +69,137 @@ public class SaveHandler : MonoBehaviour
     private void ApplySaveData(bool value)
     {
         Debug.Log($"Save Subscribe");
+            List<PlantData> plantDatas = new List<PlantData>();
+        foreach (var plantInAll in gameManager.allPlants)
+        {
+            plantDatas.Add(new PlantData(plantInAll.namePlant, plantInAll.Level, plantInAll.quantity.Value));
+        }
+        List<GrydkaData> rgydkaDatas = new List<GrydkaData>();
+        
+        foreach (var gradlaInCurrent in gameManager.currentGrydka)
+        {
+            rgydkaDatas.Add(new GrydkaData(gradlaInCurrent.plant.namePlant, gradlaInCurrent.StateOfGrowth, gradlaInCurrent.gameObject.transform.position.x,gradlaInCurrent.gameObject.transform.position.y ));
+        }
+
+        List<FetusToSave> fetusToSaves = new List<FetusToSave>();
+
+        foreach (var fet in Reference.AllFetus)
+        {
+            fetusToSaves.Add(new FetusToSave(fet.typePlant, fet.gameObject.transform.position.x, fet.gameObject.transform.position.y));
+        }
+        
         SaveData data = new SaveData()
         {
             Coin = gameManager.coin.Value,
-            // PlantDatas = new PlantData("111", 5)
-            // TestList = new List<Plant>(){new Plant()}
-            // Grydkas = new List<Grydka>(gameManager.currentGrydka)
-            // Level = _gameModel.PlayerLevelMeta.Value,
-            // NextLevelExperience = _gameModel.PlayerExperienceMeta.Value,
-            // NumberOpenTanks = _gameModel.NumberOpenTanks.Value,
-            // QuantityKillMobs = _gameModel.QuantityKillMobs.Value,
-            // NumberOpenPlanets = _gameModel.NumberOpenPlanets.Value,
-            // PlayerAllExperienceMeta = _gameModel.PlayerAllExperienceMeta.Value,
-            // MetaUprgadeModel = Reference.MetaUprgadeModel,
-            // NameSelectedTank = Reference.NameTankPrefab
-
-            // Resources_1 = _gameModel.Resources.Value
+            quantityCustomers = CustomerSystem.instance._quantityCustomersInLevel,
+            qq =  CustomerSystem.instance._qq,
+            currentOpenOrder = Reference.GameModel.NumberClosedOrders.Value,
+            numberClosedOrders = gameManager._mapController._currentCloseOrder,
+            currentMapIndex = gameManager._mapController._currentMapIndex,
+    
+            LevelGame = _gameModel.LevelGame.Value,
+            plantDatasSave = new List<PlantData>(plantDatas),
+            grydkaDatasSave = new List<GrydkaData>(rgydkaDatas),
+            fetusToSaves = new List<FetusToSave>(fetusToSaves),
+            GardenGnomePurchased = _gameModel.GardenGnome.Value,
+            GardenGnomeLevel = Reference.GameModel.GardenGnomeLevel.Value,
+            CollectorGnomePurchased = _gameModel.CollectorGnome.Value,
+            CollectorGnomeLevel = Reference.GameModel.GardenGnomeLevel.Value,
+            MusicHelpersPurchased = _gameModel.MusicHelpers.Value,
+            MusicHelpersLevel = Reference.GameModel.MusicHelpersLevel.Value
         };
-        // Debug.Log($"AddMetaUpgradeModel save {data.MetaUprgadeModel.AllWeaponDamage.lvl}");
-        SaveGame(data);
-    }
-
-    private void ClearLoadGames(bool value)
-    {
-        SaveData data = new SaveData()
-        {
-            Coin = gameManager.coin.Value,
-            // Level = 0,
-            // NextLevelExperience = 0,
-            // NumberOpenTanks = 1,
-            // QuantityKillMobs = 0,
-            // NumberOpenPlanets = 0,
-            // PlayerAllExperienceMeta = 0,
-            // MetaUprgadeModel = new MetaUprgadeModel(),
-            // NameSelectedTank = "Player.prefab"
-            // Resources_1 = _gameModel.Resources.Value
-        };
+       
         SaveGame(data);
     }
 
     private void ApplyLoadData(SaveData data)
     {
         // Debug.Log($"Load exp {data.NextLevelExperience} / lev {data.Level}");
-        gameManager.coin.Value = data.Coin;
-        // Debug.Log($"Plant test {data.PlantDatas.Name}");
-         // if (data.Grydkas != null)
-         // {
-         //     gameManager.currentGrydka = new List<Grydka>(data.Grydkas);
-         // }
-         
+        // gameManager.coin.Value = data.Coin;
+        gameManager.coin.Value = data.Coin == 0 ? 50000 : data.Coin;
+        _gameModel.LevelGame.Value = data.LevelGame;
+        CustomerSystem.instance.InitStart(false, data.quantityCustomers, data.qq);
 
-        Debug.Log($"Load Game currentGrydka {gameManager.currentGrydka.Count}");
-        // _gameModel.PlayerLevelMeta.Value = data.Level;
-        // _gameModel.PlayerExperienceMeta.Value = data.NextLevelExperience;
-        // _gameModel.NumberOpenTanks.Value = data.NumberOpenTanks;
-        // _gameModel.QuantityKillMobs.Value = data.QuantityKillMobs;
-        // _gameModel.NumberOpenPlanets.Value = data.NumberOpenPlanets;
-        // _gameModel.PlayerAllExperienceMeta.Value = data.PlayerAllExperienceMeta;
-        // Reference.NameTankPrefab = data.NameSelectedTank;
-        // Debug.Log($"NameSelectedTank {data.NameSelectedTank}");
-        // Debug.Log($"AddMetaUpgradeModel load {data.MetaUprgadeModel.AllWeaponDamage.lvl}");
-        // if (data.MetaUprgadeModel != null)
-        // {
-        //     // Reference.AddMetaUpgradeModel(data.MetaUprgadeModel);
-        // }
-        // _gameModel.Resources.Value = data.Resources_1;
+        Reference.GameModel.NumberClosedOrders.Value = data.currentOpenOrder;
+        gameManager._mapController.InitStart(false, data.numberClosedOrders, data.currentMapIndex);
+        Debug.Log($"Plant test {data.plantDatasSave.Count}");
+        foreach (var plantData in data.plantDatasSave)
+        {
+            var n = gameManager.allPlants.Find((plant => plant.namePlant.Contains(plantData.Name)));
+            if (n != null)
+            {
+                n.Level = plantData.Level;
+                n.quantity.Value = plantData.CountPlants;
+            }
+        }
+
+        Debug.Log($"Grygka test {data.grydkaDatasSave.Count}");
+        foreach (var grydkaLoad in data.grydkaDatasSave)
+        {
+            var p = gameManager.allPlants.Find((plant => plant.namePlant.Contains(grydkaLoad.NamePlant)));
+            if (p != null)
+            {
+                gameManager.PlantAplantToLoad(new Vector2(grydkaLoad.x, grydkaLoad.y), p, grydkaLoad.LevelStage);
+            }
+        }
+         
+        foreach (var feti in data.fetusToSaves)
+        {
+            var f = gameManager.allPlants.Find((plant => plant.typePlant == feti.typePlant));
+            if (f != null)
+            {
+                 GameObject fet = Instantiate(Fetus, new Vector3(feti.Xpos, feti.Ypos, 0), Quaternion.identity);
+                fet.GetComponent<Fetus>().typePlant = f.typePlant;
+                fet.GetComponent<SpriteRenderer>().sprite = Texture2DToSprite(f.spritePlant[4]);
+                fet.GetComponent<Fetus>().NonInteractive = true;
+                Reference.AllFetus.Add(fet.GetComponent<Fetus>());
+                // Reference.AllFetus.Add(fet.GetComponent<Fetus>());
+            }
+        }
+        // Debug.Log($"Load Game currentGrydka {gameManager.currentGrydka.Count}");
+        _gameModel.GardenGnome.Value = data.GardenGnomePurchased;
+        _gameModel.GardenGnomeLevel.Value.lvlSpeed = data.GardenGnomeLevel.lvlSpeed;
+        _gameModel.GardenGnomeLevel.Value.lvlActions = data.GardenGnomeLevel.lvlActions;
+        _gameModel.GardenGnomeLevel.Value.lvlStartAction = data.GardenGnomeLevel.lvlStartAction;
+        
+        _gameModel.CollectorGnome.Value = data.CollectorGnomePurchased;
+        _gameModel.CollectorGnomeLevel.Value.lvlSpeed = data.CollectorGnomeLevel.lvlSpeed;
+        _gameModel.CollectorGnomeLevel.Value.lvlActions = data.CollectorGnomeLevel.lvlActions;
+        _gameModel.CollectorGnomeLevel.Value.lvlStartAction = data.CollectorGnomeLevel.lvlStartAction;
+        
+        _gameModel.MusicHelpers.Value = data.MusicHelpersPurchased;
+        _gameModel.MusicHelpersLevel.Value.lvlSpeed = data.MusicHelpersLevel.lvlSpeed;
+        _gameModel.MusicHelpersLevel.Value.lvlActions = data.MusicHelpersLevel.lvlActions;
+        _gameModel.MusicHelpersLevel.Value.lvlStartAction = data.MusicHelpersLevel.lvlStartAction;
+
+    }
+    
+    // private void ClearLoadGames(bool value)
+    // {
+    //     SaveData data = new SaveData()
+    //     {
+    //         Coin = gameManager.coin.Value,
+    //         // Level = 0,
+    //         // NextLevelExperience = 0,
+    //         // NumberOpenTanks = 1,
+    //         // QuantityKillMobs = 0,
+    //         // NumberOpenPlanets = 0,
+    //         // PlayerAllExperienceMeta = 0,
+    //         // MetaUprgadeModel = new MetaUprgadeModel(),
+    //         // NameSelectedTank = "Player.prefab"
+    //         // Resources_1 = _gameModel.Resources.Value
+    //     };
+    //     SaveGame(data);
+    // }
+    
+    Sprite Texture2DToSprite(Texture2D texture)
+    {
+        // Создание спрайта из Texture2D
+        return Sprite.Create(
+            texture,
+            new Rect(0, 0, texture.width, texture.height), // Размеры спрайта
+            new Vector2(0.5f, 0.5f) // Точка привязки (pivot), по умолчанию в центре
+        );
     }
 }
 
@@ -159,37 +207,68 @@ public class SaveHandler : MonoBehaviour
 public class SaveData
 {
     public int Coin;
-
-    // public PlantData PlantDatas;
-    // public List<Grydka> Grydkas = new List<Grydka>(){new Grydka(),new Grydka()};
-    // public List<Plant> TestList;
-    public int HardCoin;
-    public int Level;
-    public int NextLevelExperience;
-    public int NumberOpenTanks;
-    public int NumberOpenPlanets;
-    public int QuantityKillMobs;
-    public int PlayerAllExperienceMeta;
-    public int Resources_1;
-    public int Resources_2;
-    public int Resources_3;
-    public int Resources_4;
-
-    public int Resources_5;
-
-    // public MetaUprgadeModel MetaUprgadeModel;
-    public string NameSelectedTank;
+    public int LevelGame;
+    public int quantityCustomers;
+    public int qq;
+    public int numberClosedOrders;
+    public int currentOpenOrder;
+    public int currentMapIndex;
+    public List<PlantData> plantDatasSave;
+    public List<GrydkaData> grydkaDatasSave;
+    public List<FetusToSave> fetusToSaves;
+    public bool GardenGnomePurchased;
+    public LvlAssistance GardenGnomeLevel;
+    public bool CollectorGnomePurchased;
+    public LvlAssistance CollectorGnomeLevel;
+    public bool MusicHelpersPurchased;
+    public LvlAssistance MusicHelpersLevel;
+    
 }
 
 [Serializable]
 public class PlantData
 {
     public string Name;
+    public int Level;
     public int CountPlants;
 
-    public PlantData(string name, int amount)
+    public PlantData(string name,int level, int amount)
     {
         Name = name;
+        Level = level;
         CountPlants = amount;
     }
 }
+
+[Serializable]
+public class GrydkaData
+{
+    public string NamePlant;
+    public int LevelStage;
+    public float x;
+    public float y;
+
+    public GrydkaData(string name, int level, float X, float Y)
+    {
+        NamePlant = name;
+        LevelStage = level;
+        x = X;
+        y = Y;
+    }
+}
+
+[Serializable]
+public class FetusToSave
+{
+    public ETypePlant typePlant;
+    public float Xpos;
+    public float Ypos;
+
+    public FetusToSave(ETypePlant type, float x, float y)
+    {
+        typePlant = type;
+        Xpos = x;
+        Ypos = y;
+    }
+}
+

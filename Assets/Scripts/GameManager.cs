@@ -20,11 +20,9 @@ public class GameManager : MonoBehaviour
     public List<Plant> allPlants;
     public List<Grydka> currentGrydka;
     public List<LevelGrydka> levelGrydka;
-    public List<Texture> spriteTexturesPlant;
     public TextMeshProUGUI textCoin;
     public TextMeshProUGUI textLevelGame;
     public SubscriptionField<int> coin;
-    public GameObject PoPUpUpgrade;
     public GameModel gameModel;
     public UpgradeLevelUp UpgradeLevelUp;
     public GetTokensVFXController getTokensVFXController;
@@ -38,7 +36,7 @@ public class GameManager : MonoBehaviour
     private float _timer = 0;
     [HideInInspector] public CfgLevelData _cfgLevelData;
     private int _lastCoins;
-    private MapController _mapController;
+    public MapController _mapController;
     public Image imageFoerstLevel;
     public TextMeshProUGUI MapUprgadeText;
     private int _oldCoins;
@@ -66,8 +64,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _mapController = new MapController();
-        _mapController.OnLevelChanged(0);
-        _mapController.Init();
+        // _mapController.OnLevelChanged(0);
+        // _mapController.Init();
         // _mapController.CheckLevelMap(0);
         _cfgLevelData = GetComponent<CfgLevelData>();
         getTokensVFXController = GetComponent<GetTokensVFXController>();
@@ -236,6 +234,14 @@ public class GameManager : MonoBehaviour
             .GetComponent<Grydka>();
         currentGrydka.Add(grydka);
         grydka.PlantaPlant();
+    }
+    
+    public void PlantAplantToLoad(Vector2 pos, Plant plant, int level)
+    {
+        var grydka = Instantiate(GrydkaPrefab, pos, quaternion.identity, ParentGrydka)
+            .GetComponent<Grydka>();
+        currentGrydka.Add(grydka);
+        grydka.PlantaPlantToLoad(plant, level);
     }
 
     public Vector2 SpawnPositionPlant()

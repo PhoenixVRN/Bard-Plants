@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System;
 
-public class LvlAssistance 
+[Serializable]
+public class LvlAssistance
 {
-   public string nameAssistance;
-   public int lvlSpeed;
-   public int lvlActions;
-   public int lvlStartAction;
+    public string nameAssistance;
+    public int lvlSpeed;
+    public int lvlActions;
+    public int lvlStartAction;
 }

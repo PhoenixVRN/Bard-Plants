@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class CustomerSystem : MonoBehaviour
 {
@@ -9,15 +7,18 @@ public class CustomerSystem : MonoBehaviour
 
     public List<OrderCfg> orderCfgs;
     public List<Customer> allWoodenCustomerType;
+
     public List<Customer> allGoldenCustomerType;
+
     // private int turn = 0;
     public float delayForSpawn = 1;
     private float lastTime;
-    private int _quantityCustomersInLevel;
-    private int _qq;
+    public int _quantityCustomersInLevel;
+    public int _qq;
     private bool isShow;
-  
-    
+    private bool IsInit;
+
+
     // private int _currentCustomersInLevel;
 
 
@@ -39,27 +40,34 @@ public class CustomerSystem : MonoBehaviour
             customer.IsUsed = false;
         }
 
-        foreach (var customer in  allGoldenCustomerType)
+        foreach (var customer in allGoldenCustomerType)
         {
             customer.IsUsed = false;
         }
-        
+
         lastTime = Time.time;
         // _quantityCustomersInLevel = Random.Range(1, 5); // количество покупателей для урвня
         _quantityCustomersInLevel = RandomQuantity();
-        _qq = _quantityCustomersInLevel;// количество покупателей для урвня
+        _qq = _quantityCustomersInLevel; // количество покупателей для урвня
         Reference.GameModel.CloseCustomersInLevel.Subscribe(CheclLevelUp);
     }
 
+    public void InitStart(bool startDefault, int quantityCustomers = 0, int qq = 0)
+    {
+        _quantityCustomersInLevel = startDefault ? RandomQuantity() : quantityCustomers;
+        _qq = startDefault ? _quantityCustomersInLevel : qq;
+        IsInit = true;
+    }
 
     void Update()
     {
+        if (!IsInit) return;
         if (lastTime + delayForSpawn < Time.time && Reference.GameModel.CountCustomerInGame.Value < 3 &&
             _quantityCustomersInLevel > -1 && !isShow)
         {
             lastTime = Time.time;
             Reference.GameModel.CountCustomerInGame.Value++;
-             // Debug.Log($"orderCfgs[turn] {turn}");
+            // Debug.Log($"orderCfgs[turn] {turn}");
             InitCustomer();
         }
     }
@@ -68,11 +76,11 @@ public class CustomerSystem : MonoBehaviour
     {
         return Random.Range(1, 4);
     }
-    
+
     private void CheclLevelUp(int value)
     {
         // заполнение филда експой для уровня
-        GameManager.instance.ShowAmoutExp(_qq,value);
+        GameManager.instance.ShowAmoutExp(_qq, value);
         if (value > _qq)
         {
             isShow = true;
@@ -111,7 +119,7 @@ public class CustomerSystem : MonoBehaviour
         var randomCustomer = nonUsedCustomer[Random.Range(0, nonUsedCustomer.Count)];
         randomCustomer.IsUsed = true;
         var customer = Instantiate(randomCustomer, transform);
-       
+
         customer.orders.InitOrders(quantityOrders);
         _quantityCustomersInLevel--;
         // var customer = Instantiate(allWoodenCustomerType[orderCfg.typeCustomer], transform).GetComponent<Customer>();

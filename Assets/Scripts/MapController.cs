@@ -5,9 +5,9 @@ public class MapController
 {
     private GameModel _gameModel;
     private GameManager _gameManager;
-    private int _currentMapIndex;
-    private int _currentCloseOrder;
-    private int _currentOpenOrder;
+    public int _currentMapIndex;
+    public int _currentCloseOrder;
+    public int _currentOpenOrder;
 
     public MapController()
     {
@@ -19,9 +19,18 @@ public class MapController
         // Debug.Log($"Map Controller initialized");
     }
 
-    public void Init()
+    public void InitStart(bool starDefault, int closeOrder=0, int mapIndex=0)
     {
-        _gameManager.MapUprgadeText.text = 0 + " / " + _gameManager.levelGrydka[0].numberOfOrders;
+        if (starDefault)
+        {
+            _gameManager.MapUprgadeText.text =  0 + " / " + _gameManager.levelGrydka[0].numberOfOrders;
+        }
+        else
+        {
+            _currentMapIndex = mapIndex;
+            _currentCloseOrder = closeOrder;
+            CheckLevelMap(Reference.GameModel.NumberClosedOrders.Value);
+        }
     }
 
     public void OnLevelChanged(int level)

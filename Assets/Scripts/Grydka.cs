@@ -76,14 +76,9 @@ public class Grydka : MonoBehaviour
                 timeGrowthInStage = Time.time;
                 // if (StateOfGrowth == 4 ) return;
                 // if (StateOfGrowth == 5) Debug.Log($"StateOfGrowth 5");
-                if (StateOfGrowth == 4)
-                {
-                    plantunGrydka.sprite = ConvertTextureToSprite(plant.spritePlant[3]);
-                }
-                else
-                {
-                    plantunGrydka.sprite = ConvertTextureToSprite(plant.spritePlant[StateOfGrowth]);
-                }
+                plantunGrydka.sprite = StateOfGrowth == 4
+                    ? plantunGrydka.sprite = ConvertTextureToSprite(plant.spritePlant[3])
+                    : plantunGrydka.sprite = ConvertTextureToSprite(plant.spritePlant[StateOfGrowth]);
             }
         }
     }
@@ -119,7 +114,20 @@ public class Grydka : MonoBehaviour
         plantunGrydka.gameObject.SetActive(true);
     }
 
-    private  Sprite ConvertTextureToSprite(Texture2D texture)
+    public void PlantaPlantToLoad(Plant plantLoad, int level)
+    {
+        empty = true;
+        StateOfGrowth = level;
+        timeGrowthInStage = Time.time;
+        Growth = true;
+        plant = plantLoad;
+        plantunGrydka.sprite = StateOfGrowth == 4
+            ? ConvertTextureToSprite(plant.spritePlant[3])
+            : ConvertTextureToSprite(plant.spritePlant[StateOfGrowth]);
+        plantunGrydka.gameObject.SetActive(true);
+    }
+
+    private Sprite ConvertTextureToSprite(Texture2D texture)
     {
         // Создаем спрайт на основе текстуры
         return Sprite.Create(
@@ -129,6 +137,7 @@ public class Grydka : MonoBehaviour
             100.0f // Пиксели на единицу (PPU)
         );
     }
+
     public void TapGrydka()
     {
         Debug.Log($"TapGrydka");
@@ -141,27 +150,28 @@ public class Grydka : MonoBehaviour
             StateOfGrowth = 0;
             ripe = false;
             plantunGrydka.gameObject.SetActive(false);
-            var count = (plant.Level+10); // for test *3
-            
+            var count = (plant.Level + 10); // for test *3
+
             for (int i = 0; i < count; i++)
             {
-               
                 GameObject fet = Instantiate(fetus, transform.position, Quaternion.identity);
                 fet.GetComponent<Fetus>().typePlant = plant.typePlant;
                 fet.GetComponent<SpriteRenderer>().sprite = Texture2DToSprite(plant.spritePlant[4]);
-              
-                fet.transform.DOMove( transform.position + new Vector3(Random.Range(-0.6f, 0.6f), Random.Range(-0.6f, 0.6f), 0), 0.5f).OnComplete(() =>
-                {
-                    fet.GetComponent<Fetus>().NonInteractive = true;
-                });
+
+                fet.transform
+                    .DOMove(transform.position + new Vector3(Random.Range(-0.6f, 0.6f), Random.Range(-0.6f, 0.6f), 0),
+                        0.5f).OnComplete(() => { fet.GetComponent<Fetus>().NonInteractive = true; });
+                Reference.AllFetus.Add(fet.GetComponent<Fetus>());
                 empty = false;
             }
+
             AudioManagerView.Instance.PlaySound(DropFrutsSound);
         }
 
         _gameManager.currentGrydka.Remove(this);
         Destroy(gameObject);
     }
+
     Sprite Texture2DToSprite(Texture2D texture)
     {
         // Создание спрайта из Texture2D
@@ -200,15 +210,15 @@ public class Grydka : MonoBehaviour
 
     public void UpgradeGrydka()
     {
-        if (levelGrydka > 4 || empty)
-        {
-            //TODO max level
-            return;
-        }
-
-        GameManager.instance.PoPUpUpgrade.SetActive(true);
-        GameManager.instance.PoPUpUpgrade.GetComponent<UpgradePanel>().Init(levelGrydka, this);
-        Debug.Log($"UptgadeGrydka");
+        // if (levelGrydka > 4 || empty)
+        // {
+        //     //TODO max level
+        //     return;
+        // }
+        //
+        // GameManager.instance.PoPUpUpgrade.SetActive(true);
+        // GameManager.instance.PoPUpUpgrade.GetComponent<UpgradePanel>().Init(levelGrydka, this);
+        // Debug.Log($"UptgadeGrydka");
     }
 }
 

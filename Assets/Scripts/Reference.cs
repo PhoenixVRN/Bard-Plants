@@ -8,5 +8,5 @@ public static class Reference
     // private static Camera _mainCamera;
     //
     internal static GameModel GameModel;
-    
+    internal static List<Fetus> AllFetus = new List<Fetus>();
 }
