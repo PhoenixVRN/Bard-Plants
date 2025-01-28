@@ -19,15 +19,15 @@ public class MusicHelpers : MonoBehaviour
     public float speedMove;
     public float jobTime;
     public float RecreationTime;
-    
+
     public float SpeedCharacteristicsIndex;
     public float JobCharacteristicsIndex;
     public float RecreationCharacteristicsIndex;
-    
+
     private float finalSpeedValue;
     private float finaljobTime;
     private float finalRecreationTime;
-    
+
     void Start()
     {
         spineAnimationState = LeftGnomeAnimation.AnimationState;
@@ -39,7 +39,7 @@ public class MusicHelpers : MonoBehaviour
     void Update()
     {
         if (WePlant) return;
-        finalSpeedValue = speedMove * (1 +_gameModel.MusicHelpersLevel.Value.lvlSpeed * SpeedCharacteristicsIndex);
+        finalSpeedValue = speedMove * (1 + _gameModel.MusicHelpersLevel.Value.lvlSpeed * SpeedCharacteristicsIndex);
         if (TargetGardenBed() == null)
         {
             // DirectAnim(idlePoint.position);
@@ -67,7 +67,11 @@ public class MusicHelpers : MonoBehaviour
             grydka = TargetGardenBed();
             grydka.MusicOff += () =>
             {
-                StopCoroutine(myCoroutine);
+                if (myCoroutine != null)
+                {
+                    StopCoroutine(myCoroutine);
+                }
+
                 myCoroutine = null;
                 MoveToGrydka = false;
                 WePlant = false;
@@ -90,14 +94,16 @@ public class MusicHelpers : MonoBehaviour
     IEnumerator SowHarvesting()
     {
         _gameModel.AnimationMusicHelpers.Value = eTypeAnimation.ActionCicle;
-        finaljobTime = jobTime/(1 + JobCharacteristicsIndex * _gameModel.MusicHelpersLevel.Value.lvlActions);
+        finaljobTime = jobTime / (1 + JobCharacteristicsIndex * _gameModel.MusicHelpersLevel.Value.lvlActions);
         yield return new WaitForSeconds(finaljobTime);
         if (WePlant)
         {
             _target.GetComponent<Grydka>().PlayMusic();
             //TODO реализовать визуал отдыха
             _gameModel.AnimationMusicHelpers.Value = eTypeAnimation.Idle;
-            finalRecreationTime = RecreationTime/(1 + RecreationCharacteristicsIndex * _gameModel.MusicHelpersLevel.Value.lvlStartAction);
+            finalRecreationTime = RecreationTime /
+                                  (1 + RecreationCharacteristicsIndex *
+                                      _gameModel.MusicHelpersLevel.Value.lvlStartAction);
             yield return new WaitForSeconds(finalRecreationTime);
             WePlant = false;
             MoveToGrydka = false;
@@ -131,7 +137,8 @@ public class MusicHelpers : MonoBehaviour
         }
 
         DirectAnim(_target.position);
-        transform.position = Vector3.MoveTowards(transform.position, _target.position, finalSpeedValue * Time.deltaTime);
+        transform.position =
+            Vector3.MoveTowards(transform.position, _target.position, finalSpeedValue * Time.deltaTime);
         // _agent.SetDestination(r);
     }
 

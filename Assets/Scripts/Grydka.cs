@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-
+[Serializable]
 public class Grydka : MonoBehaviour
 {
     public SpriteRenderer plantunGrydka;
@@ -141,7 +141,7 @@ public class Grydka : MonoBehaviour
             StateOfGrowth = 0;
             ripe = false;
             plantunGrydka.gameObject.SetActive(false);
-            var count = (plant.Level+1); // for test *3
+            var count = (plant.Level+10); // for test *3
             
             for (int i = 0; i < count; i++)
             {
@@ -227,25 +227,4 @@ public enum ETypePlant
     ToxicMushroom = 10,
     BushTentacles = 11,
     StarFruit = 12
-}
-
-[Serializable]
-public class Plant
-{
-    public string namePlant;
-    public ETypePlant typePlant;
-    public int timeGrowth;
-    public int defaultValueDelivery;
-    public List<Texture2D> spritePlant;
-    public int Level;
-
-    public int QE;
-
-    public SubscriptionField<int> quantity;
-
-    public Plant()
-    {
-        Level = 0;
-        quantity = new SubscriptionField<int>() { Value = 0 };
-    }
 }

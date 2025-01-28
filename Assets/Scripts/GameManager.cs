@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+        coin = new SubscriptionField<int>() { Value = 0 };
         DontDestroyOnLoad(gameObject);
     }
 
@@ -72,7 +73,6 @@ public class GameManager : MonoBehaviour
         getTokensVFXController = GetComponent<GetTokensVFXController>();
         gameScoreHandler = GetComponent<GameScoreHandler>();
         gameModel = Reference.GameModel;
-        coin = new SubscriptionField<int>();
         coin.Subscribe(ChangeCoins);
         DontDestroyOnLoad(gameObject);
         CustomersSpawn();
@@ -82,10 +82,11 @@ public class GameManager : MonoBehaviour
 
     private void InitializeManager()
     {
+        gameModel.LoadGame.ValueForce = true;
         openPlants.Add(GetPlantToType(_cfgLevelData.AllLevelData[0].OpenPlant));
         // Bag.instance.AddPlants(ETypePlant.MysticalMushroom, 13);
         coin.Subscribe(ChangeCoins);
-        coin.Value = 50000;
+        // coin.Value = 50000;
         gameModel.LevelGame.Subscribe(ChangeLevelGame);
         gameModel.LevelGame.Value = 1;
         gameModel.NumberCompletedOrders.Subscribe(ChangeLevelUp);
@@ -258,5 +259,11 @@ public class GameManager : MonoBehaviour
     public void DestroyForest(Transform bush)
     {
         Destroy(bush.gameObject);
+    }
+    
+    private void OnApplicationQuit()
+    {
+        Debug.Log("Приложение закрывается.");
+        gameModel.SaveGame.ValueForce = true;
     }
 }

@@ -40,6 +40,9 @@ public class GameModel
     public SubscriptionField<int> MaxNumberPlants { get; }
 
     public bool NeedShowUpgradeLevelPanel;
+    
+    public SubscriptionField<bool> SaveGame { get; }
+    public SubscriptionField<bool> LoadGame { get; }
    
     public GameModel()
     {
@@ -77,6 +80,8 @@ public class GameModel
         LevelMap = new SubscriptionField<int>() {Value = 0};
         NumberClosedOrders = new SubscriptionField<int>() {Value = 0};
         MaxNumberPlants = new SubscriptionField<int>() {Value = 0};
+        SaveGame = new SubscriptionField<bool>();
+        LoadGame = new SubscriptionField<bool>();
         // AllPlantsInModel = new List<SubscriptionField<int>>()
         // {
         //     StarchNut,

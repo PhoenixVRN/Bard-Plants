@@ -75,7 +75,10 @@ public class CollectorGnome : MonoBehaviour
             grydka = TargetGardenBed();
             grydka.DestroyGrydka += () =>
             {
-                StopCoroutine(myCoroutine);
+                if (myCoroutine != null)
+                {
+                    StopCoroutine(myCoroutine);
+                }
                 myCoroutine = null;
                 MoveToGrydka = false;
                 WePlant = false;
