@@ -52,16 +52,18 @@ public class CustomerSystem : MonoBehaviour
         Reference.GameModel.CloseCustomersInLevel.Subscribe(CheclLevelUp);
     }
 
-    public void InitStart(bool startDefault, int quantityCustomers = 0, int qq = 0)
-    {
-        _quantityCustomersInLevel = startDefault ? RandomQuantity() : quantityCustomers;
-        _qq = startDefault ? _quantityCustomersInLevel : qq;
-        IsInit = true;
-    }
+    // public void InitStart(bool startDefault, int quantityCustomers = 0, int qq = 0)
+    // {
+    //     
+    //     _quantityCustomersInLevel = quantityCustomers < 0  ? RandomQuantity() : quantityCustomers;
+    //     _qq = qq == 0 ? _quantityCustomersInLevel : qq;
+    //     Debug.Log($"quantityCustomersInLevel{_quantityCustomersInLevel}, qq {_qq}");
+    //     IsInit = true;
+    // }
 
     void Update()
     {
-        if (!IsInit) return;
+        // if (!IsInit) return;
         if (lastTime + delayForSpawn < Time.time && Reference.GameModel.CountCustomerInGame.Value < 3 &&
             _quantityCustomersInLevel > -1 && !isShow)
         {

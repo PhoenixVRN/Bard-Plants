@@ -43,6 +43,7 @@ public class GameModel
     
     public SubscriptionField<bool> SaveGame { get; }
     public SubscriptionField<bool> LoadGame { get; }
+    // public SubscriptionField<bool> LoadGameComplited { get; }
    
     public GameModel()
     {
@@ -82,6 +83,7 @@ public class GameModel
         MaxNumberPlants = new SubscriptionField<int>() {Value = 0};
         SaveGame = new SubscriptionField<bool>();
         LoadGame = new SubscriptionField<bool>();
+        // LoadGameComplited = new SubscriptionField<bool>();
         // AllPlantsInModel = new List<SubscriptionField<int>>()
         // {
         //     StarchNut,

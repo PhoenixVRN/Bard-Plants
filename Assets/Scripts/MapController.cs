@@ -15,22 +15,43 @@ public class MapController
         _gameModel = new GameModel();
         _gameManager = GameManager.instance;
         Reference.GameModel.NumberClosedOrders.Subscribe(CheckLevelMap);
+        // Reference.GameModel.LoadGameComplited.Subscribe(InitStart);
         // _gameModel.LevelMap.Subscribe(OnLevelChanged);
         // Debug.Log($"Map Controller initialized");
     }
 
-    public void InitStart(bool starDefault, int closeOrder=0, int mapIndex=0)
+    public void InitStart(bool starDefault)
     {
+        float fil = 0;
+        Debug.Log($"Init Start MapController {starDefault}");
         if (starDefault)
         {
-            _gameManager.MapUprgadeText.text =  0 + " / " + _gameManager.levelGrydka[0].numberOfOrders;
+            _gameManager.MapUprgadeText.text = 0 + " / " + _gameManager.levelGrydka[0].numberOfOrders;
+            Reference.GameModel.MaxNumberPlants.Value = _gameManager.levelGrydka[0].numberPlantsLevel;
         }
         else
         {
-            _currentMapIndex = mapIndex;
-            _currentCloseOrder = closeOrder;
-            CheckLevelMap(Reference.GameModel.NumberClosedOrders.Value);
+            Debug.Log($"{_gameManager.levelGrydka.Count}/{_currentMapIndex}");
+            if (_currentMapIndex == 0)
+            {
+                _gameManager.MapUprgadeText.text = _currentCloseOrder + " / " +
+                                                   _gameManager.levelGrydka[_currentMapIndex].numberOfOrders;
+                fil = (float)_currentCloseOrder / (float)_gameManager.levelGrydka[_currentMapIndex].numberOfOrders;
+            }
+            else
+            {
+                var need = _gameManager.levelGrydka[_currentMapIndex].numberOfOrders -
+                           _gameManager.levelGrydka[_currentMapIndex - 1].numberOfOrders;
+                var b = _currentCloseOrder - _currentOpenOrder;
+
+                _gameManager.MapUprgadeText.text = b + " / " + need;
+                fil = (float) ((float) b / (float) (need));
+            }
+            FildAmmout(fil);
+            // CheckLevelMap(Reference.GameModel.NumberClosedOrders.Value);
         }
+        // Debug.Log($"NumberClosedOrders {_gameManager.levelGrydka.Count}/{Reference.GameModel.NumberClosedOrders.Value}");
+        // Reference.GameModel.MaxNumberPlants.Value = _gameManager.levelGrydka[Reference.GameModel.NumberClosedOrders.Value].numberPlantsLevel;
     }
 
     public void OnLevelChanged(int level)
@@ -67,7 +88,8 @@ public class MapController
             // Debug.Log($"CheckLevelMap1 {b}/{need}");
             _gameManager.MapUprgadeText.text = b + " / " + need;
             float d = (float) ((float) b / (float) (need));
-            _gameManager.imageFoerstLevel.DOFillAmount(d, 1).OnComplete(OnLevelLoaded);
+            FildAmmout(d);
+            // _gameManager.imageFoerstLevel.DOFillAmount(d, 1).OnComplete(OnLevelLoaded);
         }
         else
         {
@@ -75,10 +97,15 @@ public class MapController
             _gameManager.MapUprgadeText.text =
                 level + " / " + _gameManager.levelGrydka[_currentMapIndex].numberOfOrders;
             float h = (float) ((float) level / (float) (_gameManager.levelGrydka[_currentMapIndex].numberOfOrders));
-            _gameManager.imageFoerstLevel.DOFillAmount(h, 1).OnComplete(OnLevelLoaded);
+            FildAmmout(h);
+            // _gameManager.imageFoerstLevel.DOFillAmount(h, 1).OnComplete(OnLevelLoaded);
         }
     }
 
+    private void FildAmmout(float value)
+    {
+        _gameManager.imageFoerstLevel.DOFillAmount(value, 1).OnComplete(OnLevelLoaded);
+    }
     private void OnLevelLoaded()
     {
         if (_currentCloseOrder >= _gameManager.levelGrydka[_currentMapIndex].numberOfOrders)
@@ -90,6 +117,12 @@ public class MapController
         }
     }
 
+    private void OnApplicationQuit()
+    {
+        Debug.Log("Приложение закрывается2.");
+        Debug.Log(
+            $"currentMapIndex {_currentMapIndex}, currentCloseOrder {_currentCloseOrder}, currentOpenOrder {_currentOpenOrder}");
+    }
     // async Task ExecuteAfterDelay()
     // {
     //     await Task.Delay(2000);

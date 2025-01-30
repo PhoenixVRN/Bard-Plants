@@ -100,6 +100,7 @@ public class GameManager : MonoBehaviour
         if (_timer < Time.time && currentGrydka.Count < Reference.GameModel.MaxNumberPlants.Value)
         {
             _timer = Time.time + timeToPlant;
+            // Debug.Log($"PlantAplant");
             PlantAplant(SpawnPositionPlant());
         }
     }
