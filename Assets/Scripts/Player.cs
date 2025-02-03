@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Spine.Unity;
 using UnityEngine;
+using UnityEngine.Serialization;
+using AnimationState = Spine.AnimationState;
 
 public class Player : MonoBehaviour
 {
@@ -13,81 +16,61 @@ public class Player : MonoBehaviour
     [SerializeField] private Rigidbody2D _rb;
     private bool _harvesting;
     private bool _musicOn;
+    private GameModel _gameModel;
 
-    // public void OnTriggerEnter(Collider other)
-    // {
-    //     if (other.gameObject.GetComponent<Grydka>())
-    //     {
-    //         Debug.Log($"Player {other.name} entered");
-    //     }
-    // }
+    public SkeletonAnimation LeftPlayerAnimation;
+    public AnimationState spineAnimationState;
 
-    // public void OnCollisionStay2D(Collision2D other)
-    // {
-    //     if (_harvesting || _musicOn) return;
-    //     // Debug.Log($"Plaer OnCollisionStay {other.gameObject.name}");
-    //     if (other.gameObject.GetComponent<Grydka>())
-    //     {
-    //         if (other.gameObject.GetComponent<Grydka>().ripe && _dynamicJoystick.Vertical == 0 &&
-    //             _dynamicJoystick.Horizontal == 0)
-    //         {
-    //             _harvesting = true;
-    //             StartCoroutine(SowHarvesting(other.gameObject.GetComponent<Grydka>()));
-    //         }
-    //
-    //         if (other.gameObject.GetComponent<Grydka>().needMusic && _dynamicJoystick.Vertical == 0 &&
-    //             _dynamicJoystick.Horizontal == 0)
-    //         {
-    //             _musicOn = true;
-    //             StartCoroutine(SowPlayMusic(other.gameObject.GetComponent<Grydka>()));
-    //         }
-    //     }
-    // }
-
-    IEnumerator SowHarvesting(Grydka grydka)
+    void Start()
     {
-        arbaiten.SetActive(true);
-        yield return new WaitForSeconds(3f);
-        grydka.Harvesting();
-        _harvesting = false;
-        arbaiten.SetActive(false);
+        spineAnimationState = LeftPlayerAnimation.AnimationState;
+        spineAnimationState.SetAnimation(0, "Idle", true);
+        _gameModel = Reference.GameModel;
+        _gameModel.AnimationPlayer.Subscribe(Animation);
     }
 
-    IEnumerator SowPlayMusic(Grydka grydka)
-    {
-        arbaiten.SetActive(true);
-        yield return new WaitForSeconds(2f);
-        grydka.PlayMusic();
-        _musicOn = false;
-        arbaiten.SetActive(false);
-    }
 
-    // public void OnCollisionEnter2D(Collision2D collision)
-    // {
-    //     Debug.Log($"Plaer OnCollisionEnter2D {collision.gameObject.name}");
-    // }
     void FixedUpdate()
     {
-        // if (_harvesting || _musicOn) return;
-
-        // if (_dynamicJoystick.Vertical > 0)
-        // {
-        //     _spriteRenderer.sprite = _spritesPlayer[0];
-        // }
-        // else
-        // {
         if (_dynamicJoystick.Horizontal > 0)
         {
-            _spriteRenderer.sprite = _spritesPlayer[1];
+            // _spriteRenderer.sprite = _spritesPlayer[1];
+            Reference.GameModel.AnimationPlayer.Value = eTypeAnimation.Walk;
+            LeftPlayerAnimation.gameObject.transform.localScale = new Vector3(-1, 1, 1);
         }
 
         if (_dynamicJoystick.Horizontal < 0)
         {
-            _spriteRenderer.sprite = _spritesPlayer[2];
+            Reference.GameModel.AnimationPlayer.Value = eTypeAnimation.Walk;
+            LeftPlayerAnimation.gameObject.transform.localScale = new Vector3(1, 1, 1);
         }
-        // }
+
+        if (_dynamicJoystick.Horizontal == 0)
+        {
+            Reference.GameModel.AnimationPlayer.Value = eTypeAnimation.Idle;
+        }
 
         _rb.linearVelocity = new Vector2(_dynamicJoystick.Horizontal * _moveSpeed,
             _dynamicJoystick.Vertical * _moveSpeed);
+    }
+
+    private void Animation(eTypeAnimation typeAnimation)
+    {
+        // Debug.Log($"Anim {typeAnimation.ToString()}");
+        switch (typeAnimation)
+        {
+            case eTypeAnimation.Idle:
+                spineAnimationState.SetAnimation(0, "Idle", true);
+                break;
+
+            case eTypeAnimation.Walk:
+                // Debug.Log($"Walk Anim");
+                spineAnimationState.SetAnimation(0, "Walk", true);
+                break;
+
+            case eTypeAnimation.WalkPlaying:
+                spineAnimationState.SetAnimation(0, "Walk_playing", true);
+                break;
+        }
     }
 }

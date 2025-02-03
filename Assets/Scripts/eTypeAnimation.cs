@@ -4,5 +4,6 @@ public enum eTypeAnimation
     Walk=1,
     ActionCicle=2,
     ActionEnd=3,
-    ActionStart = 4
+    ActionStart = 4,
+    WalkPlaying = 5
 }
