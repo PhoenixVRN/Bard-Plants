@@ -1,0 +1,8 @@
+Cursor_Finger.png
+size:133,241
+filter:Linear,Linear
+pma:true
+Hand
+bounds:2,108,129,131
+Wave
+bounds:2,2,104,104

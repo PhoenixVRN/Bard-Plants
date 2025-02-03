@@ -1,0 +1,11 @@
+Owl.png
+size:226,586
+filter:Linear,Linear
+pma:true
+Body
+bounds:2,288,208,296
+Wing_l
+bounds:2,2,108,222
+rotate:90
+Wing_r
+bounds:2,112,195,174
