@@ -12,7 +12,7 @@ public class Orders : MonoBehaviour
     public Customer customer;
 
     private bool IsGoldCustomer;
-
+    private bool IsTutorOrder;
     private void Update()
     {
         if (!IsGoldCustomer)
@@ -43,6 +43,15 @@ public class Orders : MonoBehaviour
     {
         var plant1 = GameManager.instance.openPlants[Random.Range(0, GameManager.instance.openPlants.Count)].typePlant;
         var needQuantity1 = Random.Range(10, 20);
+        if (Reference.GameModel.StageTutorial.Value < 5 && !Reference.GameModel.IsTutorOrder.Value)
+        {
+            Reference.GameModel.IsTutorOrder.Value = true;
+            plant1 = GameManager.instance.openPlants[0].typePlant;
+            needQuantity1 = 2;
+        ordersActive[0].OnСompleted.AddListener(TutorOrderCompleted);
+           
+        }
+
         customer.reward = needQuantity1 * GameManager.instance.GetPlantToType(plant1).defaultValueDelivery;
         ordersActive[0].gameObject.SetActive(true);
         ordersActive[0].InitOrder(plant1, needQuantity1);
@@ -82,6 +91,12 @@ public class Orders : MonoBehaviour
         rewardText.text = customer.reward.ToString();
     }
 
+    private void TutorOrderCompleted()
+    {
+        Debug.Log($"TutorOrderCompleted");
+        Reference.GameModel.IsTutorOrderСompleted.Value = true;
+        ordersActive[0].OnСompleted.RemoveListener(TutorOrderCompleted);
+    }
 
     public void GoldOrdersInit()
     {

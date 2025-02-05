@@ -43,6 +43,12 @@ public class GameModel
     
     public SubscriptionField<bool> SaveGame { get; }
     public SubscriptionField<bool> LoadGame { get; }
+    public SubscriptionField<int> StageTutorial { get; }
+    public SubscriptionField<bool> IsTutorOrder { get; }
+    public SubscriptionField<bool> IsTutorOrderСompleted { get; }
+    
+    
+    
     // public SubscriptionField<bool> LoadGameComplited { get; }
    
     public GameModel()
@@ -83,6 +89,9 @@ public class GameModel
         MaxNumberPlants = new SubscriptionField<int>() {Value = 0};
         SaveGame = new SubscriptionField<bool>();
         LoadGame = new SubscriptionField<bool>();
+        StageTutorial = new SubscriptionField<int>();
+        IsTutorOrder = new SubscriptionField<bool>(){Value = false};
+        IsTutorOrderСompleted = new SubscriptionField<bool>();
         // LoadGameComplited = new SubscriptionField<bool>();
         // AllPlantsInModel = new List<SubscriptionField<int>>()
         // {

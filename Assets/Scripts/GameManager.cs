@@ -91,8 +91,14 @@ public class GameManager : MonoBehaviour
         ChangeLevelGame(gameModel.LevelGame.Value);
         InitGnome();
         _timer = Time.time + timeToPlant;
+        Invoke("StartTutorial", 4);
     }
 
+    private void StartTutorial()
+    {
+        Debug.Log("StartTutorial");
+        gameModel.StageTutorial.ValueForce = 1;
+    }
     private void Update()
     {
         // && 2 < Reference.GameModel.MaxNumberPlants.Value
@@ -100,7 +106,7 @@ public class GameManager : MonoBehaviour
         if (_timer < Time.time && currentGrydka.Count < Reference.GameModel.MaxNumberPlants.Value)
         {
             _timer = Time.time + timeToPlant;
-            // Debug.Log($"PlantAplant");
+             Debug.Log($"PlantAplant");
             PlantAplant(SpawnPositionPlant());
         }
     }

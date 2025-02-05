@@ -203,6 +203,10 @@ MonoBehaviour:
     m_Key: languages
     m_Metadata:
       m_Items: []
+  - m_Id: 10381811803742208
+    m_Key: Default
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

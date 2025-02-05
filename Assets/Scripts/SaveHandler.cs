@@ -121,7 +121,8 @@ public class SaveHandler : MonoBehaviour
             CollectorGnomePurchased = _gameModel.CollectorGnome.Value,
             CollectorGnomeLevel = Reference.GameModel.GardenGnomeLevel.Value,
             MusicHelpersPurchased = _gameModel.MusicHelpers.Value,
-            MusicHelpersLevel = Reference.GameModel.MusicHelpersLevel.Value
+            MusicHelpersLevel = Reference.GameModel.MusicHelpersLevel.Value,
+            StageTutorial = Reference.GameModel.StageTutorial.Value
         };
         // Debug.Log($"1-{data.numberClosedOrders}," +
         //           $"2-{data.currentOpenOrder}," +
@@ -145,7 +146,8 @@ public class SaveHandler : MonoBehaviour
         gameManager._mapController._currentCloseOrder = data.currentCloseOrder;
         gameManager._mapController._currentMapIndex = data.currentMapIndex;
         //
-        Reference.GameModel.MaxNumberPlants.Value = data.maxNumberPlants;
+        // Reference.GameModel.MaxNumberPlants.Value = data.maxNumberPlants;
+        Reference.GameModel.MaxNumberPlants.Value = 5;
         
 
         Debug.Log($"Plant test {data.plantDatasSave.Count}");
@@ -198,6 +200,8 @@ public class SaveHandler : MonoBehaviour
         _gameModel.MusicHelpersLevel.Value.lvlSpeed = data.MusicHelpersLevel.lvlSpeed;
         _gameModel.MusicHelpersLevel.Value.lvlActions = data.MusicHelpersLevel.lvlActions;
         _gameModel.MusicHelpersLevel.Value.lvlStartAction = data.MusicHelpersLevel.lvlStartAction;
+        // _gameModel.StageTutorial.Value = data.StageTutorial;
+        _gameModel.StageTutorial.Value = 0;
         // _gameModel.LoadGameComplited.ValueForce = false;
         gameManager._mapController.InitStart(false);
         // gameManager._mapController.InitStart(false);
@@ -256,6 +260,8 @@ public class SaveData
     public LvlAssistance CollectorGnomeLevel;
     public bool MusicHelpersPurchased;
     public LvlAssistance MusicHelpersLevel;
+
+    public int StageTutorial;
 }
 
 [Serializable]

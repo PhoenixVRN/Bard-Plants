@@ -1,6 +1,8 @@
+using System;
 using N.Fridman.FormatNums.Scripts.Helpers;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Order : MonoBehaviour
@@ -14,17 +16,21 @@ public class Order : MonoBehaviour
     public int collected;
     public bool completed;
     private Plant plant;
-
-
-    void Start()
-    {
-    }
+    public UnityEvent OnСompleted;
+    private bool IsCompleted;
+    
 
 
     void Update()
     {
         if (collected >= needplant)
         {
+            if (!IsCompleted)
+            {
+                // Debug.Log($"OnСompleted event");
+                IsCompleted = true;
+                OnСompleted?.Invoke();
+            }
             // Debug.Log($"Completed");
             completed = true;
             completeOrderFon.SetActive(true);
@@ -40,6 +46,7 @@ public class Order : MonoBehaviour
 
     public void InitOrder(ETypePlant typePlant, int needCount)
     {
+        IsCompleted = false;
         needplant = needCount;
         this.typePlant = typePlant;
         plantImage.texture = GameManager.instance.GetPlantToType(typePlant).spritePlant[4];
@@ -53,6 +60,7 @@ public class Order : MonoBehaviour
 
     public void InitOrderGold(int needCount)
     {
+        IsCompleted = false;
         needplant = needCount;
         // this.typePlant = typePlant;
         // plantImage.texture = GameManager.instance.GetPlantToType(typePlant).spritePlant[4];

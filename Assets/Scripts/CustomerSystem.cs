@@ -17,6 +17,7 @@ public class CustomerSystem : MonoBehaviour
     public int _qq;
     private bool isShow;
     private bool IsInit;
+    private bool IsTutorOrder;
 
 
     // private int _currentCustomersInLevel;
@@ -122,6 +123,11 @@ public class CustomerSystem : MonoBehaviour
         randomCustomer.IsUsed = true;
         var customer = Instantiate(randomCustomer, transform);
 
+        // if (Reference.GameModel.StageTutorial.Value < 4 && !Reference.GameModel.IsTutorOrder.Value)
+        // {
+        //     Reference.GameModel.IsTutorOrder.Value = true;
+        //     quantityOrders = 1;
+        // }
         customer.orders.InitOrders(quantityOrders);
         _quantityCustomersInLevel--;
         // var customer = Instantiate(allWoodenCustomerType[orderCfg.typeCustomer], transform).GetComponent<Customer>();
