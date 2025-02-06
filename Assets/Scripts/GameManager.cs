@@ -96,9 +96,13 @@ public class GameManager : MonoBehaviour
 
     private void StartTutorial()
     {
-        Debug.Log("StartTutorial");
-        gameModel.StageTutorial.ValueForce = 1;
+        if (Reference.GameModel.StageTutorial.Value == 0)
+        {
+            Debug.Log("StartTutorial");
+            gameModel.StageTutorial.ValueForce = 1;
+        }
     }
+
     private void Update()
     {
         // && 2 < Reference.GameModel.MaxNumberPlants.Value
@@ -106,7 +110,7 @@ public class GameManager : MonoBehaviour
         if (_timer < Time.time && currentGrydka.Count < Reference.GameModel.MaxNumberPlants.Value)
         {
             _timer = Time.time + timeToPlant;
-             Debug.Log($"PlantAplant");
+            Debug.Log($"PlantAplant");
             PlantAplant(SpawnPositionPlant());
         }
     }
@@ -164,7 +168,7 @@ public class GameManager : MonoBehaviour
         else
         {
             _oldCoins = newValue;
-            textCoin.text = FormatNumsHelper.FormatNum((float) newValue);
+            textCoin.text = FormatNumsHelper.FormatNum((float)newValue);
         }
     }
 
@@ -173,12 +177,12 @@ public class GameManager : MonoBehaviour
         var f = newinc / 20;
         for (int i = 0; i < 20; i++)
         {
-            textCoin.text = FormatNumsHelper.FormatNum((float) (_oldCoins + f));
+            textCoin.text = FormatNumsHelper.FormatNum((float)(_oldCoins + f));
             _oldCoins += f;
             yield return null;
         }
 
-        textCoin.text = FormatNumsHelper.FormatNum((float) coin.Value);
+        textCoin.text = FormatNumsHelper.FormatNum((float)coin.Value);
         _oldCoins = coin.Value;
         textCoin.transform.DOScale(1.0f, 0.2f);
     }
@@ -230,7 +234,7 @@ public class GameManager : MonoBehaviour
 
     public void ShowAmoutExp(int all, int value)
     {
-        float h = (float) ((float) value / (float) (all + 1f));
+        float h = (float)((float)value / (float)(all + 1f));
         // Debug.Log($"ShowAmoutExp {h}");
         imageLeve.DOFillAmount(h, 2);
     }
@@ -242,7 +246,7 @@ public class GameManager : MonoBehaviour
         currentGrydka.Add(grydka);
         grydka.PlantaPlant();
     }
-    
+
     public void PlantAplantToLoad(Vector2 pos, Plant plant, int level)
     {
         var grydka = Instantiate(GrydkaPrefab, pos, quaternion.identity, ParentGrydka)
@@ -273,7 +277,7 @@ public class GameManager : MonoBehaviour
     {
         Destroy(bush.gameObject);
     }
-    
+
     private void OnApplicationQuit()
     {
         Debug.Log("Приложение закрывается.");

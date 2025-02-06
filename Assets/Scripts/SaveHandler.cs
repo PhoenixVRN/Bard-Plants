@@ -146,8 +146,8 @@ public class SaveHandler : MonoBehaviour
         gameManager._mapController._currentCloseOrder = data.currentCloseOrder;
         gameManager._mapController._currentMapIndex = data.currentMapIndex;
         //
-        // Reference.GameModel.MaxNumberPlants.Value = data.maxNumberPlants;
-        Reference.GameModel.MaxNumberPlants.Value = 5;
+        Reference.GameModel.MaxNumberPlants.Value = data.maxNumberPlants;
+        // Reference.GameModel.MaxNumberPlants.Value = 5;
         
 
         Debug.Log($"Plant test {data.plantDatasSave.Count}");
@@ -186,7 +186,10 @@ public class SaveHandler : MonoBehaviour
         }
 
         // Debug.Log($"Load Game currentGrydka {gameManager.currentGrydka.Count}");
+        //For Test----------------------------------------------------
         _gameModel.GardenGnome.Value = data.GardenGnomePurchased;
+        // _gameModel.GardenGnome.Value = false;
+        //------------------------------------------------------------
         _gameModel.GardenGnomeLevel.Value.lvlSpeed = data.GardenGnomeLevel.lvlSpeed;
         _gameModel.GardenGnomeLevel.Value.lvlActions = data.GardenGnomeLevel.lvlActions;
         _gameModel.GardenGnomeLevel.Value.lvlStartAction = data.GardenGnomeLevel.lvlStartAction;
@@ -200,8 +203,8 @@ public class SaveHandler : MonoBehaviour
         _gameModel.MusicHelpersLevel.Value.lvlSpeed = data.MusicHelpersLevel.lvlSpeed;
         _gameModel.MusicHelpersLevel.Value.lvlActions = data.MusicHelpersLevel.lvlActions;
         _gameModel.MusicHelpersLevel.Value.lvlStartAction = data.MusicHelpersLevel.lvlStartAction;
-        // _gameModel.StageTutorial.Value = data.StageTutorial;
-        _gameModel.StageTutorial.Value = 0;
+        _gameModel.StageTutorial.Value = data.StageTutorial;
+        // _gameModel.StageTutorial.Value = 0;
         // _gameModel.LoadGameComplited.ValueForce = false;
         gameManager._mapController.InitStart(false);
         // gameManager._mapController.InitStart(false);

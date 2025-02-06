@@ -1,5 +1,3 @@
 # ninja log v5
-3	447	7570058315627564	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	7297d889efa3dc80
-447	743	7570058318602422	E:/Code/Bard_Plants/Bard-Plants/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/5i1ea4k4/obj/arm64-v8a/libswappywrapper.so	e3178696f1c99e3b
-2	390	7571041059094902	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	7297d889efa3dc80
-390	535	7571041060593192	E:/Code/Bard_Plants/Bard-Plants/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/5i1ea4k4/obj/arm64-v8a/libswappywrapper.so	e3178696f1c99e3b
+1	241	7605392662462071	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	698776a72de3fa9f
+241	326	7605392663362238	E:/Code/Bard_Plants/Bard-Plants/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/5i1ea4k4/obj/arm64-v8a/libswappywrapper.so	a07827aefaea0f9
