@@ -30,6 +30,7 @@ public class TutorialHandler : MonoBehaviour
     private void SwitchTutorial(int stage)
     {
         Debug.Log($"SwitchTutorial {stage}");
+                _gameModel.SaveGame.ValueForce = true;
         switch (stage)
         {
             case 1:
@@ -287,7 +288,7 @@ public class TutorialHandler : MonoBehaviour
     {
         
         Hand.SetActive(false);
-        UpAssistance.GetComponent<Button>().onClick.RemoveListener(CallBacUpAssistanceBuy);
+        UpAssistanceBuy.GetComponent<Button>().onClick.RemoveListener(CallBacUpAssistanceBuy);
         _gameModel.StageTutorial.Value = 11;
     }
     private void CallBacUpAssistance()

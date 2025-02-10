@@ -21,13 +21,7 @@ public class Bag : MonoBehaviour
     public int ToxicMushroom;
     public int BushTentacles;
     public int StarFruit;
-
-    private void Awake()
-    {
-        gameModel = new GameModel();
-        Reference.GameModel = gameModel;
-    }
-
+    
     void Start()
     {
         if (instance == null)

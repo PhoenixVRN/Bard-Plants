@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class MapController
 {
-    private GameModel _gameModel;
     private GameManager _gameManager;
     public int _currentMapIndex;
     public int _currentCloseOrder;
@@ -12,7 +11,6 @@ public class MapController
     public MapController()
     {
         _currentMapIndex = 0;
-        _gameModel = new GameModel();
         _gameManager = GameManager.instance;
         Reference.GameModel.NumberClosedOrders.Subscribe(CheckLevelMap);
         // Reference.GameModel.LoadGameComplited.Subscribe(InitStart);
@@ -74,6 +72,7 @@ public class MapController
 
     public void CheckLevelMap(int level)
     {
+        Reference.GameModel.SaveGame.ValueForce = true;
         // Debug.Log($"CheckLevelMap");
         // Debug.Log($"Contrl currentMapIndex {_currentMapIndex}, levelGrydka {_gameManager.levelGrydka.Count}");
         if (_currentMapIndex >= _gameManager.levelGrydka.Count) return;
@@ -116,13 +115,7 @@ public class MapController
             OnLevelChanged(_currentMapIndex);
         }
     }
-
-    private void OnApplicationQuit()
-    {
-        Debug.Log("Приложение закрывается2.");
-        Debug.Log(
-            $"currentMapIndex {_currentMapIndex}, currentCloseOrder {_currentCloseOrder}, currentOpenOrder {_currentOpenOrder}");
-    }
+    
     // async Task ExecuteAfterDelay()
     // {
     //     await Task.Delay(2000);

@@ -91,7 +91,9 @@ public class GameManager : MonoBehaviour
         ChangeLevelGame(gameModel.LevelGame.Value);
         InitGnome();
         _timer = Time.time + timeToPlant;
-        Invoke("StartTutorial", 4);
+            // Debug.LogError($"TestSRDEbuger");
+        // Invoke("StartTutorial", 4);
+        StartTutorial();
     }
 
     private void StartTutorial()
@@ -170,6 +172,7 @@ public class GameManager : MonoBehaviour
             _oldCoins = newValue;
             textCoin.text = FormatNumsHelper.FormatNum((float)newValue);
         }
+        gameModel.SaveGame.ValueForce = true;
     }
 
     IEnumerator CoroutineValueScore(int newinc)
@@ -190,6 +193,7 @@ public class GameManager : MonoBehaviour
     private void ChangeLevelGame(int newValue)
     {
         textLevelGame.text = newValue.ToString();
+        // gameModel.SaveGame.ValueForce = true;
     }
 
     public void ChangeLevelUp(int number)
@@ -278,9 +282,14 @@ public class GameManager : MonoBehaviour
         Destroy(bush.gameObject);
     }
 
-    private void OnApplicationQuit()
-    {
-        Debug.Log("Приложение закрывается.");
-        gameModel.SaveGame.ValueForce = true;
-    }
+    // private void OnDestroy()
+    // {
+    //     Debug.Log("Приложение закрывается OnDestroy.");
+    //     gameModel.SaveGame.ValueForce = true;
+    // }
+    //
+    // private void OnApplicationQuit()
+    // {
+    //     Debug.Log("Приложение закрывается OnApplicationQuit");
+    // }
 }
