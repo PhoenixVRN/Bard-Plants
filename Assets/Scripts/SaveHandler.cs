@@ -29,10 +29,10 @@ public class SaveHandler : MonoBehaviour
         if (!File.Exists(saveFilePath))
         {
             Debug.Log("Файл сохранения отсутствует.");
-
             gameManager.coin.Value = 50000;
             // CustomerSystem.instance.InitStart(true);
             gameManager._mapController.InitStart(true);
+            _gameModel.StageTutorial.ValueForce = 1;
             return;
         }
 
@@ -53,6 +53,7 @@ public class SaveHandler : MonoBehaviour
             catch
             {
                 Debug.Log("ERROR LOADING SAVE, IGNORING");
+                // _gameModel.StageTutorial.ValueForce = 1;
             }
         }
         // gameManager._mapController.InitStart(false);
@@ -148,7 +149,7 @@ public class SaveHandler : MonoBehaviour
         //
         Reference.GameModel.MaxNumberPlants.Value = data.maxNumberPlants;
         // Reference.GameModel.MaxNumberPlants.Value = 5;
-        
+
 
         Debug.Log($"Plant test {data.plantDatasSave.Count}");
         foreach (var plantData in data.plantDatasSave)
@@ -203,7 +204,7 @@ public class SaveHandler : MonoBehaviour
         _gameModel.MusicHelpersLevel.Value.lvlSpeed = data.MusicHelpersLevel.lvlSpeed;
         _gameModel.MusicHelpersLevel.Value.lvlActions = data.MusicHelpersLevel.lvlActions;
         _gameModel.MusicHelpersLevel.Value.lvlStartAction = data.MusicHelpersLevel.lvlStartAction;
-        _gameModel.StageTutorial.Value = data.StageTutorial;
+        _gameModel.StageTutorial.Value = CurrentStageTutorial(data.StageTutorial);
         // _gameModel.StageTutorial.Value = 0;
         // _gameModel.LoadGameComplited.ValueForce = false;
         gameManager._mapController.InitStart(false);
@@ -236,6 +237,15 @@ public class SaveHandler : MonoBehaviour
             new Rect(0, 0, texture.width, texture.height), // Размеры спрайта
             new Vector2(0.5f, 0.5f) // Точка привязки (pivot), по умолчанию в центре
         );
+    }
+
+    private int CurrentStageTutorial(int stage)
+    {
+        if (stage < 5) return 1;
+        // if (stage == 2 || stage == 3)
+        if (stage > 4 && stage < 11) return 6;
+        // if (stage > 10 && stage < 15) return 11;
+        return stage;
     }
 }
 

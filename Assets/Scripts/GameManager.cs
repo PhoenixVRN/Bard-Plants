@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        coin = new SubscriptionField<int>() { Value = 0 };
+        coin = new SubscriptionField<int>() {Value = 0};
         DontDestroyOnLoad(gameObject);
     }
 
@@ -91,24 +91,28 @@ public class GameManager : MonoBehaviour
         ChangeLevelGame(gameModel.LevelGame.Value);
         InitGnome();
         _timer = Time.time + timeToPlant;
-            // Debug.LogError($"TestSRDEbuger");
+        // Debug.LogError($"TestSRDEbuger");
         // Invoke("StartTutorial", 4);
-        StartTutorial();
+        // StartTutorial();
     }
 
-    private void StartTutorial()
-    {
-        if (Reference.GameModel.StageTutorial.Value == 0)
-        {
-            Debug.Log("StartTutorial");
-            gameModel.StageTutorial.ValueForce = 1;
-        }
-    }
+    // private void StartTutorial()
+    // {
+    //     if (Reference.GameModel.StageTutorial.Value == 0)
+    //     {
+    //         Debug.Log("StartTutorial");
+    //         gameModel.StageTutorial.ValueForce = 1;
+    //     }
+    // }
 
     private void Update()
     {
         // && 2 < Reference.GameModel.MaxNumberPlants.Value
-        // Debug.Log($"currentGrydka {currentGrydka.Count}");
+        if (_timer < Time.time)
+        {
+            Debug.Log($"currentGrydka {currentGrydka.Count}<{Reference.GameModel.MaxNumberPlants.Value}");
+        }
+
         if (_timer < Time.time && currentGrydka.Count < Reference.GameModel.MaxNumberPlants.Value)
         {
             _timer = Time.time + timeToPlant;
@@ -170,8 +174,15 @@ public class GameManager : MonoBehaviour
         else
         {
             _oldCoins = newValue;
-            textCoin.text = FormatNumsHelper.FormatNum((float)newValue);
+            textCoin.text = FormatNumsHelper.FormatNum((float) newValue);
         }
+
+        StartCoroutine(SaveGame());
+    }
+
+    public IEnumerator SaveGame()
+    {
+        yield return new WaitForSeconds(1f);
         gameModel.SaveGame.ValueForce = true;
     }
 
@@ -180,12 +191,12 @@ public class GameManager : MonoBehaviour
         var f = newinc / 20;
         for (int i = 0; i < 20; i++)
         {
-            textCoin.text = FormatNumsHelper.FormatNum((float)(_oldCoins + f));
+            textCoin.text = FormatNumsHelper.FormatNum((float) (_oldCoins + f));
             _oldCoins += f;
             yield return null;
         }
 
-        textCoin.text = FormatNumsHelper.FormatNum((float)coin.Value);
+        textCoin.text = FormatNumsHelper.FormatNum((float) coin.Value);
         _oldCoins = coin.Value;
         textCoin.transform.DOScale(1.0f, 0.2f);
     }
@@ -238,7 +249,7 @@ public class GameManager : MonoBehaviour
 
     public void ShowAmoutExp(int all, int value)
     {
-        float h = (float)((float)value / (float)(all + 1f));
+        float h = (float) ((float) value / (float) (all + 1f));
         // Debug.Log($"ShowAmoutExp {h}");
         imageLeve.DOFillAmount(h, 2);
     }

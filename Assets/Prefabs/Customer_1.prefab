@@ -810,7 +810,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 26.14, y: 51.7}
+  m_AnchoredPosition: {x: 26.14, y: 52}
   m_SizeDelta: {x: 70.08, y: 45.37}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4170526091030736795
@@ -997,7 +997,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 300, y: 450}
+  m_Size: {x: 320, y: 450}
   m_EdgeRadius: 0
 --- !u!114 &9168784007612792306
 MonoBehaviour:
@@ -1195,7 +1195,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -38, y: 57}
+  m_AnchoredPosition: {x: -38, y: 66}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1014178668079864487
@@ -1366,6 +1366,9 @@ MonoBehaviour:
   needplant: 0
   collected: 0
   completed: 0
+  "On\u0421ompleted":
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7705330534888188033
 GameObject:
   m_ObjectHideFlags: 0
@@ -1424,6 +1427,9 @@ MonoBehaviour:
   needplant: 10
   collected: 0
   completed: 0
+  "On\u0421ompleted":
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8477926681827578852
 GameObject:
   m_ObjectHideFlags: 0
@@ -1754,3 +1760,6 @@ MonoBehaviour:
   needplant: 0
   collected: 0
   completed: 0
+  "On\u0421ompleted":
+    m_PersistentCalls:
+      m_Calls: []

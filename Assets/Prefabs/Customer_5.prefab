@@ -346,6 +346,9 @@ MonoBehaviour:
   needplant: 0
   collected: 0
   completed: 0
+  "On\u0421ompleted":
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1192765471964218197
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,7 +383,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -38, y: 57}
+  m_AnchoredPosition: {x: -38, y: 66}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3250312259815890650
@@ -479,6 +482,9 @@ MonoBehaviour:
   needplant: 15
   collected: 0
   completed: 0
+  "On\u0421ompleted":
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2902309342857219272
 GameObject:
   m_ObjectHideFlags: 0
@@ -951,7 +957,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 26, y: 49.9}
+  m_AnchoredPosition: {x: 26, y: 58}
   m_SizeDelta: {x: 70, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8512061142316540458
@@ -1723,3 +1729,6 @@ MonoBehaviour:
   needplant: 0
   collected: 0
   completed: 0
+  "On\u0421ompleted":
+    m_PersistentCalls:
+      m_Calls: []

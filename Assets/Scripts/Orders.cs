@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using N.Fridman.FormatNums.Scripts.Helpers;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class Orders : MonoBehaviour
@@ -49,7 +50,6 @@ public class Orders : MonoBehaviour
             plant1 = GameManager.instance.openPlants[0].typePlant;
             needQuantity1 = 2;
         ordersActive[0].OnСompleted.AddListener(TutorOrderCompleted);
-           
         }
 
         customer.reward = needQuantity1 * GameManager.instance.GetPlantToType(plant1).defaultValueDelivery;

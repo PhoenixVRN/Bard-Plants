@@ -72,7 +72,7 @@ public class MapController
 
     public void CheckLevelMap(int level)
     {
-        Reference.GameModel.SaveGame.ValueForce = true;
+        // Reference.GameModel.SaveGame.ValueForce = true;
         // Debug.Log($"CheckLevelMap");
         // Debug.Log($"Contrl currentMapIndex {_currentMapIndex}, levelGrydka {_gameManager.levelGrydka.Count}");
         if (_currentMapIndex >= _gameManager.levelGrydka.Count) return;

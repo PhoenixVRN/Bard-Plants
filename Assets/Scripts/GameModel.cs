@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 public class GameModel 
 {
@@ -49,6 +50,7 @@ public class GameModel
     
     
     
+    
     // public SubscriptionField<bool> LoadGameComplited { get; }
    
     public GameModel()
@@ -89,7 +91,7 @@ public class GameModel
         MaxNumberPlants = new SubscriptionField<int>() {Value = 0};
         SaveGame = new SubscriptionField<bool>();
         LoadGame = new SubscriptionField<bool>();
-        StageTutorial = new SubscriptionField<int>();
+        StageTutorial = new SubscriptionField<int>(){Value = 0};
         IsTutorOrder = new SubscriptionField<bool>(){Value = false};
         IsTutorOrderСompleted = new SubscriptionField<bool>();
         // LoadGameComplited = new SubscriptionField<bool>();

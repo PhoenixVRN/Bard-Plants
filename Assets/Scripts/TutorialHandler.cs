@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Localization.Components;
@@ -17,10 +18,17 @@ public class TutorialHandler : MonoBehaviour
     public Transform UpAssistanceBuy;
     public Transform UpAssistanceCloseButton;
     public Transform UpAssistanceRightButton;
+    public GameObject PanelUpgradeAssistance;
+    public GameObject ImageCustomer;
+    public GameObject Canvas;
     
 
     private GameModel _gameModel;
-
+    public IEnumerator SaveGame(int stage)
+    {
+        yield return new WaitForSeconds(1f);
+        _gameModel.SaveGame.ValueForce = true;
+    }
     void Start()
     {
         _gameModel = Reference.GameModel;
@@ -30,7 +38,8 @@ public class TutorialHandler : MonoBehaviour
     private void SwitchTutorial(int stage)
     {
         Debug.Log($"SwitchTutorial {stage}");
-                _gameModel.SaveGame.ValueForce = true;
+                // _gameModel.SaveGame.ValueForce = true;
+                StartCoroutine(SaveGame(stage));
         switch (stage)
         {
             case 1:
@@ -102,6 +111,32 @@ public class TutorialHandler : MonoBehaviour
             
             case 5:
                 Hand.SetActive(true);
+                // ImageCustomer.SetActive(true);
+                // ImageCustomer.transform.position = _gameModel.SpriteTutorCustomer.position;
+                // ImageCustomer.GetComponent<RawImage>().texture =
+                //     _gameModel.SpriteTutorCustomer.GetComponent<RawImage>().texture;
+                
+                // var event55 = _gameModel.SpriteTutorCustomer.parent.gameObject.transform.GetComponent<EventTrigger>();
+                // EventTrigger.Entry entry55 = event55.triggers.Find(e => e.eventID == EventTriggerType.PointerClick);
+                
+                // GameObject clone = Instantiate(_gameModel.SpriteTutorCustomer.gameObject);
+                // clone.transform.SetParent(Canvas.transform);
+                // clone.transform.position = _gameModel.SpriteTutorCustomer.position;
+                // EventTrigger eventTrigger0 = ImageCustomer.GetComponent<EventTrigger>();
+                // EventTrigger.Entry clickEntry0 =
+                //     eventTrigger0.triggers.Find(e => e.eventID == EventTriggerType.PointerClick);
+                // if (clickEntry0 != null)
+                // {
+                //     clickEntry0.callback.AddListener((data) =>
+                //     {
+                //         // ImageCustomer.SetActive(false);
+                //         BublTutor.SetActive(false);
+                //         OwlAnimation.SetActive(false);
+                //         clickEntry0.callback.RemoveAllListeners();
+                //         // entry55.callback.Invoke(new BaseEventData(EventSystem.current));
+                //         _gameModel.StageTutorial.Value = 5;
+                //     });
+                // }
                 Reference.GameModel.NumberClosedOrders.Subscribe(NumberClosedOrdersSubscrib);
                 // UpAssistance.GetComponent<Button>().onClick.AddListener(CallBacUpAssistance);
                 break;
@@ -178,6 +213,7 @@ public class TutorialHandler : MonoBehaviour
             
             case 11:
                 BublTutor.SetActive(true);
+                PanelUpgradeAssistance.SetActive(true);
                 GnomeAnimation.SetActive(true);
                 SetNewLocalizationKey("tutor_6");
                 EventTrigger eventTrigger10 = BublTutor.gameObject.GetComponent<EventTrigger>();
@@ -197,6 +233,7 @@ public class TutorialHandler : MonoBehaviour
             
             case 12:
                 BublTutor.SetActive(true);
+                PanelUpgradeAssistance.SetActive(true);
                 GnomeAnimation.SetActive(true);
                 SetNewLocalizationKey("tutor_7");
                 EventTrigger eventTrigger11 = BublTutor.gameObject.GetComponent<EventTrigger>();
@@ -216,6 +253,7 @@ public class TutorialHandler : MonoBehaviour
             
             case 13:
                 Hand.SetActive(true);
+                PanelUpgradeAssistance.SetActive(true);
                 Hand.gameObject.transform.position = UpAssistanceRightButton.position;
                 EventTrigger eventTrigger12 = UpAssistanceRightButton.gameObject.GetComponent<EventTrigger>();
                 EventTrigger.Entry clickEntry12 =
@@ -247,6 +285,7 @@ public class TutorialHandler : MonoBehaviour
             
             case 14:
                 Hand.SetActive(true);
+                PanelUpgradeAssistance.SetActive(true);
                 Hand.gameObject.transform.position = UpAssistanceCloseButton.position;
                 EventTrigger eventTrigger13 = UpAssistanceCloseButton.gameObject.GetComponent<EventTrigger>();
                 EventTrigger.Entry clickEntry13 =
