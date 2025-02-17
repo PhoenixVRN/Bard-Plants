@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI MapUprgadeText;
     private int _oldCoins;
     public ESound coinSound;
+    public AnalyticsManager analyticsManager;
 
 
     public List<Plant> openPlants;
@@ -176,7 +177,7 @@ public class GameManager : MonoBehaviour
             _oldCoins = newValue;
             textCoin.text = FormatNumsHelper.FormatNum((float) newValue);
         }
-
+        analyticsManager.TestAnalytics();
         StartCoroutine(SaveGame());
     }
 
