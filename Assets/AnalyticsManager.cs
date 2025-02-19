@@ -1,12 +1,29 @@
-using System;
-using System.Collections.Generic;
 using Unity.Services.Analytics;
 using Unity.Services.Core;
 using UnityEngine;
 
 public class AnalyticsManager : MonoBehaviour
 {
+    public static AnalyticsManager instance;
+    
     private bool _isInitialized;
+    private GameModel _gameModel;
+    
+
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance == this)
+        {
+            Destroy(gameObject);
+        }
+
+        DontDestroyOnLoad(gameObject);
+    }
 
     async void Start()
     {
@@ -14,16 +31,21 @@ public class AnalyticsManager : MonoBehaviour
         AnalyticsService.Instance.StartDataCollection();
         _isInitialized = true;
         Debug.Log($"isInitialized");
+        _gameModel = Reference.GameModel;
+        _gameModel.LevelGame.Subscribe(ChangeGameLevel);
     }
 
-    public void TestAnalytics()
+    public void AnalyticsEvent(string nameEvent)
     {
         if (!_isInitialized) return;
-        CustomEvent myEvent = new CustomEvent("my_custom_event")
-        {
-            {"my_custom_parametr", "this is testing parametr"},
-        };
-        AnalyticsService.Instance.RecordEvent(myEvent);
-        Debug.Log($"Recording event");
+        AnalyticsService.Instance.RecordEvent(nameEvent);
+        AnalyticsService.Instance.Flush();
+        Debug.Log($"Recording event {nameEvent}");
+    }
+
+    private void ChangeGameLevel(int value)
+    {
+        string text = "count_UP_levels_" + value;
+        AnalyticsEvent(text);
     }
 }

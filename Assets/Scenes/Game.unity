@@ -13850,6 +13850,7 @@ GameObject:
   - component: {fileID: 443135084}
   - component: {fileID: 443135086}
   - component: {fileID: 443135085}
+  - component: {fileID: 443135087}
   m_Layer: 5
   m_Name: PanelShop
   m_TagString: Untagged
@@ -13916,6 +13917,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 443135083}
   m_CullTransparentMesh: 1
+--- !u!114 &443135087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443135083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b13e2f4b4530fd741928a9ed96581825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameEvent: count_tap_shop
 --- !u!1001 &443443526
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29851,7 +29865,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.13900001, y: 0.26000002}
   m_AnchorMax: {x: 1, y: 0.7466666}
-  m_AnchoredPosition: {x: -13.0000305, y: -7.6002064}
+  m_AnchoredPosition: {x: -13.0000305, y: -7.6002073}
   m_SizeDelta: {x: 25.7, y: 15.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1057605090
@@ -33492,6 +33506,7 @@ GameObject:
   - component: {fileID: 1230762134}
   - component: {fileID: 1230762133}
   - component: {fileID: 1230762135}
+  - component: {fileID: 1230762136}
   m_Layer: 5
   m_Name: PanelBag
   m_TagString: Untagged
@@ -33569,6 +33584,19 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1230762136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230762131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b13e2f4b4530fd741928a9ed96581825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameEvent: count_open_bag
 --- !u!1 &1236454681
 GameObject:
   m_ObjectHideFlags: 0
@@ -36761,6 +36789,7 @@ GameObject:
   - component: {fileID: 1347472236}
   - component: {fileID: 1347472235}
   - component: {fileID: 1347472238}
+  - component: {fileID: 1347472239}
   m_Layer: 5
   m_Name: SetingPopUp
   m_TagString: Untagged
@@ -36858,6 +36887,19 @@ MonoBehaviour:
   musicOff: {fileID: -3081383158201420268, guid: 924b2c32e81787040bce5c615d6fe38d, type: 3}
   musicSproutOn: {fileID: 786451410757113279, guid: 6318462e9a4d6b54491478c239ca0f0e, type: 3}
   musicSproutOnOff: {fileID: -400090604104389282, guid: 00edcbb1b9b9afa458ca4263fd2d0c2c, type: 3}
+--- !u!114 &1347472239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347472233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b13e2f4b4530fd741928a9ed96581825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameEvent: count_open_settings
 --- !u!1001 &1348530655
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38896,7 +38938,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.163, y: 0.2062822}
   m_AnchorMax: {x: 0.94500005, y: 0.41200003}
-  m_AnchoredPosition: {x: 3.5, y: -69.00001}
+  m_AnchoredPosition: {x: 3.5, y: -69}
   m_SizeDelta: {x: 15.599976, y: 139.29999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1434879106
@@ -57667,6 +57709,8 @@ GameObject:
   - component: {fileID: 2134561972}
   - component: {fileID: 2134561974}
   - component: {fileID: 2134561973}
+  - component: {fileID: 2134561976}
+  - component: {fileID: 2134561975}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -57732,6 +57776,48 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2134561971}
   m_CullTransparentMesh: 1
+--- !u!114 &2134561975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134561971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2134561976}
+          m_TargetAssemblyTypeName: ButtonHandlerAnalytics, Assembly-CSharp
+          m_MethodName: SendEventAnalytics
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &2134561976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134561971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa949abb486474749a265b32d5439649, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameEvent: count_views_for_plants_UP
 --- !u!1 &2135927413
 GameObject:
   m_ObjectHideFlags: 0

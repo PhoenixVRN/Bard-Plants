@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 using WebGame.AudioSystem;
@@ -40,6 +41,7 @@ public class Settings : MonoBehaviour
     {
         if (onMusic)
         {
+            AnalyticsManager.instance.AnalyticsEvent("count_off_music");
             localizeStringEvent.StringReference.TableEntryReference = "off_setting";
             SpriteMusic.sprite = musicOff;
             SpriteMusicSprout.sprite = musicSproutOnOff;

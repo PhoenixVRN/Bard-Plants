@@ -109,10 +109,10 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         // && 2 < Reference.GameModel.MaxNumberPlants.Value
-        if (_timer < Time.time)
-        {
-            Debug.Log($"currentGrydka {currentGrydka.Count}<{Reference.GameModel.MaxNumberPlants.Value}");
-        }
+        // if (_timer < Time.time)
+        // {
+        //     Debug.Log($"currentGrydka {currentGrydka.Count}<{Reference.GameModel.MaxNumberPlants.Value}");
+        // }
 
         if (_timer < Time.time && currentGrydka.Count < Reference.GameModel.MaxNumberPlants.Value)
         {
@@ -177,7 +177,6 @@ public class GameManager : MonoBehaviour
             _oldCoins = newValue;
             textCoin.text = FormatNumsHelper.FormatNum((float) newValue);
         }
-        analyticsManager.TestAnalytics();
         StartCoroutine(SaveGame());
     }
 

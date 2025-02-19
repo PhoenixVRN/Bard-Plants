@@ -162,12 +162,15 @@ public class UpgradeAssistans : MonoBehaviour
             case 0:
                 // Debug.Log($"You bought {_numAssistance} upgrades.");
                 _gameModel.GardenGnome.Value = true;
+                AnalyticsManager.instance.AnalyticsEvent("count_buy_gnoms");
                 break;
             case 1:
                 _gameModel.CollectorGnome.Value = true;
+                AnalyticsManager.instance.AnalyticsEvent("count_buy_collector");
                 break;
             case 2:
                 _gameModel.MusicHelpers.Value = true;
+                AnalyticsManager.instance.AnalyticsEvent("count_buy_musicant");
                 break;
         }
         UpDateData();
@@ -178,6 +181,7 @@ public class UpgradeAssistans : MonoBehaviour
     {
         GameManager.instance.coin.Value -= SetCostUpgradeSpeed(_currentLevSpeed);
         _currentLvlAssistance.lvlSpeed++;
+        AnalyticsManager.instance.AnalyticsEvent("count_upgrade_movespeed_helpers");
         UpDateData();
         SetLevelButton();
     }
@@ -185,6 +189,7 @@ public class UpgradeAssistans : MonoBehaviour
     {
         GameManager.instance.coin.Value -= SetCostUpgradeSpeedAction(_currentLevSpeedAction);
         _currentLvlAssistance.lvlActions++;
+        AnalyticsManager.instance.AnalyticsEvent("count_upgrade_speedworking_helpers");
         UpDateData();
         SetLevelButton();
     }
@@ -193,6 +198,7 @@ public class UpgradeAssistans : MonoBehaviour
     {
         GameManager.instance.coin.Value -= SetCostUpgradeAction(_currentLevStartAction);
         _currentLvlAssistance.lvlStartAction++;
+        AnalyticsManager.instance.AnalyticsEvent("count_upgrade_chiil_before_work_helpers");
         UpDateData();
         SetLevelButton();
     }
