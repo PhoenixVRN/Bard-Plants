@@ -29,7 +29,7 @@ public class SaveHandler : MonoBehaviour
         if (!File.Exists(saveFilePath))
         {
             Debug.Log("Файл сохранения отсутствует.");
-            gameManager.coin.Value = 50000;
+            // gameManager.coin.Value = 50000;
             // CustomerSystem.instance.InitStart(true);
             gameManager._mapController.InitStart(true);
             _gameModel.StageTutorial.ValueForce = 1;
@@ -137,7 +137,7 @@ public class SaveHandler : MonoBehaviour
     {
         // Debug.Log($"Load exp {data.NextLevelExperience} / lev {data.Level}");
         // gameManager.coin.Value = data.Coin;
-        gameManager.coin.Value = data.Coin == 0 ? 50000 : data.Coin;
+        gameManager.coin.Value = data.Coin == 0 ? 0 : data.Coin;
         _gameModel.LevelGame.Value = data.LevelGame;
         // CustomerSystem.instance.InitStart(false, data.quantityCustomers, data.qq);
 
