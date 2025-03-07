@@ -18533,10 +18533,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f073e75fd2818664999040a2c0b55445, type: 3}
   - {fileID: 21300000, guid: c1c32197a27b725469c360ccf5cd8d37, type: 3}
   pers: {fileID: 315949446}
-  costAssistanceGarden: 190
+  costAssistanceGarden: 20
   costAssistanceCollecroir: 3900
   costAssistanceMusic: 5900
-  costUpgrade: 30
+  costUpgrade: 20
   panelSpeed: {fileID: 1975111878}
   panelSpeedAction: {fileID: 737874411}
   panelStartAction: {fileID: 420888389}
@@ -29865,7 +29865,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.13900001, y: 0.26000002}
   m_AnchorMax: {x: 1, y: 0.7466666}
-  m_AnchoredPosition: {x: -13.0000305, y: -7.6002083}
+  m_AnchoredPosition: {x: -13.0000305, y: -7.6002097}
   m_SizeDelta: {x: 25.7, y: 15.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1057605090
