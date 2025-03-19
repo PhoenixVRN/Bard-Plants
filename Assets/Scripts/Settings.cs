@@ -8,8 +8,12 @@ public class Settings : MonoBehaviour
 {
     public LocalzationSelector localzationSelector;
     public LocalizeStringEvent localizeStringEvent;
+    
     public Image SpriteMusic;
     public Image SpriteMusicSprout;
+    
+    public Image SpriteUISound;
+    public Image SpriteUISoundSprout;
 
     public Sprite musicOn;
     public Sprite musicOff;
@@ -18,16 +22,21 @@ public class Settings : MonoBehaviour
 
     private int ID;
     private bool onMusic;
+    private bool onUISound;
 
     private void OnEnable()
     {
         ID = PlayerPrefs.GetInt("LocaleKey", 0);
         onMusic = PlayerPrefs.GetInt("MusicOn", 1) > 0;
+        onUISound = PlayerPrefs.GetInt("onUISound", 1) > 0;
         localizeStringEvent.StringReference.TableEntryReference = onMusic ? "on_setting" : "off_setting";
         SpriteMusic.sprite = onMusic ? musicOn : musicOff;
         SpriteMusicSprout.sprite = onMusic ? musicSproutOn : musicSproutOnOff;
+        
+        SpriteUISound.sprite = onUISound ? musicOn : musicOff;
+        SpriteUISoundSprout.sprite = onUISound ? musicSproutOn : musicSproutOnOff;
         // var volume = onMusic ? 0 : -80;
-        // AudioManager.Instance.mixer.audioMixer.SetFloat("Master",volume);
+        AudioManager.Instance.mixer.audioMixer.SetFloat("Master",0);
         localizeStringEvent.RefreshString();
     }
 
@@ -48,7 +57,7 @@ public class Settings : MonoBehaviour
             onMusic = false;
             PlayerPrefs.SetInt("MusicOn", 0);
             
-            AudioManager.Instance.mixer.audioMixer.SetFloat("Master", -80);
+            AudioManager.Instance.mixer.audioMixer.SetFloat("Music", -80);
             PlayerPrefs.SetFloat("MasterVolume1", 1);
         }
         else
@@ -58,7 +67,35 @@ public class Settings : MonoBehaviour
             SpriteMusicSprout.sprite = musicSproutOn;
             onMusic = true;
             PlayerPrefs.SetInt("MusicOn", 1);
-            AudioManager.Instance.mixer.audioMixer.SetFloat("Master", 0);
+            AudioManager.Instance.mixer.audioMixer.SetFloat("Music", 0);
+            PlayerPrefs.SetFloat("MasterVolume1", 0);
+        }
+
+        localizeStringEvent.RefreshString();
+    }
+    
+    public void SetUISound()
+    {
+        if (onMusic)
+        {
+            AnalyticsManager.instance.AnalyticsEvent("count_off_music"); // TODO добавить евент в юнити аналитикс и подвязать его
+            localizeStringEvent.StringReference.TableEntryReference = "off_setting";
+            SpriteUISound.sprite = musicOff;
+            SpriteUISoundSprout.sprite = musicSproutOnOff;
+            onUISound = false;
+            PlayerPrefs.SetInt("onUISound", 0);
+            
+            AudioManager.Instance.mixer.audioMixer.SetFloat("Sound", -80);
+            PlayerPrefs.SetFloat("MasterVolume1", 1);
+        }
+        else
+        {
+            localizeStringEvent.StringReference.TableEntryReference = "on_setting";
+            SpriteUISound.sprite = musicOn;
+            SpriteUISoundSprout.sprite = musicSproutOn;
+            onMusic = true;
+            PlayerPrefs.SetInt("onUISound", 1);
+            AudioManager.Instance.mixer.audioMixer.SetFloat("Sound", 0);
             PlayerPrefs.SetFloat("MasterVolume1", 0);
         }
 

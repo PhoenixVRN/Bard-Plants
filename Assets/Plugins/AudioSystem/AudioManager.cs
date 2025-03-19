@@ -30,18 +30,20 @@ namespace WebGame.AudioSystem
             // mixer.audioMixer.SetFloat("Master", Mathf.Log10(musicVolumeSlaider) * 20);
             mixer.audioMixer.SetFloat("Master", musicVolumeSlaider);
         }
-        
+
         public void Initialize()
         {
             SetVolumeSound(AudioSetting.GetInstance.LoadSound() ? 0 : -80);
             SetVolumeMusic(AudioSetting.GetInstance.LoadMusic() ? 0 : -80);
         }
-        
+
         public void SetVolumeSound(float value) => mixer.audioMixer.SetFloat("Sound", value);
         public void SetVolumeMusic(float value) => mixer.audioMixer.SetFloat("Music", value);
 
-        public SettingMusic GetMusic(EMusic music) => (from t in dataBase.SettingMusic where t.eMusic == music select t).FirstOrDefault();
-        public SettingSound GetSound(ESound sound) => (from t in dataBase.SettingSounds where t.eSound == sound select t).FirstOrDefault();
+        public SettingMusic GetMusic(EMusic music) =>
+            (from t in dataBase.SettingMusic where t.eMusic == music select t).FirstOrDefault();
+
+        public SettingSound GetSound(ESound sound) =>
+            (from t in dataBase.SettingSounds where t.eSound == sound select t).FirstOrDefault();
     }
 }
-
