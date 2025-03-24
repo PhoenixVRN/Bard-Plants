@@ -27,17 +27,21 @@ public class AudioManagerView : MonoBehaviour
     {
         OnStart = true;
     }
+
     public void PlaySound(ESound sound)
     {
+        Debug.Log($"PlaySound {sound.ToString()}");
         if (!OnStart) return;
         _audioSource.clip = AudioManager.Instance.GetSound(sound).soundClip;
-        _audioSource.pitch = Random.Range(AudioManager.Instance.GetSound(sound).pitch.x, AudioManager.Instance.GetSound(sound).pitch.y);
+        _audioSource.pitch = Random.Range(AudioManager.Instance.GetSound(sound).pitch.x,
+            AudioManager.Instance.GetSound(sound).pitch.y);
         _audioSource.volume = AudioManager.Instance.GetSound(sound).volume;
         _audioSource.Play();
     }
-    
+
     public void PlaySoundClick(AudioClip sound)
     {
+        Debug.Log($"PlaySoundClick");
         var pitch = Random.Range(0.7f, 1.3f);
         AudioManager.Instance.mixer.audioMixer.SetFloat("PitchSound", pitch);
         _audioSource.PlayOneShot(sound);

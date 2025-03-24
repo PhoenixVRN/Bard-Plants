@@ -25,10 +25,10 @@ namespace WebGame.AudioSystem
 
         void Start()
         {
-            var musicVolumeSlaider = PlayerPrefs.GetInt("MusicOn", 1) > 0 ? 0 : -80;
+            // var musicVolumeSlaider = PlayerPrefs.GetInt("MusicOn", 1) > 0 ? 0 : -80;
             // Debug.Log($"SetFloat {musicVolumeSlaider}/{ Mathf.Log10(musicVolumeSlaider) * 20}");
             // mixer.audioMixer.SetFloat("Master", Mathf.Log10(musicVolumeSlaider) * 20);
-            mixer.audioMixer.SetFloat("Master", musicVolumeSlaider);
+            // mixer.audioMixer.SetFloat("Master", musicVolumeSlaider);
         }
 
         public void Initialize()
