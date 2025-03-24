@@ -1,4 +1,5 @@
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 
 public class MapController
@@ -8,11 +9,14 @@ public class MapController
     public int _currentCloseOrder;
     public int _currentOpenOrder;
 
-    public MapController()
+    private TextMeshProUGUI _textLevelMap;
+
+    public MapController(TextMeshProUGUI textLevelMap)
     {
         _currentMapIndex = 0;
         _gameManager = GameManager.instance;
         Reference.GameModel.NumberClosedOrders.Subscribe(CheckLevelMap);
+        _textLevelMap = textLevelMap;
         // Reference.GameModel.LoadGameComplited.Subscribe(InitStart);
         // _gameModel.LevelMap.Subscribe(OnLevelChanged);
         // Debug.Log($"Map Controller initialized");
@@ -20,6 +24,7 @@ public class MapController
 
     public void InitStart(bool starDefault)
     {
+        _textLevelMap.text = (_currentMapIndex + 1).ToString();
         float fil = 0;
         Debug.Log($"Init Start MapController {starDefault}");
         if (starDefault)
@@ -111,6 +116,7 @@ public class MapController
         {
             _gameManager.imageFoerstLevel.fillAmount = 0f;
             _currentMapIndex++;
+            _textLevelMap.text = (_currentMapIndex + 1).ToString();
             _currentOpenOrder = Reference.GameModel.NumberClosedOrders.Value;
             OnLevelChanged(_currentMapIndex);
         }

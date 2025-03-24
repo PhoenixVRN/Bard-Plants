@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
     private int _oldCoins;
     public ESound coinSound;
     public AnalyticsManager analyticsManager;
+    public TextMeshProUGUI textLevelMap;
 
 
     public List<Plant> openPlants;
@@ -64,7 +65,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        _mapController = new MapController();
+        _mapController = new MapController(textLevelMap);
         // _mapController.OnLevelChanged(0);
         // _mapController.Init();
         // _mapController.CheckLevelMap(0);
