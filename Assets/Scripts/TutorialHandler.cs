@@ -1,8 +1,10 @@
 using System.Collections;
+using AudioSystem;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Localization.Components;
 using UnityEngine.UI;
+using WebGame.AudioSystem;
 
 public class TutorialHandler : MonoBehaviour
 {
@@ -24,6 +26,7 @@ public class TutorialHandler : MonoBehaviour
     
 
     private GameModel _gameModel;
+    private AudioManagerView _audioManager;
     public IEnumerator SaveGame(int stage)
     {
         yield return new WaitForSeconds(1f);
@@ -31,6 +34,7 @@ public class TutorialHandler : MonoBehaviour
     }
     void Start()
     {
+        _audioManager = AudioManagerView.Instance;
         _gameModel = Reference.GameModel;
         _gameModel.StageTutorial.Subscribe(SwitchTutorial);
     }
@@ -43,6 +47,7 @@ public class TutorialHandler : MonoBehaviour
         switch (stage)
         {
             case 1:
+                _audioManager.PlaySound(ESound.Owl_sound_2);
                 BublTutor.SetActive(true);
                 OwlAnimation.SetActive(true);
                 SetNewLocalizationKey("tutor_1");
@@ -53,6 +58,7 @@ public class TutorialHandler : MonoBehaviour
                 {
                     clickEntry.callback.AddListener((data) =>
                     {
+                        _audioManager.PlaySound(ESound.Owl_sound_1);
                         BublTutor.SetActive(false);
                         OwlAnimation.SetActive(false);
                         clickEntry.callback.RemoveAllListeners();
@@ -91,6 +97,7 @@ public class TutorialHandler : MonoBehaviour
                 break;
             
             case 4:
+                _audioManager.PlaySound(ESound.Owl_sound_2);
                 BublTutor.SetActive(true);
                 OwlAnimation.SetActive(true);
                 SetNewLocalizationKey("tutor_2");
@@ -101,6 +108,7 @@ public class TutorialHandler : MonoBehaviour
                 {
                     clickEntry2.callback.AddListener((data) =>
                     {
+                        _audioManager.PlaySound(ESound.Owl_sound_1);
                         BublTutor.SetActive(false);
                         OwlAnimation.SetActive(false);
                         clickEntry2.callback.RemoveAllListeners();
@@ -142,6 +150,7 @@ public class TutorialHandler : MonoBehaviour
                 break;
             
             case 6:
+                _audioManager.PlaySound(ESound.Owl_sound_2);
                 BublTutor.SetActive(true);
                 OwlAnimation.SetActive(true);
                 SetNewLocalizationKey("tutor_3");
@@ -152,6 +161,7 @@ public class TutorialHandler : MonoBehaviour
                 {
                     clickEntry3.callback.AddListener((data) =>
                     {
+                        _audioManager.PlaySound(ESound.Owl_sound_1);
                         BublTutor.SetActive(false);
                         OwlAnimation.SetActive(false);
                         clickEntry3.callback.RemoveAllListeners();
@@ -161,6 +171,7 @@ public class TutorialHandler : MonoBehaviour
                 break;
             
             case 7:
+                _audioManager.PlaySound(ESound.Owl_sound_2);
                 BublTutor.SetActive(true);
                 OwlAnimation.SetActive(true);
                 SetNewLocalizationKey("tutor_4");
@@ -172,6 +183,7 @@ public class TutorialHandler : MonoBehaviour
                     clickEntry4.callback.AddListener((data) =>
                     {
                         // Debug.Log($"tutor_4 - 6 to 7");
+                        _audioManager.PlaySound(ESound.Owl_sound_1);
                         BublTutor.SetActive(false);
                         OwlAnimation.SetActive(false);
                         clickEntry4.callback.RemoveAllListeners();
@@ -181,6 +193,7 @@ public class TutorialHandler : MonoBehaviour
                 break;
             
             case 8:
+                _audioManager.PlaySound(ESound.Owl_sound_2);
                 BublTutor.SetActive(true);
                 OwlAnimation.SetActive(true);
                 SetNewLocalizationKey("tutor_5");
@@ -191,6 +204,7 @@ public class TutorialHandler : MonoBehaviour
                 {
                     clickEntry5.callback.AddListener((data) =>
                     {
+                        _audioManager.PlaySound(ESound.Owl_sound_1);
                         BublTutor.SetActive(false);
                         OwlAnimation.SetActive(false);
                         clickEntry5.callback.RemoveAllListeners();
@@ -212,6 +226,7 @@ public class TutorialHandler : MonoBehaviour
                 break;
             
             case 11:
+                _audioManager.PlaySound(ESound.Gnom_sound_1);
                 BublTutor.SetActive(true);
                 PanelUpgradeAssistance.SetActive(true);
                 GnomeAnimation.SetActive(true);
@@ -232,6 +247,7 @@ public class TutorialHandler : MonoBehaviour
                 break;
             
             case 12:
+                _audioManager.PlaySound(ESound.Gnom_sound_2);
                 BublTutor.SetActive(true);
                 PanelUpgradeAssistance.SetActive(true);
                 GnomeAnimation.SetActive(true);
@@ -284,25 +300,11 @@ public class TutorialHandler : MonoBehaviour
                 break;
             
             case 14:
-                Hand.SetActive(true);
-                PanelUpgradeAssistance.SetActive(true);
-                Hand.gameObject.transform.position = UpAssistanceCloseButton.position;
-                EventTrigger eventTrigger13 = UpAssistanceCloseButton.gameObject.GetComponent<EventTrigger>();
-                EventTrigger.Entry clickEntry13 =
-                    eventTrigger13.triggers.Find(e => e.eventID == EventTriggerType.PointerClick);
-                if (clickEntry13 != null)
-                {
-                    clickEntry13.callback.AddListener((data) =>
-                    {
-                        BublTutor.SetActive(false);
-                        Hand.SetActive(false);
-                        clickEntry13.callback.RemoveAllListeners();
-                        _gameModel.StageTutorial.Value = 15;
-                    });
-                }
+                StartCoroutine(CloseUpgrade());
                 break;
             
             case 15:
+                _audioManager.PlaySound(ESound.Owl_sound_2);
                 BublTutor.SetActive(true);
                 OwlAnimation.SetActive(true);
                 SetNewLocalizationKey("tutor_8");
@@ -313,6 +315,7 @@ public class TutorialHandler : MonoBehaviour
                 {
                     clickEntry14.callback.AddListener((data) =>
                     {
+                        _audioManager.PlaySound(ESound.Owl_sound_1);
                         BublTutor.SetActive(false);
                         OwlAnimation.SetActive(false);
                         clickEntry14.callback.RemoveAllListeners();
@@ -362,5 +365,26 @@ public class TutorialHandler : MonoBehaviour
     {
         tutorialText.StringReference.TableEntryReference = newKey;
         tutorialText.RefreshString();
+    }
+    
+    public IEnumerator CloseUpgrade()
+    {
+        yield return new WaitForSeconds(2f);
+        Hand.SetActive(true);
+        PanelUpgradeAssistance.SetActive(true);
+        Hand.gameObject.transform.position = UpAssistanceCloseButton.position;
+        EventTrigger eventTrigger13 = UpAssistanceCloseButton.gameObject.GetComponent<EventTrigger>();
+        EventTrigger.Entry clickEntry13 =
+            eventTrigger13.triggers.Find(e => e.eventID == EventTriggerType.PointerClick);
+        if (clickEntry13 != null)
+        {
+            clickEntry13.callback.AddListener((data) =>
+            {
+                BublTutor.SetActive(false);
+                Hand.SetActive(false);
+                clickEntry13.callback.RemoveAllListeners();
+                _gameModel.StageTutorial.Value = 15;
+            });
+        }
     }
 }

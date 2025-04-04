@@ -20,7 +20,8 @@ public class AudioManagerView : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
         _audioSource.loop = false;
         _audioSource.playOnAwake = false;
-        Invoke("InitStart", 3);
+        // Invoke("InitStart", 0.5f);
+        OnStart = true;
     }
 
     private void InitStart()
