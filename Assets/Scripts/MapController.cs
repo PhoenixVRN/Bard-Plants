@@ -24,7 +24,7 @@ public class MapController
 
     public void InitStart(bool starDefault)
     {
-        _textLevelMap.text = (_currentMapIndex + 1).ToString();
+        _textLevelMap.text = (_currentMapIndex + 1) + " LvL";
         float fil = 0;
         Debug.Log($"Init Start MapController {starDefault}");
         if (starDefault)
@@ -116,7 +116,7 @@ public class MapController
         {
             _gameManager.imageFoerstLevel.fillAmount = 0f;
             _currentMapIndex++;
-            _textLevelMap.text = (_currentMapIndex + 1).ToString();
+            _textLevelMap.text = (_currentMapIndex + 1)+ " LvL";
             _currentOpenOrder = Reference.GameModel.NumberClosedOrders.Value;
             OnLevelChanged(_currentMapIndex);
         }
