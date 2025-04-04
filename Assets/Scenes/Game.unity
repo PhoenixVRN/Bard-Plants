@@ -18679,27 +18679,9 @@ MonoBehaviour:
   panelBuyButton: {fileID: 930205343}
   panelLock: {fileID: 345050739}
   panelBuyUpgrades: {fileID: 1966303563}
-  CostUpgradeGarden:
-    ElementaryCostSpeed: 120
-    CoefficientCostSpeed: 1.76
-    ElementaryCostSpeedAction: 120
-    CoefficientCostSpeedAction: 1.73
-    ElementaryCostAction: 120
-    CoefficientCostAction: 1.71
-  CostUpgradeCollector:
-    ElementaryCostSpeed: 120
-    CoefficientCostSpeed: 1.87
-    ElementaryCostSpeedAction: 120
-    CoefficientCostSpeedAction: 1.8
-    ElementaryCostAction: 120
-    CoefficientCostAction: 1.73
-  CostUpgradeMusicHelper:
-    ElementaryCostSpeed: 120
-    CoefficientCostSpeed: 1.9
-    ElementaryCostSpeedAction: 120
-    CoefficientCostSpeedAction: 1.83
-    ElementaryCostAction: 120
-    CoefficientCostAction: 1.77
+  CostUpgradeGardenNew: {fileID: 11400000, guid: 6d0fca38381c85741b5c109da912f7b4, type: 2}
+  CostUpgradeCollectorNew: {fileID: 11400000, guid: fc7f51b7d418f384cb2b61b51b24d092, type: 2}
+  CostUpgradeMusicHelperNew: {fileID: 11400000, guid: 4de64e5beb435a74e818062285cd75fa, type: 2}
   textNameAssistance: {fileID: 1749235186}
   textCostAssistance: {fileID: 1454891778}
   textPanelSpeed: {fileID: 1381898021}
@@ -22921,7 +22903,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &793889070
 RectTransform:
   m_ObjectHideFlags: 0
@@ -28234,6 +28216,7 @@ GameObject:
   - component: {fileID: 1005057762}
   - component: {fileID: 1005057761}
   - component: {fileID: 1005057764}
+  - component: {fileID: 1005057765}
   m_Layer: 5
   m_Name: UpPlants
   m_TagString: Untagged
@@ -28368,6 +28351,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundType: 0
+--- !u!114 &1005057765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005057759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5106fbc47ea431a409d8e020ce0212c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrowUpgrade: {fileID: 1448229721}
 --- !u!1001 &1007612125
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30348,7 +30344,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.13900001, y: 0.26000002}
   m_AnchorMax: {x: 1, y: 0.7466666}
-  m_AnchoredPosition: {x: -13.0000305, y: -7.6002283}
+  m_AnchoredPosition: {x: -13.0000305, y: -7.600237}
   m_SizeDelta: {x: 25.7, y: 15.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1057605090
@@ -30746,6 +30742,7 @@ GameObject:
   - component: {fileID: 1069431324}
   - component: {fileID: 1069431323}
   - component: {fileID: 1069431326}
+  - component: {fileID: 1069431327}
   m_Layer: 5
   m_Name: UpAssistants
   m_TagString: Untagged
@@ -30880,6 +30877,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundType: 0
+--- !u!114 &1069431327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069431321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b843a85c0520a1a44a5ec6993b9880dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeArrow: {fileID: 793889069}
+  CostUpgradeGarden: {fileID: 11400000, guid: 6d0fca38381c85741b5c109da912f7b4, type: 2}
+  CostUpgradeCollector: {fileID: 11400000, guid: fc7f51b7d418f384cb2b61b51b24d092, type: 2}
+  CostUpgradeMusicHelper: {fileID: 11400000, guid: 4de64e5beb435a74e818062285cd75fa, type: 2}
 --- !u!1001 &1074785344
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39884,7 +39897,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1448229722
 RectTransform:
   m_ObjectHideFlags: 0

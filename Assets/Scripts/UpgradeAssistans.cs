@@ -24,13 +24,9 @@ public class UpgradeAssistans : MonoBehaviour
     public GameObject panelLock;
     public GameObject panelBuyUpgrades;
 
-    // public List<CostLevelUpgrade> CostUpgradeGarden;
-    // public List<CostLevelUpgrade> CostUpgradeCollector;
-    // public List<CostLevelUpgrade> CostUpgradeMusicHelper;
-
-    public CostEndCoefficient CostUpgradeGarden;
-    public CostEndCoefficient CostUpgradeCollector;
-    public CostEndCoefficient CostUpgradeMusicHelper;
+    public CostEndCoefficientDTO CostUpgradeGardenNew;
+    public CostEndCoefficientDTO CostUpgradeCollectorNew;
+    public CostEndCoefficientDTO CostUpgradeMusicHelperNew;
     
     public TextMeshProUGUI textNameAssistance;
     public TextMeshProUGUI textCostAssistance;
@@ -329,25 +325,25 @@ public class UpgradeAssistans : MonoBehaviour
         switch (_numAssistance)
         {
             case 0 :
-                int s = CostUpgradeGarden.ElementaryCostSpeed;
+                int s = CostUpgradeGardenNew.ElementaryCostSpeed;
                 for (int i = 1; i < level; i++)
                 {
-                    s = (int)(s * CostUpgradeGarden.CoefficientCostSpeed);
+                    s = (int)(s * CostUpgradeGardenNew.CoefficientCostSpeed);
                 }
                 return s;
             
             case 1 :
-                int d = CostUpgradeCollector.ElementaryCostSpeed;
+                int d = CostUpgradeCollectorNew.ElementaryCostSpeed;
                 for (int i = 1; i < level; i++)
                 {
-                    d = (int)(d * CostUpgradeCollector.CoefficientCostSpeed);
+                    d = (int)(d * CostUpgradeCollectorNew.CoefficientCostSpeed);
                 }
                 return d;
             case 2 :
-                int f = CostUpgradeMusicHelper.ElementaryCostSpeed;
+                int f = CostUpgradeMusicHelperNew.ElementaryCostSpeed;
                 for (int i = 1; i < level; i++)
                 {
-                    f = (int)(f * CostUpgradeMusicHelper.CoefficientCostSpeed);
+                    f = (int)(f * CostUpgradeMusicHelperNew.CoefficientCostSpeed);
                 }
                 return f;
         }
@@ -359,25 +355,25 @@ public class UpgradeAssistans : MonoBehaviour
         switch (_numAssistance)
         {
             case 0 :
-                int s = CostUpgradeGarden.ElementaryCostSpeedAction;
+                int s = CostUpgradeGardenNew.ElementaryCostSpeedAction;
                 for (int i = 1; i < level; i++)
                 {
-                    s = (int)(s * CostUpgradeGarden.CoefficientCostSpeedAction);
+                    s = (int)(s * CostUpgradeGardenNew.CoefficientCostSpeedAction);
                 }
                 return s;
             
             case 1 :
-                int d = CostUpgradeCollector.ElementaryCostSpeedAction;
+                int d = CostUpgradeCollectorNew.ElementaryCostSpeedAction;
                 for (int i = 1; i < level; i++)
                 {
-                    d = (int)(d * CostUpgradeCollector.CoefficientCostSpeedAction);
+                    d = (int)(d * CostUpgradeCollectorNew.CoefficientCostSpeedAction);
                 }
                 return d;
             case 2 :
-                int f = CostUpgradeMusicHelper.ElementaryCostSpeedAction;
+                int f = CostUpgradeMusicHelperNew.ElementaryCostSpeedAction;
                 for (int i = 1; i < level; i++)
                 {
-                    f = (int)(f * CostUpgradeMusicHelper.CoefficientCostAction);
+                    f = (int)(f * CostUpgradeMusicHelperNew.CoefficientCostAction);
                 }
                 return f;
         }
@@ -389,25 +385,25 @@ public class UpgradeAssistans : MonoBehaviour
         switch (_numAssistance)
         {
             case 0 :
-                int s = CostUpgradeGarden.ElementaryCostAction;
+                int s = CostUpgradeGardenNew.ElementaryCostAction;
                 for (int i = 1; i < level; i++)
                 {
-                    s = (int)(s * CostUpgradeGarden.CoefficientCostAction);
+                    s = (int)(s * CostUpgradeGardenNew.CoefficientCostAction);
                 }
                 return s;
             
             case 1 :
-                int d = CostUpgradeCollector.ElementaryCostAction;
+                int d = CostUpgradeCollectorNew.ElementaryCostAction;
                 for (int i = 1; i < level; i++)
                 {
-                    d = (int)(d * CostUpgradeCollector.CoefficientCostAction);
+                    d = (int)(d * CostUpgradeCollectorNew.CoefficientCostAction);
                 }
                 return d;
             case 2 :
-                int f = CostUpgradeMusicHelper.ElementaryCostAction;
+                int f = CostUpgradeMusicHelperNew.ElementaryCostAction;
                 for (int i = 1; i < level; i++)
                 {
-                    f = (int)(f * CostUpgradeMusicHelper.CoefficientCostAction);
+                    f = (int)(f * CostUpgradeMusicHelperNew.CoefficientCostAction);
                 }
                 return f;
         }
