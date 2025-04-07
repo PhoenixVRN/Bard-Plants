@@ -26,7 +26,7 @@ public class MapController
     {
         _textLevelMap.text = (_currentMapIndex + 1) + " LvL";
         float fil = 0;
-        Debug.Log($"Init Start MapController {starDefault}");
+        // Debug.Log($"Init Start MapController {starDefault}");
         if (starDefault)
         {
             _gameManager.MapUprgadeText.text = 0 + " / " + _gameManager.levelGrydka[0].numberOfOrders;
@@ -34,7 +34,7 @@ public class MapController
         }
         else
         {
-            Debug.Log($"{_gameManager.levelGrydka.Count}/{_currentMapIndex}");
+            // Debug.Log($"{_gameManager.levelGrydka.Count}/{_currentMapIndex}");
             if (_currentMapIndex == 0)
             {
                 _gameManager.MapUprgadeText.text = _currentCloseOrder + " / " +

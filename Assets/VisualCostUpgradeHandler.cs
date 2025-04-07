@@ -13,7 +13,7 @@ public class VisualCostUpgradeHandler : MonoBehaviour
 
     private void CheckCostToUpgrade(int coin)
     {
-        Debug.Log($"Cost to upgrade: {coin}");
+        // Debug.Log($"Cost to upgrade: {coin}");
        var costToPlant =  _gameManager.openPlants.Find(pl => (pl.Level + 1) * 200  <= coin);
        if (costToPlant != null)
        {

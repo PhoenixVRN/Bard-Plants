@@ -31,7 +31,7 @@ public class AudioManagerView : MonoBehaviour
 
     public void PlaySound(ESound sound)
     {
-        Debug.Log($"PlaySound {sound.ToString()}");
+        // Debug.Log($"PlaySound {sound.ToString()}");
         if (!OnStart) return;
         _audioSource.clip = AudioManager.Instance.GetSound(sound).soundClip;
         _audioSource.pitch = Random.Range(AudioManager.Instance.GetSound(sound).pitch.x,
@@ -42,7 +42,7 @@ public class AudioManagerView : MonoBehaviour
 
     public void PlaySoundClick(AudioClip sound)
     {
-        Debug.Log($"PlaySoundClick");
+        // Debug.Log($"PlaySoundClick");
         var pitch = Random.Range(0.7f, 1.3f);
         AudioManager.Instance.mixer.audioMixer.SetFloat("PitchSound", pitch);
         _audioSource.PlayOneShot(sound);

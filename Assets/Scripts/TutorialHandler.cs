@@ -41,7 +41,7 @@ public class TutorialHandler : MonoBehaviour
 
     private void SwitchTutorial(int stage)
     {
-        Debug.Log($"SwitchTutorial {stage}");
+        // Debug.Log($"SwitchTutorial {stage}");
                 // _gameModel.SaveGame.ValueForce = true;
                 StartCoroutine(SaveGame(stage));
         switch (stage)

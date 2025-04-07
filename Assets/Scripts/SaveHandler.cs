@@ -151,7 +151,7 @@ public class SaveHandler : MonoBehaviour
         // Reference.GameModel.MaxNumberPlants.Value = 5;
 
 
-        Debug.Log($"Plant test {data.plantDatasSave.Count}");
+        // Debug.Log($"Plant test {data.plantDatasSave.Count}");
         foreach (var plantData in data.plantDatasSave)
         {
             var n = gameManager.allPlants.Find((plant => plant.namePlant.Contains(plantData.Name)));
@@ -162,7 +162,7 @@ public class SaveHandler : MonoBehaviour
             }
         }
 
-        Debug.Log($"Grygka test {data.grydkaDatasSave.Count}");
+        // Debug.Log($"Grygka test {data.grydkaDatasSave.Count}");
         foreach (var grydkaLoad in data.grydkaDatasSave)
         {
             var p = gameManager.allPlants.Find((plant => plant.namePlant.Contains(grydkaLoad.NamePlant)));

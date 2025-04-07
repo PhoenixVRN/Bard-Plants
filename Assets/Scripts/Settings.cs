@@ -30,9 +30,9 @@ public class Settings : MonoBehaviour
     {
         ID = PlayerPrefs.GetInt("LocaleKey", 0);
         onMusic = PlayerPrefs.GetInt("MusicOn", 1) > 0;
-        Debug.Log($"onMusic {onMusic}");
+        // Debug.Log($"onMusic {onMusic}");
         onUISound = PlayerPrefs.GetInt("onUISound", 1) > 0;
-      Debug.Log($"onUISound {onUISound}");
+      // Debug.Log($"onUISound {onUISound}");
         if (onMusic)
             AudioManager.Instance.mixer.audioMixer.SetFloat("Music", 0);
         else AudioManager.Instance.mixer.audioMixer.SetFloat("Music", -80);
